@@ -43,96 +43,99 @@
 <body>
     <div class="container-scroller">
         <h2>Portal Internal</h2>
-        <h3>balai agroklimat dan hidrologi</h3>
+        <h3>balai penelitian agroklimat dan hidrologi</h3>
         <div class="container-fluid page-body-wrapper full-page-wrapper">
             <div style="background-repeat:no-repeat; background-position:center; background-attachment:fixed; background-size:100%" class="content-wrapper-login d-flex align-items-center auth px-0">
                 <div>
-                    <img class="center" src="landing-page-balitklimat/assets/images/logo/kementan.png" style="width: 120px;" alt=""></img>
+                    <img src="landing-page-balitklimat/assets/images/logo/kementan.png" style="width: 100px;right: 30px;" alt=""></img>
                 </div>
-                <div class="row-page">
-                    <div class="card-page">
-                        <div class="box-page">
-                            <div class="content-page">
-                                <i style="margin-left: -25px;" class="mdi mdi-book-open-variant"></i>
-                                <h3 style="margin-left: -13px;">Buku Tamu</h3>
-                                <a href="<?php echo base_url(); ?>bukutamu">Buka</a>
+                <div class="col-md-12">
+                    <div class="row-page" style="text-align: center;align-items: center; margin-left: 395px;">
+                        <div class="card-page">
+                            <div class="box-page">
+                                <div class="content-page">
+                                    <i style="margin-left: -3px;" class="mdi mdi-book-open-variant"></i>
+                                    <h3 style="margin-left: -6px;">Buku Tamu</h3>
+                                    <a href="<?php echo base_url(); ?>bukutamu" target="_blank">Buka</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-page">
+                            <div class="box-page">
+                                <div class="content-page">
+                                    <i style="margin-left: -3px;" class="mdi mdi-clipboard-text"></i>
+                                    <h3 style="margin-left: -27px;">Laporan Magang</h3>
+                                    <a href="<?php echo base_url(); ?>magang" target="_blank">Buka</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-page">
+                            <div class="box-page">
+                                <div class="content-page">
+                                    <i style="margin-left: -3px;" class="mdi mdi-screwdriver"></i>
+                                    <h3 style="margin-left: -16px;">Inventaris Lab</h3>
+                                    <a href="<?php echo base_url(); ?>inventarislab" target="_blank">Buka</a>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="card-page">
-                        <div class="box-page">
-                            <div class="content-page">
-                                <i style="margin-left: -25px;" class="mdi mdi-clipboard-text"></i>
-                                <h3 style="margin-left: -38px;">Laporan Magang</h3>
-                                <a href="<?php echo base_url(); ?>magang">Buka</a>
+                    <div class="row-page" style="margin-top: -180px;margin-left: 163px;">
+                        <div class="card-page">
+                            <div class="box-page">
+                                <div class="content-page">
+                                    <i style="margin-left: -2px;" class="mdi mdi-account-card-details"></i>
+                                    <h3 style="margin-left: 2px;">SIM ASN</h3>
+                                    <a href="<?php echo base_url(); ?>asn" target="_blank">Login</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="card-page">
-                        <div class="box-page">
-                            <div class="content-page">
-                                <i style="margin-left: -25px;" class="mdi mdi-account-card-details"></i>
-                                <h3 style="margin-left: 0.1px;">SIM ASN</h3>
-                                <a href="<?php echo base_url(); ?>asn">Login</a>
+                        <div class="card-page">
+                            <div class="box-page">
+                                <div class="content-page">
+                                    <i style="margin-left: -1px;" class="mdi mdi-car"></i>
+                                    <h3 style="margin-left: -27px;">Perjalanan Dinas</h3>
+                                    <a href="<?php echo base_url(); ?>perjadin" target="_blank">Login</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="card-page">
-                        <div class="box-page">
-                            <div class="content-page">
-                                <i style="margin-left: -25px;" class="mdi mdi-car"></i>
-                                <h3 style="margin-left: -37px;">Perjalanan Dinas</h3>
-                                <a href="<?php echo base_url(); ?>perjadin">Login</a>
+                        <div class="card-page">
+                            <div class="box-page">
+                                <div class="content-page">
+                                    <i style="margin-left: -1px;" class="mdi mdi-desktop-tower"></i>
+                                    <h3 style="margin-left: -28px;">Inventaris Barang</h3>
+                                    <a href="<?php echo base_url(); ?>inventarisbarang" target="_blank">Login</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="card-page">
-                        <div class="box-page">
-                            <div class="content-page">
-                                <i style="margin-left: -25px;" class="mdi mdi-screwdriver"></i>
-                                <h3 style="margin-left: -25px;">Inventaris Lab</h3>
-                                <a href="<?php echo base_url(); ?>inventarislab">Buka</a>
+                        <div class="card-page">
+                            <div class="box-page">
+                                <div class="content-page">
+                                    <i style="margin-left: -1px;" class="mdi mdi-gift"></i>
+                                    <h3 style="margin-left: -32px;">Bahan Diseminasi</h3>
+                                    <a href="<?php echo base_url(); ?>bahandiseminasi" target="_blank">Login</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="card-page">
-                        <div class="box-page">
-                            <div class="content-page">
-                                <i style="margin-left: -25px;" class="mdi mdi-desktop-tower"></i>
-                                <h3 style="margin-left: -39px;">Inventaris Barang</h3>
-                                <a href="<?php echo base_url(); ?>inventarisbarang">Login</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card-page">
-                        <div class="box-page">
-                            <div class="content-page">
-                                <i style="margin-left: -25px;" class="mdi mdi-gift"></i>
-                                <h3 style="margin-left: -45px;">Bahan Diseminasi</h3>
-                                <a href="<?php echo base_url(); ?>bahandiseminasi">Login</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card-page">
-                        <div class="box-page">
-                            <div class="content-page">
-                                <i style="margin-left: -25px;" class="mdi mdi-file-document"></i>
-                                <h3 style="margin-left: -3px;">Disposisi</h3>
-                                <a href="<?php echo base_url(); ?>disposisi">Login</a>
+                        <div class="card-page">
+                            <div class="box-page">
+                                <div class="content-page">
+                                    <i style="margin-left: -3px;" class="mdi mdi-file-document"></i>
+                                    <h3 style="margin-left: 3px;">Disposisi</h3>
+                                    <a href="<?php echo base_url(); ?>disposisi" target="_blank">Login</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
     </div>
 
 
