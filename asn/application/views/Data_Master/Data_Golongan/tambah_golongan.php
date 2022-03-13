@@ -4,7 +4,12 @@
             <div class="col-md-12 grid-margin">
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h3 class="m-0 font-weight-bold text-primary">Tambah Data Golongan</h3><br>
+                        <h3 class="m-0 font-weight-bold text-primary"><a title="Kembali"
+                                class="btn btn-sm btn-secondary" style="border-radius:90px; color:white"
+                                href="<?php echo site_url('golongan') ?>"><i class="ti ti-arrow-left"
+                                    style="border-radius:8px"></i></a>&nbsp Tambah Data
+                            Golongan
+                        </h3><br>
                         <div class="col-md-12 grid-margin">
                             <div class="card-body">
                                 <form method="POST" action="<?php echo base_url('golongan/tambah_aksi') ?>">
@@ -14,7 +19,7 @@
                                         <?php echo form_error('golongan', '<div class="text-small text-danger"></div>') ?>
                                     </div>
                                     <button type="submit" class="btn btn-success"><a
-                                            onclick="return confirm('Data Golongan berhasil ditambahkan!')">Submit</a></button>&nbsp
+                                            onclick="return confirm('Data Golongan berhasil ditambahkan!')">Simpan</a></button>&nbsp
                                     &nbsp
                                     <!-- <a class="btn btn-outline-dark" href="<?php echo base_url(); ?>akun">Cancel</a> -->
                                 </form>

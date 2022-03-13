@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 13, 2022 at 04:23 PM
+-- Generation Time: Mar 13, 2022 at 05:45 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.0
 
@@ -342,11 +342,11 @@ CREATE TABLE `data_jabatan` (
 
 INSERT INTO `data_jabatan` (`id_jabatan`, `jabatan`) VALUES
 (1, 'Tidak Ada'),
-(2, 'Peneliti Ahli Utama'),
-(3, 'Peneliti Ahli Madya'),
-(4, 'Plt.Kepala Balai'),
-(5, 'Pengemudi'),
-(6, 'Kepala Balai');
+(2, 'Kepala Balai'),
+(3, 'Plt.Kepala Balai\r\n'),
+(4, 'Peneliti Ahli Utama'),
+(5, 'Peneliti Ahli Madya'),
+(6, 'Pengemudi');
 
 -- --------------------------------------------------------
 
@@ -373,9 +373,7 @@ CREATE TABLE `data_jadwal_gaji_berkala` (
 --
 
 INSERT INTO `data_jadwal_gaji_berkala` (`kode_kgb`, `tgl_penjadwalan`, `nip`, `gaji_lama`, `gaji_baru`, `tmt_gaji_1`, `tmt_gaji_2`, `tmt_gaji_3`, `tmt_gaji_4`, `tmt_gaji_5`, `jadwal_kgb`) VALUES
-('030322001', '2022-03-03 14:26:21', '196401211990031002', 4000000, 45000000, '2022-03-03', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '2026-03-03'),
-('050322001', '2022-03-05 12:08:06', '196411291990032002', 4000000, 45000000, '2022-03-05', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '2022-04-09'),
-('060322001', '2022-03-06 13:27:57', '195805161993032002', 4000000, 5500000, '2022-03-06', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '2022-04-09');
+('130322001', '2022-03-13 16:33:35', '196803301994031001', 4000000, 4500000, '2022-03-13', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '2022-04-09');
 
 -- --------------------------------------------------------
 
@@ -402,8 +400,8 @@ CREATE TABLE `data_jadwal_naik_pangkat` (
 --
 
 INSERT INTO `data_jadwal_naik_pangkat` (`kode_kp`, `tgl_penjadwalan`, `nip`, `id_pangkat_berikutnya`, `id_golongan_berikutnya`, `tmt_pangkat_1`, `tmt_pangkat_2`, `tmt_pangkat_3`, `tmt_pangkat_4`, `tmt_pangkat_5`, `jadwal_kp`) VALUES
-('050322001', '2022-03-05 07:12:26', '195805161993032002', 6, 4, '2022-03-05', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '2022-04-08'),
-('050322002', '2022-03-05 10:05:04', '196411291990032002', 8, 9, '2022-03-18', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '2022-06-04');
+('130322001', '2022-03-13 16:25:18', '196803301994031001', 10, 8, '2022-03-13', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '2022-04-09'),
+('130322002', '2022-03-13 16:43:24', '196710081994032013', 10, 16, '2022-03-13', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '2022-04-08');
 
 -- --------------------------------------------------------
 
@@ -531,8 +529,7 @@ CREATE TABLE `data_notifikasi` (
 --
 
 INSERT INTO `data_notifikasi` (`id_notifikasi`, `nip`, `pesan`, `jenis_notif`, `tgl_notif`) VALUES
-(14, '195805161993032002', 'Waktunya naik pangkat pada tanggal 2022-04-08', 'notif_kp', '2022-03-09 08:33:05'),
-(17, '196411291990032002', 'Waktunya naik pangkat pada tanggal 2022-06-04', 'notif_kgb', '2022-03-09 08:48:10');
+(18, '196710081994032013', 'Waktunya naik pangkat pada tanggal 2022-04-08', 'notif_kp', '2022-03-13 16:43:41');
 
 -- --------------------------------------------------------
 
@@ -577,21 +574,22 @@ CREATE TABLE `data_pegawai` (
   `nik` varchar(16) NOT NULL,
   `email` varchar(30) NOT NULL,
   `password` varchar(50) NOT NULL,
-  `no_whatsapp` varchar(20) NOT NULL,
-  `role` varchar(255) NOT NULL
+  `no_whatsapp` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `data_pegawai`
 --
 
-INSERT INTO `data_pegawai` (`nip`, `nama_pegawai`, `foto`, `id_golongan`, `id_status_peg`, `id_pangkat`, `id_jabatan`, `id_divisi`, `nik`, `email`, `password`, `no_whatsapp`, `role`) VALUES
-('195805161993032002', 'Dr. Nani Heryani', 'WhatsApp_Image_2022-01-14_at_14_30_571.jpeg', 17, 1, 2, 2, 2, '3271055605580006', 'lugasmunayasika@gmail.com', '123', '6281235062988  ', 'User'),
-('196401211990031002', 'Dr. Ir. A. Arivin Rivaie, M.Sc', 'images6.jpg', 17, 1, 10, 1, 2, '3271062101640004', 'lugasmunaya@gmail.com', '12345678', '6281235062988  ', 'Admin ASN'),
-('196411291990032002', 'Dr. Ir. Popi Redjekiningrum D M', 'DSCF5201-removebg-preview111.png', 17, 1, 2, 2, 2, '3201296911640001', 'adminbogorfood@gmail.com', '123', '6281235062988  ', 'User'),
-('196901241998032001', 'Dr. Elza Surmaini', 'default.png', 16, 1, 13, 2, 2, '3271066401690004', 'admins@gmail.com', '123', '6281973034079 ', 'Admin Inventaris'),
-('HNR1232211222', 'Ujang Suseno', 'default.png', 1, 7, 1, 5, 1, '12131231', 'ujang@gmail.com', '123', '62888488', 'User'),
-('HNR932727', 'Asep Pisan', 'default.png', 1, 7, 1, 5, 1, '121371237', 'asep@gmail.com', '123', '62822221', 'User');
+INSERT INTO `data_pegawai` (`nip`, `nama_pegawai`, `foto`, `id_golongan`, `id_status_peg`, `id_pangkat`, `id_jabatan`, `id_divisi`, `nik`, `email`, `password`, `no_whatsapp`) VALUES
+('195805161993032002', 'Dr. Nani Heryani', 'WhatsApp_Image_2022-01-14_at_14_30_571.jpeg', 17, 3, 2, 4, 2, '3271055605580006', 'lugasmunayasikaa@gmail.com', '123', '6281235062988   '),
+('196401211990031002', 'Dr. Ir. A. Arivin Rivaie, M.Sc', 'images6.jpg', 17, 3, 10, 2, 2, '3271062101640004', 'lugasmunayaa@gmail.com', '12345678', '6281235062988   '),
+('196411291990032002', 'Dr. Ir. Popi Redjekiningrum D M', 'DSCF5201-removebg-preview111.png', 17, 3, 2, 4, 2, '3201296911640001', 'adminbogorfood@gmail.com', '123', '6281235062988   '),
+('196710081994032013', 'Dr. Woro Estiningtyas', 'default.png', 15, 3, 10, 5, 2, '3201294810670003', 'freepik1@gmail.com', '123', '6281235062988'),
+('196803301994031001', 'Dr. Budi Kartiwa', 'images7.jpg', 17, 3, 10, 5, 2, '3201293003680001', 'lugasmunaya@gmail.com', '123', '6281235062988  '),
+('196901241998032001', 'Dr. Elza Surmaini', 'default.png', 16, 1, 13, 2, 2, '3271066401690004', 'admins@gmail.com', '123', '6281973034079 '),
+('HNR1232211222', 'Ujang Suseno', 'default.png', 3, 7, 1, 6, 2, '12131231', 'ujang@gmail.com', '123', '62888488 '),
+('HNR932727', 'Asep Pisan', 'default.png', 3, 7, 1, 6, 2, '121371237', 'asep@gmail.com', '123', '62822221 ');
 
 -- --------------------------------------------------------
 
@@ -867,6 +865,20 @@ CREATE TABLE `detail_role` (
   `no_whatsapp` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `detail_role`
+--
+
+INSERT INTO `detail_role` (`id_detail_role`, `id_role`, `role`, `nip`, `nama_pegawai`, `foto`, `id_golongan`, `id_status_peg`, `id_pangkat`, `id_jabatan`, `id_divisi`, `nik`, `email`, `password`, `no_whatsapp`) VALUES
+(26, 8, 'User', '196803301994031001', 'Dr. Budi Kartiwa', 'default.png', 17, 3, 10, 5, 2, '3201293003680001', 'lugasmunaya@gmail.com', '123', '6281235062988  '),
+(27, 1, 'Admin ASN', '196803301994031001', 'Dr. Budi Kartiwa', 'default.png', 17, 3, 10, 5, 2, '3201293003680001', 'lugasmunaya@gmail.com', '123', '6281235062988  '),
+(28, 2, 'Admin Perjalanan Dinas', '196803301994031001', 'Dr. Budi Kartiwa', 'default.png', 17, 3, 10, 5, 2, '3201293003680001', 'lugasmunaya@gmail.com', '123', '6281235062988  '),
+(29, 3, 'Admin Inventaris', '196803301994031001', 'Dr. Budi Kartiwa', 'default.png', 17, 3, 10, 5, 2, '3201293003680001', 'lugasmunaya@gmail.com', '123', '6281235062988  '),
+(30, 6, 'Admin Laporan Magang', '196803301994031001', 'Dr. Budi Kartiwa', 'default.png', 17, 3, 10, 5, 2, '3201293003680001', 'lugasmunaya@gmail.com', '123', '6281235062988  '),
+(31, 5, 'Admin Disposisi', '196803301994031001', 'Dr. Budi Kartiwa', 'default.png', 17, 3, 10, 5, 2, '3201293003680001', 'lugasmunaya@gmail.com', '123', '6281235062988  '),
+(32, 7, 'Admin Buku Tamu', '196803301994031001', 'Dr. Budi Kartiwa', 'default.png', 17, 3, 10, 5, 2, '3201293003680001', 'lugasmunaya@gmail.com', '123', '6281235062988  '),
+(33, 8, 'User', '196710081994032013', 'Dr. Woro Estiningtyas', 'default.png', 15, 3, 10, 5, 2, '3201294810670003', 'freepik1@gmail.com', '123', '6281235062988');
+
 -- --------------------------------------------------------
 
 --
@@ -878,15 +890,6 @@ CREATE TABLE `detail_tugas` (
   `id_tugas` int(11) NOT NULL,
   `nip` varchar(18) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `detail_tugas`
---
-
-INSERT INTO `detail_tugas` (`id_detail_tugas`, `id_tugas`, `nip`) VALUES
-(41, 3, '196401211990031002'),
-(43, 3, '195805161993032002'),
-(44, 3, 'HNR932727');
 
 -- --------------------------------------------------------
 
@@ -1445,11 +1448,11 @@ CREATE TABLE `status_kepegawaian` (
 
 INSERT INTO `status_kepegawaian` (`id_status_peg`, `status_kepegawaian`) VALUES
 (1, 'Tidak Ada'),
-(3, 'PNS/TB'),
-(4, 'CPNS'),
-(5, 'PPNPN'),
-(7, 'OH'),
-(8, 'PNS');
+(3, 'PNS'),
+(4, 'PNS/TB'),
+(5, 'CPNS'),
+(7, 'PPNPN'),
+(8, 'OH');
 
 -- --------------------------------------------------------
 
@@ -1471,8 +1474,10 @@ CREATE TABLE `status_perjalanan` (
 
 INSERT INTO `status_perjalanan` (`id_status_perjalanan`, `nip`, `nama_pegawai`, `id_jabatan`, `status_perjalanan`) VALUES
 (3, '196901241998032001', 'Dr. Elza Surmaini', 2, 0),
-(10, 'HNR1232211222', 'Ujang Suseno', 5, 1),
-(11, 'HNR932727', 'Asep Pisan', 5, 1);
+(10, 'HNR1232211222', 'Ujang Suseno', 6, 1),
+(11, 'HNR932727', 'Asep Pisan', 6, 1),
+(12, '196803301994031001', 'Dr. Budi Kartiwa', 5, 0),
+(13, '196710081994032013', 'Dr. Woro Estiningtyas', 5, 0);
 
 -- --------------------------------------------------------
 
@@ -2071,7 +2076,7 @@ ALTER TABLE `data_kota`
 -- AUTO_INCREMENT for table `data_notifikasi`
 --
 ALTER TABLE `data_notifikasi`
-  MODIFY `id_notifikasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_notifikasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `data_pangkat`
@@ -2113,7 +2118,7 @@ ALTER TABLE `detail_dokumen`
 -- AUTO_INCREMENT for table `detail_role`
 --
 ALTER TABLE `detail_role`
-  MODIFY `id_detail_role` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id_detail_role` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `detail_tugas`
@@ -2215,7 +2220,7 @@ ALTER TABLE `status_kepegawaian`
 -- AUTO_INCREMENT for table `status_perjalanan`
 --
 ALTER TABLE `status_perjalanan`
-  MODIFY `id_status_perjalanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_status_perjalanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `stok_alat`

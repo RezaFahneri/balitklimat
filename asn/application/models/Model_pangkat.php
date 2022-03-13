@@ -1,8 +1,9 @@
 <?php
 class Model_pangkat extends CI_model
 {
-	function tampil_data($table){
-		return $this->db->get($table);
+	function tampil_data(){
+		$data = $this->db->query("SELECT * FROM data_pangkat WHERE id_pangkat > 1");
+        return $data;
 	}
 	function input_data($data,$table){
 		$this->db->insert($table,$data);
@@ -12,7 +13,7 @@ class Model_pangkat extends CI_model
 	}
 	public function getList()
 	{
-		return $query = $this->db->order_by('id_pangkat', 'ASC')->get('data_pangkat')->result();
+		return $query = $this->db->order_by('id_pangkat', 'ASC')->where('id_pangkat > 1')->get('data_pangkat')->result();
 	}
 	function update_data($where,$data,$table){
 		$this->db->where($where);

@@ -4,98 +4,104 @@
             <div class="col-md-12 grid-margin">
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h3 class="m-0 font-weight-bold text-primary">Tambah Jadwal Kenaikan Pangkat</h3><br>
-                        <div class="col-md-12 grid-margin">
-                            <div class="card-body">
-                                <form method="POST" action="<?php echo base_url('jadwal_kp/tambah_aksi') ?>">
-                                    <div class="form-group">
-                                        <!-- <label><b>Kode Kenaikan Pangkat</b></label> -->
-                                        <input readonly type="hidden" name="kode_kp" value="<?php echo $jadwal_kp;?>"
-                                            class="form-control" required>
-                                        <?php echo form_error('kode_kp', '<div class="text-small text-danger"></div>') ?>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="nip"><b>Nama Pegawai<a style="color:red"> *</a></b></label></br>
-                                        <select name="nip" id="nip" class="form-control" required>
-                                            <option value=""></option>
-                                            <?php foreach($nip as $row){?>
-                                            <option value="<?php echo $row->nip;?>">
-                                                <?php echo $row->nip. " | ".$row->nama_pegawai ;?></option>';
-                                            }
-                                            <?php }?>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label><b>Golongan Sekarang</a></b></label>
-                                        <input style="color:dimgray" readonly type="text" id="golongan" name="golongan"
-                                            class="form-control">
-                                    </div>
-                                    <div class="form-group">
-                                        <label><b>Golongan Berikutnya<a style="color:red"> *</a></b></label></br>
-                                        <select style="color:dimgray" name="id_golongan_berikutnya"
-                                            id="id_golongan_berikutnya" placeholder="Golongan Berikutnya"
-                                            class="form-control" required>
-                                            <option value="">--Pilih Golongan--</option>
-                                            <?php foreach($id_golongan as $row){?>
-                                            <option value="<?php echo $row->id_golongan;?>"><?php echo $row->golongan;?>
-                                            </option>';
-                                            }
-                                            <?php }?>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label><b>Pangkat Sekarang</b></label>
-                                        <input style="color:dimgray" readonly type="text" id="pangkat" name="pangkat"
-                                            class="form-control">
-                                    </div>
-                                    <div class="form-group">
-                                        <label><b>Pangkat Berikutnya<a style="color:red"> *</a></b></label></br>
-                                        <select style="color:dimgray" name="id_pangkat_berikutnya"
-                                            id="id_pangkat_berikutnya" placeholder="Pangkat Berikutnya"
-                                            class="form-control" required>
-                                            <option value="">--Pilih Pangkat--</option>
-                                            <?php foreach($id_pangkat as $row){?>
-                                            <option value="<?php echo $row->id_pangkat;?>"><?php echo $row->pangkat;?>
-                                            </option>';
-                                            }
-                                            <?php }?>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="tmt_pangkat_1"><b>TMT 1</b></label>
-                                        <input style="color:dimgray" type="date" id="tmt_pangkat_1" name="tmt_pangkat_1"
-                                            class="form-control">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="tmt_pangkat_2"><b>TMT 2</b></label>
-                                        <input style="color:dimgray" type="date" id="tmt_pangkat_2" name="tmt_pangkat_2"
-                                            class="form-control">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="tmt_pangkat_3"><b>TMT 3</b></label>
-                                        <input style="color:dimgray" type="date" id="tmt_pangkat_3" name="tmt_pangkat_3"
-                                            class="form-control">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="tmt_pangkat_4"><b>TMT 4</b></label>
-                                        <input style="color:dimgray" type="date" id="tmt_pangkat_4" name="tmt_pangkat_4"
-                                            class="form-control">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="tmt_pangkat_5"><b>TMT 5</b></label>
-                                        <input style="color:dimgray" type="date" id="tmt_pangkat_5" name="tmt_pangkat_5"
-                                            class="form-control">
-                                    </div>
-                                    <div class="form-group">
-                                        <label><b>Jadwal Kenaikan Pangkat<a style="color:red"> *</a></b></label>
-                                        <input style="color:dimgray" type="date" name="jadwal_kp" id="jadwal_kp"
-                                            placeholder="Jadwal Kenaikan Pangkat" class="form-control" required>
-                                        <?php echo form_error('jadwal_kp', '<div class="text-small text-danger"></div>') ?>
-                                    </div>
-                                    <button type="submit" class="btn btn-success">Submit</a></button>&nbsp &nbsp
-                                    <!-- <a class="btn btn-outline-dark" href="<?php echo base_url(); ?>akun">Cancel</a> -->
+                        <h3 class="m-0 font-weight-bold text-primary">
+                            <h3 class="m-0 font-weight-bold text-primary"><a title="Kembali"
+                                    class="btn btn-sm btn-secondary" style="border-radius:90px; color:white"
+                                    href="<?php echo site_url('jadwal_kp') ?>"><i class="ti ti-arrow-left"
+                                        style="border-radius:8px"></i></a>&nbsp Tambah Jadwal Kenaikan Pangkat</h3><br>
+                            <div class="col-md-12 grid-margin">
+                                <div class="card-body">
+                                    <form method="POST" action="<?php echo base_url('jadwal_kp/tambah_aksi') ?>">
+                                        <div class="form-group">
+                                            <!-- <label><b>Kode Kenaikan Pangkat</b></label> -->
+                                            <input readonly type="hidden" name="kode_kp"
+                                                value="<?php echo $jadwal_kp;?>" class="form-control" required>
+                                            <?php echo form_error('kode_kp', '<div class="text-small text-danger"></div>') ?>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="nip"><b>Nama Pegawai<a style="color:red"> *</a></b></label></br>
+                                            <select name="nip" id="nip" class="form-control" required>
+                                                <option value=""></option>
+                                                <?php foreach($nip as $row){?>
+                                                <option value="<?php echo $row->nip;?>">
+                                                    <?php echo $row->nip. " | ".$row->nama_pegawai ;?></option>';
+                                                }
+                                                <?php }?>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label><b>Golongan Sekarang</a></b></label>
+                                            <input style="color:dimgray" readonly type="text" id="golongan"
+                                                name="golongan" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label><b>Golongan Berikutnya<a style="color:red"> *</a></b></label></br>
+                                            <select style="color:dimgray" name="id_golongan_berikutnya"
+                                                id="id_golongan_berikutnya" placeholder="Golongan Berikutnya"
+                                                class="form-control" required>
+                                                <option value="">--Pilih Golongan--</option>
+                                                <?php foreach($id_golongan as $row){?>
+                                                <option value="<?php echo $row->id_golongan;?>">
+                                                    <?php echo $row->golongan;?>
+                                                </option>';
+                                                }
+                                                <?php }?>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label><b>Pangkat Sekarang</b></label>
+                                            <input style="color:dimgray" readonly type="text" id="pangkat"
+                                                name="pangkat" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label><b>Pangkat Berikutnya<a style="color:red"> *</a></b></label></br>
+                                            <select style="color:dimgray" name="id_pangkat_berikutnya"
+                                                id="id_pangkat_berikutnya" placeholder="Pangkat Berikutnya"
+                                                class="form-control" required>
+                                                <option value="">--Pilih Pangkat--</option>
+                                                <?php foreach($id_pangkat as $row){?>
+                                                <option value="<?php echo $row->id_pangkat;?>">
+                                                    <?php echo $row->pangkat;?>
+                                                </option>';
+                                                }
+                                                <?php }?>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="tmt_pangkat_1"><b>TMT 1</b></label>
+                                            <input style="color:dimgray" type="date" id="tmt_pangkat_1"
+                                                name="tmt_pangkat_1" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="tmt_pangkat_2"><b>TMT 2</b></label>
+                                            <input style="color:dimgray" type="date" id="tmt_pangkat_2"
+                                                name="tmt_pangkat_2" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="tmt_pangkat_3"><b>TMT 3</b></label>
+                                            <input style="color:dimgray" type="date" id="tmt_pangkat_3"
+                                                name="tmt_pangkat_3" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="tmt_pangkat_4"><b>TMT 4</b></label>
+                                            <input style="color:dimgray" type="date" id="tmt_pangkat_4"
+                                                name="tmt_pangkat_4" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="tmt_pangkat_5"><b>TMT 5</b></label>
+                                            <input style="color:dimgray" type="date" id="tmt_pangkat_5"
+                                                name="tmt_pangkat_5" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label><b>Jadwal Kenaikan Pangkat<a style="color:red"> *</a></b></label>
+                                            <input style="color:dimgray" type="date" name="jadwal_kp" id="jadwal_kp"
+                                                placeholder="Jadwal Kenaikan Pangkat" class="form-control" required>
+                                            <?php echo form_error('jadwal_kp', '<div class="text-small text-danger"></div>') ?>
+                                        </div>
+                                        <button type="submit" class="btn btn-success">Simpan</a></button>&nbsp &nbsp
+                                        <!-- <a class="btn btn-outline-dark" href="<?php echo base_url(); ?>akun">Cancel</a> -->
+                                </div>
                             </div>
-                        </div>
                     </div>
                 </div>
             </div>

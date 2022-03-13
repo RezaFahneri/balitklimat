@@ -9,6 +9,12 @@ class Profil extends CI_Controller
 		$this->load->Model('Model_pegawai');
 		$this->load->Model('Model_login');
 		$this->load->Model('Model_profil');
+		$this->load->Model('Model_golongan');
+        $this->load->Model('Model_status_pegawai');
+        $this->load->Model('Model_pangkat');
+        $this->load->Model('Model_jabatan');
+        $this->load->Model('Model_divisi');
+		$this->load->Model('Model_detail_role');
 		$this->load->helper('url');
 		$this->load->library('session');
 		if ($this->session->userdata('logged_in') == false) {
@@ -19,9 +25,9 @@ class Profil extends CI_Controller
 	function index()
 	{
 		$email = $this->session->userdata('email');
-		$data['data_pegawai'] = $this->Model_pegawai->getDetail1($email);
-		$data['update_foto'] = $this->Model_pegawai->getDetail1($email);
-		$data['title'] = "ASN BALITKLIMAT | Detail Pegawai";
+		$data['data_pegawai'] = $this->Model_detail_role->getDetail1($email);
+		$data['update_foto'] = $this->Model_detail_role->getDetail1($email);
+		$data['title'] = " ASN Balitklimat | Detail Pegawai";
 		$this->load->view('templates/v_template', $data);
 		$this->load->view('Profil/v_detail_profil', $data);
 		$this->load->view('templates/footer', $data);
@@ -29,7 +35,7 @@ class Profil extends CI_Controller
 
 	function edit()
 	{
-		$data['title'] = "ASN BALITKLIMAT | Edit Detail Pegawai";
+		$data['title'] = " ASN Balitklimat | Edit Detail Pegawai";
 		$data['update_profil'] = $this->db->get_where('data_pegawai', ['email' =>
 		$this->session->userdata('email')])->row_array();
 

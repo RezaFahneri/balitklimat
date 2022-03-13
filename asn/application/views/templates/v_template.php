@@ -91,30 +91,25 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
                             aria-labelledby="notificationDropdown">
-                            <p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
+                            <h4 class="mb-0 font-weight-normal float-left dropdown-header"></b>Notifikasi</b></h4>
                             <div class="flash-data" id="flash2"
                                 data-flash="<?= $this->session->flashdata('sukses'); ?>"></div>
                             <div class="flash-data" id="flash" data-flash="<?= $this->session->flashdata('error'); ?>">
                                 <?php $data_notifikasi = $this->db->select('*')->from('data_notifikasi')->join('data_pegawai', 'data_notifikasi.nip= data_pegawai.nip')->get()->result(); foreach($data_notifikasi as $n) {?>
                                 <a class="dropdown-item preview-item">
-                                    <div class="alert alert-warning alert-dismissible fade show">
+                                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
                                         <div class="preview-thumbnail">
                                             <img
-                                                src="<?php echo base_url() ?>assets/images/foto/<?php echo $n->foto ?>">
-                                            &nbsp;&nbsp;
+                                                src="<?php echo base_url() ?>assets/images/foto/<?php echo $n->foto ?>">&nbsp;&nbsp;
                                         </div>
                                         <strong><?php echo $n->nama_pegawai ?></strong>&nbsp;
                                         <?php echo $n->pesan ?>
                                         <a title="Hapus Jadwal Kenaikan Pangkat" class="close" aria-label="Close"
-                                            href="<?php echo site_url('dashboard/hapus/' .  $n->id_notifikasi) ?>"><i
-                                                class="ti ti-trash"></i></a>
-                                        <!-- <a type="button" class="close" data-dismiss="alert" aria-label="Close"
-                                            id="hapus_notifikasi"
-                                            href="<?//php echo site_url('dashboard/hapus/' .  $n->id_notifikasi) ?>"><i
-                                                class="ti ti-trash"></i> -->
+                                            href="<?php echo site_url('dashboard/hapus/' .  $n->id_notifikasi) ?>">
+                                            <span aria-hidden="true">&times;</span></a>
                                 </a>
                             </div>
-                            </a>
+
                             <?php } ?>
                         </div>
                     </li>
@@ -179,8 +174,12 @@
                                         href="<?php echo base_url(); ?>divisi">Divisi</a>
                                 </li>
                                 <li class="nav-item"> <a class="nav-link"
-                                        href="<?php echo base_url(); ?>penugasan">Penugasan</a></li>
-                            </ul>
+                                        href="<?php echo base_url(); ?>role_penugasan">Role &
+                                        Penugasan</a>
+                                </li>
+                                <!-- <li class="nav-item"> <a class="nav-link"
+                                        href="<?//php echo base_url(); ?>penugasan">Penugasan</a></li>
+                            </ul> -->
                         </div>
                     </li>
                     <?php endif; ?>
@@ -221,7 +220,7 @@
 
                     <!-- <?//php if ($this->session->userdata('role') == 'User') : ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?//php echo base_url(); ?>kenaikan_pangkat" aria-expanded="false"
+                        <a class="nav-link" href="<?php echo base_url(); ?>kenaikan_pangkat" aria-expanded="false"
                             aria-controls="form-elements">
                             <i class="ti ti-report-analytics" style="font-size: 22px; margin-right: 8px;"></i>
                             <span class="menu-title">Jadwal Naik Pangkat</span>

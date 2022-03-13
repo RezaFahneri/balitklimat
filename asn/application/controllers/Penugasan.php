@@ -4,7 +4,7 @@ class Penugasan extends CI_Controller {
     function __construct()
     {
         parent::__construct();
-        $this->load->Model('Model_tugas');
+        $this->load->Model('Model_role_tugas');
         $this->load->Model('Model_pegawai');
         $this->load->Model('Model_detail_tugas');
         $this->load->helper('url');
@@ -15,16 +15,16 @@ class Penugasan extends CI_Controller {
     }
     function index()
     {
-        $data['data_tugas'] = $this->Model_tugas->tampil_data('data_tugas')->result();
+        $data['data_tugas'] = $this->Model_role_tugas->tampil_data('data_tugas')->result();
         $data['detail_tugas'] = $this->Model_detail_tugas->getList();
-        $data['title'] = "ASN BALITKLIMAT | Data Penugasan";
+        $data['title'] = " ASN Balitklimat | Data Penugasan";
         $this->load->view('templates/v_template',$data);
 		$this->load->view('Data_Master/Data_Tugas/v_penugasan',$data);
         $this->load->view('templates/footer',$data);
     }
     function tambah()
 	{
-		$data['title'] = 'ASN BALITKLIMAT | Tambah Penugasan';
+		$data['title'] = ' ASN Balitklimat | Tambah Penugasan';
         $this->load->view('templates/v_template',$data);
 		$this->load->view('Data_Master/Data_Tugas/v_tambah_penugasan',$data);
         $this->load->view('templates/footer',$data);
@@ -35,7 +35,7 @@ class Penugasan extends CI_Controller {
         $data = array(
             'penugasan' =>$penugasan,
         );
-        $this->Model_tugas->input_data($data, 'data_tugas');
+        $this->Model_role_tugas->input_data($data, 'data_tugas');
         $this->session->set_flashdata('sukses','Data penugasan berhasil ditambahkan');
         redirect('penugasan');
     }
@@ -59,8 +59,8 @@ class Penugasan extends CI_Controller {
         $where = array(
             'id_tugas' => $id_tugas
         );
-        $this->load->Model('Model_tugas');
-        $this->Model_tugas->update_data($where, $data, 'data_tugas');
+        $this->load->Model('Model_role_tugas');
+        $this->Model_role_tugas->update_data($where, $data, 'data_tugas');
         $this->session->set_flashdata('sukses','Data penugasan berhasil diperbarui');
         redirect('penugasan');
     }
@@ -81,7 +81,7 @@ class Penugasan extends CI_Controller {
     }
     function tambah_tim_aksi()
     {
-        // $this->Model_tugas->insert($data);
+        // $this->Model_role_tugas->insert($data);
         $nip = count($this->input->post('nip'));
 
         for($i = 0; $i < $nip; $i++)
@@ -100,7 +100,7 @@ class Penugasan extends CI_Controller {
             'id_tugas' => $id_tugas,
         );
         $this->Model_detail_tugas->hapus_data2($where, 'detail_tugas');
-        $this->Model_tugas->hapus_data($where, 'data_tugas');
+        $this->Model_role_tugas->hapus_data($where, 'data_tugas');
         $this->session->set_flashdata('sukses','Data penugasan berhasil dihapus');
     redirect('penugasan');
     }

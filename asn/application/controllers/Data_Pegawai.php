@@ -11,6 +11,7 @@ class Data_Pegawai extends CI_Controller {
         $this->load->Model('Model_jabatan');
         $this->load->Model('Model_divisi');
         $this->load->Model('Model_tugas');
+        $this->load->Model('Model_detail_role');
         $this->load->helper('url');
         $this->load->library('session');
 		if($this->session->userdata('logged_in') == false){
@@ -65,23 +66,21 @@ class Data_Pegawai extends CI_Controller {
         $nik = $this->input->post('nik');
         $email = $this->input->post('email');
         $password = $this->input->post('password');
-        $no_whatsapp = $this->input->post('62') . $this->input->post('no_whatsapp');
-        $role = $this->input->post('role');
+        $no_whatsapp = $this->input->post('62').$this->input->post('no_whatsapp');
 
-        $data = array(
+        $data = array (
             'nama_pegawai' => $nama_pegawai,
             'nip'   => $nip,
             'id_golongan'  => $id_golongan,
             'id_status_peg'  => $id_status_peg,
             'id_pangkat'  => $id_pangkat,
-            'foto'   => $foto,
             'id_jabatan' => $id_jabatan,
             'id_divisi' => $id_divisi,
+            'foto'   => $foto,
             'nik' => $nik,
             'email' => $email,
-            'password' => $password,
+            'password' => $password, 
             'no_whatsapp' => $no_whatsapp,
-            'role' => $role
         );
 
         $data2 = array(
@@ -90,10 +89,27 @@ class Data_Pegawai extends CI_Controller {
             'id_jabatan' => $id_jabatan,
             'status_perjalanan' => 0,
         );
+        $data3 = array(
+            'nama_pegawai' => $nama_pegawai,
+            'nip'   => $nip,
+            'id_golongan'  => $id_golongan,
+            'id_status_peg'  => $id_status_peg,
+            'id_pangkat'  => $id_pangkat,
+            'id_jabatan' => $id_jabatan,
+            'id_divisi' => $id_divisi,
+            'foto'   => $foto,
+            'nik' => $nik,
+            'email' => $email,
+            'password' => $password, 
+            'no_whatsapp' => $no_whatsapp,
+            'id_role' => 8,
+            'role' => 'User',
+        );
         if ($this->Model_pegawai->EmailCheck($email) == true) {
 
             $this->Model_pegawai->input_data($data, 'data_pegawai');
             $this->Model_pegawai->input_data($data2, 'status_perjalanan');
+            $this->Model_pegawai->input_data($data3, 'detail_role');
             $this->session->set_flashdata('sukses', 'Data pegawai berhasil ditambahkan');
             redirect('data_pegawai');
         } else {
@@ -139,7 +155,6 @@ class Data_Pegawai extends CI_Controller {
         $email = $this->input->post('email');
         $password = $this->input->post('password');
         $no_whatsapp = $this->input->post('no_whatsapp');
-        $role = $this->input->post('role');
 
         $data1 = array(
             'nama_pegawai'  => $nama_pegawai,
@@ -151,29 +166,66 @@ class Data_Pegawai extends CI_Controller {
             'email' => $email,
             'password' => $password,
             'no_whatsapp' => $this->input->post('62') . $this->input->post('no_whatsapp'),
-            'role' => $role,
+        );
+        $data2 = array(
+            'nip'   => $nip,
+            'nama_pegawai' => $nama_pegawai,
+            'id_jabatan' => $id_jabatan,
+        );
+        $data3 = array(
+            'nama_pegawai'  => $nama_pegawai,
+            'id_golongan'  => $id_golongan,
+            'id_status_peg'   => $id_status_peg,
+            'id_jabatan'   => $id_jabatan,
+            'id_divisi'   => $id_divisi,
+            'nik'   => $nik,
+            'email' => $email,
+            'password' => $password,
+            'no_whatsapp' => $this->input->post('62') . $this->input->post('no_whatsapp'),
         );
         $where = array(
             'nip'   => $nip,
         );
         $this->load->Model('Model_pegawai');
         $this->Model_pegawai->update_data($where, $data1, 'data_pegawai');
+        $this->Model_pegawai->update_data($where, $data2, 'status_perjalanan');
+        $this->Model_pegawai->update_data($where, $data3, 'detail_role');
         $this->session->set_flashdata('sukses','Data Pegawai berhasil diperbarui');
         redirect('data_pegawai');
     }
+    
     function hapus($nip)
 	{
-		$where = array('nip' => $nip);
-        $table = array('status_perjalanan', 'data_pegawai');
-        $this->Model_pegawai->hapus_data($where,$table);
-        $error = $this->db->error();
-        if ($error ['code'] != 0){
-            echo $this->session->set_flashdata('error','Data pegawai digunakan pada tabel lain');
-        }
-        else{
-            echo $this->session->set_flashdata('sukses','Data pegawai berhasil dihapus');
-        }
-        echo "<script>window.location='".site_url('data_pegawai')."';</script>";
+        $where = array('nip' => $nip);
+		
+        // $this->Model_detail_role->hapus_data3($where, 'detail_role');
+        
+        if ($this->Model_pegawai->hapus_data($nip) == false):{
+                echo $this->session->set_flashdata('error','Data pegawai digunakan pada tabel lain');
+		        redirect('data_pegawai');
+
+            }endif;
+        if ($this->Model_pegawai->hapus_data($nip) == true):{
+                if ($this->Model_detail_role->hapus_data2($nip)) {
+                }
+                else{
+                    echo $this->session->set_flashdata('error','Data pegawai pada detail role gagal dihapus');
+                }
+                echo $this->session->set_flashdata('sukses','Data pegawai berhasil dihapus');
+		        redirect('data_pegawai');
+
+            }endif;        
+		// $where = array('nip' => $nip);
+        // $table = array('status_perjalanan', 'data_pegawai');
+        // $this->Model_pegawai->hapus_data($where,$table);
+        // $error = $this->db->error();
+        // if ($error ['code'] != 0){
+        //     echo $this->session->set_flashdata('error','Data pegawai digunakan pada tabel lain');
+        // }
+        // else{
+        //     echo $this->session->set_flashdata('sukses','Data pegawai berhasil dihapus');
+        // }
+        // echo "<script>window.location='".site_url('data_pegawai')."';</script>";
 		// redirect('data_pegawai');
 	}
 }

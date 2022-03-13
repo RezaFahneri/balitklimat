@@ -19,7 +19,8 @@
                                                 <label for="file-input">
                                                     <img id="foto"
                                                         style="position:absolute; z-index:2;border-radius:50%; height: 210px; width:200px"
-                                                        src="<?php echo base_url() ?>assets/images/foto/<?php echo $this->db->where('email', $this->session->userdata('email'))->get('data_pegawai')->row('foto') ?>"
+                                                        src="<?php echo base_url() ?>assets/images/foto/<?php echo 
+                                                            $this->db->where('email', $this->session->userdata('email'))->where('role', $this->session->userdata('role'))->get('detail_role')->row('foto') ?>"
                                                         class="img-thumbnail" alt="profile">
                                                     <img class="img-thumbnail" id="kamera"
                                                         style="position:absolute;z-index:4;width:50px;height:50px; margin-left:140px;margin-top:155px"
@@ -51,10 +52,10 @@
                                                     <th>Nama Pegawai</th>
                                                     <td><?php echo $data_pegawai['nama_pegawai'] ?></td>
                                                 </tr>
-                                                <tr>
+                                                <!-- <tr>
                                                     <th>Role</th>
-                                                    <td><?php echo $data_pegawai['role'] ?></td>
-                                                </tr>
+                                                    <td><?//php echo $data_pegawai['role'] ?></td>
+                                                </tr> -->
                                                 <!-- <tr>
                                                     <th>Jabatan</th>
                                                     <td><?//php echo $data_pegawai['jabatan'] ?></td>

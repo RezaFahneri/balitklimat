@@ -9,9 +9,17 @@
                         </div>
                         <div class="flash-data" id="flash" data-flash="<?= $this->session->flashdata('error'); ?>">
                         </div>
+                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                            <label class="btn btn-secondary "
+                                onclick="window.location.href='<?php echo base_url() ?>role_penugasan'">Role
+                            </label>
+                            <label class=" btn btn-secondary active"
+                                onclick="window.location.href='<?php echo base_url() ?>role_penugasan/penugasan'">Penugasan
+                            </label>
+                        </div><br><br>
                         <div class="col-md-4 grid-margin">
-                            <a href="<?php echo base_url() ?>penugasan/tambah" class="btn btn-success btn-md"><i
-                                    class="ti ti-plus"></i>Tambah Penugasan</a>
+                            <a href="<?php echo base_url() ?>role_penugasan/tambah_penugasan"
+                                class="btn btn-success btn-md"><i class="ti ti-plus"></i>Tambah Penugasan</a>
                         </div>
                         <div class="col-md-12 grid-margin">
                             <div class="card shadow mb-12">
@@ -44,15 +52,15 @@
                                                         <td>
                                                             <a title="Edit data penugasan"
                                                                 class="btn btn-sm btn-success"
-                                                                href="<?php echo base_url('/penugasan/edit/' . $dt->id_tugas) ?>"><i
+                                                                href="<?php echo base_url('/role_penugasan/edit_penugasan/' . $dt->id_tugas) ?>"><i
                                                                     class="mdi mdi-lead-pencil"></i></a>
                                                             <a title="Tambah anggota penugasan" style="color:white"
                                                                 class="btn btn-sm btn-secondary"
-                                                                href="<?php echo base_url('/penugasan/tambah_tim/' . $dt->id_tugas) ?>"><i
+                                                                href="<?php echo base_url('/role_penugasan/tambah_tim_penugasan/' . $dt->id_tugas) ?>"><i
                                                                     class="mdi mdi-account-multiple-plus"></i></a>
                                                             <a title="Hapus data penugasan" id="hapus_penugasan"
                                                                 class="btn btn-sm btn-danger"
-                                                                href="<?php echo site_url('/penugasan/hapus/' . $dt->id_tugas) ?>"><i
+                                                                href="<?php echo site_url('/role_penugasan/hapus_penugasan/' . $dt->id_tugas) ?>"><i
                                                                     class="mdi mdi-trash-can"></i></a>
                                                         </td>
                                                     </tr>
@@ -84,8 +92,9 @@
                                                                             <td><?php echo $et->pangkat ?></td>
                                                                             <td>
                                                                                 <a title="Hapus data tim penugasan"
+                                                                                    id="hapus_tim_penugasan"
                                                                                     class="btn btn-sm btn-danger"
-                                                                                    href="<?php echo base_url() ?>penugasan/hapus_tim/<?php echo $et->id_detail_tugas ?>"><i
+                                                                                    href="<?php echo base_url() ?>role_penugasan/hapus_tim_penugasan/<?php echo $et->id_detail_tugas ?>"><i
                                                                                         class="mdi mdi-trash-can"></i></a>
                                                                             </td>
                                                                             <?php } ?>

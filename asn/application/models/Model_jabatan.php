@@ -1,8 +1,9 @@
 <?php
 class Model_jabatan extends CI_model
 {
-	function tampil_data($table){
-		return $this->db->get($table);
+	function tampil_data(){
+		$data = $this->db->query("SELECT * FROM data_jabatan WHERE id_jabatan > 1");
+        return $data;
 	}
     function input_data($data,$table){
 		$this->db->insert($table,$data);
@@ -12,7 +13,7 @@ class Model_jabatan extends CI_model
 	}
 	public function getList()
 	{
-		return $query = $this->db->order_by('id_jabatan', 'ASC')->get('data_jabatan')->result();
+		return $query = $this->db->order_by('id_jabatan', 'ASC')->where('id_jabatan > 1')->get('data_jabatan')->result();
 	}
 	function update_data($where,$data,$table){
 		$this->db->where($where);

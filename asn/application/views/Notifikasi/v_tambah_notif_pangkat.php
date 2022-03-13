@@ -12,7 +12,8 @@
                                     <div class="form-group">
                                         <!-- <label><b>Nama Pegawai<a style="color:red"> *</a></b></label> -->
                                         <input style="color:dimgray" type="hidden"
-                                            value="<?php echo $this->db->where('email', $this->session->userdata('email'))->get('data_pegawai')->row('nip'); ?>"
+                                            value="<?php echo 
+$this->db->where('email', $this->session->userdata('email'))->where('id_role', $this->session->userdata('id_role'))->get('detail_role')->row('nip'); ?>"
                                             name="nip" autocomplete="off" class="form-control" required>
 
                                         <?php echo form_error('nip', '<div class="text-small text-danger"></div>') ?>

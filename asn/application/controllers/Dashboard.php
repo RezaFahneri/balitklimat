@@ -29,7 +29,7 @@ class Dashboard extends CI_Controller {
         $total_ppnpn = $this->db->query("SELECT * FROM data_pegawai WHERE id_status_peg = 4");
         $data['total_ppnpn'] = $total_ppnpn->num_rows();
         
-        $data['title']="Balitklimat ASN | Dashboard";
+        $data['title']=" ASN Balitklimat | Dashboard";
         $this->load->view('templates/v_template',$data);
 		$this->load->view('templates/v_dashboard',$data);
         $this->load->view('templates/footer',$data);

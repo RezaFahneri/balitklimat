@@ -34,9 +34,9 @@
                                 <img src="<?= base_url('assets'); ?>/images/logo.png" class="img-fluid"
                                     style="width:100px" alt="logo">
                             </div>
-                            <h4><b>Sistem Informasi Manajemen ASN</b></h4>
+                            <h4><b>Sistem Informasi Admin ASN</b></h4>
                             <h4><b>Balai Penelitian Agroklimat dan Hidrologi</b></h4>
-                            <form class="pt-3 text-center" action="<?php echo base_url() ?>login/proseslogin"
+                            <form class="pt-3 text-center" action="<?php echo base_url() ?>login/prosesloginadmin"
                                 method="post">
                                 <div class="form-group">
                                     <input type="text" id='email' class="form-control form-control" placeholder="Email"
@@ -46,17 +46,13 @@
                                     <input type="password" id='password' class="form-control form-control"
                                         placeholder="Password" name='password' required>
                                 </div>
-                                <p class=" text-left"><b><a style="color:red">
-                                            *</a>Silahkan login untuk mengakses sistem ini</b></p>
+
                                 <div class="mt-3">
                                     <button type="submit"
                                         class="btn btn-block btn-success btn-md font-weight-medium auth-form-btn">LOGIN</button>
                                 </div></br>
-                                <div>
-                                    <a href="<?php echo base_url() ?>login/loginadmin" class="href">Login sebagai
-                                        admin</a>
-                                </div><br>
-
+                                <p class=" text-left"><b><a style="color:red">
+                                            *</a>Silahkan login untuk mengakses sistem ini</b></p><br>
                                 <?php
                                     $error = $this->session->flashdata('error');
                                     if (!empty($error)) {
@@ -65,13 +61,10 @@
                                         ' . $error . ' 
                                         </div>
                                     ';
-                                }
-                                ?>
+                                    }
+                                    ?>
                                 <div>
-                                    <div>
-                                        <a href="https://api.whatsapp.com/send?phone=085270047977"
-                                            class="text-center mb-2">Lupa password? </a>
-                                    </div>
+
                                 </div>
                             </form>
                         </div>

@@ -142,7 +142,7 @@
                                 <div class="form-group">
                                     <!-- <label for="pesan"><b>Pesan</a></b></label></br> -->
                                     <input style="color:dimgray" type="hidden"
-                                        value="Waktunya naik pangkat pada tanggal <?php echo $this->db->where('nip', $this->session->userdata('nip'))->get('data_jadwal_naik_pangkat')->row('jadwal_kp') ;?>"
+                                        value="Waktunya naik gaji pada tanggal <?php echo $this->db->where('nip', $this->session->userdata('nip'))->get('data_jadwal_gaji_berkala')->row('jadwal_kgb') ;?>"
                                         name="pesan" autocomplete="off" class="form-control" required>
                                 </div>
                                 <div class="form-group">
@@ -151,7 +151,7 @@
                                         autocomplete="off" class="form-control" required>
                                 </div>
                                 <button class="btn btn-success btn-sm" type="submit"><i class="ti ti-bell"></i>Ingatkan
-                                    Admin Kenaikan Pangkat</button>
+                                    Admin Kenaikan Gaji Berkala</button>
                             </form>
                         </div>
                     </div>

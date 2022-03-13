@@ -6,7 +6,7 @@
                     <div class="card-header py-3">
                         <div class="table-responsive">
                             <h3 class="m-0 font-weight-bold text-primary">Data Pegawai</h3><br>
-                            <?php if ($this->session->userdata('role') == "Admin ASN") : ?>
+                            <!-- <?//php if ($this->session->userdata('role') == "Admin ASN") : ?> -->
                             <div class="flash-data" id="flash2"
                                 data-flash="<?= $this->session->flashdata('sukses'); ?>"></div>
                             <div class="flash-data" id="flash" data-flash="<?= $this->session->flashdata('error'); ?>">
@@ -78,7 +78,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <?php endif; ?>
+                            <!-- <?//php endif; ?> -->
 
 
 

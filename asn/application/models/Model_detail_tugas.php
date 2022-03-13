@@ -2,6 +2,7 @@
 class Model_detail_tugas extends CI_model
 {
 	private $tb_detail_tugas = "detail_tugas";
+
     function insert($table,$data){
 		$this->db->insert($table,$data);
 	}
@@ -32,13 +33,7 @@ class Model_detail_tugas extends CI_model
 			return false;
 		}
 	}
-    // function detail_data($id_detail_tugas){
-	// 	$this->db->select('*');
-	// 	$this->db->from('detail_tugas');
-	// 	$this->db->join('detail_tugas', 'data_tugas.id_tugas=detail_tugas.id_tugas');
-	// 	return $this->db->where($nip = $id_detail_tugas)->get()->row();
-	// }
-	function getList()
+	function getList_tugas()
 	{
         $this->db->select('detail_tugas.*,data_pegawai.*,data_golongan.*,data_pangkat.*');
 		$this->db->from('detail_tugas');
@@ -49,12 +44,7 @@ class Model_detail_tugas extends CI_model
 	}
 
 	function getList2($nip){
-		// $data['detail_tugas'] = $this->db->query("SELECT * FROM detail_tugas LEFT JOIN data_pegawai ON detail_tugas.nim = data_pegawai.nim")->result();
 		$data['data_pegawai'] = $this->db->query("SELECT * FROM data_pegawai LEFT JOIN detail_tugas ON data_pegawai.nim = detail_tugas.nim")->result();
-
-		// $this->db->select('*');
-		// $this->db->from('detail_tugas');
-		// $this->db->join('detail_tugas', 'data_tugas.id_tugas=detail_tugas.id_tugas','LEFT');
 		return $this->db->where('nip',$nip)->get()->result();
 	}
 

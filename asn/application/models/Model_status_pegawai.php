@@ -1,8 +1,9 @@
 <?php
 class Model_status_pegawai extends CI_model
 {
-	function tampil_data($table){
-		return $this->db->get($table);
+	function tampil_data(){
+		$data = $this->db->query("SELECT * FROM status_kepegawaian WHERE id_status_peg > 1");
+        return $data;
 	}
     function input_data($data,$table){
 		$this->db->insert($table,$data);
@@ -25,7 +26,7 @@ class Model_status_pegawai extends CI_model
 	}
 	function getList()
 	{
-		return $query = $this->db->order_by('id_status_peg', 'ASC')->get('status_kepegawaian')->result();
+		return $query = $this->db->order_by('id_status_peg', 'ASC')->where('id_status_peg > 1')->get('status_kepegawaian')->result();
 	}
 
 }

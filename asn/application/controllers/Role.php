@@ -10,14 +10,14 @@ class Role extends CI_Controller {
     function index()
     {
         $data['data_role'] = $this->Model_role->tampil_data('data_role')->result();
-        $data['title'] = "ASN BALITKLIMAT | Data Role";
+        $data['title'] = " ASN Balitklimat | Data Role";
         $this->load->view('templates/v_template',$data);
 		$this->load->view('Data_Master/Data_Role/v_role',$data);
         $this->load->view('templates/footer',$data);
     }
     function tambah()
 	{
-		$data['title'] = 'ASN BALITKLIMAT | Tambah Role';
+		$data['title'] = ' ASN Balitklimat | Tambah Role';
         $this->load->view('templates/v_template',$data);
 		$this->load->view('Data_Master/Data_Role/tambah_role',$data);
         $this->load->view('templates/footer',$data);

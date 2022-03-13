@@ -1,8 +1,9 @@
 <?php
 class Model_golongan extends CI_model
 {
-	function tampil_data($table){
-		return $this->db->get($table);
+	function tampil_data(){
+		$data = $this->db->query("SELECT * FROM data_golongan WHERE id_golongan > 1");
+        return $data;
 	}
     function input_data($data,$table){
 		$this->db->insert($table,$data);
@@ -12,7 +13,9 @@ class Model_golongan extends CI_model
 	} 
 	public function getList()
 	{
-		return $query = $this->db->order_by('golongan', 'ASC')->get('data_golongan')->result();
+		// $query = $this->db->query("SELECT * FROM data_golongan WHERE id_golongan > 1 ORDER BY id_golongan, ASC");
+		// return $query;
+		return $query = $this->db->order_by('id_golongan', 'ASC')->where('id_golongan > 1')->get('data_golongan')->result();
 	}
 
 	function update_data($where,$data,$table){

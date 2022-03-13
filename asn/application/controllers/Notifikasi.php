@@ -18,7 +18,7 @@ class Notifikasi extends CI_Controller {
     // {
     //     $data['data_pegawai'] = $this->Model_pegawai->getList();
         
-    //     $data['title'] = "ASN BALITKLIMAT | Data Pegawai";
+    //     $data['title'] = " ASN Balitklimat | Data Pegawai";
     //     $this->load->view('templates/v_template',$data);
 	// 	$this->load->view('Data_Pegawai/v_pegawai',$data);
     //     $this->load->view('templates/footer',$data);
@@ -27,7 +27,7 @@ class Notifikasi extends CI_Controller {
     
     function beritahu_pangkat()
 	{ 
-		$data['title'] = 'ASN BALITKLIMAT | Kirim Pemberitahuan Kenaikan Pangkat';
+		$data['title'] = ' ASN Balitklimat | Kirim Pemberitahuan Kenaikan Pangkat';
 
         $this->load->view('templates/v_template',$data);
 		$this->load->view('Notifikasi/v_tambah_notif_pangkat',$data);

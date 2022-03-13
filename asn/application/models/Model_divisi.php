@@ -1,8 +1,9 @@
 <?php
 class Model_divisi extends CI_model
 {
-	function tampil_data($table){
-		return $this->db->get($table);
+	function tampil_data(){
+		$data = $this->db->query("SELECT * FROM data_divisi WHERE id_divisi > 1");
+        return $data;
 	}
     function input_data($data,$table){
 		$this->db->insert($table,$data);
@@ -12,7 +13,7 @@ class Model_divisi extends CI_model
 	} 
 	public function getList()
 	{
-		return $query = $this->db->order_by('divisi', 'ASC')->get('data_divisi')->result();
+		return $query = $this->db->order_by('id_divisi', 'ASC')->where('id_divisi > 1')->get('data_divisi')->result();
 	}
 
 	function update_data($where,$data,$table){
