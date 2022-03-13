@@ -153,6 +153,24 @@ class Pinjam_alat extends CI_Controller
         redirect('pinjam_alat');
     }
 
+    function tolak($id, $idalat)
+    {
+        //menambah kembali stok barang
+        $where2 = array('idalat' => $idalat);
+        $stokalat = $this->db->where('idalat', $idalat)->get('stok_alat')->row('stock');
+        $qty = $this->db->where('id_pinjam', $id)->get('pinjam_alat')->row('qty');
+        $data2 = array(
+            'stock' => (int) $stokalat + $qty,
+        );
+        $this->Model_stok->update_data_stok($where2, $data2, 'stok_alat');
+
+        //hapus datanya
+        $where = array('id_pinjam' => $id);
+        $this->Model_pinjam->hapus_data($where, 'pinjam_alat');
+        $this->session->set_flashdata('sukses', 'Peminjaman alat ditolak');
+        redirect('pinjam_alat');
+    }
+
     function selesai($id, $idalat)
     {
         //input data ke tabel riwayat

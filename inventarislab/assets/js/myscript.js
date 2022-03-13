@@ -96,3 +96,23 @@ $(document).on('click', '#logout',function (e) {
         }
     })
 })
+
+$(document).on('click', '#ditolak',function (e) {
+
+    e.preventDefault();
+    var href = $(this).attr('href')
+
+    Swal.fire({
+        title: 'Tolak Peminjaman Alat?',
+        text: "",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#808080',
+        confirmButtonText: 'Tolak'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location = href;
+        }
+    })
+})

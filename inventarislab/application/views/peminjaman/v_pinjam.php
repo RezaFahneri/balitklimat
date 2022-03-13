@@ -6,9 +6,12 @@
                     <div class="card-header py-3">
                         <h3 class="m-0 font-weight-bold">Peminjaman Alat</h3><br>
                         <div class="flash-data" id="flash2" data-flash="<?= $this->session->flashdata('sukses'); ?>"></div>
-                        <div class="col-md-4 grid-margin">
+                        <div class="col-md-4 grid-margin" style="margin-bottom: 20px;">
                             <a href="<?php echo base_url() ?>pinjam_alat/pinjam" class="btn btn-success btn-md">Pinjam Alat</a>
                         </div>
+                        <?php if ($this->session->userdata('logged_in') == true) { ?>
+                            <p>Jika ada yang melakukan peminjaman, catat transaksinya di kolom keterangan. Caranya dengan klik tombol edit(pensil) yang ada di kolom aksi. Setelah disimpan, lalu klik tombol verifikasi untuk menyetujui peminjaman.</p></br>
+                        <?php } ?>
                         <div class="col-md-12 grid-margin">
                             <div class="card mb-12">
                                 <div class="col-lg-12 grid-margin stretch-card">
@@ -50,6 +53,8 @@
                                                                 <?php if ($this->session->userdata('logged_in') == true) { ?>
                                                                     <td>
                                                                         <a id="dipinjamkan1" class="btn btn-outline-warning btn-md" href="<?php echo site_url('pinjam_alat/dipinjamkan/' . $dp->id_pinjam) ?>">Verifikasi</a>
+                                                                        <hr style="width:60%;text-align:left;margin-left:0">
+                                                                        <a id="ditolak" class="btn btn-outline-danger btn-md" href="<?php echo site_url('pinjam_alat/tolak/' . $dp->id_pinjam . '/' . $dp->idalat) ?>">Tolak</a>
                                                                     </td>
                                                                 <?php } else if ($this->session->userdata('logged_in') == false) { ?>
                                                                     <td>

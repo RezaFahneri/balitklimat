@@ -277,13 +277,6 @@
                             <span class="menu-title">Perbaikan Alat</span>
                         </a>
                     </li>
-                    <?php if ($this->session->userdata('logged_in') == false) { ?>
-                        <li class="nav-item">
-                            <a class="nav-link" href="<?php echo base_url(); ?>login" aria-expanded="false">
-                                <span class="menu-title">Login</span>
-                            </a>
-                        </li>
-                    <?php } ?>
                 </ul>
             </nav>
 

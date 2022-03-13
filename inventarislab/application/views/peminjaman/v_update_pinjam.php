@@ -55,7 +55,7 @@
                                                 <?php echo form_error('keterangan', '<div class="text-small text-danger"></div>') ?>
                                             </div>
                                             <input type="submit" class="btn btn-success" name="submit" value="Simpan">&nbsp &nbsp
-                                            <a class="btn btn-light" href="<?php echo base_url(); ?>stok_alat">Cancel</a>
+                                            <a class="btn btn-light" href="<?php echo base_url(); ?>pinjam_alat">Cancel</a>
                                         </form>
                                     </div>
                                 </div>
