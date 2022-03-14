@@ -41,125 +41,121 @@
 </head>
 
 <body>
-    <div class="container-scroller">
-        <h2>Portal Internal</h2>
-        <h3>balai penelitian agroklimat dan hidrologi</h3>
-        <div class="container-fluid page-body-wrapper full-page-wrapper">
-            <div style="background-repeat:no-repeat; background-position:center; background-attachment:fixed; background-size:100%" class="content-wrapper-login d-flex align-items-center auth px-0">
-                <div>
-                    <img src="landing-page-balitklimat/assets/images/logo/kementan.png" style="width: 100px;right: 30px;" alt=""></img>
-                </div>
-                <div class="col-md-12">
-                    <div class="row-page" style="text-align: center;align-items: center; margin-left: 395px;">
-                        <div class="card-page">
-                            <div class="box-page">
-                                <div class="content-page">
-                                    <i style="margin-left: -3px;" class="mdi mdi-book-open-variant"></i>
-                                    <h3 style="margin-left: -6px;">Buku Tamu</h3>
-                                    <a href="<?php echo base_url(); ?>bukutamu" target="_blank">Buka</a>
-                                </div>
-                            </div>
-                        </div>
+    <div class="container-fluid page-body-wrapper full-page-wrapper">
+        <div style="background-repeat:no-repeat; background-position:center; background-attachment:fixed; background-size:100%" class="content-wrapper-login d-flex align-items-center auth px-0">
 
-                        <div class="card-page">
-                            <div class="box-page">
-                                <div class="content-page">
-                                    <i style="margin-left: -3px;" class="mdi mdi-clipboard-text"></i>
-                                    <h3 style="margin-left: -27px;">Laporan Magang</h3>
-                                    <a href="<?php echo base_url(); ?>magang" target="_blank">Buka</a>
-                                </div>
-                            </div>
-                        </div>
+            <div class="container-scroller">
+                <img src="landing-page-balitklimat/assets/images/logo/kementan.png" style="width: 100px; position:absolute;margin-left:0px" alt=""></img>
+                <h2>Portal Internal</h2>
+                <h3>balai penelitian agroklimat dan hidrologi</h3>
 
-                        <div class="card-page">
-                            <div class="box-page">
-                                <div class="content-page">
-                                    <i style="margin-left: -3px;" class="mdi mdi-screwdriver"></i>
-                                    <h3 style="margin-left: -16px;">Inventaris Lab</h3>
-                                    <a href="<?php echo base_url(); ?>inventarislab" target="_blank">Buka</a>
-                                </div>
+                <div class="row-page col-md-12" style="margin-top: -30px;position:fixed">
+                    <div class="card-page">
+                        <div class="box-page">
+                            <div class="content-page">
+                                <i style="margin-left: -3px;" class="mdi mdi-book-open-variant"></i>
+                                <h3 style="margin-left: 1.5px;">Buku Tamu</h3>
+                                <a style="margin-bottom:10px" href="<?php echo base_url(); ?>bukutamu" target="_blank">Buka</a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="row-page" style="margin-top: -180px;margin-left: 163px;">
-                        <div class="card-page">
-                            <div class="box-page">
-                                <div class="content-page">
-                                    <i style="margin-left: -2px;" class="mdi mdi-account-card-details"></i>
-                                    <h3 style="margin-left: 2px;">SIM ASN</h3>
-                                    <a href="<?php echo base_url(); ?>asn" target="_blank">Login</a>
-                                </div>
+                    <div class="card-page">
+                        <div class="box-page">
+                            <div class="content-page">
+                                <i style="margin-left: -3px;" class="mdi mdi-clipboard-text"></i>
+                                <h3 style="margin-left: -17px;">Laporan Magang</h3>
+                                <a style="margin-bottom:10px" href="<?php echo base_url(); ?>magang" target="_blank">Buka</a>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="card-page">
-                            <div class="box-page">
-                                <div class="content-page">
-                                    <i style="margin-left: -1px;" class="mdi mdi-car"></i>
-                                    <h3 style="margin-left: -27px;">Perjalanan Dinas</h3>
-                                    <a href="<?php echo base_url(); ?>perjadin" target="_blank">Login</a>
-                                </div>
+                    <div class="card-page">
+                        <div class="box-page">
+                            <div class="content-page">
+                                <i style="margin-left: -3px;" class="mdi mdi-screwdriver"></i>
+                                <h3 style="margin-left: -7px;">Inventaris Lab</h3>
+                                <a style="margin-bottom:10px" href="<?php echo base_url(); ?>inventarislab" target="_blank">Buka</a>
                             </div>
                         </div>
-
-                        <div class="card-page">
-                            <div class="box-page">
-                                <div class="content-page">
-                                    <i style="margin-left: -1px;" class="mdi mdi-desktop-tower"></i>
-                                    <h3 style="margin-left: -28px;">Inventaris Barang</h3>
-                                    <a href="<?php echo base_url(); ?>inventarisbarang" target="_blank">Login</a>
-                                </div>
+                    </div>
+                </div>
+                <div class="row-page col-md-12" style="margin-top: 400px;position:fixed">
+                    <div class="card-page">
+                        <div class="box-page">
+                            <div class="content-page">
+                                <i style="margin-left: -2px;" class="mdi mdi-account-card-details"></i>
+                                <h3 style="margin-left: 9px;">SIM ASN</h3>
+                                <a style="margin-bottom:10px" href="<?php echo base_url(); ?>asn" target="_blank">Login</a>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="card-page">
-                            <div class="box-page">
-                                <div class="content-page">
-                                    <i style="margin-left: -1px;" class="mdi mdi-gift"></i>
-                                    <h3 style="margin-left: -32px;">Bahan Diseminasi</h3>
-                                    <a href="<?php echo base_url(); ?>bahandiseminasi" target="_blank">Login</a>
-                                </div>
+                    <div class="card-page">
+                        <div class="box-page">
+                            <div class="content-page">
+                                <i style="margin-left: -1px;" class="mdi mdi-car"></i>
+                                <h3 style="margin-left: -17px;">Perjalanan Dinas</h3>
+                                <a style="margin-bottom:10px" href="<?php echo base_url(); ?>perjadin" target="_blank">Login</a>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="card-page">
-                            <div class="box-page">
-                                <div class="content-page">
-                                    <i style="margin-left: -3px;" class="mdi mdi-file-document"></i>
-                                    <h3 style="margin-left: 3px;">Disposisi</h3>
-                                    <a href="<?php echo base_url(); ?>disposisi" target="_blank">Login</a>
-                                </div>
+                    <div class="card-page">
+                        <div class="box-page">
+                            <div class="content-page">
+                                <i style="margin-left: -1px;" class="mdi mdi-desktop-tower"></i>
+                                <h3 style="margin-left: -18px;">Inventaris Barang</h3>
+                                <a style="margin-bottom:10px" href="<?php echo base_url(); ?>inventarisbarang" target="_blank">Login</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-page">
+                        <div class="box-page">
+                            <div class="content-page">
+                                <i style="margin-left: -1px;" class="mdi mdi-gift"></i>
+                                <h3 style="margin-left: -20px;">Bahan Diseminasi</h3>
+                                <a style="margin-bottom:10px" href="<?php echo base_url(); ?>bahandiseminasi" target="_blank">Login</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-page">
+                        <div class="box-page">
+                            <div class="content-page">
+                                <i style="margin-left: -3px;" class="mdi mdi-file-document"></i>
+                                <h3 style="margin-left: 7px;">Disposisi</h3>
+                                <a style="margin-bottom:10px" href="<?php echo base_url(); ?>disposisi" target="_blank">Login</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
 
-    <!-- plugins:js -->
-    <script src="landing-page-balitklimat/assets/vendors/js/vendor.bundle.base.js"></script>
-    <!-- endinject -->
-    <!-- Plugin js for this page -->
-    <script src="landing-page-balitklimat/assets/vendors/chart.js/Chart.min.js"></script>
-    <script src="landing-page-balitklimat/assets/vendors/datatables.net/jquery.dataTables.js"></script>
-    <script src="landing-page-balitklimat/assets/vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
-    <script src="landing-page-balitklimat/assets/js/dataTables.select.min.js"></script>
+        <!-- plugins:js -->
+        <script src="landing-page-balitklimat/assets/vendors/js/vendor.bundle.base.js"></script>
+        <!-- endinject -->
+        <!-- Plugin js for this page -->
+        <script src="landing-page-balitklimat/assets/vendors/chart.js/Chart.min.js"></script>
+        <script src="landing-page-balitklimat/assets/vendors/datatables.net/jquery.dataTables.js"></script>
+        <script src="landing-page-balitklimat/assets/vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
+        <script src="landing-page-balitklimat/assets/js/dataTables.select.min.js"></script>
 
-    <!-- End plugin js for this page -->
-    <!-- inject:js -->
-    <script src="landing-page-balitklimat/assets/js/off-canvas.js"></script>
-    <script src="landing-page-balitklimat/assets/js/hoverable-collapse.js"></script>
-    <script src="landing-page-balitklimat/assets/js/template.js"></script>
-    <script src="landing-page-balitklimat/assets/js/settings.js"></script>
-    <script src="landing-page-balitklimat/assets/js/todolist.js"></script>
-    <!-- endinject -->
-    <!-- Custom js for this page-->
-    <script src="landing-page-balitklimat/assets/js/dashboard.js"></script>
-    <script src="landing-page-balitklimat/assets/js/Chart.roundedBarCharts.js"></script>
-    <!-- End custom js for this page-->
+        <!-- End plugin js for this page -->
+        <!-- inject:js -->
+        <script src="landing-page-balitklimat/assets/js/off-canvas.js"></script>
+        <script src="landing-page-balitklimat/assets/js/hoverable-collapse.js"></script>
+        <script src="landing-page-balitklimat/assets/js/template.js"></script>
+        <script src="landing-page-balitklimat/assets/js/settings.js"></script>
+        <script src="landing-page-balitklimat/assets/js/todolist.js"></script>
+        <!-- endinject -->
+        <!-- Custom js for this page-->
+        <script src="landing-page-balitklimat/assets/js/dashboard.js"></script>
+        <script src="landing-page-balitklimat/assets/js/Chart.roundedBarCharts.js"></script>
+        <!-- End custom js for this page-->
 </body>
 
 </html>
