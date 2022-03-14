@@ -32,7 +32,7 @@
                                                     foreach ($data_sbuh as $j) {
                                                     ?>
                                                         <tr>
-                                                             <td style="font-size: 12px;"><?php echo $no++ ?></td>
+                                                             <td style="font-size: 12px;text-align:center"><?php echo $no++ ?></td>
                                                              <td style="font-size: 12px;"><?php echo $j->nama_provinsi ?></td>
                                                              <td style="font-size: 12px;"><?php echo 'Rp'.number_format($j->luar_kota,0,',','.') ?></td>
                                                              <td style="font-size: 12px;"><?php echo 'Rp'.number_format($j->dalam_kota,0,',','.') ?></td>

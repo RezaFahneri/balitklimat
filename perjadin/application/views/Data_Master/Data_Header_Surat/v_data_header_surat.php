@@ -16,7 +16,6 @@
                                 <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" style="width:100%; height:100%">
                                     <thead  class="thead-light">
                                         <tr>
-                                        <th style="color:gray;height:40px"><label>No</label></th>
                                         <th style="color:gray;height:40px"><label>Nama Kementerian</label></th>
                                         <th style="color:gray;height:40px"><label>Eslon Satu</label></th>
                                         <th style="color:gray;height:40px"><label>Eslon Dua</label></th>
@@ -29,11 +28,9 @@
                                     </thead>
                                     <tbody>
                                     <?php
-                                        $no = 1;
                                         foreach ($header_surat as $sp) {
                                         ?>
                                         <tr>
-                                             <td style="font-size: 12px;"><?php echo $no++ ?></td>
                                              <td style="font-size: 12px;"><?php echo $sp->nama_kementerian ?></td>
                                              <td style="font-size: 12px;"><?php echo $sp->eslon_satu ?></td>
                                              <td style="font-size: 12px;"><?php echo $sp->eslon_dua ?></td>

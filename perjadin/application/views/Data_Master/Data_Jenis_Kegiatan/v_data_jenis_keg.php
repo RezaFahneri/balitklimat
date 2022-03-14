@@ -31,7 +31,7 @@
                                                     foreach ($data_jenis_keg as $p) {
                                                     ?>
                                                         <tr>
-                                                            <td style="font-size: 12px;height:40px"><label style="margin-top:5px"><?php echo $no++ ?></label></td>
+                                                            <td style="font-size: 12px;height:40px;text-align:center"><label style="margin-top:5px"><?php echo $no++ ?></label></td>
                                                             <td style="font-size: 12px;"><?php echo $p->jenis_keg ?></td>
                                                             <td style="font-size: 12px;">
                                                                 <a style="font-size:20px;width:45%" title="Edit data jenis kegiatan" class="btn btn-sm btn-success" href="<?php echo base_url('/jenis_keg/edit/' . $p->id_jenis_keg) ?>"><i class="mdi mdi-pencil"></i></a>

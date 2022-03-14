@@ -80,13 +80,20 @@
     <p style="text-align:left;margin-top:190px;margin-left:490px;width:92%;position:absolute;z-index:1">Pejabat Negara/Pegawai Negeri
     <p style="text-align:left;margin-top:210px;margin-left:490px;width:92%;position:absolute;z-index:2">Yang melakukan Perjalanan Dinas,
     <p style="text-align:left;margin-top:320px;margin-left:490px;width:92%;position:absolute;z-index:3"><?php echo $p->nama_pegawai ?></b>
-    <p style="text-align:left;margin-top:350px;margin-left:490px;width:92%;position:absolute;z-index:4">NIP.<?php echo ' ' . $p->nip ?>
+    <p style="text-align:left;margin-top:350px;margin-left:490px;width:92%;position:absolute;z-index:4">NIP.
+    <?php 
+    $nip = $p->nip;
+    if ($nip[0] == 'H'){
+        echo ' ' . ' ';
+    }else{
+        echo ' ' . $nip;
+    }?>
 
     <p style="text-align:left;margin-top:170px;margin-left:100px;width:92%;position:absolute;z-index:0">Mengetahui/Menyetujui:
     <p style="text-align:left;margin-top:190px;margin-left:100px;width:92%;position:absolute;z-index:1">An. Kuasa Pengguna Anggaran
     <p style="text-align:left;margin-top:210px;margin-left:100px;width:92%;position:absolute;z-index:2">Pejabat Pembuat Komitmen
     <p style="text-align:left;margin-top:320px;margin-left:100px;width:92%;position:absolute;z-index:3"><?php echo $p->nama_ppk ?>
-    <p style="text-align:left;margin-top:350px;margin-left:100px;width:92%;position:absolute;z-index:4">NIP.<?php echo ' ' . $p->nip_ppk ?>
+    <p style="text-align:left;margin-top:350px;margin-left:100px;width:92%;position:absolute;z-index:4">NIP. <?php echo ' ' . $nip; ?>
    
 
 
