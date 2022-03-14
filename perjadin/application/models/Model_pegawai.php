@@ -76,6 +76,16 @@ class Model_pegawai extends CI_model
 		$this->db->or_where('penugasan','PJ RDHP');
 		return $this->db->or_where('penugasan','PJ RKTM')->get()->result();
 	}
+	public function getListKKK()
+	{
+		$this->db->select('*');
+		$this->db->from('detail_tugas');
+		$this->db->join('data_pegawai', 'data_pegawai.nip=detail_tugas.nip');
+		$this->db->join('data_tugas', 'data_tugas.id_tugas=detail_tugas.id_tugas');
+		$this->db->where('penugasan','Kasub');
+		$this->db->or_where('penugasan','Kasie');
+		return $this->db->or_where('penugasan','Kakelti')->get()->result();
+	}
 	public function getListBendahara()
 	{
 		$this->db->select('*');
@@ -95,9 +105,12 @@ class Model_pegawai extends CI_model
 	public function getListPltBalai()
 	{
 		$this->db->select('*');
-		$this->db->from('data_pegawai');
-		$this->db->join('data_jabatan', 'data_pegawai.id_jabatan=data_jabatan.id_jabatan');
-		return $this->db->where('jabatan','Plh. Kepala Balai')->get()->result();
+		$this->db->from('detail_tugas');
+		$this->db->join('data_pegawai', 'data_pegawai.nip=detail_tugas.nip');
+		$this->db->join('data_tugas', 'data_tugas.id_tugas=detail_tugas.id_tugas');
+		$this->db->where('penugasan','Kasub');
+		$this->db->or_where('penugasan','Kasie');
+		return $this->db->or_where('penugasan','Kakelti')->get()->result();
 	}
 	public function getListKepalaBalai()
 	{

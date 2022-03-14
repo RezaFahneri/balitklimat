@@ -73,7 +73,7 @@ class Perjalanan_dinas extends CI_Controller
             'dalam_rangka' => $this->input->post('dalam_rangka'),
             'nip_pumk' => $this->input->post('nip_pumk'),
             'tanggal_pengajuan' => $this->input->post('tanggal_pengajuan'),
-            'no_st' => $this->generateID(),
+            // 'no_st' => $this->generateID(),
             'no_surat_tugas' => $no_surat_tugas,
             'kode_mak' => $this->input->post('kode_mak'),
             'jenis_pengajuan' => $this->input->post('jenis_pengajuan'),

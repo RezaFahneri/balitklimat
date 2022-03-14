@@ -68,7 +68,7 @@ class Anggota_perjadin extends CI_Controller
         $data = array(
             'id_perjalanan_dinas' => $id_perjalanan_dinas,
             'nip_anggota_perjadin' => $this->input->post('nip_anggota_perjadin'),
-            'no_sppd' => $this->generateID(),
+            // 'no_sppd' => $this->generateID(),
             'no_sppd2' => $no_sppd,
             'uang_harian' => $uang_harian,
             'uang_transportasi' => $uang_transportasi,

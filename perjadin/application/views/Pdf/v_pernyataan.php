@@ -44,7 +44,8 @@
     <p style="text-align:justify;margin-top:110px;margin-left:75px;width:92%;position:absolute;z-index:0">Tanggal
     <p style="text-align:justify;margin-top:110px;margin-left:150px;width:92%;position:absolute;z-index:0">:
     <p style="text-align:justify;margin-top:135px;margin-left:75px;width:92%;position:absolute;z-index:0">Nomor
-    <p style="text-align:justify;margin-top:135px;margin-left:150px;width:92%;position:absolute;z-index:0">: <?php echo $p->no_sppd . $p->no_sppd2 ?><br>
+    <p style="text-align:justify;margin-top:135px;margin-left:150px;width:92%;position:absolute;z-index:0">: 
+    <p style="text-align:justify;margin-top:135px;margin-left:190px;width:92%;position:absolute;z-index:0"> <?php echo $p->no_sppd2 ?><br>
     <p style="text-align:justify;margin-top:180px;margin-left:75px;width:75%; position:absolute;z-index:5">1.
     <p style="text-align:justify;margin-top:180px;margin-left:100px;width:80%; position:absolute;z-index:5">Biaya transport pegawai dan / atau biaya penginapan di bawah ini yang tidak dapat diperoleh bukti-bukti
         pengeluarannya meliputi:

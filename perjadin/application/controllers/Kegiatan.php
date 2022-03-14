@@ -29,7 +29,7 @@ class Kegiatan extends CI_Controller
     {
         $data['title'] = 'PERJADIN BALITKLIMAT | Tambah Data Kegiatan';
         $data['jenis_kegiatan'] = $this->Model_jenis_keg->getList();
-        $data['nip'] = $this->Model_pegawai->getList();
+        $data['nip'] = $this->Model_pegawai->getListKKK();
         $data['nip_pj'] = $this->Model_pegawai->getListPj();
         $this->load->view('templates/v_template', $data);
         $this->load->view('Data_Master/Data_Kegiatan/v_tambah_data_kegiatan', $data);

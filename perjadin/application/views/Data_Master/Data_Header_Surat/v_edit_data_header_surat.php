@@ -35,8 +35,14 @@
                     <input type="text" name="eslon_tiga" class="form-control" value="<?php echo $sp->eslon_tiga?>" required>
                 </div>
                 <div class="form-group">
-                    <label>alamat </label>
+                    <label>Alamat </label>
                     <input type="text" name="alamat" class="form-control" value="<?php echo $sp->alamat?>" required>
+                </div><div class="form-group">
+                    <label>Kontak</label>
+                    <input type="text" name="kontak" class="form-control" value="<?php echo $sp->kontak?>" required>
+                </div><div class="form-group">
+                    <label>Web dan Email </label>
+                    <input type="text" name="web_email" class="form-control" value="<?php echo $sp->web_email?>" required>
                 </div>
                 <button type="submit" class="btn btn-success mr-2">Submit</a></button>&nbsp &nbsp
                 <!-- <a class="btn btn-outline-dark" href="<?php echo base_url(); ?>akun">Cancel</a> -->

@@ -78,9 +78,9 @@
     'normal' => $fontDir . '/DejaVuSerif',
   ),
   'nunito' => array(
-    '300' => $fontDir . '/nunito-300_2dad161dd5b9660e59d241a2afd1e3f0',
-    'bold' => $fontDir . '/nunito-bold_9d50012b2fc01d30d1ca58afe89c311c',
-    '500' => $fontDir . '/nunito-500_359fa9e802d794223be754b65987aa9c',
-    'normal' => $fontDir . '/nunito-normal_c6e87a81aa8491429789a3dc2aed088f',
+    '300' => $fontDir . '/nunito-300_58148b03d53c6477355c24b94de0db62',
+    'bold' => $fontDir . '/nunito-bold_8ff221a81ba463e560c1d9bd1ccc0c91',
+    '500' => $fontDir . '/nunito-500_21aed41eacb52fff99d9863c3e3fd14b',
+    'normal' => $fontDir . '/nunito-normal_811d65eb6dd74abb0108d3c6e698b154',
   ),
 ) ?>

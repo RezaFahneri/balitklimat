@@ -62,7 +62,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label><b>Uang Harian</b></label>
-                                            <input readonly type="number" name="uang_harian" <?php if ($apd->kota == $apd->kota_tujuan) {
+                                            <input type="number" name="uang_harian" <?php if ($apd->kota == $apd->kota_tujuan) {
                                                                                                 ?> value="<?php echo $apd->dalam_kota_tujuan * $apd->lama_perjalanan ?>" <?php
                                                                                                                                                                     } else {
                                                                                                                                                                         ?>value="<?php echo $apd->luar_kota_tujuan * $apd->lama_perjalanan ?>" <?php

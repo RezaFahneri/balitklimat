@@ -37,7 +37,8 @@
     $p = $isi_surat;
     ?>
     <p style="text-align:justify;margin-top:10px;margin-left:75px;width:92%;position:absolute;z-index:0">Lampiran SPPD Nomor
-    <p style="text-align:justify;margin-left:230px;width:92%;;position:absolute;z-index:0">: <?php echo $p->no_sppd . $p->no_sppd2 ?>
+    <p style="text-align:justify;margin-left:230px;width:92%;;position:absolute;z-index:0">:
+    <p style="text-align:justify;margin-left:270px;width:92%;;position:absolute;z-index:0"><?php echo $p->no_sppd2 ?>
     <p style="text-align:justify;margin-top:25px;margin-left:75px;width:92%;position:absolute;z-index:0">Tanggal
     <p style="text-align:justify;margin-top:25px;margin-left:230px;width:92%;position:absolute;z-index:0">:
     <table id="table" class="table table-bordered table-sm" style="width:92%;margin-left:75px;color:black;margin-top:70px;">

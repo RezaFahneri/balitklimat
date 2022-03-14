@@ -36,11 +36,12 @@
     <hr color="black" style="margin-top:-10px; height:0.1px;width:90%">
     <hr color="black" style="margin-top:-14px; height:0.1px;width:90%"><br><br><br>
     <h4 style="text-align:center;margin-top:-20px;letter-spacing:3px"><b>SURAT TUGAS</b></h4>
-    <hr width=23% color="black" style="margin-top:-7px; height:1px"><br>
+    <hr width=23% color="black" style="margin-top:-7px; height:1px">
     <?php
     foreach ($data_anggota_perjadin as $p) {
     ?>
-        <p style="text-align:center;margin-top:-15px">Nomor : <?php echo $p->no_st . $p->no_surat_tugas ?></p><br><br>
+          <p style="margin-left:290px;margin-top:-15px;position:absolute;z-index:0">Nomor : 
+        <p style="text-align:left;margin-top:0px;margin-left:400px;width:92%;position:absolute;z-index:0"><?php echo $p->no_surat_tugas ?></p><br><br><br>
         <p style="text-align:left;margin-top:520px;margin-left:420px;width:92%;position:absolute;z-index:0">Dikeluarkan di
         <p style="text-align:left;margin-top:520px;margin-left:520px;width:92%;position:absolute;z-index:0">:
         <p style="text-align:left;margin-top:540px;margin-left:420px;width:92%;position:absolute;z-index:1">Pada tanggal
@@ -70,7 +71,7 @@
                         <td style="text-align:center"><?php echo $no++ ?></td>
                         <td><?php echo $j->nama_pegawai ?></td>
                         <td style="text-align:center"><?php echo $j->golongan ?></td>
-                        <td><?php echo $j->no_sppd . $j->no_sppd2 ?></td>
+                        <td style="text-align:center"><?php echo $j->no_sppd2 ?></td>
                     </tr>
                 <?php } ?>
             </tbody>
