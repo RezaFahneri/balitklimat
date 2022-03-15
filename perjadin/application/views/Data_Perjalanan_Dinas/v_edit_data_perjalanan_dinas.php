@@ -4,11 +4,9 @@
             <div class="col-md-12 grid-margin">
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                    <a title="Kembali"
-                                    class="btn btn-sm btn-success" style="border-radius:90px; color:white"
-                                    href="<?php echo site_url('perjalanan_dinas') ?>"><i class="ti ti-arrow-left"
-                                        style="border-radius:8px"></i></a>
-                        <br><br><h3 class="m-0 font-weight-bold text-primary">Edit Data Perjalanan Dinas</h3><br>
+                        <a title="Kembali" class="btn btn-sm btn-success" style="border-radius:90px; color:white" href="<?php echo site_url('perjalanan_dinas') ?>"><i class="ti ti-arrow-left" style="border-radius:8px"></i></a>
+                        <br><br>
+                        <h3 class="m-0 font-weight-bold text-primary">Edit Data Perjalanan Dinas</h3><br>
                         <div class="col-md-12 grid-margin">
                             <div class="card-body">
                                 <?php foreach ($update_perjalanan_dinas as $pd) { ?>
@@ -110,6 +108,21 @@
                                                         <?php echo form_error('no_surat_tugas', '<div class="text-small text-danger"></div>') ?>
                                                     </div>
                                                 </div>
+
+                                                <div class="form-group">
+                                                    <label><b>No. Surat Tugas (TU)</b></label>
+                                                    <div class="input-group mb-2">
+                                                        <input type="text" name="no_surat" value="<?php echo $pd->no_surat ?>" placeholder="Nomor Surat" class="form-control col-md-2" required>
+
+                                                        <div class="input-group-prepend">
+                                                            <div style="width:130px;color:dimgray" class="input-group-text">/TU.040/H.8.3/</div>
+                                                        </div>
+                                                        <input type="hidden" name="kode_surat_tu" value="/TU.040/H.8.3/" class="form-control">
+                                                        <input type="text" name="no_surat_tugas_tu" <?php $no = $pd->no_surat_tugas_tu;
+                                                                                                    $no_surat_fix   = substr($no, 14,); ?> value="<?php echo $no_surat_fix ?>" placeholder="mm/yyyy" class="form-control" required>
+                                                        <?php echo form_error('no_surat_tugas', '<div class="text-small text-danger"></div>') ?>
+                                                    </div>
+                                                </div>
                                                 <div class="form-group">
                                                     <label><b>MAK</b></label></br>
                                                     <?php $mak1 = $pd->kode_mak ?>
@@ -198,6 +211,18 @@
                                                     <label><b>Tanggal Kembali</b></label>
                                                     <input value="<?php echo $pd->tanggal_kembali ?>" type="date" name="tanggal_kembali" class="form-control" required>
                                                     <?php echo form_error('tanggal_kembali', '<div class="text-small text-danger"></div>') ?>
+                                                </div>
+                                                <div class="form-group" id="kb">
+                                                    <label><b>Ka. Sub Bag Tata Usaha</b></label>
+                                                    <?php $nkbt = $pd->nip_kasub_bag_tu ?>
+                                                    <select title="Pilih Ka. Sub Bag Tata Usaha" name="nip_kasub_bag_tu" id="nip_kasub_bag_tu" class="form-control">
+                                                        <option value="null">--Ka. Sub Bag Tata Usaha--</option>
+                                                        <?php foreach ($nip_kasub_bag_tu as $row) : ?>
+                                                            <option <?php if ($nkbt == $row->nip) {
+                                                                        echo 'selected="selected"';
+                                                                    } ?> value="<?php echo $row->nip ?>"><?php echo $row->nip . " | " . $row->nama_pegawai; ?></option>
+                                                        <?php endforeach; ?>
+                                                    </select>
                                                 </div>
                                                 <div class="form-group" id="kb">
                                                     <label><b>TTD surat tugas oleh Kepala Balai</b></label>

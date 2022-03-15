@@ -64,6 +64,7 @@ class Perjalanan_dinas extends CI_Controller
     function tambah_aksi()
     {
         $no_surat_tugas = $this->input->post('kode_surat').$this->input->post('no_surat_tugas');
+        $no_surat_tugas_tu = $this->input->post('kode_surat_tu').$this->input->post('no_surat_tugas_tu');
         $tanggal_berangkat = $this->input->post('tanggal_berangkat');
         $tanggal_kembali = $this->input->post('tanggal_kembali');
 
@@ -76,6 +77,8 @@ class Perjalanan_dinas extends CI_Controller
             'nip_pumk' => $this->input->post('nip_pumk'),
             'tanggal_pengajuan' => $this->input->post('tanggal_pengajuan'),
             // 'no_st' => $this->generateID(),
+            'no_surat' => $this->input->post('no_surat'),
+            'no_surat_tugas_tu' => $no_surat_tugas_tu,
             'no_surat_tugas' => $no_surat_tugas,
             'kode_mak' => $this->input->post('kode_mak'),
             'jenis_pengajuan' => $this->input->post('jenis_pengajuan'),
@@ -90,6 +93,7 @@ class Perjalanan_dinas extends CI_Controller
             'nip_ppk' => $this->input->post('nip_ppk'),
             'nip_bendahara' => $this->input->post('nip_bendahara'),
             'nip_kpa' => $this->input->post('nip_kpa'),
+            'nip_kasub_bag_tu' => $this->input->post('nip_kasub_bag_tu'),
             'nip_kepala_balai' => $this->input->post('nip_kepala_balai'),
             'nip_plt_kb' => $this->input->post('nip_plt_kb')
         );
@@ -124,6 +128,7 @@ class Perjalanan_dinas extends CI_Controller
         $data['nip_bendahara'] = $this->Model_pegawai->getListBendahara();
         $data['nip_kepala_balai'] = $this->Model_pegawai->getListKepalaBalai();
         $data['nip_plt_kb'] = $this->Model_pegawai->getListPltBalai();
+        $data['nip_kasub_bag_tu'] = $this->Model_pegawai->getListKasubTU();
         $data['title'] = "PERJADIN | Edit Data Perjalanan Dinas";
 
         $this->load->view('templates/v_template', $data);
@@ -134,6 +139,7 @@ class Perjalanan_dinas extends CI_Controller
     {
         $id_perjalanan_dinas = $this->input->post('id_perjalanan_dinas');
         $no_surat_tugas = $this->input->post('kode_surat').$this->input->post('no_surat_tugas');
+        $no_surat_tugas_tu = $this->input->post('kode_surat_tu').$this->input->post('no_surat_tugas_tu');
         $tanggal_berangkat = $this->input->post('tanggal_berangkat');
         $tanggal_kembali = $this->input->post('tanggal_kembali');
 
@@ -145,6 +151,8 @@ class Perjalanan_dinas extends CI_Controller
             'dalam_rangka' => $this->input->post('dalam_rangka'),
             'nip_pumk' => $this->input->post('nip_pumk'),
             'tanggal_pengajuan' => $this->input->post('tanggal_pengajuan'),
+            'no_surat' => $this->input->post('no_surat'),
+            'no_surat_tugas_tu' => $no_surat_tugas_tu,
             'no_surat_tugas' => $no_surat_tugas,
             'kode_mak' => $this->input->post('kode_mak'),
             'jenis_pengajuan' => $this->input->post('jenis_pengajuan'),

@@ -60,8 +60,8 @@
                                                                                 <b>Surat Tugas
                                                                             </button>
                                                                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                                                <a class="dropdown-item " href="#"><b>- TTD Kepala Balai</a>
-                                                                                <a class="dropdown-item" href="<?php echo base_url('pdf/capsah_1/' . $j->id_perjalanan_dinas) ?>"><b>- TTD Plh. Kepala Balai</a>
+                                                                                <a class="dropdown-item " href="<?php echo base_url('pdf/surat_tugas/' . $j->id_perjalanan_dinas) ?>"><b>- TTD Kepala Balai</a>
+                                                                                <a class="dropdown-item" href="<?php echo base_url('pdf/surat_tugas_plt/' . $j->id_perjalanan_dinas) ?>"><b>- TTD Plh. Kepala Balai</a>
                                                                             </div>
                                                                         </div>
                                                                         <div style="position:absolute;margin-top:-40px;margin-left:510px;" class="dropdown">
@@ -69,8 +69,8 @@
                                                                                 <b>Surat Tugas (TU)
                                                                             </button>
                                                                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                                                <a class="dropdown-item " href="<?php echo base_url('pdf/surat_tugas/' . $j->id_perjalanan_dinas) ?>"><b>- TTD Kepala Balai</a>
-                                                                                <a class="dropdown-item" href="<?php echo base_url('pdf/surat_tugas_plt/' . $j->id_perjalanan_dinas) ?>"><b>- TTD Plh. Kepala Balai</a>
+                                                                                <a class="dropdown-item " href="#"><b>- TTD Kepala Balai</a>
+                                                                                <a class="dropdown-item" href="#"><b>- TTD Plh. Kepala Balai</a>
                                                                             </div>
                                                                         </div>
 

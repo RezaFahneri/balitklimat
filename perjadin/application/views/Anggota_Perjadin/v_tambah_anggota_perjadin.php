@@ -4,11 +4,9 @@
             <div class="col-md-12 grid-margin">
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                    <a title="Kembali"
-                                    class="btn btn-sm btn-success" style="border-radius:90px; color:white"
-                                    href="<?php echo site_url('perjalanan_dinas') ?>"><i class="ti ti-arrow-left"
-                                        style="border-radius:8px"></i></a>
-                        <br><br><h3 class="m-0 font-weight-bold text-primary">Tambah Anggota Perjalanan Dinas</h3><br>
+                        <a title="Kembali" class="btn btn-sm btn-success" style="border-radius:90px; color:white" href="<?php echo site_url('perjalanan_dinas') ?>"><i class="ti ti-arrow-left" style="border-radius:8px"></i></a>
+                        <br><br>
+                        <h3 class="m-0 font-weight-bold text-primary">Tambah Anggota Perjalanan Dinas</h3><br>
                         <div class="flash-data" id="flash2" data-flash="<?= $this->session->flashdata('sukses'); ?>"></div>
                         <div class="flash-data" id="flash" data-flash="<?= $this->session->flashdata('error'); ?>"></div>
                         <div class="col-md-12 grid-margin">
@@ -48,19 +46,23 @@
                                             </select>
                                         </div>
                                         <div class="form-group">
-                                        <label><b>No. SPPD</b></label>
-                                        <div class="input-group mb-2">
-                                            <div class="input-group-prepend">
-                                                <div style="width:130px;color:dimgray" class="input-group-text">/SPPD/I.8.3/</div>
+                                            <label><b>No. SPPD</b></label>
+                                            <div class="input-group mb-2">
+                                                <div class="input-group-prepend">
+                                                    <div style="width:130px;color:dimgray" class="input-group-text">/SPPD/I.8.3/</div>
+                                                </div>
+                                                <input type="hidden" name="kode_sppd" value="/SPPD/I.8.3/" class="form-control">
+                                                <input type="text" name="no_sppd" placeholder="mm/yyyy" class="form-control" required>
+                                                <?php echo form_error('no_sppd', '<div class="text-small text-danger"></div>') ?>
                                             </div>
-                                            <input type="hidden" name="kode_sppd" value="/SPPD/I.8.3/" class="form-control">
-                                            <input type="text" name="no_sppd" placeholder="mm/yyyy" class="form-control" required>
-                                            <?php echo form_error('no_sppd', '<div class="text-small text-danger"></div>') ?>
                                         </div>
-                                    </div>
                                         <div class="form-group">
                                             <label><b>No. Surat Tugas</b></label>
                                             <input readonly type="text" value="<?php echo $dpd->no_surat_tugas ?>" class="form-control" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label><b>No. Surat Tugas (TU)</b></label>
+                                            <input readonly type="text" value="<?php echo $dpd->no_surat.$dpd->no_surat_tugas_tu ?>" class="form-control" required>
                                         </div>
                                         <div class="form-group">
                                             <label><b>Berangkat Dari</b></label>
@@ -77,7 +79,7 @@
                                         <div class="form-group">
                                             <label><b>Uang Harian</b></label>
                                             <input type="number" name="uang_harian" <?php if ($dpd->kota == $dpd->kota_tujuan) {
-                                                                                            ?> value="<?php echo $dpd->dalam_kota_tujuan * $dpd->lama_perjalanan ?>" <?php
+                                                                                    ?> value="<?php echo $dpd->dalam_kota_tujuan * $dpd->lama_perjalanan ?>" <?php
                                                                                                                                                                     } else {
                                                                                                                                                                         ?>value="<?php echo $dpd->luar_kota_tujuan * $dpd->lama_perjalanan ?>" <?php
                                                                                                                                                                                                                                             } ?> class="form-control" required>

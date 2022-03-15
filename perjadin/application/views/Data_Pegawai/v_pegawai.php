@@ -46,7 +46,14 @@
                                                                 <tr>
                                                                     <td style="font-size: 12px;text-align:center"><?php echo $no++ ?></td>
                                                                     <td style="font-size: 12px;"><?php echo $dp->nama_pegawai ?></td>
-                                                                    <td style="font-size: 12px;"><?php echo $dp->nip ?></td>
+                                                                    <?php
+                                                                    $nip = $dp->nip;
+                                                                    if ($nip[0] == 'H') {
+                                                                    ?><td style="font-size: 12px;"><?php echo ' '; ?></td><?php
+                                                                                    } else {
+                                                                                        ?><td style="font-size: 12px;"><?php echo $nip; ?></td><?php
+                                                                                        } ?>
+                                                                    <!-- <td style="font-size: 12px;"><?php echo $dp->nip ?></td> -->
                                                                     <!--  <td style="font-size: 12px;">
                                                                         <img  style="width:50px;height: 50px;" src="<?php //echo base_url() . '../asn/assets/images/foto/' . $dp->foto 
                                                                                                                     ?> " class="zoomable">

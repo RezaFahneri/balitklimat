@@ -60,6 +60,10 @@
                                                     <td><input class="form-control" type="text" readonly value="<?php echo $detail->no_surat_tugas ?>"></td>
                                                 </tr>
                                                 <tr>
+                                                    <th>No Surat Tugas (TU)</th>
+                                                    <td><input class="form-control" type="text" readonly value="<?php echo $detail->no_surat.$detail->no_surat_tugas_tu ?>"></td>
+                                                </tr>
+                                                <tr>
                                                     <th>MAK</th>
                                                     <td><input class="form-control" type="text" readonly value="<?php echo $detail->judul_mak ?>"></td>
                                                 </tr>

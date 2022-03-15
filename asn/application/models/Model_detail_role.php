@@ -2,6 +2,7 @@
 class Model_detail_role extends CI_model
 {
 	private $tb_detail_role = "detail_role";
+	private $tb_sp = "status_perjalanan";
 
     function insert($table,$data){
 		$this->db->insert($table,$data);
@@ -31,8 +32,16 @@ class Model_detail_role extends CI_model
 			return false;
 		}
 	}
+	function hapus_data3($nip){
+		return $this->db->delete($this->tb_sp , array("nip" => $nip));
+		if($this->db->affected_rows() > 0){
+			return true;
+		}else{
+			return false;
+		}
+	}
 
-	function hapus_data3($where,$table){
+	function hapus_data4($where,$table){
 		$this->db->where($where);
 		$this->db->delete($table);
 		if($this->db->affected_rows() > 0){
