@@ -166,6 +166,7 @@ class Data_Pegawai extends CI_Controller
         $id_status_peg = $this->input->post('id_status_peg');
         $id_jabatan = $this->input->post('id_jabatan');
         $id_divisi = $this->input->post('id_divisi');
+        $id_pangkat = $this->input->post('id_pangkat');
         $nik = $this->input->post('nik');
         $email = $this->input->post('email');
         $password = $this->input->post('password');
@@ -177,6 +178,7 @@ class Data_Pegawai extends CI_Controller
             'id_status_peg'   => $id_status_peg,
             'id_jabatan'   => $id_jabatan,
             'id_divisi'   => $id_divisi,
+            'id_pangkat'   => $id_pangkat,
             'nik'   => $nik,
             'email' => $email,
             'password' => $password,
@@ -193,6 +195,7 @@ class Data_Pegawai extends CI_Controller
             'id_status_peg'   => $id_status_peg,
             'id_jabatan'   => $id_jabatan,
             'id_divisi'   => $id_divisi,
+            'id_pangkat'   => $id_pangkat,
             'nik'   => $nik,
             'email' => $email,
             'password' => $password,
@@ -203,8 +206,8 @@ class Data_Pegawai extends CI_Controller
         );
         $this->load->Model('Model_pegawai');
         $this->Model_pegawai->update_data($where, $data1, 'data_pegawai');
-        $this->Model_pegawai->update_data($where, $data2, 'status_perjalanan');
-        $this->Model_pegawai->update_data($where, $data3, 'detail_role');
+        $this->Model_pegawai->update_data2($where, $data2, 'status_perjalanan');
+        $this->Model_pegawai->update_data3($where, $data3, 'detail_role');
         $this->session->set_flashdata('sukses', 'Data Pegawai berhasil diperbarui');
         redirect('data_pegawai');
     }

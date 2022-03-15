@@ -25,9 +25,8 @@
                                                     <?php echo form_error('nama_pegawai', '<div class="text-small text-danger"></div>') ?>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label><b>NIP</b></label>
-                                                    <input readonly type="text" name="nip"
-                                                        value="<?php echo $ep->nip ?>" class="form-control" required>
+                                                    <input readonly type="hidden" name="nip"
+                                                        value="<?php echo $ep->nip?>" class="form-control" required>
                                                     <?php echo form_error('nip', '<div class="text-small text-danger"></div>') ?>
                                                 </div>
                                                 <div class="form-group">
@@ -35,7 +34,7 @@
                                                     <?php $id_golongan1 = $ep->id_golongan ?>
                                                     <select style="color:dimgray" name="id_golongan" id="id_golongan"
                                                         class="form-control" required>
-                                                        <option value=""></option>
+                                                        <option value="1">--Pilih Golongan--</option>
                                                         <?php foreach($id_golongan as $row){?>
                                                         <option
                                                             <?php if($id_golongan1==$row->id_golongan){echo 'selected="selected"';} ?>
@@ -65,7 +64,7 @@
                                                     <?php $id_pangkat1 = $ep->id_pangkat ?>
                                                     <select style="color:dimgray" name="id_pangkat" id="id_pangkat"
                                                         class="form-control" required>
-                                                        <option value="">--Pilih Pangkat--</option>
+                                                        <option value="1">--Pilih Pangkat--</option>
                                                         <?php foreach($id_pangkat as $row){?>
                                                         <option
                                                             <?php if($id_pangkat1==$row->id_pangkat){echo 'selected="selected"';} ?>

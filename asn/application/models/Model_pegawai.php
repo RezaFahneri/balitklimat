@@ -95,6 +95,14 @@ class Model_pegawai extends CI_model
 		$this->db->where($where);
 		$this->db->update($table,$data);
 	}
+	function update_data2($where,$data,$table){
+		$this->db->where($where);
+		$this->db->update($table,$data);
+	}
+	function update_data3($where,$data,$table){
+		$this->db->where($where);
+		$this->db->update($table,$data);
+	}
 	function hapus_data($nip){
 		return $this->db->delete($this->tb_data_pegawai , array("nip" => $nip));
 		if($this->db->affected_rows() > 0){
