@@ -6,6 +6,7 @@
                     <div class="card-body">
                         <div class="table-responsive">
                             <h3 class="font-weight-bold mb-10">Notifikasi</h3>
+                            <label for="doktgs" style="color: red;">*Apabila pembimbing melakukan perubahan penugasan, maka hasil penugasan sebelumya akan hilang</label>
                             <div class="mt-3">
                                 <a onclick="shownp()" class="btn btn-sm btn-info mb-3">Penugasan</a>
                                 <a onclick="shownl()" class="btn btn-sm btn-primary mb-3">Laporan</a>
@@ -18,9 +19,9 @@
                                             if ($nt->jenis == 'UTugas') { ?>
                                                 <?php
                                                 if ($nt->status_np == 'read') { ?>
-                                                    <a class="btn btn-block btn-outline-light btn-md text-left"><?= date('d M Y', strtotime($nt->tgl_notif)) ?> - Pembimbing merubah penugasan dengan ID Tugas: <?= $nt->id_tugas; ?></a>
+                                                    <a class="btn btn-block btn-outline-light btn-md text-left"><?= date('d M Y', strtotime($nt->tgl_notif)) ?> - Pembimbing merubah penugasan dengan ID Tugas: <?= $nt->id_tugas; ?>. Silakan menambahkan hasil penugasan kembali</a>
                                                 <?php } else { ?>
-                                                    <a class="btn btn-block btn-outline-info btn-md text-left" href="<?= base_url('peserta/notifikasi/penugasan/' . $nt->id_np) ?>"><?= date('d M Y', strtotime($nt->tgl_notif)) ?> - Pembimbing merubah penugasan dengan ID Tugas: <?= $nt->id_tugas; ?></a>
+                                                    <a class="btn btn-block btn-outline-info btn-md text-left" href="<?= base_url('peserta/notifikasi/penugasan/' . $nt->id_np) ?>"><?= date('d M Y', strtotime($nt->tgl_notif)) ?> - Pembimbing merubah penugasan dengan ID Tugas: <?= $nt->id_tugas; ?>. Silakan menambahkan hasil penugasan kembali</a>
                                                 <?php } ?>
                                             <?php } else { ?>
                                                 <?php

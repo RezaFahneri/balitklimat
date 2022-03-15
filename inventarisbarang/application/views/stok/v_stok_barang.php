@@ -21,7 +21,7 @@
                                                     <tr>
                                                         <th>No</th>
                                                         <!-- <th>Kode</th> -->
-                                                        <th>Gambar</th>
+                                                        <th style="width: 60px;">Gambar</th>
                                                         <th>Nama Barang</th>
                                                         <!-- <th>Jenis Barang</th> -->
                                                         <th>Jumlah Barang</th>
@@ -47,11 +47,17 @@
                                                             <td><?php echo $dp->satuan_barang ?></td>
                                                             <!-- <td><?php echo $dp->kondisi_barang ?></td> -->
                                                             <!-- <td><?php echo $dp->keterangan ?></td> -->
-                                                            <td>
-                                                                <a data-toggle="tooltip" title="Detail" style="font-size:25px" class="btn btn-sm btn-info" href="<?php echo base_url('/stok_barang/detail/' . $dp->id_barang) ?>"><i class="mdi mdi-information-outline"></i></a>
-                                                                <a data-toggle="tooltip" title="Edit" style="font-size:25px" class="btn btn-md btn-success" href="<?php echo base_url() ?>stok_barang/edit?id_barang=<?php echo $dp->id_barang ?>"><i class="mdi mdi-pencil"></i></a>
-                                                                <a data-toggle="tooltip" title="Hapus" style="font-size:25px" id="tombol-hapus3" class="btn btn-sm btn-danger" href="<?php echo site_url('stok_barang/hapus/' . $dp->id_barang) ?>"><i class="mdi mdi-delete"></i></a>
-                                                            </td>
+                                                            <?php if ($this->session->userdata('role') == "User") { ?>
+                                                                <td>
+                                                                    <a data-toggle="tooltip" title="Detail" style="font-size:25px" class="btn btn-sm btn-info" href="<?php echo base_url('/stok_barang/detail/' . $dp->id_barang) ?>"><i class="mdi mdi-information-outline"></i></a>
+                                                                </td>
+                                                            <?php } else if ($this->session->userdata('role') == "Admin Inventaris") { ?>
+                                                                <td>
+                                                                    <a data-toggle="tooltip" title="Detail" style="font-size:25px" class="btn btn-sm btn-info" href="<?php echo base_url('/stok_barang/detail/' . $dp->id_barang) ?>"><i class="mdi mdi-information-outline"></i></a>
+                                                                    <a data-toggle="tooltip" title="Edit" style="font-size:25px" class="btn btn-md btn-success" href="<?php echo base_url() ?>stok_barang/edit?id_barang=<?php echo $dp->id_barang ?>"><i class="mdi mdi-pencil"></i></a>
+                                                                    <a data-toggle="tooltip" title="Hapus" style="font-size:25px" id="tombol-hapus3" class="btn btn-sm btn-danger" href="<?php echo site_url('stok_barang/hapus/' . $dp->id_barang) ?>"><i class="mdi mdi-delete"></i></a>
+                                                                </td>
+                                                            <?php } ?>
                                                         </tr>
                                                     <?php } ?>
                                                 </tbody>

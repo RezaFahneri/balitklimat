@@ -53,7 +53,7 @@
                     <li class="nav-item nav-profile dropdown">
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
                             <?php if ($this->session->userdata('logged_in') == true) { ?>
-                                <img src="<?php echo base_url() ?>assets/images/upload/<?php echo $this->db->where('email', $this->session->userdata('email'))->get('data_pegawai')->row('foto') ?>" class="img-circle profile_img" alt="profile" />
+                                <img src="<?php echo base_url() ?>../asn/assets/images/foto/<?php echo $this->db->where('email', $this->session->userdata('email'))->get('data_pegawai')->row('foto') ?>" class="img-circle profile_img" alt="profile" />
                             <?php } else { ?>
                                 <img src="<?php echo base_url() ?>assets/images/upload/default.png" class="img-circle profile_img" alt="profile" />
                             <?php } ?>
@@ -61,18 +61,13 @@
                         <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
                             <a href="<?php echo base_url() ?>profil" class="dropdown-item">
                                 <i class="mdi mdi-account"></i>
-                                Profil
+                                Detail Profil
                             </a>
                             <a id="logout" class="dropdown-item" href="<?php echo base_url(); ?>dashboard/logout">
                                 <i class="ti ti-logout"></i>
                                 Logout
                             </a>
                         </div>
-                    </li>
-                    <li class="nav-item nav-settings d-none d-lg-flex">
-                        <a class="nav-link" href="#">
-                            <i class="icon-menu"></i>
-                        </a>
                     </li>
                 </ul>
                 <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
@@ -242,19 +237,21 @@
                             <span class="menu-title">Dashboard</span>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#master" aria-expanded="false" aria-controls="master">
-                            <i class="mdi mdi-database menu-icon" style="font-size: 20px"></i>
-                            <span class="menu-title">Data Master</span>
-                            <i class="menu-arrow" style="margin-left: 40%;"></i>
-                        </a>
-                        <div class="collapse" id="master">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="<?php echo base_url(); ?>Jenis_barang">Jenis Barang</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="<?php echo base_url(); ?>Satuan_barang">Satuan Barang</a></li>
-                            </ul>
-                        </div>
-                    </li>
+                    <?php if ($this->session->userdata('role') == "Admin Inventaris") { ?>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="collapse" href="#master" aria-expanded="false" aria-controls="master">
+                                <i class="mdi mdi-database menu-icon" style="font-size: 20px"></i>
+                                <span class="menu-title">Data Master</span>
+                                <i class="menu-arrow" style="margin-left: 40%;"></i>
+                            </a>
+                            <div class="collapse" id="master">
+                                <ul class="nav flex-column sub-menu">
+                                    <li class="nav-item"> <a class="nav-link" href="<?php echo base_url(); ?>Jenis_barang">Jenis Barang</a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="<?php echo base_url(); ?>Satuan_barang">Satuan Barang</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    <?php } ?>
                     <li class="nav-item">
                         <a class="nav-link" href="<?php echo base_url(); ?>stok_barang" aria-expanded="false">
                             <i class="mdi mdi-clipboard-text menu-icon" style="font-size: 20px"></i>

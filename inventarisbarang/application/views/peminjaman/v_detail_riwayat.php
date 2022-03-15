@@ -4,6 +4,7 @@
             <div class="col-md-12 grid-margin">
                 <div class="shadow">
                     <div class="card-header py-3">
+                        <a title="Kembali" class="btn btn-sm btn-success" style="border-radius:90px; color:white;margin-bottom:15px;" href="<?php echo site_url('riwayat_peminjaman') ?>"><i class="ti ti-arrow-left" style="border-radius:8px;"></i></a>
                         <h3 class="m-0 font-weight-bold">Detail Riwayat Peminjaman Barang</h3><br>
                         <div class="col-md-12 grid-margin">
                             <div class="card mb-12">
@@ -27,7 +28,7 @@
                                                 <td colspan="2">
                                                     <input type="text" class="form-control" value="<?php echo tanggal_indonesia($detail->tglpinjam) ?>" disabled>
                                                 </td>
-                                            </tr>                                            
+                                            </tr>
                                             <tr>
                                                 <td><b>Tanggal Selesai</b></td>
                                                 <td colspan="2">
@@ -63,7 +64,7 @@
                                             <tr>
                                                 <td>
                                                     <a style="color:#ffffff" class="btn btn-secondary" href="<?php echo base_url(); ?>riwayat_peminjaman">
-                                                       &nbsp;&nbsp;&nbsp;Kembali&nbsp;&nbsp;&nbsp;
+                                                        &nbsp;&nbsp;&nbsp;Kembali&nbsp;&nbsp;&nbsp;
                                                     </a>
                                                 </td>
                                             </tr>

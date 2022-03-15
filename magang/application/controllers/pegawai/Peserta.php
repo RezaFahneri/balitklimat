@@ -19,8 +19,25 @@ class Peserta extends CI_Controller
         $data['nip'] = $data['user']['nip'];
         $ket = ['pembimbing_balai' => $nip];
         $data['ps'] = $this->Model_pegawai->getdet('peserta_magang', $ket, 'nama_pm', 'ASC')->result();
+        $data['all1'] = count($this->Model_pegawai->getdet('peserta_magang', $ket, 'nama_pm', 'ASC')->result());
+        $ketb1 = ['pembimbing_balai' => $nip, 'status_pm' => 'berlangsung', 'jns_magang' => 'Mahasiswa'];
+        $ketb2 = ['pembimbing_balai' => $nip, 'status_pm' => 'berlangsung', 'jns_magang' => 'Mandiri'];
+        $ketb3 = ['pembimbing_balai' => $nip, 'status_pm' => 'berlangsung', 'jns_magang' => 'Siswa'];
+        $ketb4 = ['pembimbing_balai' => $nip, 'status_pm' => 'berlangsung'];
+        $data['b1'] = count($this->Model_pegawai->getdet('peserta_magang', $ketb1)->result());
+        $data['b2'] = count($this->Model_pegawai->getdet('peserta_magang', $ketb2)->result());
+        $data['b3'] = count($this->Model_pegawai->getdet('peserta_magang', $ketb3)->result());
+        $data['b4'] = count($this->Model_pegawai->getdet('peserta_magang', $ketb4)->result());
+        $kets1 = ['pembimbing_balai' => $nip, 'status_pm' => 'selesai', 'jns_magang' => 'Mahasiswa'];
+        $kets2 = ['pembimbing_balai' => $nip, 'status_pm' => 'selesai', 'jns_magang' => 'Mandiri'];
+        $kets3 = ['pembimbing_balai' => $nip, 'status_pm' => 'selesai', 'jns_magang' => 'Siswa'];
+        $kets4 = ['pembimbing_balai' => $nip, 'status_pm' => 'selesai'];
+        $data['s1'] = count($this->Model_pegawai->getdet('peserta_magang', $kets1)->result());
+        $data['s2'] = count($this->Model_pegawai->getdet('peserta_magang', $kets2)->result());
+        $data['s3'] = count($this->Model_pegawai->getdet('peserta_magang', $kets3)->result());
+        $data['s4'] = count($this->Model_pegawai->getdet('peserta_magang', $kets4)->result());
         $data['pegawai'] = $this->Model_pegawai->get_peg_pdf();
-        // var_dump($data['pegawai']);
+        // var_dump($data['b1']);
         $this->load->view('templates/header', $data);
         $this->load->view('templates/navbar', $data);
         $this->load->view('templates/sidebar');
@@ -33,7 +50,10 @@ class Peserta extends CI_Controller
         $data['user'] = $this->Model_pegawai->getuser();
         $ket = ['id_pm' => $id_pm];
         $data['lap'] = $this->Model_pegawai->getdet('laporan_mingguan', $ket, 'tgl_lap_ming', 'ASC')->result();
-        $getdetail = $this->Model_pegawai->getdet('peserta_magang', $ket)->row();
+        // $getdetail = $this->Model_pegawai->getdet('peserta_magang', $ket)->row();
+        $ket1 = 'data_pegawai.nip = peserta_magang.pembimbing_balai';
+        $getdetail = $this->Model_pegawai->ajoin2('peserta_magang', 'data_pegawai', $ket1, $ket, $id_pm, 'inner', 'nama_pm', 'ASC')->row();
+        // $getdetail = $this->Model_pegawai->ajoin2('peserta_magang', $ket)->row();
         $data['detail'] = $getdetail;
         $nohp = $getdetail->no_wa_pm;
         $nohp2 = $getdetail->no_wa_pi_pm;
@@ -77,7 +97,24 @@ class Peserta extends CI_Controller
         $ket1 = 'data_pegawai.nip = peserta_magang.pembimbing_balai';
         $getdetail = $this->Model_pegawai->bjoin2('peserta_magang', 'data_pegawai', $ket1, 'inner', 'nama_pm', 'ASC')->result();
         $data['detail'] = $getdetail;
+        $data['aall1'] = count($getdetail);
         $data['pegawai'] = $this->Model_pegawai->get_peg_pdf();
+        $ketb1 = ['status_pm' => 'berlangsung', 'jns_magang' => 'Mahasiswa'];
+        $ketb2 = ['status_pm' => 'berlangsung', 'jns_magang' => 'Mandiri'];
+        $ketb3 = ['status_pm' => 'berlangsung', 'jns_magang' => 'Siswa'];
+        $ketb4 = ['status_pm' => 'berlangsung'];
+        $data['ab1'] = count($this->Model_pegawai->getdet('peserta_magang', $ketb1)->result());
+        $data['ab2'] = count($this->Model_pegawai->getdet('peserta_magang', $ketb2)->result());
+        $data['ab3'] = count($this->Model_pegawai->getdet('peserta_magang', $ketb3)->result());
+        $data['ab4'] = count($this->Model_pegawai->getdet('peserta_magang', $ketb4)->result());
+        $kets1 = ['status_pm' => 'selesai', 'jns_magang' => 'Mahasiswa'];
+        $kets2 = ['status_pm' => 'selesai', 'jns_magang' => 'Mandiri'];
+        $kets3 = ['status_pm' => 'selesai', 'jns_magang' => 'Siswa'];
+        $kets4 = ['status_pm' => 'selesai'];
+        $data['as1'] = count($this->Model_pegawai->getdet('peserta_magang', $kets1)->result());
+        $data['as2'] = count($this->Model_pegawai->getdet('peserta_magang', $kets2)->result());
+        $data['as3'] = count($this->Model_pegawai->getdet('peserta_magang', $kets3)->result());
+        $data['as4'] = count($this->Model_pegawai->getdet('peserta_magang', $kets4)->result());
         // var_dump($data['detail']);
         $this->load->view('templates/header', $data);
         $this->load->view('templates/navbar', $data);
@@ -135,7 +172,7 @@ class Peserta extends CI_Controller
                 $data['tglakhir'] = ' ';
                 $data['pdfpeg'] = $data['user']['nama_pegawai'];
                 $data['pdfjns'] = 'Seluruh Jenis';
-                $data['pdfjns'] = $pdfstat;
+                $data['pdfstat'] = $pdfstat;
             } elseif ($tglawal == NULL or $tglakhir == NULL) {
                 //ga valid
                 $this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible fade show" role="alert" style="width:90%"> Tanggal Tidak Valid! <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -153,7 +190,7 @@ class Peserta extends CI_Controller
                 $data['tglakhir'] = date('d M Y', strtotime($tglakhir));
                 $data['pdfpeg'] = $data['user']['nama_pegawai'];
                 $data['pdfjns'] = 'Seluruh Jenis';
-                $data['pdfjns'] = $pdfstat;
+                $data['pdfstat'] = $pdfstat;
             }
         } elseif ($pdfstat == NULL) {
             if ($tglawal == NULL  and $tglakhir == NULL) {
@@ -217,7 +254,7 @@ class Peserta extends CI_Controller
                 $data['tglakhir'] = date('d M Y', strtotime($tglakhir));
                 $data['pdfpeg'] = $data['user']['nama_pegawai'];
                 $data['pdfjns'] = $pdfjns;
-                $data['pdfjns'] = $pdfstat;
+                $data['pdfstat'] = $pdfstat;
             }
         }
 
@@ -227,6 +264,7 @@ class Peserta extends CI_Controller
         //     redirect('pegawai/data_peserta/peserta_seluruh');
         // }
         $data['title'] = 'Daftar Peserta Bimbingan';
+        $data['header'] = $this->Model_pegawai->getdet('data_header_surat', ['id_header_surat' => 'h01'])->row();
         $nama_file = 'peserta_magang_bimbingan';
         $size = 'A4';
         $orientation = "landscape";
@@ -257,7 +295,7 @@ class Peserta extends CI_Controller
                     $this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible fade show" role="alert" style="width:90%"> Tanggal Tidak Valid! <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button> </div>');
-                    redirect('pegawai/peserta');
+                    redirect('pegawai/peserta/peserta_seluruh');
                 } else {
                     // echo "cuma buat tgl";
                     $data['detail'] = $this->Model_pegawai->tgl(date('Y-m-d', strtotime($tglawal)), date('Y-m-d', strtotime($tglakhir)));
@@ -476,6 +514,7 @@ class Peserta extends CI_Controller
         }
         // var_dump($data['detail']);
         $data['title'] = 'Daftar Peserta Magang';
+        $data['header'] = $this->Model_pegawai->getdet('data_header_surat', ['id_header_surat' => 'h01'])->row();
         $nama_file = 'peserta_magang';
         $size = 'A4';
         $orientation = "landscape";
@@ -483,6 +522,7 @@ class Peserta extends CI_Controller
         $html = $this->load->view('v_lap_pdf', $data, true);
         $this->generatepdf->generate($html, $nama_file, $size, $orientation);
     }
+
 
     // public function test()
     // {

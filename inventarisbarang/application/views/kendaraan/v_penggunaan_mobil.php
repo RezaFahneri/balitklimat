@@ -45,16 +45,28 @@
                                                                 <td><?php echo $dp->lama_pemakaian . " Jam" ?></td>
                                                             <?php } ?>
                                                             <td><?php echo $dp->perjalanan ?></td>
-                                                            <?php if ($dp->status_penggunaan == '1') { ?>
-                                                                <td>
-                                                                    <button class="btn btn-outline-warning btn-md" disabled>Digunakan</button>
-                                                                    <hr style="width:80%;text-align:left;margin-left:0">
-                                                                    <a type="button" class="btn btn-outline-info btn-md" href="<?php echo base_url('penggunaan_mobil/selesai/' . $dp->id_penggunaan) . '/' . $dp->id_kendaraan . '/' . $dp->nip ?>">Selesai</a>
-                                                                </td>
-                                                            <?php } else { ?>
-                                                                <td>
-                                                                    <button type="button" class="btn btn-outline-secondary btn-md" disabled>Sudah kembali</button>
-                                                                </td>
+                                                            <?php if ($this->session->userdata('role') == "User") { ?>
+                                                                <?php if ($dp->status_penggunaan == '1') { ?>
+                                                                    <td>
+                                                                        <button class="btn btn-outline-warning btn-md" disabled>Digunakan</button>
+                                                                    </td>
+                                                                <?php } else { ?>
+                                                                    <td>
+                                                                        <button type="button" class="btn btn-outline-secondary btn-md" disabled>Sudah kembali</button>
+                                                                    </td>
+                                                                <?php } ?>
+                                                            <?php } else if ($this->session->userdata('role') == "Admin Inventaris") { ?>
+                                                                <?php if ($dp->status_penggunaan == '1') { ?>
+                                                                    <td>
+                                                                        <button class="btn btn-outline-warning btn-md" disabled>Digunakan</button>
+                                                                        <hr style="width:80%;text-align:left;margin-left:0">
+                                                                        <a type="button" class="btn btn-outline-info btn-md" href="<?php echo base_url('penggunaan_mobil/selesai/' . $dp->id_penggunaan) . '/' . $dp->id_kendaraan . '/' . $dp->nip ?>">Selesai</a>
+                                                                    </td>
+                                                                <?php } else { ?>
+                                                                    <td>
+                                                                        <button type="button" class="btn btn-outline-secondary btn-md" disabled>Sudah kembali</button>
+                                                                    </td>
+                                                                <?php } ?>
                                                             <?php } ?>
                                                         </tr>
                                                     <?php } ?>

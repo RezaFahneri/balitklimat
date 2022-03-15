@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 15, 2022 at 08:49 AM
--- Server version: 10.4.17-MariaDB
--- PHP Version: 8.0.0
+-- Waktu pembuatan: 15 Mar 2022 pada 17.22
+-- Versi server: 10.4.21-MariaDB
+-- Versi PHP: 7.4.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `barang`
+-- Struktur dari tabel `barang`
 --
 
 CREATE TABLE `barang` (
@@ -36,7 +36,7 @@ CREATE TABLE `barang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `barang`
+-- Dumping data untuk tabel `barang`
 --
 
 INSERT INTO `barang` (`id_barang`, `nama_barang`, `jenis_id`, `stok`, `satuan_id`) VALUES
@@ -52,7 +52,7 @@ INSERT INTO `barang` (`id_barang`, `nama_barang`, `jenis_id`, `stok`, `satuan_id
 -- --------------------------------------------------------
 
 --
--- Table structure for table `barang_keluar`
+-- Struktur dari tabel `barang_keluar`
 --
 
 CREATE TABLE `barang_keluar` (
@@ -68,7 +68,7 @@ CREATE TABLE `barang_keluar` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `barang_keluar`
+-- Dumping data untuk tabel `barang_keluar`
 --
 
 INSERT INTO `barang_keluar` (`id_barangkeluar`, `tanggal_keluar`, `barang_id`, `jumlah_keluar`, `keterangan`, `foto`, `dokumen`, `status`, `beritaacara`) VALUES
@@ -90,7 +90,7 @@ INSERT INTO `barang_keluar` (`id_barangkeluar`, `tanggal_keluar`, `barang_id`, `
 ('BK2203012', '2022-03-18', 7, 5, '', 'default.png', NULL, '', NULL);
 
 --
--- Triggers `barang_keluar`
+-- Trigger `barang_keluar`
 --
 DELIMITER $$
 CREATE TRIGGER `update_stok_keluar` BEFORE INSERT ON `barang_keluar` FOR EACH ROW UPDATE `barang` SET `barang`.`stok` = `barang`.`stok` - NEW.jumlah_keluar WHERE `barang`.`id_barang` = NEW.barang_id
@@ -108,7 +108,7 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `barang_kembali`
+-- Struktur dari tabel `barang_kembali`
 --
 
 CREATE TABLE `barang_kembali` (
@@ -122,7 +122,7 @@ CREATE TABLE `barang_kembali` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `barang_kembali`
+-- Dumping data untuk tabel `barang_kembali`
 --
 
 INSERT INTO `barang_kembali` (`id_barangkembali`, `tanggal_kembali`, `jumlah_kembali`, `keterangankembali`, `barang_idkeluar`, `fotokembali`, `dokumenkembali`) VALUES
@@ -144,7 +144,7 @@ INSERT INTO `barang_kembali` (`id_barangkembali`, `tanggal_kembali`, `jumlah_kem
 -- --------------------------------------------------------
 
 --
--- Table structure for table `barang_masuk`
+-- Struktur dari tabel `barang_masuk`
 --
 
 CREATE TABLE `barang_masuk` (
@@ -158,7 +158,7 @@ CREATE TABLE `barang_masuk` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `barang_masuk`
+-- Dumping data untuk tabel `barang_masuk`
 --
 
 INSERT INTO `barang_masuk` (`id_barangmasuk`, `tanggal_masuk`, `barang_id`, `jumlah_masuk`, `foto`, `dokumen`, `keterangan`) VALUES
@@ -173,7 +173,7 @@ INSERT INTO `barang_masuk` (`id_barangmasuk`, `tanggal_masuk`, `barang_id`, `jum
 ('BM2203003', '2022-03-10', 13, 2, 'default.png', NULL, '');
 
 --
--- Triggers `barang_masuk`
+-- Trigger `barang_masuk`
 --
 DELIMITER $$
 CREATE TRIGGER `update_stok_masuk` BEFORE INSERT ON `barang_masuk` FOR EACH ROW UPDATE `barang` SET `barang`.`stok` = `barang`.`stok` + NEW.jumlah_masuk WHERE `barang`.`id_barang` = NEW.barang_id
@@ -191,7 +191,7 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `buku_tamu`
+-- Struktur dari tabel `buku_tamu`
 --
 
 CREATE TABLE `buku_tamu` (
@@ -212,7 +212,7 @@ CREATE TABLE `buku_tamu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `buku_tamu`
+-- Dumping data untuk tabel `buku_tamu`
 --
 
 INSERT INTO `buku_tamu` (`id_buku_tamu`, `jenis`, `tanggal`, `waktu`, `nama_lengkap`, `asal_instansi`, `email`, `no_wa`, `id_divisi`, `pegawai_nip`, `keperluan`, `alasan`, `keterangan`, `laporan`) VALUES
@@ -233,7 +233,7 @@ INSERT INTO `buku_tamu` (`id_buku_tamu`, `jenis`, `tanggal`, `waktu`, `nama_leng
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data_anggota_perjadin`
+-- Struktur dari tabel `data_anggota_perjadin`
 --
 
 CREATE TABLE `data_anggota_perjadin` (
@@ -255,17 +255,10 @@ CREATE TABLE `data_anggota_perjadin` (
   `status_perjalanan_dinas` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `data_anggota_perjadin`
---
-
-INSERT INTO `data_anggota_perjadin` (`id_anggota_perjadin`, `id_perjalanan_dinas`, `nip_anggota_perjadin`, `no_sppd2`, `no_kas`, `uang_harian`, `uang_transportasi`, `hari1`, `hari2`, `hari3`, `biaya1`, `biaya2`, `biaya3`, `uang_penginapan`, `total_pendapatan`, `status_perjalanan_dinas`) VALUES
-(1, 24, '196710081994032013', '/SPPD/I.8.3/03/2022', NULL, 1290000, 0, 0, 0, 0, 0, 0, 0, 0, 1290000, 'Belum Berangkat');
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data_divisi`
+-- Struktur dari tabel `data_divisi`
 --
 
 CREATE TABLE `data_divisi` (
@@ -274,7 +267,7 @@ CREATE TABLE `data_divisi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `data_divisi`
+-- Dumping data untuk tabel `data_divisi`
 --
 
 INSERT INTO `data_divisi` (`id_divisi`, `divisi`) VALUES
@@ -284,7 +277,7 @@ INSERT INTO `data_divisi` (`id_divisi`, `divisi`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data_golongan`
+-- Struktur dari tabel `data_golongan`
 --
 
 CREATE TABLE `data_golongan` (
@@ -293,7 +286,7 @@ CREATE TABLE `data_golongan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `data_golongan`
+-- Dumping data untuk tabel `data_golongan`
 --
 
 INSERT INTO `data_golongan` (`id_golongan`, `golongan`) VALUES
@@ -312,7 +305,7 @@ INSERT INTO `data_golongan` (`id_golongan`, `golongan`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data_header_surat`
+-- Struktur dari tabel `data_header_surat`
 --
 
 CREATE TABLE `data_header_surat` (
@@ -327,7 +320,7 @@ CREATE TABLE `data_header_surat` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `data_header_surat`
+-- Dumping data untuk tabel `data_header_surat`
 --
 
 INSERT INTO `data_header_surat` (`id_header_surat`, `nama_kementerian`, `eslon_satu`, `eslon_dua`, `eslon_tiga`, `alamat`, `kontak`, `web_email`) VALUES
@@ -336,7 +329,7 @@ INSERT INTO `data_header_surat` (`id_header_surat`, `nama_kementerian`, `eslon_s
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data_jabatan`
+-- Struktur dari tabel `data_jabatan`
 --
 
 CREATE TABLE `data_jabatan` (
@@ -345,7 +338,7 @@ CREATE TABLE `data_jabatan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `data_jabatan`
+-- Dumping data untuk tabel `data_jabatan`
 --
 
 INSERT INTO `data_jabatan` (`id_jabatan`, `jabatan`) VALUES
@@ -362,7 +355,7 @@ INSERT INTO `data_jabatan` (`id_jabatan`, `jabatan`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data_jadwal_gaji_berkala`
+-- Struktur dari tabel `data_jadwal_gaji_berkala`
 --
 
 CREATE TABLE `data_jadwal_gaji_berkala` (
@@ -380,7 +373,7 @@ CREATE TABLE `data_jadwal_gaji_berkala` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `data_jadwal_gaji_berkala`
+-- Dumping data untuk tabel `data_jadwal_gaji_berkala`
 --
 
 INSERT INTO `data_jadwal_gaji_berkala` (`kode_kgb`, `tgl_penjadwalan`, `nip`, `gaji_lama`, `gaji_baru`, `tmt_gaji_1`, `tmt_gaji_2`, `tmt_gaji_3`, `tmt_gaji_4`, `tmt_gaji_5`, `jadwal_kgb`) VALUES
@@ -389,7 +382,7 @@ INSERT INTO `data_jadwal_gaji_berkala` (`kode_kgb`, `tgl_penjadwalan`, `nip`, `g
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data_jadwal_naik_pangkat`
+-- Struktur dari tabel `data_jadwal_naik_pangkat`
 --
 
 CREATE TABLE `data_jadwal_naik_pangkat` (
@@ -407,7 +400,7 @@ CREATE TABLE `data_jadwal_naik_pangkat` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `data_jadwal_naik_pangkat`
+-- Dumping data untuk tabel `data_jadwal_naik_pangkat`
 --
 
 INSERT INTO `data_jadwal_naik_pangkat` (`kode_kp`, `tgl_penjadwalan`, `nip`, `id_pangkat_berikutnya`, `id_golongan_berikutnya`, `tmt_pangkat_1`, `tmt_pangkat_2`, `tmt_pangkat_3`, `tmt_pangkat_4`, `tmt_pangkat_5`, `jadwal_kp`) VALUES
@@ -417,7 +410,7 @@ INSERT INTO `data_jadwal_naik_pangkat` (`kode_kp`, `tgl_penjadwalan`, `nip`, `id
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data_jenis_keg`
+-- Struktur dari tabel `data_jenis_keg`
 --
 
 CREATE TABLE `data_jenis_keg` (
@@ -426,7 +419,7 @@ CREATE TABLE `data_jenis_keg` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `data_jenis_keg`
+-- Dumping data untuk tabel `data_jenis_keg`
 --
 
 INSERT INTO `data_jenis_keg` (`id_jenis_keg`, `jenis_keg`) VALUES
@@ -436,7 +429,7 @@ INSERT INTO `data_jenis_keg` (`id_jenis_keg`, `jenis_keg`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data_kegiatan`
+-- Struktur dari tabel `data_kegiatan`
 --
 
 CREATE TABLE `data_kegiatan` (
@@ -450,16 +443,17 @@ CREATE TABLE `data_kegiatan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `data_kegiatan`
+-- Dumping data untuk tabel `data_kegiatan`
 --
 
 INSERT INTO `data_kegiatan` (`kode_kegiatan`, `judul_kegiatan`, `id_jenis_keg`, `tahun`, `nip_pj_kegiatan`, `nip_pj_rrr`, `biaya_pengeluaran`) VALUES
-('RPTP1', 'Pemetaan Lahan Pertanian Indonesia', 9, 2022, '196901241998032001', '196803301994031001', 1290000);
+('RPTP1', 'Pemetaan Lahan Pertanian Indonesia', 9, 2022, '196901241998032001', '196803301994031001', 1290000),
+('RPTP1.2', 'Pemetaan Lahan Peternakan', 9, 2022, '196901241998032001', '196803301994031001', 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data_kendaraan`
+-- Struktur dari tabel `data_kendaraan`
 --
 
 CREATE TABLE `data_kendaraan` (
@@ -471,19 +465,19 @@ CREATE TABLE `data_kendaraan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `data_kendaraan`
+-- Dumping data untuk tabel `data_kendaraan`
 --
 
 INSERT INTO `data_kendaraan` (`id_kendaraan`, `no_polisi`, `merk`, `jenis`, `status`) VALUES
 (1, 'F 6409 GR', 'Toyota Innova', 'Roda 4', 1),
-(2, 'F 4326 AQ', 'Mitsubishi Kuda', 'Roda 4', 2),
-(4, 'F 1020 MB', 'Toyota Innova', 'Roda 4', 2),
-(5, 'F 6409 G', 'Toyota Innova', 'Roda 4', 1);
+(2, 'F 4326 AQ', 'Mitsubishi Kuda', 'Roda 4', 1),
+(4, 'F 1020 MB', 'Toyota Innova', 'Roda 4', 1),
+(5, 'F 6409 G', 'Toyota Innova', 'Roda 4', 2);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data_kota`
+-- Struktur dari tabel `data_kota`
 --
 
 CREATE TABLE `data_kota` (
@@ -493,7 +487,7 @@ CREATE TABLE `data_kota` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `data_kota`
+-- Dumping data untuk tabel `data_kota`
 --
 
 INSERT INTO `data_kota` (`id_kota`, `kota`, `id_sbuh`) VALUES
@@ -510,7 +504,7 @@ INSERT INTO `data_kota` (`id_kota`, `kota`, `id_sbuh`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data_mak`
+-- Struktur dari tabel `data_mak`
 --
 
 CREATE TABLE `data_mak` (
@@ -521,7 +515,7 @@ CREATE TABLE `data_mak` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `data_mak`
+-- Dumping data untuk tabel `data_mak`
 --
 
 INSERT INTO `data_mak` (`kode_mak`, `judul_mak`, `tahun`, `banyak_anggaran`) VALUES
@@ -531,7 +525,7 @@ INSERT INTO `data_mak` (`kode_mak`, `judul_mak`, `tahun`, `banyak_anggaran`) VAL
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data_notifikasi`
+-- Struktur dari tabel `data_notifikasi`
 --
 
 CREATE TABLE `data_notifikasi` (
@@ -543,7 +537,7 @@ CREATE TABLE `data_notifikasi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `data_notifikasi`
+-- Dumping data untuk tabel `data_notifikasi`
 --
 
 INSERT INTO `data_notifikasi` (`id_notifikasi`, `nip`, `pesan`, `jenis_notif`, `tgl_notif`) VALUES
@@ -552,7 +546,7 @@ INSERT INTO `data_notifikasi` (`id_notifikasi`, `nip`, `pesan`, `jenis_notif`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data_pangkat`
+-- Struktur dari tabel `data_pangkat`
 --
 
 CREATE TABLE `data_pangkat` (
@@ -561,7 +555,7 @@ CREATE TABLE `data_pangkat` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `data_pangkat`
+-- Dumping data untuk tabel `data_pangkat`
 --
 
 INSERT INTO `data_pangkat` (`id_pangkat`, `pangkat`) VALUES
@@ -577,26 +571,26 @@ INSERT INTO `data_pangkat` (`id_pangkat`, `pangkat`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data_pegawai`
+-- Struktur dari tabel `data_pegawai`
 --
 
 CREATE TABLE `data_pegawai` (
   `nip` varchar(18) NOT NULL,
   `nama_pegawai` varchar(50) NOT NULL,
-  `foto` varchar(255) NOT NULL,
+  `foto` varchar(255) DEFAULT NULL,
   `id_golongan` int(11) DEFAULT NULL,
   `id_status_peg` int(11) NOT NULL,
   `id_pangkat` int(11) NOT NULL,
   `id_jabatan` int(11) NOT NULL,
   `id_divisi` int(11) NOT NULL,
-  `nik` varchar(16) NOT NULL,
-  `email` varchar(30) NOT NULL,
-  `password` varchar(50) NOT NULL,
-  `no_whatsapp` varchar(20) NOT NULL
+  `nik` varchar(16) DEFAULT NULL,
+  `email` varchar(30) DEFAULT NULL,
+  `password` varchar(50) DEFAULT NULL,
+  `no_whatsapp` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `data_pegawai`
+-- Dumping data untuk tabel `data_pegawai`
 --
 
 INSERT INTO `data_pegawai` (`nip`, `nama_pegawai`, `foto`, `id_golongan`, `id_status_peg`, `id_pangkat`, `id_jabatan`, `id_divisi`, `nik`, `email`, `password`, `no_whatsapp`) VALUES
@@ -605,15 +599,15 @@ INSERT INTO `data_pegawai` (`nip`, `nama_pegawai`, `foto`, `id_golongan`, `id_st
 ('196401211990031002', 'Dr. Ir. A. Arivin Rivaie, M.Sc', 'images6.jpg', 17, 3, 10, 2, 2, '3271062101640004', 'lugasmunayaa@gmail.com', '12345678', '6281235062988   '),
 ('196411291990032002', 'Dr. Ir. Popi Redjekiningrum D M', 'DSCF5201-removebg-preview111.png', 17, 3, 2, 7, 2, '3201296911640001', 'adminbogorfood@gmail.com', '123', '6281235062988    '),
 ('196710081994032013', 'Dr. Woro Estiningtyas', 'default.png', 15, 3, 10, 5, 2, '3201294810670003', 'freepik1@gmail.com', '123', '6281235062988'),
-('196803301994031001', 'Dr. Budi Kartiwa', 'images7.jpg', 17, 3, 10, 5, 2, '3201293003680001', 'lugasmunaya@gmail.com', '123', '6281235062988  '),
+('196803301994031001', 'Dr. Budi Kartiwa', 'WhatsApp_Image_2022-01-14_at_14_30_572.jpeg', 17, 3, 10, 5, 2, '3201293003680001', 'lugasmunaya@gmail.com', '123', '6281235062988  '),
 ('196901241998032001', 'Dr. Elza Surmaini', 'default.png', 16, 1, 13, 2, 2, '3271066401690004', 'admins@gmail.com', '123', '6281973034079 '),
-('HNR1232211222', 'Ujang Suseno', 'default.png', 3, 7, 1, 6, 2, '12131231', 'ujang@gmail.com', '123', '62888488 '),
-('HNR932727', 'Asep Pisan', 'default.png', 3, 7, 1, 6, 2, '121371237', 'asep@gmail.com', '123', '62822221 ');
+('HNR1232211222', 'Ujang Suseno', 'default.png', 1, 8, 1, 6, 2, '129719737913', 'ujang@gmail.com', '123', '62855558'),
+('HNR932727', 'Asep Pisan', 'default.png', 1, 8, 1, 6, 2, '21318312', 'asep@gmail.com', '123', '62856546');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data_perjalanan_dinas`
+-- Struktur dari tabel `data_perjalanan_dinas`
 --
 
 CREATE TABLE `data_perjalanan_dinas` (
@@ -622,6 +616,8 @@ CREATE TABLE `data_perjalanan_dinas` (
   `dalam_rangka` varchar(100) NOT NULL,
   `nip_pumk` varchar(18) NOT NULL,
   `tanggal_pengajuan` date NOT NULL,
+  `no_surat` varchar(25) DEFAULT NULL,
+  `no_surat_tugas_tu` varchar(25) NOT NULL,
   `no_surat_tugas` varchar(25) NOT NULL,
   `kode_mak` varchar(15) NOT NULL,
   `jenis_pengajuan` varchar(5) NOT NULL,
@@ -636,21 +632,22 @@ CREATE TABLE `data_perjalanan_dinas` (
   `nip_verifikator` varchar(18) NOT NULL,
   `nip_kpa` varchar(18) NOT NULL,
   `nip_bendahara` varchar(18) NOT NULL,
+  `nip_kasub_bag_tu` varchar(18) NOT NULL,
   `nip_kepala_balai` varchar(18) NOT NULL,
   `nip_plt_kb` varchar(18) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `data_perjalanan_dinas`
+-- Dumping data untuk tabel `data_perjalanan_dinas`
 --
 
-INSERT INTO `data_perjalanan_dinas` (`id_perjalanan_dinas`, `kode_kegiatan`, `dalam_rangka`, `nip_pumk`, `tanggal_pengajuan`, `no_surat_tugas`, `kode_mak`, `jenis_pengajuan`, `jenis_perjalanan_dinas`, `id_kota_asal`, `id_kota_tujuan`, `kendaraan`, `tanggal_berangkat`, `tanggal_kembali`, `lama_perjalanan`, `nip_ppk`, `nip_verifikator`, `nip_kpa`, `nip_bendahara`, `nip_kepala_balai`, `nip_plt_kb`) VALUES
-(24, 'RPTP1', 'Seminar pelatihan tentang pemetaan lahan pertanian', '196803301994031001', '2022-03-14', '/KP.440/I.8.3/03/2022', 'C2.003.145', 'LS', 'Tidak Menginap', 9, 11, 'Dinas', '2022-03-24', '2022-03-26', 3, '196411291990032002', '196401211990031002', '196411291990032002', '11605806119105', '196401211990031002', '196901241998032001');
+INSERT INTO `data_perjalanan_dinas` (`id_perjalanan_dinas`, `kode_kegiatan`, `dalam_rangka`, `nip_pumk`, `tanggal_pengajuan`, `no_surat`, `no_surat_tugas_tu`, `no_surat_tugas`, `kode_mak`, `jenis_pengajuan`, `jenis_perjalanan_dinas`, `id_kota_asal`, `id_kota_tujuan`, `kendaraan`, `tanggal_berangkat`, `tanggal_kembali`, `lama_perjalanan`, `nip_ppk`, `nip_verifikator`, `nip_kpa`, `nip_bendahara`, `nip_kasub_bag_tu`, `nip_kepala_balai`, `nip_plt_kb`) VALUES
+(26, 'RPTP1', 'Seminar pelatihan tentang pemetaan lahan pertanian', '196803301994031001', '2022-03-15', 'B-217', '/TU.040/H.8.3/03/2022', '/KP.440/I.8.3/03/2022', 'C2.003.145', 'LS', 'Tidak Menginap', 9, 12, 'Dinas', '2022-03-17', '2022-03-18', 2, '196411291990032002', '196401211990031002', '196411291990032002', '11605806119105', '196803301994031001', '196401211990031002', '196901241998032001');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data_role`
+-- Struktur dari tabel `data_role`
 --
 
 CREATE TABLE `data_role` (
@@ -659,7 +656,7 @@ CREATE TABLE `data_role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `data_role`
+-- Dumping data untuk tabel `data_role`
 --
 
 INSERT INTO `data_role` (`id_role`, `role`) VALUES
@@ -674,7 +671,7 @@ INSERT INTO `data_role` (`id_role`, `role`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data_sbuh`
+-- Struktur dari tabel `data_sbuh`
 --
 
 CREATE TABLE `data_sbuh` (
@@ -685,7 +682,7 @@ CREATE TABLE `data_sbuh` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `data_sbuh`
+-- Dumping data untuk tabel `data_sbuh`
 --
 
 INSERT INTO `data_sbuh` (`id_sbuh`, `nama_provinsi`, `luar_kota`, `dalam_kota`) VALUES
@@ -727,7 +724,7 @@ INSERT INTO `data_sbuh` (`id_sbuh`, `nama_provinsi`, `luar_kota`, `dalam_kota`) 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data_tugas`
+-- Struktur dari tabel `data_tugas`
 --
 
 CREATE TABLE `data_tugas` (
@@ -736,7 +733,7 @@ CREATE TABLE `data_tugas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `data_tugas`
+-- Dumping data untuk tabel `data_tugas`
 --
 
 INSERT INTO `data_tugas` (`id_tugas`, `penugasan`) VALUES
@@ -752,7 +749,7 @@ INSERT INTO `data_tugas` (`id_tugas`, `penugasan`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `detail_dokumen`
+-- Struktur dari tabel `detail_dokumen`
 --
 
 CREATE TABLE `detail_dokumen` (
@@ -762,7 +759,7 @@ CREATE TABLE `detail_dokumen` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `detail_dokumen`
+-- Dumping data untuk tabel `detail_dokumen`
 --
 
 INSERT INTO `detail_dokumen` (`id_detail`, `id_transaksi`, `nama_dokumen`) VALUES
@@ -801,7 +798,7 @@ INSERT INTO `detail_dokumen` (`id_detail`, `id_transaksi`, `nama_dokumen`) VALUE
 -- --------------------------------------------------------
 
 --
--- Table structure for table `detail_penugasan`
+-- Struktur dari tabel `detail_penugasan`
 --
 
 CREATE TABLE `detail_penugasan` (
@@ -814,7 +811,7 @@ CREATE TABLE `detail_penugasan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `detail_penugasan`
+-- Dumping data untuk tabel `detail_penugasan`
 --
 
 INSERT INTO `detail_penugasan` (`id_det_tugas`, `id_tugas`, `id_pm`, `hasil_tugas`, `dok_hasil_tugas`, `status`) VALUES
@@ -869,7 +866,7 @@ INSERT INTO `detail_penugasan` (`id_det_tugas`, `id_tugas`, `id_pm`, `hasil_tuga
 -- --------------------------------------------------------
 
 --
--- Table structure for table `detail_role`
+-- Struktur dari tabel `detail_role`
 --
 
 CREATE TABLE `detail_role` (
@@ -891,7 +888,7 @@ CREATE TABLE `detail_role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `detail_role`
+-- Dumping data untuk tabel `detail_role`
 --
 
 INSERT INTO `detail_role` (`id_detail_role`, `id_role`, `role`, `nip`, `nama_pegawai`, `foto`, `id_golongan`, `id_status_peg`, `id_pangkat`, `id_jabatan`, `id_divisi`, `nik`, `email`, `password`, `no_whatsapp`) VALUES
@@ -903,12 +900,14 @@ INSERT INTO `detail_role` (`id_detail_role`, `id_role`, `role`, `nip`, `nama_peg
 (31, 5, 'Admin Disposisi', '196803301994031001', 'Dr. Budi Kartiwa', 'default.png', 17, 3, 10, 5, 2, '3201293003680001', 'lugasmunaya@gmail.com', '123', '6281235062988  '),
 (32, 7, 'Admin Buku Tamu', '196803301994031001', 'Dr. Budi Kartiwa', 'default.png', 17, 3, 10, 5, 2, '3201293003680001', 'lugasmunaya@gmail.com', '123', '6281235062988  '),
 (33, 8, 'User', '196710081994032013', 'Dr. Woro Estiningtyas', 'default.png', 15, 3, 10, 5, 2, '3201294810670003', 'freepik1@gmail.com', '123', '6281235062988'),
-(34, 8, 'User', '11605806119105', 'Lugas Munayasika', 'default.png', 4, 3, 2, 8, 2, '111625124121341', 'lugas@gmail.com', '123', '6281973034079');
+(34, 8, 'User', '11605806119105', 'Lugas Munayasika', 'default.png', 4, 3, 2, 8, 2, '111625124121341', 'lugas@gmail.com', '123', '6281973034079'),
+(48, 8, 'User', 'HNR1232211222', 'Ujang Suseno', 'default.png', 1, 8, 1, 6, 2, '129719737913', 'ujang@gmail.com', '123', '62855558'),
+(49, 8, 'User', 'HNR932727', 'Asep Pisan', 'default.png', 1, 8, 1, 6, 2, '21318312', 'asep@gmail.com', '123', '62856546');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `detail_tugas`
+-- Struktur dari tabel `detail_tugas`
 --
 
 CREATE TABLE `detail_tugas` (
@@ -918,18 +917,19 @@ CREATE TABLE `detail_tugas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `detail_tugas`
+-- Dumping data untuk tabel `detail_tugas`
 --
 
 INSERT INTO `detail_tugas` (`id_detail_tugas`, `id_tugas`, `nip`) VALUES
 (45, 12, '196803301994031001'),
 (46, 15, '196901241998032001'),
-(47, 11, '196411291990032002');
+(47, 11, '196411291990032002'),
+(48, 17, '196803301994031001');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `jenis`
+-- Struktur dari tabel `jenis`
 --
 
 CREATE TABLE `jenis` (
@@ -938,7 +938,7 @@ CREATE TABLE `jenis` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `jenis`
+-- Dumping data untuk tabel `jenis`
 --
 
 INSERT INTO `jenis` (`id_jenis`, `nama_jenis`) VALUES
@@ -951,7 +951,7 @@ INSERT INTO `jenis` (`id_jenis`, `nama_jenis`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `jenis_barang`
+-- Struktur dari tabel `jenis_barang`
 --
 
 CREATE TABLE `jenis_barang` (
@@ -960,7 +960,7 @@ CREATE TABLE `jenis_barang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `jenis_barang`
+-- Dumping data untuk tabel `jenis_barang`
 --
 
 INSERT INTO `jenis_barang` (`id_jenis`, `jenis_barang`) VALUES
@@ -974,7 +974,7 @@ INSERT INTO `jenis_barang` (`id_jenis`, `jenis_barang`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `laporan_akhir`
+-- Struktur dari tabel `laporan_akhir`
 --
 
 CREATE TABLE `laporan_akhir` (
@@ -987,7 +987,7 @@ CREATE TABLE `laporan_akhir` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `laporan_akhir`
+-- Dumping data untuk tabel `laporan_akhir`
 --
 
 INSERT INTO `laporan_akhir` (`id_lapak`, `tgl_up_lapak`, `judul_lapak`, `abstrak_lapak`, `dok_lapak`, `id_pm`) VALUES
@@ -1001,7 +1001,7 @@ INSERT INTO `laporan_akhir` (`id_lapak`, `tgl_up_lapak`, `judul_lapak`, `abstrak
 -- --------------------------------------------------------
 
 --
--- Table structure for table `laporan_mingguan`
+-- Struktur dari tabel `laporan_mingguan`
 --
 
 CREATE TABLE `laporan_mingguan` (
@@ -1015,7 +1015,7 @@ CREATE TABLE `laporan_mingguan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `laporan_mingguan`
+-- Dumping data untuk tabel `laporan_mingguan`
 --
 
 INSERT INTO `laporan_mingguan` (`id_lap_ming`, `tgl_lap_ming`, `isi_lap_ming`, `dok_lap_ming`, `id_pm`, `review_lap`, `status_rev`) VALUES
@@ -1046,7 +1046,7 @@ INSERT INTO `laporan_mingguan` (`id_lap_ming`, `tgl_lap_ming`, `isi_lap_ming`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `notif_peserta`
+-- Struktur dari tabel `notif_peserta`
 --
 
 CREATE TABLE `notif_peserta` (
@@ -1058,7 +1058,7 @@ CREATE TABLE `notif_peserta` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `notif_peserta`
+-- Dumping data untuk tabel `notif_peserta`
 --
 
 INSERT INTO `notif_peserta` (`id_np`, `tgl_notif`, `jenis`, `id_aksi`, `status_np`) VALUES
@@ -1124,7 +1124,7 @@ INSERT INTO `notif_peserta` (`id_np`, `tgl_notif`, `jenis`, `id_aksi`, `status_n
 -- --------------------------------------------------------
 
 --
--- Table structure for table `penggunaan_mobil`
+-- Struktur dari tabel `penggunaan_mobil`
 --
 
 CREATE TABLE `penggunaan_mobil` (
@@ -1139,18 +1139,19 @@ CREATE TABLE `penggunaan_mobil` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `penggunaan_mobil`
+-- Dumping data untuk tabel `penggunaan_mobil`
 --
 
 INSERT INTO `penggunaan_mobil` (`id_penggunaan`, `nip`, `id_kendaraan`, `tgl_pemakaian`, `tgl_kembali`, `lama_pemakaian`, `perjalanan`, `status_penggunaan`) VALUES
 (7, 'HNR1232211222', 1, '2022-03-09', '2022-03-09', '5', 'Dalam Kota', 2),
-(8, 'HNR932727', 4, '2022-03-09', '2022-03-09', '3', 'Dalam Kota', 1),
-(9, 'HNR1232211222', 2, '2022-03-11', '2022-03-11', '5', 'Dalam Kota', 1);
+(8, 'HNR932727', 4, '2022-03-09', '2022-03-09', '3', 'Dalam Kota', 2),
+(9, 'HNR1232211222', 2, '2022-03-11', '2022-03-11', '5', 'Dalam Kota', 2),
+(10, 'HNR1232211222', 5, '2022-03-15', '2022-03-15', '3', 'Dalam Kota', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `perbaikan_alat`
+-- Struktur dari tabel `perbaikan_alat`
 --
 
 CREATE TABLE `perbaikan_alat` (
@@ -1165,7 +1166,7 @@ CREATE TABLE `perbaikan_alat` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `perbaikan_alat`
+-- Dumping data untuk tabel `perbaikan_alat`
 --
 
 INSERT INTO `perbaikan_alat` (`id_perbaikan`, `idalat`, `jenis`, `tempat`, `tglperbaikan`, `tglselesai`, `qty`, `status`) VALUES
@@ -1174,7 +1175,7 @@ INSERT INTO `perbaikan_alat` (`id_perbaikan`, `idalat`, `jenis`, `tempat`, `tglp
 -- --------------------------------------------------------
 
 --
--- Table structure for table `perbaikan_barang`
+-- Struktur dari tabel `perbaikan_barang`
 --
 
 CREATE TABLE `perbaikan_barang` (
@@ -1189,7 +1190,7 @@ CREATE TABLE `perbaikan_barang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `perbaikan_barang`
+-- Dumping data untuk tabel `perbaikan_barang`
 --
 
 INSERT INTO `perbaikan_barang` (`id_perbaikan`, `id_barang`, `jenis`, `tempat`, `tglperbaikan`, `tglselesai`, `qty`, `status`) VALUES
@@ -1199,7 +1200,7 @@ INSERT INTO `perbaikan_barang` (`id_perbaikan`, `id_barang`, `jenis`, `tempat`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `peserta_magang`
+-- Struktur dari tabel `peserta_magang`
 --
 
 CREATE TABLE `peserta_magang` (
@@ -1223,7 +1224,7 @@ CREATE TABLE `peserta_magang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `peserta_magang`
+-- Dumping data untuk tabel `peserta_magang`
 --
 
 INSERT INTO `peserta_magang` (`id_pm`, `nama_pm`, `jk_pm`, `email_pm`, `no_wa_pm`, `jns_magang`, `asal_instansi_pm`, `jurusan_pm`, `pi_pm`, `no_wa_pi_pm`, `tgl_mli_pm`, `tgl_sls_pm`, `s_pengajuan_pm`, `s_penerimaan_pm`, `pembimbing_balai`, `kata_sandi_pm`, `status_pm`) VALUES
@@ -1244,7 +1245,7 @@ INSERT INTO `peserta_magang` (`id_pm`, `nama_pm`, `jk_pm`, `email_pm`, `no_wa_pm
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pinjam_alat`
+-- Struktur dari tabel `pinjam_alat`
 --
 
 CREATE TABLE `pinjam_alat` (
@@ -1261,7 +1262,7 @@ CREATE TABLE `pinjam_alat` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `pinjam_alat`
+-- Dumping data untuk tabel `pinjam_alat`
 --
 
 INSERT INTO `pinjam_alat` (`id_pinjam`, `idalat`, `peminjam`, `tglpinjam`, `tglselesai`, `qty`, `kegiatan`, `lokasi`, `keterangan`, `status`) VALUES
@@ -1270,7 +1271,7 @@ INSERT INTO `pinjam_alat` (`id_pinjam`, `idalat`, `peminjam`, `tglpinjam`, `tgls
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pinjam_barang`
+-- Struktur dari tabel `pinjam_barang`
 --
 
 CREATE TABLE `pinjam_barang` (
@@ -1286,7 +1287,7 @@ CREATE TABLE `pinjam_barang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `pinjam_barang`
+-- Dumping data untuk tabel `pinjam_barang`
 --
 
 INSERT INTO `pinjam_barang` (`id_pinjam`, `id_barang`, `peminjam`, `tglpinjam`, `tglselesai`, `qty`, `kegiatan`, `lokasi`, `status`) VALUES
@@ -1297,7 +1298,7 @@ INSERT INTO `pinjam_barang` (`id_pinjam`, `id_barang`, `peminjam`, `tglpinjam`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `riwayat_alat`
+-- Struktur dari tabel `riwayat_alat`
 --
 
 CREATE TABLE `riwayat_alat` (
@@ -1314,7 +1315,7 @@ CREATE TABLE `riwayat_alat` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `riwayat_alat`
+-- Dumping data untuk tabel `riwayat_alat`
 --
 
 INSERT INTO `riwayat_alat` (`id_riwayat`, `idalat`, `peminjam`, `tglpinjam`, `tglselesai`, `qty`, `kegiatan`, `lokasi`, `keterangan`, `status_riwayat`) VALUES
@@ -1327,7 +1328,7 @@ INSERT INTO `riwayat_alat` (`id_riwayat`, `idalat`, `peminjam`, `tglpinjam`, `tg
 -- --------------------------------------------------------
 
 --
--- Table structure for table `riwayat_disposisi`
+-- Struktur dari tabel `riwayat_disposisi`
 --
 
 CREATE TABLE `riwayat_disposisi` (
@@ -1340,7 +1341,7 @@ CREATE TABLE `riwayat_disposisi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `riwayat_disposisi`
+-- Dumping data untuk tabel `riwayat_disposisi`
 --
 
 INSERT INTO `riwayat_disposisi` (`id_riwayat`, `suratmasuk_id`, `isi`, `catatan`, `user`, `nip`) VALUES
@@ -1354,7 +1355,7 @@ INSERT INTO `riwayat_disposisi` (`id_riwayat`, `suratmasuk_id`, `isi`, `catatan`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `riwayat_peminjaman`
+-- Struktur dari tabel `riwayat_peminjaman`
 --
 
 CREATE TABLE `riwayat_peminjaman` (
@@ -1371,7 +1372,7 @@ CREATE TABLE `riwayat_peminjaman` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `riwayat_peminjaman`
+-- Dumping data untuk tabel `riwayat_peminjaman`
 --
 
 INSERT INTO `riwayat_peminjaman` (`id_riwayat`, `id_barang`, `peminjam`, `tglpinjam`, `tglselesai`, `qty`, `kegiatan`, `lokasi`, `keterangan`, `status_riwayat`) VALUES
@@ -1382,7 +1383,7 @@ INSERT INTO `riwayat_peminjaman` (`id_riwayat`, `id_barang`, `peminjam`, `tglpin
 -- --------------------------------------------------------
 
 --
--- Table structure for table `riwayat_surat`
+-- Struktur dari tabel `riwayat_surat`
 --
 
 CREATE TABLE `riwayat_surat` (
@@ -1391,7 +1392,7 @@ CREATE TABLE `riwayat_surat` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `riwayat_surat`
+-- Dumping data untuk tabel `riwayat_surat`
 --
 
 INSERT INTO `riwayat_surat` (`id_riwayatsurat`, `suratmasuk_id`) VALUES
@@ -1410,7 +1411,7 @@ INSERT INTO `riwayat_surat` (`id_riwayatsurat`, `suratmasuk_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `satuan`
+-- Struktur dari tabel `satuan`
 --
 
 CREATE TABLE `satuan` (
@@ -1419,7 +1420,7 @@ CREATE TABLE `satuan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `satuan`
+-- Dumping data untuk tabel `satuan`
 --
 
 INSERT INTO `satuan` (`id`, `nama_satuan`) VALUES
@@ -1431,7 +1432,7 @@ INSERT INTO `satuan` (`id`, `nama_satuan`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `satuan_barang`
+-- Struktur dari tabel `satuan_barang`
 --
 
 CREATE TABLE `satuan_barang` (
@@ -1440,7 +1441,7 @@ CREATE TABLE `satuan_barang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `satuan_barang`
+-- Dumping data untuk tabel `satuan_barang`
 --
 
 INSERT INTO `satuan_barang` (`id_satuan`, `satuan_barang`) VALUES
@@ -1450,7 +1451,7 @@ INSERT INTO `satuan_barang` (`id_satuan`, `satuan_barang`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sifat_surat`
+-- Struktur dari tabel `sifat_surat`
 --
 
 CREATE TABLE `sifat_surat` (
@@ -1459,7 +1460,7 @@ CREATE TABLE `sifat_surat` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `sifat_surat`
+-- Dumping data untuk tabel `sifat_surat`
 --
 
 INSERT INTO `sifat_surat` (`id_sifatsurat`, `sifat_surat`) VALUES
@@ -1469,7 +1470,7 @@ INSERT INTO `sifat_surat` (`id_sifatsurat`, `sifat_surat`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `status_kepegawaian`
+-- Struktur dari tabel `status_kepegawaian`
 --
 
 CREATE TABLE `status_kepegawaian` (
@@ -1478,7 +1479,7 @@ CREATE TABLE `status_kepegawaian` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `status_kepegawaian`
+-- Dumping data untuk tabel `status_kepegawaian`
 --
 
 INSERT INTO `status_kepegawaian` (`id_status_peg`, `status_kepegawaian`) VALUES
@@ -1492,7 +1493,7 @@ INSERT INTO `status_kepegawaian` (`id_status_peg`, `status_kepegawaian`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `status_perjalanan`
+-- Struktur dari tabel `status_perjalanan`
 --
 
 CREATE TABLE `status_perjalanan` (
@@ -1504,21 +1505,21 @@ CREATE TABLE `status_perjalanan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `status_perjalanan`
+-- Dumping data untuk tabel `status_perjalanan`
 --
 
 INSERT INTO `status_perjalanan` (`id_status_perjalanan`, `nip`, `nama_pegawai`, `id_jabatan`, `status_perjalanan`) VALUES
 (3, '196901241998032001', 'Dr. Elza Surmaini', 2, 0),
-(10, 'HNR1232211222', 'Ujang Suseno', 6, 1),
-(11, 'HNR932727', 'Asep Pisan', 6, 1),
 (12, '196803301994031001', 'Dr. Budi Kartiwa', 5, 0),
 (13, '196710081994032013', 'Dr. Woro Estiningtyas', 5, 0),
-(14, '11605806119105', 'Lugas Munayasika', 8, 0);
+(14, '11605806119105', 'Lugas Munayasika', 8, 0),
+(28, 'HNR1232211222', 'Ujang Suseno', 6, 1),
+(29, 'HNR932727', 'Asep Pisan', 6, 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `stok_alat`
+-- Struktur dari tabel `stok_alat`
 --
 
 CREATE TABLE `stok_alat` (
@@ -1531,7 +1532,7 @@ CREATE TABLE `stok_alat` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `stok_alat`
+-- Dumping data untuk tabel `stok_alat`
 --
 
 INSERT INTO `stok_alat` (`idalat`, `namaalat`, `deskripsi`, `stock`, `image`, `kondisi`) VALUES
@@ -1568,7 +1569,7 @@ INSERT INTO `stok_alat` (`idalat`, `namaalat`, `deskripsi`, `stock`, `image`, `k
 -- --------------------------------------------------------
 
 --
--- Table structure for table `stok_barang`
+-- Struktur dari tabel `stok_barang`
 --
 
 CREATE TABLE `stok_barang` (
@@ -1584,7 +1585,7 @@ CREATE TABLE `stok_barang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `stok_barang`
+-- Dumping data untuk tabel `stok_barang`
 --
 
 INSERT INTO `stok_barang` (`id_barang`, `kode`, `gambar`, `nama_barang`, `jenis_barang`, `satuan_barang`, `jumlah_barang`, `kondisi_barang`, `keterangan`) VALUES
@@ -1614,7 +1615,7 @@ INSERT INTO `stok_barang` (`id_barang`, `kode`, `gambar`, `nama_barang`, `jenis_
 -- --------------------------------------------------------
 
 --
--- Table structure for table `surat_masuk`
+-- Struktur dari tabel `surat_masuk`
 --
 
 CREATE TABLE `surat_masuk` (
@@ -1632,7 +1633,7 @@ CREATE TABLE `surat_masuk` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `surat_masuk`
+-- Dumping data untuk tabel `surat_masuk`
 --
 
 INSERT INTO `surat_masuk` (`id_suratmasuk`, `sifatsurat_id`, `kode`, `no_surat`, `tanggal_surat`, `asal_surat`, `perihal`, `dokumen`, `tanggal_input`, `no_urut`, `status`) VALUES
@@ -1655,7 +1656,7 @@ INSERT INTO `surat_masuk` (`id_suratmasuk`, `sifatsurat_id`, `kode`, `no_surat`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tugas`
+-- Struktur dari tabel `tugas`
 --
 
 CREATE TABLE `tugas` (
@@ -1668,7 +1669,7 @@ CREATE TABLE `tugas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tugas`
+-- Dumping data untuk tabel `tugas`
 --
 
 INSERT INTO `tugas` (`id_tugas`, `isi_tugas`, `jumlah_pm`, `tgl_pengumpulan`, `dok_tugas`, `pembimbing_balai`) VALUES
@@ -1701,7 +1702,7 @@ INSERT INTO `tugas` (`id_tugas`, `isi_tugas`, `jumlah_pm`, `tgl_pengumpulan`, `d
 --
 
 --
--- Indexes for table `barang`
+-- Indeks untuk tabel `barang`
 --
 ALTER TABLE `barang`
   ADD PRIMARY KEY (`id_barang`),
@@ -1709,33 +1710,33 @@ ALTER TABLE `barang`
   ADD KEY `jenis_idbarang` (`jenis_id`);
 
 --
--- Indexes for table `barang_keluar`
+-- Indeks untuk tabel `barang_keluar`
 --
 ALTER TABLE `barang_keluar`
   ADD PRIMARY KEY (`id_barangkeluar`),
   ADD KEY `barang_idkeluar` (`barang_id`);
 
 --
--- Indexes for table `barang_kembali`
+-- Indeks untuk tabel `barang_kembali`
 --
 ALTER TABLE `barang_kembali`
   ADD PRIMARY KEY (`id_barangkembali`);
 
 --
--- Indexes for table `barang_masuk`
+-- Indeks untuk tabel `barang_masuk`
 --
 ALTER TABLE `barang_masuk`
   ADD PRIMARY KEY (`id_barangmasuk`),
   ADD KEY `barang_idmasuk` (`barang_id`);
 
 --
--- Indexes for table `buku_tamu`
+-- Indeks untuk tabel `buku_tamu`
 --
 ALTER TABLE `buku_tamu`
   ADD PRIMARY KEY (`id_buku_tamu`);
 
 --
--- Indexes for table `data_anggota_perjadin`
+-- Indeks untuk tabel `data_anggota_perjadin`
 --
 ALTER TABLE `data_anggota_perjadin`
   ADD PRIMARY KEY (`id_anggota_perjadin`),
@@ -1743,38 +1744,38 @@ ALTER TABLE `data_anggota_perjadin`
   ADD KEY `nip_anggota_perjadin_ap_peg` (`nip_anggota_perjadin`);
 
 --
--- Indexes for table `data_divisi`
+-- Indeks untuk tabel `data_divisi`
 --
 ALTER TABLE `data_divisi`
   ADD PRIMARY KEY (`id_divisi`);
 
 --
--- Indexes for table `data_golongan`
+-- Indeks untuk tabel `data_golongan`
 --
 ALTER TABLE `data_golongan`
   ADD PRIMARY KEY (`id_golongan`);
 
 --
--- Indexes for table `data_header_surat`
+-- Indeks untuk tabel `data_header_surat`
 --
 ALTER TABLE `data_header_surat`
   ADD PRIMARY KEY (`id_header_surat`);
 
 --
--- Indexes for table `data_jabatan`
+-- Indeks untuk tabel `data_jabatan`
 --
 ALTER TABLE `data_jabatan`
   ADD PRIMARY KEY (`id_jabatan`);
 
 --
--- Indexes for table `data_jadwal_gaji_berkala`
+-- Indeks untuk tabel `data_jadwal_gaji_berkala`
 --
 ALTER TABLE `data_jadwal_gaji_berkala`
   ADD PRIMARY KEY (`kode_kgb`),
   ADD KEY `nip_pegawai_jadwal_gajiberkala` (`nip`);
 
 --
--- Indexes for table `data_jadwal_naik_pangkat`
+-- Indeks untuk tabel `data_jadwal_naik_pangkat`
 --
 ALTER TABLE `data_jadwal_naik_pangkat`
   ADD PRIMARY KEY (`kode_kp`),
@@ -1783,13 +1784,13 @@ ALTER TABLE `data_jadwal_naik_pangkat`
   ADD KEY `nip_peg_jadwalkp` (`nip`);
 
 --
--- Indexes for table `data_jenis_keg`
+-- Indeks untuk tabel `data_jenis_keg`
 --
 ALTER TABLE `data_jenis_keg`
   ADD PRIMARY KEY (`id_jenis_keg`);
 
 --
--- Indexes for table `data_kegiatan`
+-- Indeks untuk tabel `data_kegiatan`
 --
 ALTER TABLE `data_kegiatan`
   ADD PRIMARY KEY (`kode_kegiatan`),
@@ -1798,39 +1799,39 @@ ALTER TABLE `data_kegiatan`
   ADD KEY `id_jenis_keg_jk_keg` (`id_jenis_keg`);
 
 --
--- Indexes for table `data_kendaraan`
+-- Indeks untuk tabel `data_kendaraan`
 --
 ALTER TABLE `data_kendaraan`
   ADD PRIMARY KEY (`id_kendaraan`);
 
 --
--- Indexes for table `data_kota`
+-- Indeks untuk tabel `data_kota`
 --
 ALTER TABLE `data_kota`
   ADD PRIMARY KEY (`id_kota`),
   ADD KEY `id_sbuh_kota_sbuh` (`id_sbuh`);
 
 --
--- Indexes for table `data_mak`
+-- Indeks untuk tabel `data_mak`
 --
 ALTER TABLE `data_mak`
   ADD PRIMARY KEY (`kode_mak`);
 
 --
--- Indexes for table `data_notifikasi`
+-- Indeks untuk tabel `data_notifikasi`
 --
 ALTER TABLE `data_notifikasi`
   ADD PRIMARY KEY (`id_notifikasi`),
   ADD KEY `nip_notif_peg` (`nip`);
 
 --
--- Indexes for table `data_pangkat`
+-- Indeks untuk tabel `data_pangkat`
 --
 ALTER TABLE `data_pangkat`
   ADD PRIMARY KEY (`id_pangkat`);
 
 --
--- Indexes for table `data_pegawai`
+-- Indeks untuk tabel `data_pegawai`
 --
 ALTER TABLE `data_pegawai`
   ADD PRIMARY KEY (`nip`),
@@ -1841,7 +1842,7 @@ ALTER TABLE `data_pegawai`
   ADD KEY `id_divisi_peg` (`id_divisi`);
 
 --
--- Indexes for table `data_perjalanan_dinas`
+-- Indeks untuk tabel `data_perjalanan_dinas`
 --
 ALTER TABLE `data_perjalanan_dinas`
   ADD PRIMARY KEY (`id_perjalanan_dinas`),
@@ -1855,52 +1856,48 @@ ALTER TABLE `data_perjalanan_dinas`
   ADD KEY `nip_kepala_balai_dpd_peg` (`nip_kepala_balai`),
   ADD KEY `nip_plt_kb_keg_peg` (`nip_plt_kb`),
   ADD KEY `nip_ppk_dpd_peg` (`nip_ppk`),
-  ADD KEY `nip_verifikator_dpd_peg` (`nip_verifikator`);
+  ADD KEY `nip_verifikator_dpd_peg` (`nip_verifikator`),
+  ADD KEY `nip_kasub_bag_tu_dpd_peg` (`nip_kasub_bag_tu`);
 
 --
--- Indexes for table `data_role`
+-- Indeks untuk tabel `data_role`
 --
 ALTER TABLE `data_role`
   ADD PRIMARY KEY (`id_role`);
 
 --
--- Indexes for table `data_sbuh`
+-- Indeks untuk tabel `data_sbuh`
 --
 ALTER TABLE `data_sbuh`
   ADD PRIMARY KEY (`id_sbuh`);
 
 --
--- Indexes for table `data_tugas`
+-- Indeks untuk tabel `data_tugas`
 --
 ALTER TABLE `data_tugas`
   ADD PRIMARY KEY (`id_tugas`);
 
 --
--- Indexes for table `detail_dokumen`
+-- Indeks untuk tabel `detail_dokumen`
 --
 ALTER TABLE `detail_dokumen`
   ADD PRIMARY KEY (`id_detail`);
 
 --
--- Indexes for table `detail_penugasan`
+-- Indeks untuk tabel `detail_penugasan`
 --
 ALTER TABLE `detail_penugasan`
   ADD PRIMARY KEY (`id_det_tugas`);
 
 --
--- Indexes for table `detail_role`
+-- Indeks untuk tabel `detail_role`
 --
 ALTER TABLE `detail_role`
   ADD PRIMARY KEY (`id_detail_role`),
-  ADD KEY `id_role_detail` (`id_role`),
-  ADD KEY `id_gol_detailrole` (`id_golongan`),
-  ADD KEY `id_status_peg_detail` (`id_status_peg`),
-  ADD KEY `id_pangkat_detailrole` (`id_pangkat`),
-  ADD KEY `id_jabatan_detailrole` (`id_jabatan`),
-  ADD KEY `id_divisi_detailrole` (`id_divisi`);
+  ADD KEY `id_role_detail` (`id_role`);
 
 --
--- Indexes for table `detail_tugas`
+-- Indeks untuk tabel `detail_tugas`
 --
 ALTER TABLE `detail_tugas`
   ADD PRIMARY KEY (`id_detail_tugas`),
@@ -1908,37 +1905,37 @@ ALTER TABLE `detail_tugas`
   ADD KEY `detail_id_tugas` (`id_tugas`);
 
 --
--- Indexes for table `jenis`
+-- Indeks untuk tabel `jenis`
 --
 ALTER TABLE `jenis`
   ADD PRIMARY KEY (`id_jenis`);
 
 --
--- Indexes for table `jenis_barang`
+-- Indeks untuk tabel `jenis_barang`
 --
 ALTER TABLE `jenis_barang`
   ADD PRIMARY KEY (`id_jenis`);
 
 --
--- Indexes for table `laporan_akhir`
+-- Indeks untuk tabel `laporan_akhir`
 --
 ALTER TABLE `laporan_akhir`
   ADD PRIMARY KEY (`id_lapak`);
 
 --
--- Indexes for table `laporan_mingguan`
+-- Indeks untuk tabel `laporan_mingguan`
 --
 ALTER TABLE `laporan_mingguan`
   ADD PRIMARY KEY (`id_lap_ming`);
 
 --
--- Indexes for table `notif_peserta`
+-- Indeks untuk tabel `notif_peserta`
 --
 ALTER TABLE `notif_peserta`
   ADD PRIMARY KEY (`id_np`);
 
 --
--- Indexes for table `penggunaan_mobil`
+-- Indeks untuk tabel `penggunaan_mobil`
 --
 ALTER TABLE `penggunaan_mobil`
   ADD PRIMARY KEY (`id_penggunaan`),
@@ -1946,354 +1943,352 @@ ALTER TABLE `penggunaan_mobil`
   ADD KEY `id_kendaraan_join` (`id_kendaraan`);
 
 --
--- Indexes for table `perbaikan_alat`
+-- Indeks untuk tabel `perbaikan_alat`
 --
 ALTER TABLE `perbaikan_alat`
   ADD PRIMARY KEY (`id_perbaikan`),
   ADD KEY `id_barang2_join` (`idalat`);
 
 --
--- Indexes for table `perbaikan_barang`
+-- Indeks untuk tabel `perbaikan_barang`
 --
 ALTER TABLE `perbaikan_barang`
   ADD PRIMARY KEY (`id_perbaikan`),
   ADD KEY `id_barang2_join` (`id_barang`);
 
 --
--- Indexes for table `peserta_magang`
+-- Indeks untuk tabel `peserta_magang`
 --
 ALTER TABLE `peserta_magang`
   ADD PRIMARY KEY (`id_pm`);
 
 --
--- Indexes for table `pinjam_alat`
+-- Indeks untuk tabel `pinjam_alat`
 --
 ALTER TABLE `pinjam_alat`
   ADD PRIMARY KEY (`id_pinjam`),
   ADD KEY `idalat_join` (`idalat`);
 
 --
--- Indexes for table `pinjam_barang`
+-- Indeks untuk tabel `pinjam_barang`
 --
 ALTER TABLE `pinjam_barang`
   ADD PRIMARY KEY (`id_pinjam`),
   ADD KEY `id_barang_join` (`id_barang`);
 
 --
--- Indexes for table `riwayat_alat`
+-- Indeks untuk tabel `riwayat_alat`
 --
 ALTER TABLE `riwayat_alat`
   ADD PRIMARY KEY (`id_riwayat`),
   ADD KEY `id_barang_join3` (`idalat`);
 
 --
--- Indexes for table `riwayat_disposisi`
+-- Indeks untuk tabel `riwayat_disposisi`
 --
 ALTER TABLE `riwayat_disposisi`
   ADD PRIMARY KEY (`id_riwayat`);
 
 --
--- Indexes for table `riwayat_peminjaman`
+-- Indeks untuk tabel `riwayat_peminjaman`
 --
 ALTER TABLE `riwayat_peminjaman`
   ADD PRIMARY KEY (`id_riwayat`),
   ADD KEY `id_barang_join3` (`id_barang`);
 
 --
--- Indexes for table `riwayat_surat`
+-- Indeks untuk tabel `riwayat_surat`
 --
 ALTER TABLE `riwayat_surat`
   ADD PRIMARY KEY (`id_riwayatsurat`);
 
 --
--- Indexes for table `satuan`
+-- Indeks untuk tabel `satuan`
 --
 ALTER TABLE `satuan`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `satuan_barang`
+-- Indeks untuk tabel `satuan_barang`
 --
 ALTER TABLE `satuan_barang`
   ADD PRIMARY KEY (`id_satuan`);
 
 --
--- Indexes for table `sifat_surat`
+-- Indeks untuk tabel `sifat_surat`
 --
 ALTER TABLE `sifat_surat`
   ADD PRIMARY KEY (`id_sifatsurat`);
 
 --
--- Indexes for table `status_kepegawaian`
+-- Indeks untuk tabel `status_kepegawaian`
 --
 ALTER TABLE `status_kepegawaian`
   ADD PRIMARY KEY (`id_status_peg`);
 
 --
--- Indexes for table `status_perjalanan`
+-- Indeks untuk tabel `status_perjalanan`
 --
 ALTER TABLE `status_perjalanan`
-  ADD PRIMARY KEY (`id_status_perjalanan`),
-  ADD KEY `nip_join` (`nip`),
-  ADD KEY `id_jabatan_join` (`id_jabatan`);
+  ADD PRIMARY KEY (`id_status_perjalanan`);
 
 --
--- Indexes for table `stok_alat`
+-- Indeks untuk tabel `stok_alat`
 --
 ALTER TABLE `stok_alat`
   ADD PRIMARY KEY (`idalat`);
 
 --
--- Indexes for table `stok_barang`
+-- Indeks untuk tabel `stok_barang`
 --
 ALTER TABLE `stok_barang`
   ADD PRIMARY KEY (`id_barang`);
 
 --
--- Indexes for table `surat_masuk`
+-- Indeks untuk tabel `surat_masuk`
 --
 ALTER TABLE `surat_masuk`
   ADD PRIMARY KEY (`id_suratmasuk`);
 
 --
--- Indexes for table `tugas`
+-- Indeks untuk tabel `tugas`
 --
 ALTER TABLE `tugas`
   ADD PRIMARY KEY (`id_tugas`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `barang`
+-- AUTO_INCREMENT untuk tabel `barang`
 --
 ALTER TABLE `barang`
   MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- AUTO_INCREMENT for table `data_anggota_perjadin`
+-- AUTO_INCREMENT untuk tabel `data_anggota_perjadin`
 --
 ALTER TABLE `data_anggota_perjadin`
-  MODIFY `id_anggota_perjadin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_anggota_perjadin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `data_divisi`
+-- AUTO_INCREMENT untuk tabel `data_divisi`
 --
 ALTER TABLE `data_divisi`
   MODIFY `id_divisi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `data_golongan`
+-- AUTO_INCREMENT untuk tabel `data_golongan`
 --
 ALTER TABLE `data_golongan`
   MODIFY `id_golongan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- AUTO_INCREMENT for table `data_jabatan`
+-- AUTO_INCREMENT untuk tabel `data_jabatan`
 --
 ALTER TABLE `data_jabatan`
   MODIFY `id_jabatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT for table `data_jenis_keg`
+-- AUTO_INCREMENT untuk tabel `data_jenis_keg`
 --
 ALTER TABLE `data_jenis_keg`
   MODIFY `id_jenis_keg` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `data_kendaraan`
+-- AUTO_INCREMENT untuk tabel `data_kendaraan`
 --
 ALTER TABLE `data_kendaraan`
   MODIFY `id_kendaraan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `data_kota`
+-- AUTO_INCREMENT untuk tabel `data_kota`
 --
 ALTER TABLE `data_kota`
   MODIFY `id_kota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
--- AUTO_INCREMENT for table `data_notifikasi`
+-- AUTO_INCREMENT untuk tabel `data_notifikasi`
 --
 ALTER TABLE `data_notifikasi`
   MODIFY `id_notifikasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- AUTO_INCREMENT for table `data_pangkat`
+-- AUTO_INCREMENT untuk tabel `data_pangkat`
 --
 ALTER TABLE `data_pangkat`
   MODIFY `id_pangkat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT for table `data_perjalanan_dinas`
+-- AUTO_INCREMENT untuk tabel `data_perjalanan_dinas`
 --
 ALTER TABLE `data_perjalanan_dinas`
-  MODIFY `id_perjalanan_dinas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id_perjalanan_dinas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
--- AUTO_INCREMENT for table `data_role`
+-- AUTO_INCREMENT untuk tabel `data_role`
 --
 ALTER TABLE `data_role`
   MODIFY `id_role` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `data_sbuh`
+-- AUTO_INCREMENT untuk tabel `data_sbuh`
 --
 ALTER TABLE `data_sbuh`
   MODIFY `id_sbuh` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
--- AUTO_INCREMENT for table `data_tugas`
+-- AUTO_INCREMENT untuk tabel `data_tugas`
 --
 ALTER TABLE `data_tugas`
   MODIFY `id_tugas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- AUTO_INCREMENT for table `detail_dokumen`
+-- AUTO_INCREMENT untuk tabel `detail_dokumen`
 --
 ALTER TABLE `detail_dokumen`
   MODIFY `id_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=197;
 
 --
--- AUTO_INCREMENT for table `detail_role`
+-- AUTO_INCREMENT untuk tabel `detail_role`
 --
 ALTER TABLE `detail_role`
-  MODIFY `id_detail_role` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id_detail_role` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
--- AUTO_INCREMENT for table `detail_tugas`
+-- AUTO_INCREMENT untuk tabel `detail_tugas`
 --
 ALTER TABLE `detail_tugas`
-  MODIFY `id_detail_tugas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id_detail_tugas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
--- AUTO_INCREMENT for table `jenis`
+-- AUTO_INCREMENT untuk tabel `jenis`
 --
 ALTER TABLE `jenis`
   MODIFY `id_jenis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT for table `jenis_barang`
+-- AUTO_INCREMENT untuk tabel `jenis_barang`
 --
 ALTER TABLE `jenis_barang`
   MODIFY `id_jenis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `penggunaan_mobil`
+-- AUTO_INCREMENT untuk tabel `penggunaan_mobil`
 --
 ALTER TABLE `penggunaan_mobil`
-  MODIFY `id_penggunaan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_penggunaan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `perbaikan_alat`
+-- AUTO_INCREMENT untuk tabel `perbaikan_alat`
 --
 ALTER TABLE `perbaikan_alat`
   MODIFY `id_perbaikan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `perbaikan_barang`
+-- AUTO_INCREMENT untuk tabel `perbaikan_barang`
 --
 ALTER TABLE `perbaikan_barang`
   MODIFY `id_perbaikan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `pinjam_alat`
+-- AUTO_INCREMENT untuk tabel `pinjam_alat`
 --
 ALTER TABLE `pinjam_alat`
   MODIFY `id_pinjam` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `pinjam_barang`
+-- AUTO_INCREMENT untuk tabel `pinjam_barang`
 --
 ALTER TABLE `pinjam_barang`
   MODIFY `id_pinjam` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
--- AUTO_INCREMENT for table `riwayat_alat`
+-- AUTO_INCREMENT untuk tabel `riwayat_alat`
 --
 ALTER TABLE `riwayat_alat`
   MODIFY `id_riwayat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `riwayat_disposisi`
+-- AUTO_INCREMENT untuk tabel `riwayat_disposisi`
 --
 ALTER TABLE `riwayat_disposisi`
   MODIFY `id_riwayat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
--- AUTO_INCREMENT for table `riwayat_peminjaman`
+-- AUTO_INCREMENT untuk tabel `riwayat_peminjaman`
 --
 ALTER TABLE `riwayat_peminjaman`
   MODIFY `id_riwayat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `riwayat_surat`
+-- AUTO_INCREMENT untuk tabel `riwayat_surat`
 --
 ALTER TABLE `riwayat_surat`
   MODIFY `id_riwayatsurat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT for table `satuan`
+-- AUTO_INCREMENT untuk tabel `satuan`
 --
 ALTER TABLE `satuan`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `satuan_barang`
+-- AUTO_INCREMENT untuk tabel `satuan_barang`
 --
 ALTER TABLE `satuan_barang`
   MODIFY `id_satuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
--- AUTO_INCREMENT for table `sifat_surat`
+-- AUTO_INCREMENT untuk tabel `sifat_surat`
 --
 ALTER TABLE `sifat_surat`
   MODIFY `id_sifatsurat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `status_kepegawaian`
+-- AUTO_INCREMENT untuk tabel `status_kepegawaian`
 --
 ALTER TABLE `status_kepegawaian`
   MODIFY `id_status_peg` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `status_perjalanan`
+-- AUTO_INCREMENT untuk tabel `status_perjalanan`
 --
 ALTER TABLE `status_perjalanan`
-  MODIFY `id_status_perjalanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_status_perjalanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
--- AUTO_INCREMENT for table `stok_alat`
+-- AUTO_INCREMENT untuk tabel `stok_alat`
 --
 ALTER TABLE `stok_alat`
-  MODIFY `idalat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `idalat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
--- AUTO_INCREMENT for table `stok_barang`
+-- AUTO_INCREMENT untuk tabel `stok_barang`
 --
 ALTER TABLE `stok_barang`
   MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `data_anggota_perjadin`
+-- Ketidakleluasaan untuk tabel `data_anggota_perjadin`
 --
 ALTER TABLE `data_anggota_perjadin`
   ADD CONSTRAINT `id_perjalanan_dinas_ap_pd` FOREIGN KEY (`id_perjalanan_dinas`) REFERENCES `data_perjalanan_dinas` (`id_perjalanan_dinas`),
   ADD CONSTRAINT `nip_anggota_perjadin_ap_peg` FOREIGN KEY (`nip_anggota_perjadin`) REFERENCES `data_pegawai` (`nip`);
 
 --
--- Constraints for table `data_jadwal_gaji_berkala`
+-- Ketidakleluasaan untuk tabel `data_jadwal_gaji_berkala`
 --
 ALTER TABLE `data_jadwal_gaji_berkala`
   ADD CONSTRAINT `nip_pegawai_jadwal_gajiberkala` FOREIGN KEY (`nip`) REFERENCES `data_pegawai` (`nip`);
 
 --
--- Constraints for table `data_jadwal_naik_pangkat`
+-- Ketidakleluasaan untuk tabel `data_jadwal_naik_pangkat`
 --
 ALTER TABLE `data_jadwal_naik_pangkat`
   ADD CONSTRAINT `id_golongan_berikutnya_jadwal_pangkat` FOREIGN KEY (`id_golongan_berikutnya`) REFERENCES `data_golongan` (`id_golongan`),
@@ -2301,7 +2296,7 @@ ALTER TABLE `data_jadwal_naik_pangkat`
   ADD CONSTRAINT `nip_peg_jadwalkp` FOREIGN KEY (`nip`) REFERENCES `data_pegawai` (`nip`);
 
 --
--- Constraints for table `data_kegiatan`
+-- Ketidakleluasaan untuk tabel `data_kegiatan`
 --
 ALTER TABLE `data_kegiatan`
   ADD CONSTRAINT `id_jenis_keg_jk_keg` FOREIGN KEY (`id_jenis_keg`) REFERENCES `data_jenis_keg` (`id_jenis_keg`),
@@ -2309,19 +2304,19 @@ ALTER TABLE `data_kegiatan`
   ADD CONSTRAINT `nip_pj_rrr_nip` FOREIGN KEY (`nip_pj_rrr`) REFERENCES `data_pegawai` (`nip`);
 
 --
--- Constraints for table `data_kota`
+-- Ketidakleluasaan untuk tabel `data_kota`
 --
 ALTER TABLE `data_kota`
   ADD CONSTRAINT `id_sbuh_kota_sbuh` FOREIGN KEY (`id_sbuh`) REFERENCES `data_sbuh` (`id_sbuh`);
 
 --
--- Constraints for table `data_notifikasi`
+-- Ketidakleluasaan untuk tabel `data_notifikasi`
 --
 ALTER TABLE `data_notifikasi`
   ADD CONSTRAINT `nip_notif_peg` FOREIGN KEY (`nip`) REFERENCES `data_pegawai` (`nip`);
 
 --
--- Constraints for table `data_pegawai`
+-- Ketidakleluasaan untuk tabel `data_pegawai`
 --
 ALTER TABLE `data_pegawai`
   ADD CONSTRAINT `id_divisi_peg` FOREIGN KEY (`id_divisi`) REFERENCES `data_divisi` (`id_divisi`),
@@ -2331,7 +2326,7 @@ ALTER TABLE `data_pegawai`
   ADD CONSTRAINT `id_status_datapeg` FOREIGN KEY (`id_status_peg`) REFERENCES `status_kepegawaian` (`id_status_peg`);
 
 --
--- Constraints for table `data_perjalanan_dinas`
+-- Ketidakleluasaan untuk tabel `data_perjalanan_dinas`
 --
 ALTER TABLE `data_perjalanan_dinas`
   ADD CONSTRAINT `id_kota_asal_id_kota` FOREIGN KEY (`id_kota_asal`) REFERENCES `data_kota` (`id_kota`),
@@ -2339,6 +2334,7 @@ ALTER TABLE `data_perjalanan_dinas`
   ADD CONSTRAINT `kode_kegiatan_dpd_dk` FOREIGN KEY (`kode_kegiatan`) REFERENCES `data_kegiatan` (`kode_kegiatan`),
   ADD CONSTRAINT `kode_mak_mak_peg` FOREIGN KEY (`kode_mak`) REFERENCES `data_mak` (`kode_mak`),
   ADD CONSTRAINT `nip_bendahara_dpd_peg` FOREIGN KEY (`nip_bendahara`) REFERENCES `data_pegawai` (`nip`),
+  ADD CONSTRAINT `nip_kasub_bag_tu_dpd_peg` FOREIGN KEY (`nip_kasub_bag_tu`) REFERENCES `data_pegawai` (`nip`),
   ADD CONSTRAINT `nip_kepala_balai_dpd_peg` FOREIGN KEY (`nip_kepala_balai`) REFERENCES `data_pegawai` (`nip`),
   ADD CONSTRAINT `nip_kpa_dpd_peg` FOREIGN KEY (`nip_kpa`) REFERENCES `data_pegawai` (`nip`),
   ADD CONSTRAINT `nip_plt_kb_keg_peg` FOREIGN KEY (`nip_plt_kb`) REFERENCES `data_pegawai` (`nip`),
@@ -2347,64 +2343,47 @@ ALTER TABLE `data_perjalanan_dinas`
   ADD CONSTRAINT `nip_verifikator_dpd_peg` FOREIGN KEY (`nip_verifikator`) REFERENCES `data_pegawai` (`nip`);
 
 --
--- Constraints for table `detail_role`
---
-ALTER TABLE `detail_role`
-  ADD CONSTRAINT `id_divisi_detailrole` FOREIGN KEY (`id_divisi`) REFERENCES `data_divisi` (`id_divisi`),
-  ADD CONSTRAINT `id_gol_detailrole` FOREIGN KEY (`id_golongan`) REFERENCES `data_golongan` (`id_golongan`),
-  ADD CONSTRAINT `id_jabatan_detailrole` FOREIGN KEY (`id_jabatan`) REFERENCES `data_jabatan` (`id_jabatan`),
-  ADD CONSTRAINT `id_pangkat_detailrole` FOREIGN KEY (`id_pangkat`) REFERENCES `data_pangkat` (`id_pangkat`),
-  ADD CONSTRAINT `id_status_peg_detail` FOREIGN KEY (`id_status_peg`) REFERENCES `status_kepegawaian` (`id_status_peg`);
-
---
--- Constraints for table `detail_tugas`
+-- Ketidakleluasaan untuk tabel `detail_tugas`
 --
 ALTER TABLE `detail_tugas`
   ADD CONSTRAINT `detail_id_tugas` FOREIGN KEY (`id_tugas`) REFERENCES `data_tugas` (`id_tugas`),
   ADD CONSTRAINT `detail_nip_tugas` FOREIGN KEY (`nip`) REFERENCES `data_pegawai` (`nip`);
 
 --
--- Constraints for table `perbaikan_alat`
+-- Ketidakleluasaan untuk tabel `perbaikan_alat`
 --
 ALTER TABLE `perbaikan_alat`
   ADD CONSTRAINT `idalat_join3` FOREIGN KEY (`idalat`) REFERENCES `stok_alat` (`idalat`);
 
 --
--- Constraints for table `perbaikan_barang`
+-- Ketidakleluasaan untuk tabel `perbaikan_barang`
 --
 ALTER TABLE `perbaikan_barang`
   ADD CONSTRAINT `id_barang2_join` FOREIGN KEY (`id_barang`) REFERENCES `stok_barang` (`id_barang`);
 
 --
--- Constraints for table `pinjam_alat`
+-- Ketidakleluasaan untuk tabel `pinjam_alat`
 --
 ALTER TABLE `pinjam_alat`
   ADD CONSTRAINT `idalat_join` FOREIGN KEY (`idalat`) REFERENCES `stok_alat` (`idalat`);
 
 --
--- Constraints for table `pinjam_barang`
+-- Ketidakleluasaan untuk tabel `pinjam_barang`
 --
 ALTER TABLE `pinjam_barang`
   ADD CONSTRAINT `id_barang_join` FOREIGN KEY (`id_barang`) REFERENCES `stok_barang` (`id_barang`);
 
 --
--- Constraints for table `riwayat_alat`
+-- Ketidakleluasaan untuk tabel `riwayat_alat`
 --
 ALTER TABLE `riwayat_alat`
   ADD CONSTRAINT `idalat_join2` FOREIGN KEY (`idalat`) REFERENCES `stok_alat` (`idalat`);
 
 --
--- Constraints for table `riwayat_peminjaman`
+-- Ketidakleluasaan untuk tabel `riwayat_peminjaman`
 --
 ALTER TABLE `riwayat_peminjaman`
   ADD CONSTRAINT `id_barang_join3` FOREIGN KEY (`id_barang`) REFERENCES `stok_barang` (`id_barang`);
-
---
--- Constraints for table `status_perjalanan`
---
-ALTER TABLE `status_perjalanan`
-  ADD CONSTRAINT `id_jabatan_join` FOREIGN KEY (`id_jabatan`) REFERENCES `data_jabatan` (`id_jabatan`),
-  ADD CONSTRAINT `nip_join` FOREIGN KEY (`nip`) REFERENCES `data_pegawai` (`nip`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

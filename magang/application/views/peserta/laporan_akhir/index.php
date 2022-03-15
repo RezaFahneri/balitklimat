@@ -8,7 +8,7 @@
                             <h3 class="font-weight-bold mb-10">Detail Laporan Akhir</h3>
                             <?php
                             if (!$detail) { ?>
-                                <a href="<?= base_url() ?>peserta/lap_akhir/tambah" class="btn btn-primary btn-sm btn-icon-text mb-2">
+                                <a title="Tambahkan laporan akhir" href="<?= base_url() ?>peserta/lap_akhir/tambah" class="btn btn-primary btn-sm btn-icon-text mt-2">
                                     <i class="ti ti-plus"></i>
                                     Tambah Laporan Akhir
                                 </a>
@@ -17,6 +17,7 @@
                         </div>
                         <?= $this->session->flashdata('message'); ?>
                         <div class="mt-4">
+                            <h6 class="font-weight-light" style="color: red;">Apabila sudah menyelesaikan tugas, maka bisa menambahakan Laporan Akhir dari kegiatan magang yang sudah dikerjakan. <br>- Hanya bisa menambahkan satu kali laporan akhir.<br>- Setelah menambahkan laporan akhir, maka akan mendapatkan sertifikat melalui Email.</h6>
                             <?php
                             if ($detail) { ?>
                                 <div class="mb-3">
@@ -42,10 +43,7 @@
                                     <textarea readonly class="form-control" id="abstraklapak" name="abstraklapak" rows="13"></textarea>
                                 </div>
                                 <label for="doklapak">Dokumen</label>
-                                <br>
-                                <a class="btn btn-outline-info btn-sm btn-icon-text">
-                                    <i class="ti ti-file"></i>
-                                </a>
+
                             <?php } ?>
                         </div>
                     </div>

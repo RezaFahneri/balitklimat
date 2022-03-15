@@ -4,6 +4,7 @@
             <div class="col-md-12 grid-margin">
                 <div class="shadow">
                     <div class="card-header py-3">
+                    <a title="Kembali" class="btn btn-sm btn-success" style="border-radius:90px; color:white;margin-bottom:15px;" href="<?php echo site_url('stok_barang') ?>"><i class="ti ti-arrow-left" style="border-radius:8px;"></i></a>
                         <h3 class="m-0 font-weight-bold">Detail Data Barang</h3><br>
                         <div class="col-md-12 grid-margin">
                             <div class="card mb-12">
@@ -14,6 +15,12 @@
                                                 <td><b>Gambar</b></td>
                                                 <td>
                                                     <img style="width: 200px" src="<?php echo base_url() . 'assets/images/upload/' . $detail->gambar ?>">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Kode Barang</b></td>
+                                                <td colspan="2">
+                                                    <input type="text" class="form-control" value="<?php echo $detail->kode ?>" disabled>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -38,12 +45,6 @@
                                                 <td><b>Satuan Barang</b></td>
                                                 <td colspan="2">
                                                     <input type="text" class="form-control" value="<?php echo $detail->satuan_barang ?>" disabled>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td><b>Kondisi Barang</b></td>
-                                                <td colspan="2">
-                                                    <input type="text" class="form-control" value="<?php echo $detail->kondisi_barang ?>" disabled>
                                                 </td>
                                             </tr>
                                             <tr>

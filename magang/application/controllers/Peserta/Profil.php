@@ -126,7 +126,7 @@ class Profil extends CI_Controller
         // var_dump($data);
         $this->Model_peserta->updata('peserta_magang', $data, $ket);
         //$this->Model_peserta->updata('laporan_mingguan', $data, $ket);
-        $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show" role="alert"> Profil Berhasil Diubah! <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show" role="alert"> Profil berhasil diubah! <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button> </div>');
         redirect('peserta/profil');

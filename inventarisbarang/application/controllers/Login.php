@@ -26,62 +26,65 @@ class Login extends CI_Controller
           $this->load->view('v_login', $data);
      }
 
-     public function proseslogin()
+     public function loginadmin()
      {
-          // $this->load->library('form_validation');  
-          //  $this->form_validation->set_rules('email', 'Email', 'required');  
-          //  $this->form_validation->set_rules('password', 'Password', 'required');  
-          //  if($this->form_validation->run())  
-          //  {  
-          //       //true  
-          //       $email = $this->input->post('email');  
-          //       $password = $this->input->post('password');
-          //       // $status = $this->input->post('status');  
-          //       //Model function  
-          //       $this->load->Model('Model_login');  
-          //       if($this->Model_login->bisalogin($email, $password))  
-          //       {  
-          //           //  $session_data = array(  
-          //           //       'username'     =>     $username,
-          // 			// 	  'password' => $password,
-          // 			// 	  'logged_in' => true,
-          // 			// 	  'status' => $status
-          //           //  );  
-          //           //  $this->session->set_userdata($session_data);  
-          //            redirect('dashboard');  
-          //       }  
-          //       else  
-          //       {  
-          //            $this->session->set_flashdata('error', 'Invalid Email and Password');  
-          //            redirect('login');  
-          //       }  
-          //  }  
-          //  else  
-          //  {  
-          //       //false  
-          //       $this->index();  
-          //  }  
-
-          $this->load->library('form_validation');
-          $this->form_validation->set_rules('email', 'Email', 'required');
-          $this->form_validation->set_rules('password', 'Password', 'required');
-          if ($this->form_validation->run()) {
-               //true  
-               $email = $this->input->post('email');
-               $password = $this->input->post('password');
-               //Model function  
-               $this->load->Model('Model_login');
-               if ($this->Model_login->bisalogin($email, $password)) {
-                    $this->session->set_flashdata('sukses', 'Login berhasil');
-                    redirect('dashboard');
-               } else {
-                    $this->session->set_flashdata('gagal', 'Email atau Password salah!');
-                    redirect('login');
-               }
-          } else {
-               //false  
-               $this->session->set_flashdata('gagal', validation_errors());
-               $this->index();
-          }
+          $data['title'] = "Login | Balitklimat";
+          $this->load->view('v_login_admin', $data);
      }
+
+     public function proseslogin(){
+		$this->load->library('form_validation');  
+           $this->form_validation->set_rules('email', 'Email', 'required');  
+           $this->form_validation->set_rules('password', 'Password', 'required');  
+           if($this->form_validation->run())  
+           {  
+                //true  
+                $email = $this->input->post('email');  
+                $password = $this->input->post('password');
+                $nip = $this->input->post('nip');  
+                $this->load->Model('Model_login');  
+                if($this->Model_login->bisalogin($email, $password))  
+                {  
+                     redirect('dashboard');  
+                }  
+                else  
+                {  
+                     $this->session->set_flashdata('error', 'Invalid Email and Password');  
+                     redirect('login');  
+                }  
+           }  
+           else  
+           {  
+                //false  
+                $this->index();  
+           }  
+	}
+
+     public function prosesloginadmin(){
+		$this->load->library('form_validation');  
+           $this->form_validation->set_rules('email', 'Email', 'required');  
+           $this->form_validation->set_rules('password', 'Password', 'required');  
+           if($this->form_validation->run())  
+           {  
+                //true  
+                $email = $this->input->post('email');  
+                $password = $this->input->post('password');
+                $nip = $this->input->post('nip');  
+                $this->load->Model('Model_login');  
+                if($this->Model_login->bisaloginadmin($email, $password))  
+                {  
+                     redirect('dashboard');  
+                }  
+                else  
+                {  
+                     $this->session->set_flashdata('error', 'Invalid Email and Password');  
+                     redirect('login');  
+                }  
+           }  
+           else  
+           {  
+                //false  
+                $this->index();  
+           }  
+	}
 }

@@ -4,7 +4,7 @@
             <div class="col-md-12 grid-margin">
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h3 class="m-0 font-weight-bold text-primary">Ubah Password</h3><br>
+                        <h3 class="m-0 font-weight-bold">Ubah Password</h3><br>
                         <div class="flash-data" id="flash" data-flash="<?= $this->session->flashdata('error'); ?>"></div>
                         <div class="col-md-12 grid-margin">
                             <div class="card-body">

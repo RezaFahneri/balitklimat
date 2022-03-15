@@ -9,21 +9,33 @@
                             <div class="mt-3">
                                 <div class="mt-3">
                                     <div class="table-responsive">
-                                        <table class="table table-bordered tabel-hover" id="peg_lapak" cellspacing="0">
-                                            <thead class="table-light">
-                                                <tr style="text-align: center;">
-                                                    <th>No.</th>
-                                                    <th>Tanggal</th>
-                                                    <th>Peserta</th>
-                                                    <th class="no-sort">Judul Akhir</th>
-                                                    <?php
-                                                    if ($sub == 'Laporan Akhir Seluruh Peserta') { ?>
+                                        <table class="table table-bordered tabel-hover text-wrap" id="peg_lapak" cellspacing="0">
+                                            <?php
+                                            if ($sub == 'Laporan Akhir Seluruh Peserta') { ?>
+                                                <thead class="table-light">
+                                                    <tr style="text-align: center;">
+                                                        <th>No.</th>
+                                                        <th>Tanggal</th>
+                                                        <th>Peserta</th>
+                                                        <th class="no-sort">Judul Akhir</th>
                                                         <th style="width: 15%;">Pembimbing</th>
-                                                    <?php } ?>
-                                                    <!-- <th>Dokumen</th> -->
-                                                    <th class="no-sort">Aksi</th>
-                                                </tr>
-                                            </thead>
+                                                        <!-- <th>Dokumen</th> -->
+                                                        <th class="no-sort">Aksi</th>
+                                                    </tr>
+                                                </thead>
+                                            <?php } else { ?>
+                                                <thead class="table-light">
+                                                    <tr style="text-align: center;">
+                                                        <th>No.</th>
+                                                        <th>Tanggal</th>
+                                                        <th>Peserta</th>
+                                                        <th class="no-sort">Judul Akhir</th>
+                                                        <!-- <th style="width: 15%;">Pembimbing</th> -->
+                                                        <!-- <th>Dokumen</th> -->
+                                                        <th class="no-sort">Aksi</th>
+                                                    </tr>
+                                                </thead>
+                                            <?php } ?>
                                             <tbody>
                                                 <?php
                                                 if ($sub == 'Laporan Akhir Peserta Bimbingan') { ?>
@@ -33,7 +45,7 @@
                                                     ?>
                                                         <tr>
                                                             <td><?= $no++ ?></td>
-                                                            <td><?= $d->tgl_up_lapak ?></td>
+                                                            <td><?= date('d M Y', strtotime($d->tgl_up_lapak)) ?></td>
                                                             <td><?= character_limiter($d->nama_pm, 30) ?></td>
                                                             <td><?= character_limiter($d->judul_lapak, 50) ?></td>
                                                             <td>
@@ -49,8 +61,8 @@
                                                     ?>
                                                         <tr>
                                                             <td><?= $no++ ?></td>
-                                                            <td><?= $d->tgl_up_lapak ?></td>
-                                                            <td><?= character_limiter($d->nama_pm, 30) ?></td>
+                                                            <td><?= date('d M Y', strtotime($d->tgl_up_lapak)) ?></td>
+                                                            <td><?= character_limiter($d->nama_pm, 50) ?></td>
                                                             <td><?= character_limiter($d->judul_lapak, 30) ?></td>
                                                             <td><?= character_limiter($d->nama_pegawai, 20); ?></td>
                                                             <td>
