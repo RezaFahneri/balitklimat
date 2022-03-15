@@ -54,6 +54,8 @@ class Perjalanan_dinas extends CI_Controller
         $data['nip_bendahara'] = $this->Model_pegawai->getListBendahara();
         $data['nip_kepala_balai'] = $this->Model_pegawai->getListKepalaBalai();
         $data['nip_plt_kb'] = $this->Model_pegawai->getListPltBalai();
+        $data['nip_kasub_bag_tu'] = $this->Model_pegawai->getListKasubTU();
+        
 
         $this->load->view('templates/v_template', $data);
         $this->load->view('Data_Perjalanan_Dinas/v_tambah_data_perjalanan_dinas', $data);

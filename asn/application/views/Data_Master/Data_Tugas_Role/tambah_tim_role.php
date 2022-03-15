@@ -16,12 +16,12 @@
                                         action="<?php echo base_url() ?>role_penugasan/tambah_tim_role_aksi">
                                         <tr>
                                             <td>
-                                                <input type="text" name="id_role" value="<?php echo $tr->id_role ?>">
+                                                <input type="hidden" name="id_role" value="<?php echo $tr->id_role ?>">
                                             </td>
                                         </tr>
                                         <div class="form-group">
                                             <label>Role </label>
-                                            <input type="text" name="role" class="form-control"
+                                            <input readonly type="text" name="role" class="form-control"
                                                 value="<?php echo $tr->role?>" required>
                                         </div>
                                         <div class="form-group">
@@ -36,47 +36,47 @@
                                             </select>
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" name="nama_pegawai" class="form-control" required>
+                                            <input type="hidden" name="nama_pegawai" class="form-control" required>
                                         </div>
                                         <div class="form-group">
-                                            <input style="color:dimgray" type="text" id="id_golongan" name="id_golongan"
+                                            <input style="color:dimgray" type="hidden" id="id_golongan"
+                                                name="id_golongan" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <input style="color:dimgray" type="hidden" id="id_pangkat" name="id_pangkat"
                                                 class="form-control">
                                         </div>
                                         <div class="form-group">
-                                            <input style="color:dimgray" type="text" id="id_pangkat" name="id_pangkat"
+                                            <input style="color:dimgray" type="hidden" id="foto" name="foto"
                                                 class="form-control">
                                         </div>
                                         <div class="form-group">
-                                            <input style="color:dimgray" type="text" id="foto" name="foto"
-                                                class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <input style="color:dimgray" type="text" id="id_status_peg"
+                                            <input style="color:dimgray" type="hidden" id="id_status_peg"
                                                 name="id_status_peg" class="form-control">
                                         </div>
                                         <div class="form-group">
-                                            <input style="color:dimgray" type="text" id="id_jabatan" name="id_jabatan"
+                                            <input style="color:dimgray" type="hidden" id="id_jabatan" name="id_jabatan"
                                                 class="form-control">
                                         </div>
                                         <div class="form-group">
-                                            <input style="color:dimgray" type="text" id="id_divisi" name="id_divisi"
+                                            <input style="color:dimgray" type="hidden" id="id_divisi" name="id_divisi"
                                                 class="form-control">
                                         </div>
                                         <div class="form-group">
-                                            <input style="color:dimgray" type="text" id="nik" name="nik"
+                                            <input style="color:dimgray" type="hidden" id="nik" name="nik"
                                                 class="form-control">
                                         </div>
                                         <div class="form-group">
-                                            <input style="color:dimgray" type="text" id="email" name="email"
+                                            <input style="color:dimgray" type="hidden" id="email" name="email"
                                                 class="form-control">
                                         </div>
                                         <div class="form-group">
-                                            <input style="color:dimgray" type="text" id="password" name="password"
+                                            <input style="color:dimgray" type="hidden" id="password" name="password"
                                                 class="form-control">
                                         </div>
                                         <div class="form-group">
-                                            <input style="color:dimgray" type="text" id="no_whatsapp" name="no_whatsapp"
-                                                class="form-control">
+                                            <input style="color:dimgray" type="hidden" id="no_whatsapp"
+                                                name="no_whatsapp" class="form-control">
                                         </div>
                                         <!-- <div class="form-group">
                                             <label>Tim role<i style="color:red">*</label>

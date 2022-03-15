@@ -109,9 +109,9 @@
                                                                                                     <b>File
                                                                                                 </button>
                                                                                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                                                                    <a class="dropdown-item " href="#"><b>- SPPD</a>
-                                                                                                    <a class="dropdown-item" href="<?php echo base_url('pdf/capsah_1/' . $d->id_anggota_perjadin) ?>"><b>- Capsah-PNS(1)</a>
-                                                                                                    <a class="dropdown-item" href="<?php echo base_url('pdf/capsah_2/' . $d->id_anggota_perjadin) ?>"><b>- Capsah-PNS(2)</a>
+                                                                                                    <a class="dropdown-item " href="#"><b>- SPPD Lembar 1</a>
+                                                                                                    <a class="dropdown-item" href="<?php echo base_url('pdf/capsah_1/' . $d->id_anggota_perjadin) ?>"><b>- SPPD Lembar 2</a>
+                                                                                                    <!-- <a class="dropdown-item" href="<?php echo base_url('pdf/capsah_2/' . $d->id_anggota_perjadin) ?>"><b>- Capsah-PNS(2)</a> -->
                                                                                                     <a class="dropdown-item" href="<?php echo base_url('pdf/kuitansi/' . $d->id_anggota_perjadin) ?>"><b>- Kuitansi</a>
                                                                                                     <a class="dropdown-item" href="<?php echo base_url('pdf/pernyataan/' . $d->id_anggota_perjadin) ?>"><b>- Pernyataan</a>
                                                                                                 </div>

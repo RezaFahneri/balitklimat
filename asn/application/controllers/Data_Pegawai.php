@@ -53,10 +53,22 @@ class Data_Pegawai extends CI_Controller {
 		$this->load->view('Data_Pegawai/v_tambah_pegawai',$data);
         $this->load->view('templates/footer',$data);
     }
+    public function generateID(){
+		$query = $this->db->order_by('nip', 'DESC')->limit(1)->get('data_pegawai')->row('nip');
+		$lastNo = (int) substr($query, 3);
+		$next = $lastNo + 1;
+		$kd = 'HNR';
+		return $kd.sprintf('%04s', $next);
+	}
     function tambah_aksi()
     {
         $nama_pegawai = $this->input->post('nama_pegawai');
         $nip = $this->input->post('nip');
+        if (!empty($nip)) {
+            $nip = $nip;
+        }else{
+            $nip = $this->generateID();
+        }
         $id_golongan = $this->input->post('id_golongan');
         $id_status_peg = $this->input->post('id_status_peg');
         $id_pangkat = $this->input->post('id_pangkat');
@@ -91,6 +103,8 @@ class Data_Pegawai extends CI_Controller {
         );
         $data3 = array(
             'nama_pegawai' => $nama_pegawai,
+            
+
             'nip'   => $nip,
             'id_golongan'  => $id_golongan,
             'id_status_peg'  => $id_status_peg,

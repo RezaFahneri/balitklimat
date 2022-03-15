@@ -25,16 +25,12 @@
                                             <?php echo form_error('nama_pegawai', '<div class="text-small text-danger"></div>') ?>
                                         </div>
                                         <div class="form-group">
-                                            <label><b>NIP<a style="color:red"> *</a></b></label>
+                                            <label><b>NIP</b></label>
                                             <input type="text" name="nip" placeholder="Nomor Induk Pegawai"
-                                                autocomplete="off" class="form-control" required>
+                                                autocomplete="off" class="form-control">
                                             <?php echo form_error('nip', '<div class="text-small text-danger"></div>') ?>
                                         </div>
-                                        <!-- <div class="form-group">
-                        <label><b>Foto</b> </label>
-                        <input type="file" name="foto" class="form-control" required>
-                        <?php// echo form_error('foto', '<div class="text-small text-danger"></div>') ?>
-                    </div> -->
+                                  
                                         <div class="form-group">
                                             <label for="id_golongan"><b>Golongan</b></label></br>
                                             <select style="color:dimgray" name="id_golongan" id="id_golongan"

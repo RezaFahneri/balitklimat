@@ -86,6 +86,14 @@ class Model_pegawai extends CI_model
 		$this->db->or_where('penugasan','Kasie');
 		return $this->db->or_where('penugasan','Kakelti')->get()->result();
 	}
+	public function getListKasubTU()
+	{
+		$this->db->select('*');
+		$this->db->from('detail_tugas');
+		$this->db->join('data_pegawai', 'data_pegawai.nip=detail_tugas.nip');
+		$this->db->join('data_tugas', 'data_tugas.id_tugas=detail_tugas.id_tugas');
+		return $this->db->where('penugasan','Kasub')->get()->result();
+	}
 	public function getListBendahara()
 	{
 		$this->db->select('*');
