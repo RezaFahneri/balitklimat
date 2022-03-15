@@ -17,10 +17,10 @@
                                 onclick="window.location.href='<?php echo base_url() ?>role_penugasan/penugasan'">Penugasan
                             </label>
                         </div><br><br>
-                        <div class="col-md-4 grid-margin">
-                            <a href="<?php echo base_url() ?>role_penugasan/tambah_role"
+                        <!-- <div class="col-md-4 grid-margin">
+                            <a href="<?//php echo base_url() ?>role_penugasan/tambah_role"
                                 class="btn btn-success btn-md"><i class="ti ti-plus"></i>Tambah Role</a>
-                        </div>
+                        </div> -->
                         <div class="col-md-12 grid-margin">
                             <div class="card shadow mb-12">
                                 <div class="col-lg-12 grid-margin stretch-card">
@@ -49,17 +49,17 @@
                                                         </td>
                                                         <td><?php echo $dr->role ?></td>
                                                         <td>
-                                                            <a title="Edit data role" class="btn btn-sm btn-success"
-                                                                href="<?php echo base_url('/role_penugasan/edit_role/' . $dr->id_role) ?>"><i
-                                                                    class="mdi mdi-lead-pencil"></i></a>
+                                                            <!-- <a title="Edit data role" class="btn btn-sm btn-success"
+                                                                href="<?//php echo base_url('/role_penugasan/edit_role/' . $dr->id_role) ?>"><i
+                                                                    class="mdi mdi-lead-pencil"></i></a> -->
                                                             <a title="Tambah anggota role" style="color:white"
                                                                 class="btn btn-sm btn-secondary"
                                                                 href="<?php echo base_url('/role_penugasan/tambah_tim_role/' . $dr->id_role) ?>"><i
                                                                     class="mdi mdi-account-multiple-plus"></i></a>
-                                                            <a title="Hapus data role" id="hapus_role"
+                                                            <!-- <a title="Hapus data role" id="hapus_role"
                                                                 class="btn btn-sm btn-danger"
-                                                                href="<?php echo site_url('/role_penugasan/hapus_role/' . $dr->id_role) ?>"><i
-                                                                    class="mdi mdi-trash-can"></i></a>
+                                                                href="<?//php echo site_url('/role_penugasan/hapus_role/' . $dr->id_role) ?>"><i
+                                                                    class="mdi mdi-trash-can"></i></a> -->
                                                         </td>
                                                     </tr>
                                                     <tr>

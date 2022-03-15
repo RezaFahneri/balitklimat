@@ -73,6 +73,10 @@ class Jadwal_KP extends CI_Controller {
         $tmt_pangkat_3 = $this->input->post('tmt_pangkat_3');
         $tmt_pangkat_4 = $this->input->post('tmt_pangkat_4');
         $tmt_pangkat_5 = $this->input->post('tmt_pangkat_5');
+
+        $tmtp1 = new DateTime($tmt_pangkat_1);
+        $tmtp2 = new DateTime($tmt_pangkat_2);
+
         $jadwal_kp = $this->input->post('jadwal_kp');
 
         $data = array(

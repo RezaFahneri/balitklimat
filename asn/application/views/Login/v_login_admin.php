@@ -30,6 +30,11 @@
                 <div class="row w-100 mx-0">
                     <div class="col-lg-5 mx-auto">
                         <div class="wrapper auth-form-light text-center py-5 px-4 px-sm-5">
+                            <div class="text-left">
+                                <button type="button" class="btn btn-outline-dark"
+                                    onclick="window.location.href='<?php echo base_url() ?>../../balitklimat'"><span
+                                        class="ti ti-home"></span> </button>
+                            </div><br>
                             <div class="brand-logo">
                                 <img src="<?= base_url('assets'); ?>/images/logo.png" class="img-fluid"
                                     style="width:100px" alt="logo">
