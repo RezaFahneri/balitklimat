@@ -2,6 +2,7 @@
 class Model_pegawai extends CI_model
 {
 	private $tb_data_pegawai = "data_pegawai";
+
 	function tampil_data($table){
 		return $this->db->get($table);
 	}
@@ -15,6 +16,10 @@ class Model_pegawai extends CI_model
 		$this->db->join('data_pangkat', 'data_pegawai.id_pangkat= data_pangkat.id_pangkat');
 		$this->db->join('data_jabatan', 'data_pegawai.id_jabatan=data_jabatan.id_jabatan');
 		$this->db->join('data_divisi', 'data_pegawai.id_divisi=data_divisi.id_divisi');
+		$this->db->where('jabatan!=','Tidak Ada');
+		$this->db->where('status_kepegawaian!=','Tidak Ada');
+		$this->db->where('divisi!=','Tidak Ada');
+		
 		return $this->db->get()->result();
 	}
 	function getList2($nip){

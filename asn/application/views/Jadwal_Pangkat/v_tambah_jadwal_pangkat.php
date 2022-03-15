@@ -76,6 +76,9 @@
                                             <label for="tmt_pangkat_2"><b>TMT 2</b></label>
                                             <input style="color:dimgray" type="date" id="tmt_pangkat_2"
                                                 name="tmt_pangkat_2" class="form-control">
+                                            <!-- <input style="color:dimgray" type="date" id="tmt_pangkat_2"
+                                                name="tmt_pangkat_2" class="form-control"> -->
+
                                         </div>
                                         <div class="form-group">
                                             <label for="tmt_pangkat_3"><b>TMT 3</b></label>
@@ -148,7 +151,6 @@ $('#nip').on('input', function() {
                 $('[name="nip"]').val(data.nip);
                 $('[name="golongan"]').val(data.golongan);
                 $('[name="pangkat"]').val(data.pangkat);
-                $('[name="tmt"]').val(data.tmt);
             });
 
         }
