@@ -28,6 +28,31 @@ class Model_pegawai extends CI_model
 	function getList(){
 		$this->db->select('*');
 		$this->db->from('data_pegawai');
+		$this->db->order_by('nip');
+		$this->db->join('data_golongan', 'data_pegawai.id_golongan= data_golongan.id_golongan');
+		$this->db->join('status_kepegawaian', 'data_pegawai.id_status_peg= status_kepegawaian.id_status_peg');
+		$this->db->join('data_pangkat', 'data_pegawai.id_pangkat= data_pangkat.id_pangkat');
+		$this->db->join('data_jabatan', 'data_pegawai.id_jabatan=data_jabatan.id_jabatan');
+		$this->db->join('data_divisi', 'data_pegawai.id_divisi=data_divisi.id_divisi');
+		$this->db->where('divisi !=', 'Tidak Ada');
+		return $this->db->get()->result();
+	}
+	function getListNb(){
+		$this->db->select('*');
+		$this->db->from('data_pegawai');
+		$this->db->order_by('nip');
+		$this->db->join('data_golongan', 'data_pegawai.id_golongan= data_golongan.id_golongan');
+		$this->db->join('status_kepegawaian', 'data_pegawai.id_status_peg= status_kepegawaian.id_status_peg');
+		$this->db->join('data_pangkat', 'data_pegawai.id_pangkat= data_pangkat.id_pangkat');
+		$this->db->join('data_jabatan', 'data_pegawai.id_jabatan=data_jabatan.id_jabatan');
+		$this->db->join('data_divisi', 'data_pegawai.id_divisi=data_divisi.id_divisi');
+		$this->db->where('divisi =', 'Tidak Ada');
+		return $this->db->get()->result();
+	}
+	function getListAll(){
+		$this->db->select('*');
+		$this->db->from('data_pegawai');
+		$this->db->order_by('nip','desc');
 		$this->db->join('data_golongan', 'data_pegawai.id_golongan= data_golongan.id_golongan');
 		$this->db->join('status_kepegawaian', 'data_pegawai.id_status_peg= status_kepegawaian.id_status_peg');
 		$this->db->join('data_pangkat', 'data_pegawai.id_pangkat= data_pangkat.id_pangkat');

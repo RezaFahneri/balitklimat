@@ -41,7 +41,7 @@ class Anggota_perjadin extends CI_Controller
         $data['title'] = 'PERJADIN BALITKLIMAT | Tambah Data Perjalanan Dinas';
         $id_perjalanan_dinas = $this->input->get('id_perjalanan_dinas');
         $data['data_perjalanan_dinas'] = $this->Model_perjalanan_dinas->getList2($id_perjalanan_dinas);
-        $data['nip'] = $this->Model_pegawai->getList();
+        $data['nip'] = $this->Model_pegawai->getListAll();
 
         $this->load->view('templates/v_template', $data);
         $this->load->view('Anggota_Perjadin/v_tambah_anggota_perjadin', $data);

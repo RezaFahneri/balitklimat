@@ -72,13 +72,13 @@
     <p style="text-align:left;margin-top:620px;margin-left:520px;width:92%;position:absolute;z-index:3"><?php echo $p->nama_ppk ?></b>
     <p style="text-align:left;margin-top:650px;margin-left:520px;width:92%;position:absolute;z-index:4">NIP.<?php echo ' ' . $p->nip_ppk ?>
 
-    <p style="text-align:justify;margin-top:710px;margin-left:10px; width:75%; position:absolute;z-index:5">VI. <br>
+    <p style="text-align:justify;margin-top:710px;margin-left:10px; width:75%; position:absolute;z-index:5">VI.
     <p style="text-align:justify;margin-top:710px;margin-left:40px;width:80%;position:absolute; z-index:0">CATATAN LAIN-LAIN
-    <p style="text-align:justify;margin-top:790px;margin-left:10px; width:75%; position:absolute;z-index:5">VII. <br>
+    <p style="text-align:justify;margin-top:790px;margin-left:10px; width:75%; position:absolute;z-index:5">VII.
     <p style="text-align:justify;margin-top:790px;margin-left:40px;width:80%;position:absolute; z-index:0">PERHATIAN
     <p style="text-align:justify;margin-top:825px;margin-left:40px;width:84%;position:absolute; z-index:0;font-size:11px">Pejabat yang berwenang menerbitkan SPPD, pegawai yang melakukan perjalanan dinas, para pejabat yang mengesahkan tanggal
         berangkat/tiba serta bendaharawan bertanggung jawab berdasarkan peraturan-peraturan Keuangan Negara, apabila Negara menderita
-        rugi akibat kesalahan, kelalaian dan kealpaannya. (Angka 8, lampiran Surat Edaran Menteri Keuangan tanggal 23 April 1996 Nomor: SE67/A/622/0496).
+        rugi akibat kesalahan, kelalaian dan kealpaannya. (Angka 8, lampiran Surat Edaran Menteri Keuangan tanggal 23 April 1996 Nomor: SE-67/A/622/0496).
 
 
         <?php

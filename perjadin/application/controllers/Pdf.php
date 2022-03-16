@@ -84,7 +84,7 @@ class Pdf extends CI_Controller
         // Output the generated PDF (1 = download and 0 = preview)
         $this->dompdf->stream("surat_pernyataan.pdf", array("Attachment"=>0));
     }
-    function capsah_1($id_anggota_perjadin)
+    function sppd_halaman_1($id_anggota_perjadin)
     {
         $data['header'] = $this->Model_pdf->getHeader();
         $data['isi_surat'] = $this->Model_pdf->getListCapsah($id_anggota_perjadin);
@@ -104,7 +104,7 @@ class Pdf extends CI_Controller
         $this->dompdf->render();
         
         // Output the generated PDF (1 = download and 0 = preview)
-        $this->dompdf->stream("capsah_halaman_1.pdf", array("Attachment"=>0));
+        $this->dompdf->stream("SPPD Halaman 2.pdf", array("Attachment"=>0));
     }
     function capsah_2($id_anggota_perjadin)
     {

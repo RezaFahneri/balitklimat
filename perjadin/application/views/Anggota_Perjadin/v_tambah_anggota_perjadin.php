@@ -40,11 +40,12 @@
                                             <select title="Pilih pegawai yang akan ditambahkan kedalam perjalanan dinas" name="nip_anggota_perjadin" id="nip_anggota_perjadin" class="form-control" required>
                                                 <option value="">--Pilih Pegawai--</option>
                                                 <?php foreach ($nip as $row) { ?>
-                                                    <option value="<?php echo $row->nip; ?>"><?php echo $row->nip . " | " . $row->nama_pegawai; ?></option>';
+                                                    <option value="<?php echo $row->nip; ?>"><?php echo $row->nama_pegawai; ?></option>';
                                                     }
                                                 <?php } ?>
                                             </select>
                                         </div>
+                                        <a href="<?php echo base_url() ?>data_pegawai/tambah"><label style="margin-bottom:30px;margin-top:-25px;color:blue">Klik disini<Label></a><label>&nbsp untuk menambahkan pegawai</label>
                                         <div class="form-group">
                                             <label><b>No. SPPD</b></label>
                                             <div class="input-group mb-2">
@@ -62,7 +63,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label><b>No. Surat Tugas (TU)</b></label>
-                                            <input readonly type="text" value="<?php echo $dpd->no_surat.$dpd->no_surat_tugas_tu ?>" class="form-control" required>
+                                            <input readonly type="text" value="<?php echo $dpd->no_surat . $dpd->no_surat_tugas_tu ?>" class="form-control" required>
                                         </div>
                                         <div class="form-group">
                                             <label><b>Berangkat Dari</b></label>
@@ -80,8 +81,8 @@
                                             <label><b>Uang Harian</b></label>
                                             <input type="number" name="uang_harian" <?php if ($dpd->kota == $dpd->kota_tujuan) {
                                                                                     ?> value="<?php echo $dpd->dalam_kota_tujuan * $dpd->lama_perjalanan ?>" <?php
-                                                                                                                                                                    } else {
-                                                                                                                                                                        ?>value="<?php echo $dpd->luar_kota_tujuan * $dpd->lama_perjalanan ?>" <?php
+                                                                                                                                                            } else {
+                                                                                                                                                                ?>value="<?php echo $dpd->luar_kota_tujuan * $dpd->lama_perjalanan ?>" <?php
                                                                                                                                                                                                                                             } ?> class="form-control" required>
                                             <?php echo form_error('tahun', '<div class="text-small text-danger"></div>') ?>
                                         </div>
