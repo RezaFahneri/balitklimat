@@ -22,12 +22,12 @@
         <tr>
             <td align="center">
                 <span style="color: #414D96; font-size:x-small">
-                    KEMENTRIAN PERTANIAN<br>
-                    BADAN PENELITIAN DAN PENGEMBANGAN PERTANIAN<br>
-                    <b style="font-size:medium;">BALAI PENELITIAN AGROKLIMAT DAN HIDROLOGI</b><br>
-                    Jl. Tentara Pelajar NO.1A, Kampus Penelitian Pertanian Cimanggu Bogor 1611<br>
-                    Telepon (0251)8312760, Faksimili (0251)8323909<br>
-                    WEBSITE http://balitklimat.litbang.pertanian.go.id E-MAIL balitklimat@litbang.pertanian.go.id<br>
+                    <?= $header->nama_kementerian ?><br>
+                    <?= $header->eslon_satu ?><br>
+                    <b style="font-size:medium;"> <?= $header->eslon_tiga ?></b><br>
+                    <?= $header->alamat ?><br>
+                    <?= $header->kontak ?><br>
+                    <?= $header->web_email ?><br>
                     <!-- SEKOLAH TINGGI ILMU KOMPUTER DAN INFORMATIKA
                     <br>MAKASSAR INDONESIA -->
                 </span>

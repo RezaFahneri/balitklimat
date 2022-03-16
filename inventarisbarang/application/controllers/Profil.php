@@ -67,7 +67,7 @@ class Profil extends CI_Controller
 
 	function update_foto()
 	{
-		$config['upload_path'] = './assets/images/foto/';
+		$config['upload_path'] = '.././asn/assets/images/foto/';
 		$config['allowed_types'] = 'jpg|jpeg|png|svg';
 		$config['max_size'] = 10000;
 

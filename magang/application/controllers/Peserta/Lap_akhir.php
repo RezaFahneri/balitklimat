@@ -17,7 +17,8 @@ class Lap_akhir extends CI_Controller
         $ket = ['id_pm' => $id_pm];
         $getdetail = $this->Model_peserta->getdet('laporan_akhir', $ket)->row();
         $data['detail'] = $getdetail;
-        // var_dump($data['detail']);
+        $data['header'] = $this->Model_peserta->getdet('data_header_surat', ['id_header_surat' => 'h01'])->row();
+        // var_dump(ucfirst($getheader->eslon_tiga));
         $this->load->view('templates/header', $data);
         $this->load->view('templates/navbar', $data);
         $this->load->view('templates/sidebar');
@@ -81,13 +82,14 @@ class Lap_akhir extends CI_Controller
             ];
             // var_dump($data1, $data);
             $this->Model_peserta->insert($data1, 'laporan_akhir');
+            $getheader = $this->Model_peserta->getdet('data_header_surat', ['id_header_surat' => 'h01'])->row();
             $data['tgl_sls'] = date('d M Y', strtotime($data['user2']['tgl_sls_pm']));
             $data['tgl_mli'] = date('d M Y', strtotime($data['user2']['tgl_mli_pm']));
             $data['judul'] = $this->input->post('judullapak');
             $data['nama'] = $this->input->post('nama');
-            $data['instansi'] = 'Balai Penelitian Agroklimat dan Hidrologi';
-            $email = $data['user2']['email_pm'];
-            $nama = $data['user2']['nama_pm'];
+            $data['instansi'] = $getheader->eslon_tiga;
+            $email = $this->input->post('email_pm');
+            $nama = $data['user2']['id_pm'];
             $file_name = 'Sertifikat_' . $nama . '.pdf';
             $size = 'A4';
             $orientation = "landscape";
@@ -110,13 +112,14 @@ class Lap_akhir extends CI_Controller
             $mail->Body    = 'Terima kasih telah menyelesaikan magang! ';
             $mail->AddAttachment($file_name);
             if ($mail->send()) {
+                unlink($file_name);
             } else {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible fade show" role="alert"> Email tidak terkirim. Mailer Error: {' . $mail->ErrorInfo . '} <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button> </div>');
                 redirect('peserta/lap_akhir');
             }
-            $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show" role="alert"> Laporan Akhir Berhasil Disimpan! <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show" role="alert"> Laporan akhir berhasil disimpan! <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button> </div>');
             redirect('peserta/lap_akhir');

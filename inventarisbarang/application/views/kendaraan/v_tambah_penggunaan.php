@@ -4,13 +4,13 @@
             <div class="col-md-12 grid-margin">
                 <div class="shadow">
                     <div class="card-header py-3">
-                        <a style="font-size:40px; color:#000000" href="<?php echo base_url() ?>penggunaan_mobil"><i class="mdi mdi-keyboard-backspace"></i></a>
-                        <h3 class="m-0 font-weight-bold">Statistik Sopir</h3><br>
+                        <a title="Kembali" class="btn btn-sm btn-success" style="border-radius:90px; color:white;margin-bottom:15px;" href="<?php echo site_url('penggunaan_mobil') ?>"><i class="ti ti-arrow-left" style="border-radius:8px;"></i></a>
+                        <h3 class="m-0 font-weight-bold">Statistik Pengemudi</h3><br>
                         <div class="flash-data" id="flash" data-flash="<?= $this->session->flashdata('pesan'); ?>"></div>
                         <div class="col-md-12 grid-margin">
                             <div class="card shadow mb-12">
                                 <div class="col-lg-12 grid-margin stretch-card">
-                                    <div class="card"></br>
+                                    <div class="card" style="margin-top: 15px;">
                                         <div id="myBtnContainer">
                                             <button class="btn-filter btn-secondary" onclick="filterSelection('semua')">2022</button>
                                             <button class="btn-filter btn-secondary" onclick="filterSelection('jan')"> Jan</button>
@@ -156,15 +156,16 @@
                                     <div class="card">
                                         <form method="post" action="<?php echo base_url('penggunaan_mobil/tambah_aksi') ?>" enctype="multipart/form-data"></br>
                                             <div class="form-group">
-                                                <label>Nama Pegawai </label></br>
+                                                <label>Nama Pegawai (Pengemudi) </label></br>
                                                 <select name="nip" id="nip" class="js-example-basic-single form-control" required>
-                                                    <option value="">--Pilih Nama Pegawai--</option>
+                                                    <option value="">--Pilih Nama Pegawai (Pengemudi)--</option>
                                                     <?php
                                                     foreach ($pegawai as $row) { ?>
                                                         <option value="<?php echo $row->nip; ?>"><?php echo $row->nama_pegawai; ?></option>';
                                                         }
                                                     <?php } ?>
                                                 </select>
+                                                <a style="font-size: 12px;">Jika nama pengemudi tidak ada, berarti semua pengemudi dalam penugasan</a>
                                             </div>
                                             <div class="form-group">
                                                 <label>No Polisi </label></br>
@@ -182,7 +183,7 @@
                                                 <label>Perjalanan </label>
                                                 <select name="perjalanan" id="statusperjalanan" onchange="showperjalanan()" class="form-control" required>
                                                     <option value="">--Pilih Perjalanan--</option>
-                                                    <option value="Dalam Kota">Dalam Kota</option>
+                                                    <option value="Dalam Kota">Dalam Kota (Jabodetabek)</option>
                                                     <option value="Luar Kota">Luar Kota</option>
                                                 </select>
                                                 <?php echo form_error('perjalanan', '<div class="text-small text-danger"></div>') ?>

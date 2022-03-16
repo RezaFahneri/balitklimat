@@ -64,7 +64,7 @@ class Laporan extends CI_Controller
             ];
             //var_dump($data);
             $this->Model_peserta->insert($data, 'laporan_mingguan');
-            $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show" role="alert"> Laporan Mingguan Berhasil Disimpan! <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show" role="alert"> Laporan mingguan berhasil disimpan! <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button> </div>');
             redirect('peserta/laporan');
@@ -129,7 +129,7 @@ class Laporan extends CI_Controller
         ];
         $this->Model_peserta->updata('laporan_mingguan', $data, $ket);
         //$this->Model_peserta->updata('laporan_mingguan', $data, $ket);
-        $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show" role="alert"> Laporan Mingguan Berhasil Diubah! <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show" role="alert"> Laporan mingguan berhasil diubah! <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button> </div>');
         redirect('peserta/laporan/detail/' . $id_lap_ming);
@@ -142,7 +142,7 @@ class Laporan extends CI_Controller
         $filelama = $getdetail->dok_lap_ming;
         unlink(FCPATH . '/assets/dokumen/lap_ming/' . $filelama);
         $this->Model_peserta->hapus('laporan_mingguan', $ket);
-        $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show" role="alert"> Laporan Mingguan Berhasil Dihapus! <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show" role="alert"> Laporan mingguan berhasil dihapus! <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button> </div>');
         redirect('peserta/laporan');

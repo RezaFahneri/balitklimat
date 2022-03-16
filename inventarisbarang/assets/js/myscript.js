@@ -156,7 +156,7 @@ $(document).on('click', '#logout', function (e) {
 })
 
 //filter statistik penggunaan mobil
-filterSelection("semua")
+filterSelection("mar")
 
 function filterSelection(c) {
     var x, i;

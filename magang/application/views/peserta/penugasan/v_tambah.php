@@ -1,5 +1,8 @@
 <div class="main-panel">
     <div class="content-wrapper">
+        <a href="<?= base_url('peserta/penugasan/detail/' . $detail->id_tugas) ?>" class="btn btn-light mb-2"><i><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
+                </svg></i> Kembali ke <b>Penugasan <?= $detail->id_tugas ?></b></a>
         <div class="row">
             <div class="col-12 grid-margin">
                 <div class="card">
@@ -14,7 +17,7 @@
                         </div>
                         <div class="form-group">
                             <label for="isitgs">Isi Hasil Penugasan<i style="color:red">*</i></label>
-                            <textarea class="form-control" id="isitgs" name="isitgs" rows="13"><?= $detail->hasil_tugas; ?></textarea>
+                            <textarea class="form-control" id="isitgs" name="isitgs" rows="15"><?= $detail->hasil_tugas; ?></textarea>
                             <?= form_error('isitgs', '<small class="text-danger">', '</small>'); ?>
                         </div>
                         <div class="form-group">
@@ -35,7 +38,6 @@
                             <?= form_error('doktgs', '<small class="text-danger">', '</small>'); ?>
                         </div>
                         <button type="submit" class="btn btn-primary float-right ml-2">Simpan</button>
-                        <a href="<?= base_url('peserta/penugasan/detail/' . $detail->id_tugas) ?>" class="btn btn-light float-right">Kembali</a>
                         </form>
                     </div>
                 </div>

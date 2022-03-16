@@ -277,6 +277,14 @@
                             <span class="menu-title">Perbaikan Alat</span>
                         </a>
                     </li>
+                    <?php if ($this->session->userdata('logged_in') == false) { ?>
+                        <li class="nav-item" style="margin-top: 397px;">
+                            <a class="nav-link" href="<?php echo base_url(); ?>login" aria-expanded="false">
+                                <i class="mdi mdi-login" style="font-size: 20px;"></i>
+                                <span class="menu-title" style="margin-left: 12px;">Login</span>
+                            </a>
+                        </li>
+                    <?php } ?>
                 </ul>
             </nav>
 

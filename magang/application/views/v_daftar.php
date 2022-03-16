@@ -2,13 +2,13 @@
   <nav class="navbar navbar-light bg-light">
     <div>
       <a class="navbar-brand" href="#">
-        <img src="<?= base_url('assets/'); ?>images/logo.png" alt="logo" width="40" height="40">
+        <img src="<?= base_url('assets/'); ?>images/logo.png" alt="logo" width="40" height="40" title="Kembali ke portal">
       </a>
     </div>
     <div>
-      <a class="navbar-brand" href="<?= base_url(); ?>masuk">
-        <img src=" <?= base_url('assets/'); ?>images/icons/login-box-line.svg" alt="login" width="20" height="20" href="<?= base_url('masuk'); ?>">
-      </a>
+      <a href="<?= base_url(); ?>masuk" class="btn btn-sm float-left navbar-brand"><b>Masuk </b><i><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+          </svg></i></a>
     </div>
   </nav>
   <img src="<?= base_url('assets/'); ?>images/balitklimats.jpg" class="img-responsive" alt="Balitklimat" width="100%" height="30%">
@@ -56,6 +56,7 @@
                   <div class="form-group col-md-6">
                     <label>
                       <h6 class="font-weight-bold">Email<i style="color:red">*</i></h6>
+                      <h6 class="font-weight-light">Akan digunakan untuk mengakses sistem</h6>
                     </label>
                     <input type="text" class="form-control form-control-user" id="email" name="email" value="<?= set_value('email'); ?>">
                     <?= form_error('email', '<small class="text-danger">', '</small>'); ?>
@@ -63,6 +64,7 @@
                   <div class="form-group col-md-6">
                     <label>
                       <h6 class="font-weight-bold">Nomor Whatsapp<i style="color:red">*</i></h6>
+                      <h6 class="font-weight-light">Contoh: 0857123456789 (Tanpa spasi, tanda hubung ('-'), tanda tambah ('+') dll)</h6>
                     </label>
                     <input type="int" class="form-control form-control-user" id="nowa" name="nowa" value="<?= set_value('nowa'); ?>">
                     <?= form_error('nowa', '<small class="text-danger">', '</small>'); ?>
@@ -197,16 +199,15 @@
                   <br>
                   <div class="mt-3">
                     <div class="table-responsive">
-                      <table class="table table-bordered tabel-hover" id="pes_lapak" cellspacing="0">
+                      <table class="table table-bordered tabel-hover text-wrap" id="pes_lapak" cellspacing="0">
                         <thead class="table-light">
                           <tr style="text-align: center;">
                             <th>No.</th>
                             <th>Tanggal</th>
-                            <!-- <th>Peserta</th> -->
-                            <th>Jenis Magang</th>
-                            <th class="no-sort">Judul Akhir</th>
-                            <th>Pembimbing Balai</th>
-                            <th class="no-sort">Dokumen</th>
+                            <th>Waktu</th>
+                            <th>Nama</th>
+                            <th>Asal Instansi</th>
+                            <th>Keperluan</th>
                             <th class="no-sort">Aksi</th>
                           </tr>
                         </thead>
@@ -220,9 +221,9 @@
                               <td><?= $d->tgl_up_lapak ?></td>
                               <!-- <td><?= $d->nama_pm ?></td> -->
                               <td><?= $d->jns_magang ?></td>
-                              <td><?= character_limiter($d->judul_lapak, 30) ?></td>
-                              <td><?= character_limiter($d->nama_pegawai, 20); ?></td>
-                              <td style="text-align: center;"><a class="" href="<?= base_url() ?>assets/dokumen/lap_ak/<?= $d->dok_lapak ?>" target="_blank">
+                              <td><?= character_limiter($d->judul_lapak, 60) ?></td>
+                              <td><?= character_limiter($d->nama_pegawai, 40); ?></td>
+                              <td style="text-align: center;"><a title="<?= $d->dok_lapak ?>" class="" href="<?= base_url() ?>assets/dokumen/lap_ak/<?= $d->dok_lapak ?>" target="_blank">
                                   <i class="icon-file"></i>
                                 </a></td>
                               <td>

@@ -88,7 +88,7 @@
         </tr>
         <tr>
             <td align="center" style="padding-left: 50px; padding-right: 50px;">
-                <span class="w400" style="font-size: 12pt; color:grey"> Karena telah menyelesaikan kegiatan magang di <?= $instansi ?> periode <?= $tgl_mli ?> - <?= $tgl_sls ?> dengan topik kajian magang, yaitu "<?= $judul ?>"</span>
+                <span class="w400" style="font-size: 12pt; color:grey"> Karena telah menyelesaikan kegiatan magang di <?= $instansi ?> <br>periode <?= $tgl_mli ?> - <?= $tgl_sls ?> dengan topik kajian magang, yaitu "<?= $judul ?>"</span>
             </td>
         </tr>
     </table>

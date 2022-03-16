@@ -1,8 +1,8 @@
 <body>
     <nav class="navbar navbar-light bg-light">
         <div>
-            <a class="navbar-brand" href="<?= base_url('masuk') ?>">
-                <img src="<?= base_url('assets/'); ?>images/logo.png" alt="logo" width="40" height="40">
+            <a class="navbar-brand brand-logo " href="<?= base_url('masuk') ?>">
+                <img src="<?= base_url('assets/'); ?>images/logo-magang.png" alt="logo-magang" height="40" width="auto">
             </a>
         </div>
     </nav>
@@ -16,7 +16,7 @@
                         <?= $this->session->flashdata('message'); ?>
                         <?= form_open_multipart('tambah_lap_akhir/simpan', 'class="mt-4"'); ?>
                         <div class="form-group">
-                            <input type="hidden" name="id_pm" value="<?= $detail->id_pm; ?>">
+                            <input type="hidden" name="id_pm" value="<?= $id_pm; ?>">
                         </div>
                         <div class="form-group">
                             <label>
@@ -24,6 +24,11 @@
                                 <h6 class="font-weight-light">Boleh disingkat</h6>
                             </label>
                             <input type="text" class="form-control form-control-user" id="nama" name="nama" value="<?= set_value('nama'); ?>">
+                            <?= form_error('nama', '<small class="text-danger">', '</small>'); ?>
+                        </div>
+                        <div class="form-group">
+                            <label for="judullapak">Email untuk Sertifikat<i style="color:red">*</i> <br> Untuk mendapatkan sertifikat | Menggunakan @gmail</label>
+                            <input type="text" class="form-control form-control-user" id="email_pm" name="email_pm" value="<?= $cekstatus->email_pm; ?>">
                             <?= form_error('nama', '<small class="text-danger">', '</small>'); ?>
                         </div>
                         <div class="form-group">

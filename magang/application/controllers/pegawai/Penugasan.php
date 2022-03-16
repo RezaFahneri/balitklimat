@@ -96,7 +96,7 @@ class Penugasan extends CI_Controller
                 $this->Model_pegawai->insert('detail_penugasan', $data1[$x]);
                 $this->Model_pegawai->insert('notif_peserta', $datanp[$x]);
             }
-            $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show" role="alert"> Penugasan Berhasil Ditambahkan! <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show" role="alert"> Penugasan berhasil ditambahkan! <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button> </div>');
             redirect('pegawai/penugasan');
@@ -194,6 +194,18 @@ class Penugasan extends CI_Controller
             'dok_tugas' => $dok_tgs,
         ];
         // var_dump($data);
+        $file = $this->Model_pegawai->getdet('detail_penugasan', $ket)->result_array();
+        $count = count($file);
+        // var_dump($file);
+        for ($i = 0; $i < $count; $i++) {
+            // if ($file->id_tugas[$i]) {
+            $filelama = $file[$i];
+            $files = $filelama['dok_hasil_tugas'];
+            if ($files !== NULL) {
+                // var_dump($files);
+                unlink(FCPATH . '/assets/dokumen/hasil_tugas/' . $files);
+            }
+        }
         $this->Model_pegawai->hapus('detail_penugasan', $ket);
         $this->Model_pegawai->updata('tugas', $data, $ket);
         //kalau ngedit tugas, yg di peserta bakal kereset hasilnya.
@@ -221,7 +233,7 @@ class Penugasan extends CI_Controller
             $this->Model_pegawai->insert('notif_peserta', $datanp[$x]);
         }
 
-        $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show" role="alert"> Penugasan Berhasil Diubah! <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show" role="alert"> Penugasan berhasil diubah! <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button> </div>');
         redirect('pegawai/penugasan/detail/' . $id_tugas);
@@ -236,7 +248,7 @@ class Penugasan extends CI_Controller
         $this->Model_pegawai->hapus('tugas', $ket);
         $this->Model_pegawai->hapusnotif('notif_peserta', $id_tugas);
         $this->Model_pegawai->hapus('detail_penugasan', $ket);
-        $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show" role="alert"> Penugasan Berhasil Dihapus! <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show" role="alert"> Penugasan berhasil dihapus! <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button> </div>');
         redirect('pegawai/penugasan');

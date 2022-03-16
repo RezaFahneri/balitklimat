@@ -45,7 +45,7 @@
         <div style="background-repeat:no-repeat; background-position:center; background-attachment:fixed; background-size:100%" class="content-wrapper-login d-flex align-items-center auth px-0">
 
             <div class="container-scroller">
-                <img src="landing-page-balitklimat/assets/images/logo/kementan.png" style="width: 100px; position:absolute;margin-left:0px" alt=""></img>
+                <img src="landing-page-balitklimat/assets/images/logo/kementan.png" style="width: 100px; position:absolute;text-align: center;" alt=""></img>
                 <h2>Portal Internal</h2>
                 <h3>balai penelitian agroklimat dan hidrologi</h3>
 

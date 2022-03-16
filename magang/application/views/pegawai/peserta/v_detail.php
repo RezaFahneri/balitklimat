@@ -1,11 +1,26 @@
 <div class="main-panel">
     <div class="content-wrapper">
+        <?php
+        if ($user['nip'] == $detail->pembimbing_balai) { ?>
+            <a href="<?= base_url(); ?>pegawai/peserta" class="btn btn-light mb-2"><i><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
+                    </svg></i> Kembali ke <b>Peserta Bimbingan</b></a>
+        <?php } else { ?>
+            <a href="<?= base_url(); ?>pegawai/peserta/peserta_seluruh" class="btn btn-light mb-2"><i><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
+                    </svg></i> Kembali ke <b>Seluruh Peserta</b></a>
+        <?php } ?>
         <div class="row">
             <div class="col-12 grid-margin">
                 <div class="card mb-3">
                     <div class="card-body">
                         <div class="table-responsive">
-                            <h3 class="font-weight-bold mb-10">Detail Peserta Bimbingan
+                            <h3 class="font-weight-bold mb-10"> <?php
+                                                                if ($user['nip'] == $detail->pembimbing_balai) { ?>
+                                    Detail Peserta Bimbingan
+                                <?php } else { ?>
+                                    Detail Peserta
+                                <?php } ?>
                                 <?php
                                 if ($detail->status_pm == 'berlangsung') { ?>
                                     <a class="badge badge-success">Berlangsung</a>
@@ -109,7 +124,7 @@
                                 <div class="col-md-12">
                                     <address>
                                         <p class="font-weight-bold">Pembimbing Balai</p>
-                                        <p><?= $user['nama_pegawai']; ?></p>
+                                        <p><?= $detail->nama_pegawai ?></p>
                                     </address>
                                 </div>
                                 <div class="col-md-6">
@@ -146,7 +161,6 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="<?php echo base_url(); ?>pegawai/data_peserta" class="btn btn-light float-right">Kembali</a>
                     </div>
                 </div>
                 <div class="card">

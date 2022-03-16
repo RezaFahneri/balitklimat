@@ -50,58 +50,57 @@ class Masuk extends CI_Controller
                 $this->session->set_userdata($data);
                 redirect('pegawai/penugasan');
             } else {
-                $this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible fade show" role="alert" >Kata Sandi Salahaa! <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                $this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible fade show" role="alert" >Kata Sandi Salah! <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button> </div>');
                 redirect('masuk');
             }
         } elseif ($user2) {
-            //cek keberlangsungan user
-            if ($user2['status_pm'] == 'berlangsung') {
-                if (time() > strtotime($user2['tgl_sls_pm'])) {
-                    $data = [
-                        'status_pm' => 'selesai',
-                    ];
-                    $this->Model_peserta->updata('peserta_magang', $data, $ket);
-                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert"> Masa Magang Telah Selesai  </div>');
-                    redirect('masuk');
-                } else {
-                    //cek password
-                    if (password_verify($ks, $user2['kata_sandi_pm'])) {
+            if (password_verify($ks, $user2['kata_sandi_pm'])) {
+                if ($user2['status_pm'] == 'berlangsung') {
+                    if (time() > strtotime($user2['tgl_sls_pm'])) {
+                        $data = [
+                            'status_pm' => 'selesai',
+                        ];
+                        $this->Model_peserta->updata('peserta_magang', $data, $ket);
+                        $getdetail = $this->Model_peserta->getdet('laporan_akhir', $ket)->row();
+                        if (!$getdetail) {
+                            redirect('tambah_lap_akhir/tambah/' . $id_pm);
+                        } else {
+                            $this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible fade show" role="alert"> Masa magang telah selesai! <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button> </div>');
+                            redirect('masuk');
+                        }
+                    } else {
                         $data = [
                             'email' => $user2['email_pm'],
                             'jenis' => 'peserta'
                         ];
                         $this->session->set_userdata($data);
                         redirect('peserta/laporan');
+                    }
+                } else {
+                    $getdetail = $this->Model_peserta->getdet('laporan_akhir', $ket)->row();
+                    if (!$getdetail) {
+                        redirect('tambah_lap_akhir/tambah/' . $id_pm);
                     } else {
-                        $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert"> Kata Sandi Salah!  </div>');
+                        $this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible fade show" role="alert"> Masa magang telah selesai! <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button> </div>');
                         redirect('masuk');
                     }
                 }
             } else {
-                $getdetail = $this->Model_peserta->getdet('laporan_akhir', $ket)->row();
-                if (!$getdetail) {
-                    redirect('tambah_lap_akhir/tambah/' . $id_pm);
-                } else {
-                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert"> Masa Magang Telah Selesai  </div>');
-                    redirect('masuk');
-                }
+                $this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible fade show" role="alert"> Kata sandi salah! <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button> </div>');
+                redirect('masuk');
             }
-            // } elseif ($email == 'admin@gmail.com') {
-            //     if ($ks == 'admin1234') {
-            //         $data = [
-            //             'email' => 'admin@gmail.com',
-            //             'jenis' => 'admin'
-            //         ];
-            //         $this->session->set_userdata($data);
-            //         redirect('admin/dashboard');
-            //     } else {
-            //         $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert"> Kata Sandi Admin Salah!  </div>');
-            //         redirect('masuk');
-            //     }
         } else {
-            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert"> Akun tidak terdaftar!  </div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible fade show" role="alert"> Akun tidak terdaftar! <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button> </div>');
             redirect('masuk');
         }
     }
@@ -110,7 +109,53 @@ class Masuk extends CI_Controller
     {
         $this->session->unset_userdata('email');
         $this->session->unset_userdata('jenis');
-        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Berhasil keluar!  </div>');
+        $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show" role="alert"> Berhasil keluar! <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button> </div>');
         redirect('masuk');
     }
 }
+
+//cek keberlangsungan user
+            // if ($user2['status_pm'] == 'berlangsung') {
+            //     if (time() > strtotime($user2['tgl_sls_pm'])) {
+            //         $data = [
+            //             'status_pm' => 'selesai',
+            //         ];
+            //         $this->Model_peserta->updata('peserta_magang', $data, $ket);
+            //         $getdetail = $this->Model_peserta->getdet('laporan_akhir', $ket)->row();
+            //         if (!$getdetail) {
+            //             redirect('tambah_lap_akhir/tambah/' . $id_pm);
+            //         } else {
+            //             $this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible fade show" role="alert"> Masa magang sudah selesai! <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            //             <span aria-hidden="true">&times;</span>
+            //           </button> </div>');
+            //             redirect('masuk');
+            //         }
+            //     } else {
+            //         //cek password
+            //         if (password_verify($ks, $user2['kata_sandi_pm'])) {
+            //             $data = [
+            //                 'email' => $user2['email_pm'],
+            //                 'jenis' => 'peserta'
+            //             ];
+            //             $this->session->set_userdata($data);
+            //             redirect('peserta/laporan');
+            //         } else {
+            //             $this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible fade show" role="alert"> Kata sandi salah! <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            //             <span aria-hidden="true">&times;</span>
+            //           </button> </div>');
+            //             redirect('masuk');
+            //         }
+            //     }
+            // } else {
+            //     $getdetail = $this->Model_peserta->getdet('laporan_akhir', $ket)->row();
+            //     if (!$getdetail) {
+            //         redirect('tambah_lap_akhir/tambah/' . $id_pm);
+            //     } else {
+            //         $this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible fade show" role="alert"> Masa magangtelah selesai! <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            //         <span aria-hidden="true">&times;</span>
+            //       </button> </div>');
+            //         redirect('masuk');
+            //     }
+            // }

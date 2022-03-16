@@ -4,7 +4,7 @@
             <div class="col-md-12 grid-margin">
                 <div class="shadow">
                     <div class="card-header py-3">
-                        <a style="font-size:40px; color:#000000" href="<?php echo base_url() ?>pinjam_barang"><i class="mdi mdi-keyboard-backspace"></i></a>
+                        <a title="Kembali" class="btn btn-sm btn-success" style="border-radius:90px; color:white;margin-bottom:15px;" href="<?php echo site_url('pinjam_barang') ?>"><i class="ti ti-arrow-left" style="border-radius:8px;"></i></a>
                         <h3 class="m-0 font-weight-bold">Pinjam Barang</h3><br>
                         <div class="flash-data" id="flash" data-flash="<?= $this->session->flashdata('pesan'); ?>"></div>
                         <div class="col-md-12 grid-margin">
@@ -77,4 +77,3 @@
     </div>
 </div>
 </div>
-

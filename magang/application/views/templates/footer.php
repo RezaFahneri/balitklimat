@@ -51,6 +51,8 @@
                 orderable: false
             }]
         });
+        $('#peg_penugasan td').css('white-space', 'initial');
+        $('#peg_pes td').css('white-space', 'initial');
         $('#peg_pes').DataTable({
             lengthMenu: [25, 50, 75, 100],
             columnDefs: [{
@@ -58,6 +60,7 @@
                 orderable: false
             }]
         });
+        $('#peg_laporan td').css('white-space', 'initial');
         $('#peg_laporan').DataTable({
             lengthMenu: [25, 50, 75, 100],
             columnDefs: [{
@@ -65,6 +68,7 @@
                 orderable: false
             }]
         });
+        $('#peg_laporan2 td').css('white-space', 'initial');
         $('#peg_laporan2').DataTable({
             lengthMenu: [25, 50, 75, 100],
             columnDefs: [{
@@ -79,6 +83,8 @@
                 orderable: false
             }]
         });
+        $('#peg_lapak td').css('white-space', 'initial');
+        $('#pes_lap td').css('white-space', 'initial');
         $('#pes_lap').DataTable({
             lengthMenu: [25, 50, 75, 100],
             columnDefs: [{
@@ -86,6 +92,7 @@
                 orderable: false
             }]
         });
+        $('#pes_penugasan td').css('white-space', 'initial');
         $('#pes_penugasan').DataTable({
             lengthMenu: [25, 50, 75, 100],
             columnDefs: [{
@@ -93,6 +100,7 @@
                 orderable: false
             }]
         });
+        $('#pes_lapak td').css('white-space', 'initial');
         $('#pes_lapak').DataTable({
             lengthMenu: [25, 50, 75, 100],
             columnDefs: [{
@@ -100,6 +108,8 @@
                 orderable: false
             }]
         });
+        $('#det_pes td').css('white-space', 'initial');
+
     });
 </script>
 <!-- <script>
