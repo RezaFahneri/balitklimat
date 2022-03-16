@@ -13,9 +13,7 @@
                                     <form method="POST" action="<?php echo base_url() ?>perjalanan_dinas/update">
                                         <tr>
                                             <td>
-                                                <div class="form-group">
-                                                    <input type="hidden" name="id_perjalanan_dinas" class="form-control" value="<?php echo $pd->id_perjalanan_dinas ?>" name="kota" required>
-                                                </div>
+                                                <input type="hidden" name="id_perjalanan_dinas" class="form-control" value="<?php echo $pd->id_perjalanan_dinas ?>" name="kota" required>
                                                 <div class="form-group">
                                                     <label><b>Kode Kegiatan</b></label></br>
                                                     <?php $kg1 = $pd->kode_kegiatan ?>
@@ -57,7 +55,7 @@
                                                 <div class="form-group">
                                                     <label><b>Kuasa Pengguna Anggaran</b></label></br>
                                                     <?php $kp1 = $pd->nip_kpa ?>
-                                                    <select title="Pilih Kuasa Pengguna Anggaran" name="nip_kpa" id="nip_verifikator" class="form-control" required>
+                                                    <select title="Pilih Kuasa Pengguna Anggaran" name="nip_kpa" id="nip_kpa" class="form-control" required>
                                                         <option value="">--Pilih Kuasa Pengguna Anggaran--</option>
                                                         <?php foreach ($nip_kpa as $row) : ?>
                                                             <option <?php if ($kp1 == $row->nip) {
@@ -126,7 +124,7 @@
                                                 <div class="form-group">
                                                     <label><b>MAK</b></label></br>
                                                     <?php $mak1 = $pd->kode_mak ?>
-                                                    <select class="form-control" name="kode_mak">
+                                                    <select class="form-control" name="kode_mak" id="kode_mak">
                                                         <option value="">--Pilih MAK--</option>
                                                         <?php foreach ($mak as $row) : ?>
                                                             <option <?php if ($mak1 == $row->kode_mak) {
@@ -138,7 +136,7 @@
                                                 <div class="form-group">
                                                     <label><b>Jenis Pengajuan</b></label></br>
                                                     <?php $jp = $pd->jenis_pengajuan ?>
-                                                    <select class="form-control" name="jenis_pengajuan">
+                                                    <select class="form-control" name="jenis_pengajuan" id="jenis_pengajuan">
                                                         <option value="">--Pilih Jenis Pengajuan--</option>
                                                         <option <?php if ($jp == 'LS') {
                                                                     echo 'selected="selected"';
@@ -151,7 +149,7 @@
                                                 <div class="form-group">
                                                     <label><b>Jenis Perjalanan Dinas</b></label></br>
                                                     <?php $jpd = $pd->jenis_perjalanan_dinas ?>
-                                                    <select class="form-control" name="jenis_perjalanan_dinas">
+                                                    <select class="form-control" name="jenis_perjalanan_dinas" id="id_jenis_pd">
                                                         <option value="">--Pilih Jenis Perjalanan Dinas--</option>
                                                         <option <?php if ($jpd == 'Menginap') {
                                                                     echo 'selected="selected"';
@@ -189,7 +187,7 @@
                                                 <div class="form-group">
                                                     <label><b>Kendaraan</b></label></br>
                                                     <?php $k = $pd->kendaraan ?>
-                                                    <select class="form-control" name="kendaraan">
+                                                    <select class="form-control" name="kendaraan" id="id_jeken">
                                                         <option value="">--Pilih jenis kendaraan--</option>
                                                         <option <?php if ($k == 'Dinas') {
                                                                     echo 'selected="selected"';

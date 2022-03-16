@@ -41,7 +41,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label><b>Kuasa Pengguna Anggaran</b></label></br>
-                                        <select title="Pilih Kuasa Pengguna Anggaran" name="nip_kpa" id="nip_verifikator" class="form-control" required>
+                                        <select title="Pilih Kuasa Pengguna Anggaran" name="nip_kpa" id="nip_kpa" class="form-control" required>
                                             <option value="">--Pilih Kuasa Pengguna Anggaran--</option>
                                             <?php foreach ($nip_kpa as $row) { ?>
                                                 <option value="<?php echo $row->nip; ?>"><?php echo $row->nip . " | " . $row->nama_pegawai; ?></option>';
@@ -107,7 +107,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label><b>MAK</b></label></br>
-                                        <select class="form-control" name="kode_mak">
+                                        <select class="form-control" name="kode_mak" id="kode_mak">
                                             <option value="">--Pilih MAK--</option>
                                             <?php foreach ($kode_mak as $row) { ?>
                                                 <option value="<?php echo $row->kode_mak; ?>"><?php echo $row->kode_mak . ' | ' . $row->judul_mak; ?></option>';
@@ -117,7 +117,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label><b>Jenis Pengajuan</b></label></br>
-                                        <select class="form-control" name="jenis_pengajuan">
+                                        <select class="form-control" name="jenis_pengajuan" id="jenis_pengajuan">
                                             <option value="">--Pilih Jenis Pengajuan--</option>
                                             <option value="LS">LS</option>
                                             <option value="GU">GU</option>
@@ -125,7 +125,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label><b>Jenis Perjalanan Dinas</b></label></br>
-                                        <select class="form-control" name="jenis_perjalanan_dinas">
+                                        <select class="form-control" name="jenis_perjalanan_dinas" id="id_jenis_pd">
                                             <option value="">--Pilih Jenis Perjalanan Dinas--</option>
                                             <option value="Menginap">Menginap</option>
                                             <option value="Tidak Menginap">Tidak Menginap</option>
@@ -154,7 +154,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label><b>Kendaraan</b></label></br>
-                                        <select class="form-control" name="kendaraan">
+                                        <select class="form-control" name="kendaraan" id="id_jeken">
                                             <option value="">--Pilih jenis kendaraan--</option>
                                             <option value="Dinas">Dinas</option>
                                             <option value="Umum">Umum</option>
@@ -174,7 +174,7 @@
                                     <div class="form-group" id="kb">
                                         <label><b>Ka. Sub Bag Tata Usaha</b></label></br>
                                         <select title="Pilih Ka. Sub Bag Tata Usaha" name="nip_kasub_bag_tu" id="nip_kasub_bag_tu" class="form-control">
-                                            <option value="null">--Ka. Sub Bag Tata Usaha--</option>
+                                            <option value="null">--Pilih Ka. Sub Bag Tata Usaha--</option>
                                             <?php foreach ($nip_kasub_bag_tu as $row) { ?>
                                                 <option value="<?php echo $row->nip; ?>"><?php echo $row->nip . " | " . $row->nama_pegawai; ?></option>';
                                                 }
