@@ -20,8 +20,7 @@
                                         <div class="card">
                                             <!-- <div class="card-body"> -->
                                             <div class="table-responsive pt-3 ">
-                                                <table id="dtBasicExample"
-                                                    class="table table-striped table-bordered table-md"
+                                                <table id="dtTable" class="table table-striped table-bordered table-md"
                                                     data-page-length='25' cellspacing="0" height='50%'>
                                                     <thead class="thead-light">
                                                         <tr>

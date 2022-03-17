@@ -50,6 +50,7 @@ class Profil extends CI_Controller
 		$cpassword = $this->input->post('cpassword');
 		if ($password == $cpassword) {
 			$data1 = array(
+				// 'password' => md5($this->input->post('password')),
 				'password' => $this->input->post('password'),
 			);
 			$where = array(

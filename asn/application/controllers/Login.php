@@ -34,6 +34,7 @@ class Login extends CI_Controller {
            {  
                 //true  
                 $email = $this->input->post('email');  
+               //  $password = md5($this->input->post('password'));
                 $password = $this->input->post('password');
                 $nip = $this->input->post('nip');  
                 $this->load->Model('Model_login');  
@@ -62,6 +63,7 @@ class Login extends CI_Controller {
            {  
                 //true  
                 $email = $this->input->post('email');  
+               //  $password = md5($this->input->post('password'));
                 $password = $this->input->post('password');
                 $nip = $this->input->post('nip');  
                 $this->load->Model('Model_login');  

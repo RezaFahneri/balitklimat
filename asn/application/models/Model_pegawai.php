@@ -19,6 +19,7 @@ class Model_pegawai extends CI_model
 		$this->db->where('jabatan!=','Tidak Ada');
 		$this->db->where('status_kepegawaian!=','Tidak Ada');
 		$this->db->where('divisi!=','Tidak Ada');
+		$this->db->order_by('jabatan', 'DESC');
 		
 		return $this->db->get()->result();
 	}
