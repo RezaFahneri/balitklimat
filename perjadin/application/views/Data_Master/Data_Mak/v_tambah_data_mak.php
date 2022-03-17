@@ -15,7 +15,7 @@
                 <div class="card-body">
                 <form method="POST" action="<?php echo base_url('mak/tambah_aksi') ?>">
                     <div class="form-group">
-                        <label><b>Kode MAK </label>
+                        <label><b>Kode MAK (Tanpa spasi)</label>
                         <input type="text" name="kode_mak" class="form-control" required>
                         <?php echo form_error('kode_mak', '<div class="text-small text-danger"></div>') ?>
                     </div>

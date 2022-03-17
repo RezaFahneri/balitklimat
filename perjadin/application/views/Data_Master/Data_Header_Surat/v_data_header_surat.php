@@ -20,9 +20,11 @@
                                         <th style="color:gray;height:40px"><label>Eslon Satu</label></th>
                                         <th style="color:gray;height:40px"><label>Eslon Dua</label></th>
                                         <th style="color:gray;height:40px"><label>Eslon Tiga</label></th>
+                                        <th style="color:gray;height:40px"><label>Eslon Tiga Kapital</label></th>
                                         <th style="color:gray;height:40px"><label>Alamat</label></th>
                                         <th style="color:gray;height:40px"><label>Kontak</label></th>
                                         <th style="color:gray;height:40px"><label>Web dan Email</label></th>
+                                        <th style="color:gray;height:40px"><label>Kode Balai</label></th>
                                         <th style="color:gray;height:40px"><label>Aksi</label></th>
                                         </tr>
                                     </thead>
@@ -35,9 +37,11 @@
                                              <td style="font-size: 12px;"><?php echo $sp->eslon_satu ?></td>
                                              <td style="font-size: 12px;"><?php echo $sp->eslon_dua ?></td>
                                              <td style="font-size: 12px;"><?php echo $sp->eslon_tiga ?></td>
+                                             <td style="font-size: 12px;"><?php echo $sp->eslon_tiga_2 ?></td>
                                              <td style="font-size: 12px;"><?php echo $sp->alamat ?></td>
                                              <td style="font-size: 12px;"><?php echo $sp->kontak ?></td>
                                              <td style="font-size: 12px;"><?php echo $sp->web_email ?></td>
+                                             <td style="font-size: 12px;"><?php echo $sp->kode_balai ?></td>
                                          <td style="font-size: 12px;">
                                             <a style ="height:35px"title="Edit data header surat"  class="btn btn-xs btn-success" href="<?php echo base_url('/header_surat/edit/' . $sp->id_header_surat) ?>"><i class="mdi mdi-lead-pencil"></i></a>
                                         </td>

@@ -37,17 +37,21 @@ class Header_Surat extends CI_Controller
         $eslon_satu = $this->input->post('eslon_satu');
         $eslon_dua = $this->input->post('eslon_dua');
         $eslon_tiga = $this->input->post('eslon_tiga');
+        $eslon_tiga_2 = $this->input->post('eslon_tiga_2');
         $alamat = $this->input->post('alamat');
         $kontak = $this->input->post('kontak');
         $web_email = $this->input->post('web_email');
+        $kode_balai = $this->input->post('kode_balai');
         $data = array(
             'nama_kementerian' => $nama_kementerian,
             'eslon_satu' => $eslon_satu,
             'eslon_dua' => $eslon_dua,
             'eslon_tiga' => $eslon_tiga,
+            'eslon_tiga' => $eslon_tiga_2,
             'alamat' => $alamat,
             'kontak' => $kontak,
-            'web_email' => $web_email
+            'web_email' => $web_email,
+            'kode_balai' => $kode_balai
         );
         $where = array(
             'id_header_surat' => $id_header_surat

@@ -87,7 +87,7 @@ class Pdf extends CI_Controller
     function sppd_halaman_1($id_anggota_perjadin)
     {
         $data['header'] = $this->Model_pdf->getHeader();
-        $data['isi_surat'] = $this->Model_pdf->getListCapsah($id_anggota_perjadin);
+        $data['isi_surat'] = $this->Model_pdf->getListSppd($id_anggota_perjadin);
         $this->load->view('Pdf/v_sppd_1', $data);
         $html = $this->output->get_output();
         
@@ -109,7 +109,7 @@ class Pdf extends CI_Controller
     function sppd_halaman_2($id_anggota_perjadin)
     {
         $data['header'] = $this->Model_pdf->getHeader();
-        $data['isi_surat'] = $this->Model_pdf->getListCapsah($id_anggota_perjadin);
+        $data['isi_surat'] = $this->Model_pdf->getListSppd($id_anggota_perjadin);
         $this->load->view('Pdf/v_capsah_1', $data);
         $html = $this->output->get_output();
         

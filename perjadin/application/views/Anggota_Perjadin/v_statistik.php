@@ -32,7 +32,12 @@
 
                                                         <tr>
                                                             <td style="font-size: 12px;heigth:40px"><label style="margin-top:5px"><?php echo $j->nama_anggota_perjadin ?></label></td>
-                                                            <td style="font-size: 12px;"><?php echo $j->nip_anggota_perjadin ?></td>
+                                                            <td style="font-size: 12px;"><?php $nip_ap = $j->nip_anggota_perjadin;
+                                                            if ($nip_ap[0] == 'H'){
+                                                                echo '';
+                                                            }else{
+                                                                echo $nip_ap;
+                                                            } ?></td>
                                                             <td style="font-size: 12px;"><?php echo $j->pangkat_anggota ?></td>
                                                             <td style="font-size: 12px;"><?php echo $j->golongan_anggota ?></td>
                                                             <td style="font-size: 12px;"><?php echo

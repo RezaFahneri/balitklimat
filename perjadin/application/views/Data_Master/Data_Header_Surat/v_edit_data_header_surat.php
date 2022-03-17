@@ -35,6 +35,10 @@
                     <input type="text" name="eslon_tiga" class="form-control" value="<?php echo $sp->eslon_tiga?>" required>
                 </div>
                 <div class="form-group">
+                    <label>Eslon Tiga (Awal Kata Kapital) </label>
+                    <input type="text" name="eslon_tiga_2" class="form-control" value="<?php echo $sp->eslon_tiga_2?>" required>
+                </div>
+                <div class="form-group">
                     <label>Alamat </label>
                     <input type="text" name="alamat" class="form-control" value="<?php echo $sp->alamat?>" required>
                 </div><div class="form-group">
@@ -43,6 +47,9 @@
                 </div><div class="form-group">
                     <label>Web dan Email </label>
                     <input type="text" name="web_email" class="form-control" value="<?php echo $sp->web_email?>" required>
+                </div></div><div class="form-group">
+                    <label>Kode Balai </label>
+                    <input type="number" name="kode_balai" class="form-control" value="<?php echo $sp->kode_balai?>" required>
                 </div>
                 <button type="submit" class="btn btn-success mr-2">Submit</a></button>&nbsp &nbsp
                 <!-- <a class="btn btn-outline-dark" href="<?php echo base_url(); ?>akun">Cancel</a> -->

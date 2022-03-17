@@ -46,89 +46,89 @@
     <hr width=96.1% color="black" style="margin-top:102%; margin-left:16px; position:absolute; z-index:1; height:0.2px">
 
 
-    <p style="text-align:justify;margin-top:-20px;margin-left:420px;width:92%;position:absolute; z-index:0">Berangkat dari
-    <p style="text-align:justify;margin-top:-20px;margin-left:520px;width:92%;position:absolute; z-index:0">: <?php echo $p->kota . ', ' . $p->nama_provinsi ?>
-    <p style="text-align:justify;margin-top:0px;margin-left:420px;width:92%;position:absolute; z-index:0">Pada Tanggal
-    <p style="text-align:justify;margin-top:0px;margin-left:520px;width:92%;position:absolute; z-index:0">: <?php echo tanggal_indonesia($p->tanggal_berangkat) ?>
-    <p style="text-align:justify;margin-top:20px;margin-left:420px;width:92%;position:absolute; z-index:0">ke
-    <p style="text-align:justify;margin-top:20px;margin-left:520px;width:92%;position:absolute; z-index:0">: <?php echo $p->kota_tujuan . ', ' . $p->provinsi_tujuan ?>
+    <p style="text-align:justify;margin-top:-20px;margin-left:420px;width:92%;position:absolute; z-index:0;font-size:12px">Berangkat dari
+    <p style="text-align:justify;margin-top:-20px;margin-left:520px;width:92%;position:absolute; z-index:0;font-size:12px">: <?php echo $p->kota . ', ' . $p->nama_provinsi ?>
+    <p style="text-align:justify;margin-top:0px;margin-left:420px;width:92%;position:absolute; z-index:0;font-size:12px">Pada Tanggal
+    <p style="text-align:justify;margin-top:0px;margin-left:520px;width:92%;position:absolute; z-index:0;font-size:12px">: <?php echo tanggal_indonesia($p->tanggal_berangkat) ?>
+    <p style="text-align:justify;margin-top:20px;margin-left:420px;width:92%;position:absolute; z-index:0;font-size:12px">ke
+    <p style="text-align:justify;margin-top:20px;margin-left:520px;width:92%;position:absolute; z-index:0;font-size:12px">: <?php echo $p->kota_tujuan . ', ' . $p->provinsi_tujuan ?>
 
-    <p style="text-align:left;margin-top:40px;margin-left:520px;width:92%;position:absolute;z-index:1">Ka. Sub Bag Tata Usaha
-    <p style="text-align:left;margin-top:130px;margin-left:520px;width:92%;position:absolute;z-index:3"><?php echo $p->nama_kasub ?>
-    <p style="text-align:left;margin-top:150px;margin-left:520px;width:92%;position:absolute;z-index:4">NIP.<?php echo ' ' . $p->nip_kasub ?>
+    <p style="text-align:left;margin-top:40px;margin-left:520px;width:92%;position:absolute;z-index:1; font-size:12px">Ka. Sub Bag Tata Usaha
+    <p style="text-align:left;margin-top:130px;margin-left:520px;width:92%;position:absolute;z-index:3; font-size:12px"><?php echo $p->nama_kasub ?>
+    <p style="text-align:left;margin-top:150px;margin-left:520px;width:92%;position:absolute;z-index:4; font-size:12px">NIP.<?php echo ' ' . $p->nip_kasub ?>
 
-    <p style="text-align:justify;margin-top:200px;margin-left:20px; width:75%; position:absolute;z-index:5">II. <br>
-    <p style="text-align:justify;margin-top:200px;margin-left:42px;width:80%;position:absolute; z-index:0">Tiba di
-    <p style="text-align:justify;margin-top:200px;margin-left:150px;width:80%;position:absolute; z-index:0">:
-    <p style="text-align:justify;margin-top:220px;margin-left:42px;width:80%;position:absolute; z-index:0">Pada Tanggal
-    <p style="text-align:justify;margin-top:220px;margin-left:150px;width:80%;position:absolute; z-index:0">:
-    <p style="text-align:justify;margin-top:240px;margin-left:42px;width:80%;position:absolute; z-index:0">Kepala
-    <p style="text-align:justify;margin-top:240px;margin-left:150px;width:80%;position:absolute; z-index:0">:
+    <p style="text-align:justify;margin-top:200px;margin-left:20px; width:75%; position:absolute;z-index:5; font-size:12px">II. <br>
+    <p style="text-align:justify;margin-top:200px;margin-left:42px;width:80%;position:absolute; z-index:0;font-size:12px">Tiba di
+    <p style="text-align:justify;margin-top:200px;margin-left:150px;width:80%;position:absolute; z-index:0;font-size:12px">:
+    <p style="text-align:justify;margin-top:220px;margin-left:42px;width:80%;position:absolute; z-index:0;font-size:12px">Pada Tanggal
+    <p style="text-align:justify;margin-top:220px;margin-left:150px;width:80%;position:absolute; z-index:0;font-size:12px">:
+    <p style="text-align:justify;margin-top:240px;margin-left:42px;width:80%;position:absolute; z-index:0;font-size:12px">Kepala
+    <p style="text-align:justify;margin-top:240px;margin-left:150px;width:80%;position:absolute; z-index:0;font-size:12px">:
 
-    <p style="text-align:justify;margin-top:200px;margin-left:420px;width:80%;position:absolute; z-index:0">Berangkat dari
-    <p style="text-align:justify;margin-top:200px;margin-left:520px;width:80%;position:absolute; z-index:0">:
-    <p style="text-align:justify;margin-top:220px;margin-left:420px;width:80%;position:absolute; z-index:0">Pada Tanggal
-    <p style="text-align:justify;margin-top:220px;margin-left:520px;width:80%;position:absolute; z-index:0">:
-    <p style="text-align:justify;margin-top:240px;margin-left:420px;width:80%;position:absolute; z-index:0">Ke
-    <p style="text-align:justify;margin-top:240px;margin-left:520px;width:80%;position:absolute; z-index:0">:
-    <p style="text-align:justify;margin-top:260px;margin-left:420px;width:80%;position:absolute; z-index:0">Kepala
-    <p style="text-align:justify;margin-top:260px;margin-left:520px;width:80%;position:absolute; z-index:0">:
+    <p style="text-align:justify;margin-top:200px;margin-left:420px;width:80%;position:absolute; z-index:0;font-size:12px">Berangkat dari
+    <p style="text-align:justify;margin-top:200px;margin-left:520px;width:80%;position:absolute; z-index:0;font-size:12px">:
+    <p style="text-align:justify;margin-top:220px;margin-left:420px;width:80%;position:absolute; z-index:0;font-size:12px">Pada Tanggal
+    <p style="text-align:justify;margin-top:220px;margin-left:520px;width:80%;position:absolute; z-index:0;font-size:12px">:
+    <p style="text-align:justify;margin-top:240px;margin-left:420px;width:80%;position:absolute; z-index:0;font-size:12px">Ke
+    <p style="text-align:justify;margin-top:240px;margin-left:520px;width:80%;position:absolute; z-index:0;font-size:12px">:
+    <p style="text-align:justify;margin-top:260px;margin-left:420px;width:80%;position:absolute; z-index:0;font-size:12px">Kepala
+    <p style="text-align:justify;margin-top:260px;margin-left:520px;width:80%;position:absolute; z-index:0;font-size:12px">:
 
-    <p style="text-align:justify;margin-top:390px;margin-left:20px; width:75%; position:absolute;z-index:5">III. <br>
-    <p style="text-align:justify;margin-top:390px;margin-left:42px;width:80%;position:absolute; z-index:0">Tiba di
-    <p style="text-align:justify;margin-top:390px;margin-left:150px;width:80%;position:absolute; z-index:0">:
-    <p style="text-align:justify;margin-top:410px;margin-left:42px;width:80%;position:absolute; z-index:0">Pada Tanggal
-    <p style="text-align:justify;margin-top:410px;margin-left:150px;width:80%;position:absolute; z-index:0">:
-    <p style="text-align:justify;margin-top:430px;margin-left:42px;width:80%;position:absolute; z-index:0">Kepala
-    <p style="text-align:justify;margin-top:430px;margin-left:150px;width:80%;position:absolute; z-index:0">:
+    <p style="text-align:justify;margin-top:390px;margin-left:20px; width:75%; position:absolute;z-index:5; font-size:12px">III. <br>
+    <p style="text-align:justify;margin-top:390px;margin-left:42px;width:80%;position:absolute; z-index:0;font-size:12px">Tiba di
+    <p style="text-align:justify;margin-top:390px;margin-left:150px;width:80%;position:absolute; z-index:0;font-size:12px">:
+    <p style="text-align:justify;margin-top:410px;margin-left:42px;width:80%;position:absolute; z-index:0;font-size:12px">Pada Tanggal
+    <p style="text-align:justify;margin-top:410px;margin-left:150px;width:80%;position:absolute; z-index:0;font-size:12px">:
+    <p style="text-align:justify;margin-top:430px;margin-left:42px;width:80%;position:absolute; z-index:0;font-size:12px">Kepala
+    <p style="text-align:justify;margin-top:430px;margin-left:150px;width:80%;position:absolute; z-index:0;font-size:12px">:
 
-    <p style="text-align:justify;margin-top:390px;margin-left:420px;width:80%;position:absolute; z-index:0">Berangkat dari
-    <p style="text-align:justify;margin-top:390px;margin-left:520px;width:80%;position:absolute; z-index:0">:
-    <p style="text-align:justify;margin-top:410px;margin-left:420px;width:80%;position:absolute; z-index:0">Pada Tanggal
-    <p style="text-align:justify;margin-top:410px;margin-left:520px;width:80%;position:absolute; z-index:0">:
-    <p style="text-align:justify;margin-top:430px;margin-left:420px;width:80%;position:absolute; z-index:0">Ke
-    <p style="text-align:justify;margin-top:430px;margin-left:520px;width:80%;position:absolute; z-index:0">:
-    <p style="text-align:justify;margin-top:450px;margin-left:420px;width:80%;position:absolute; z-index:0">Kepala
-    <p style="text-align:justify;margin-top:450px;margin-left:520px;width:80%;position:absolute; z-index:0">:
+    <p style="text-align:justify;margin-top:390px;margin-left:420px;width:80%;position:absolute; z-index:0;font-size:12px">Berangkat dari
+    <p style="text-align:justify;margin-top:390px;margin-left:520px;width:80%;position:absolute; z-index:0;font-size:12px">:
+    <p style="text-align:justify;margin-top:410px;margin-left:420px;width:80%;position:absolute; z-index:0;font-size:12px">Pada Tanggal
+    <p style="text-align:justify;margin-top:410px;margin-left:520px;width:80%;position:absolute; z-index:0;font-size:12px">:
+    <p style="text-align:justify;margin-top:430px;margin-left:420px;width:80%;position:absolute; z-index:0;font-size:12px">Ke
+    <p style="text-align:justify;margin-top:430px;margin-left:520px;width:80%;position:absolute; z-index:0;font-size:12px">:
+    <p style="text-align:justify;margin-top:450px;margin-left:420px;width:80%;position:absolute; z-index:0;font-size:12px">Kepala
+    <p style="text-align:justify;margin-top:450px;margin-left:520px;width:80%;position:absolute; z-index:0;font-size:12px">:
 
-    <p style="text-align:justify;margin-top:580px;margin-left:20px; width:75%; position:absolute;z-index:5">IV. <br>
-    <p style="text-align:justify;margin-top:580px;margin-left:42px;width:80%;position:absolute; z-index:0">Tiba di
-    <p style="text-align:justify;margin-top:580px;margin-left:150px;width:80%;position:absolute; z-index:0">:
-    <p style="text-align:justify;margin-top:600px;margin-left:42px;width:80%;position:absolute; z-index:0">Pada Tanggal
-    <p style="text-align:justify;margin-top:600px;margin-left:150px;width:80%;position:absolute; z-index:0">:
-    <p style="text-align:justify;margin-top:620px;margin-left:42px;width:80%;position:absolute; z-index:0">Kepala
-    <p style="text-align:justify;margin-top:620px;margin-left:150px;width:80%;position:absolute; z-index:0">:
+    <p style="text-align:justify;margin-top:580px;margin-left:20px; width:75%; position:absolute;z-index:5; font-size:12px">IV. <br>
+    <p style="text-align:justify;margin-top:580px;margin-left:42px;width:80%;position:absolute; z-index:0;font-size:12px">Tiba di
+    <p style="text-align:justify;margin-top:580px;margin-left:150px;width:80%;position:absolute; z-index:0;font-size:12px">:
+    <p style="text-align:justify;margin-top:600px;margin-left:42px;width:80%;position:absolute; z-index:0;font-size:12px">Pada Tanggal
+    <p style="text-align:justify;margin-top:600px;margin-left:150px;width:80%;position:absolute; z-index:0;font-size:12px">:
+    <p style="text-align:justify;margin-top:620px;margin-left:42px;width:80%;position:absolute; z-index:0;font-size:12px">Kepala
+    <p style="text-align:justify;margin-top:620px;margin-left:150px;width:80%;position:absolute; z-index:0;font-size:12px">:
 
-    <p style="text-align:justify;margin-top:580px;margin-left:420px;width:80%;position:absolute; z-index:0">Berangkat dari
-    <p style="text-align:justify;margin-top:580px;margin-left:520px;width:80%;position:absolute; z-index:0">:
-    <p style="text-align:justify;margin-top:600px;margin-left:420px;width:80%;position:absolute; z-index:0">Pada Tanggal
-    <p style="text-align:justify;margin-top:600px;margin-left:520px;width:80%;position:absolute; z-index:0">:
-    <p style="text-align:justify;margin-top:620px;margin-left:420px;width:80%;position:absolute; z-index:0">Ke
-    <p style="text-align:justify;margin-top:620px;margin-left:520px;width:80%;position:absolute; z-index:0">:
-    <p style="text-align:justify;margin-top:640px;margin-left:420px;width:80%;position:absolute; z-index:0">Kepala
-    <p style="text-align:justify;margin-top:640px;margin-left:520px;width:80%;position:absolute; z-index:0">:
+    <p style="text-align:justify;margin-top:580px;margin-left:420px;width:80%;position:absolute; z-index:0;font-size:12px">Berangkat dari
+    <p style="text-align:justify;margin-top:580px;margin-left:520px;width:80%;position:absolute; z-index:0;font-size:12px">:
+    <p style="text-align:justify;margin-top:600px;margin-left:420px;width:80%;position:absolute; z-index:0;font-size:12px">Pada Tanggal
+    <p style="text-align:justify;margin-top:600px;margin-left:520px;width:80%;position:absolute; z-index:0;font-size:12px">:
+    <p style="text-align:justify;margin-top:620px;margin-left:420px;width:80%;position:absolute; z-index:0;font-size:12px">Ke
+    <p style="text-align:justify;margin-top:620px;margin-left:520px;width:80%;position:absolute; z-index:0;font-size:12px">:
+    <p style="text-align:justify;margin-top:640px;margin-left:420px;width:80%;position:absolute; z-index:0;font-size:12px">Kepala
+    <p style="text-align:justify;margin-top:640px;margin-left:520px;width:80%;position:absolute; z-index:0;font-size:12px">:
 
-    <p style="text-align:justify;margin-top:765px;margin-left:20px; width:75%; position:absolute;z-index:5">V. <br>
-    <p style="text-align:justify;margin-top:765px;margin-left:42px;width:80%;position:absolute; z-index:0">Tiba kembali di
-    <p style="text-align:justify;margin-top:765px;margin-left:150px;width:80%;position:absolute; z-index:0">:
+    <p style="text-align:justify;margin-top:765px;margin-left:20px; width:75%; position:absolute;z-index:5; font-size:12px">V. <br>
+    <p style="text-align:justify;margin-top:765px;margin-left:42px;width:80%;position:absolute; z-index:0;font-size:12px">Tiba kembali di
+    <p style="text-align:justify;margin-top:765px;margin-left:150px;width:80%;position:absolute; z-index:0;font-size:12px">:
     <p style="text-align:justify;margin-top:775px;margin-left:160px;width:80%;position:absolute; z-index:0; font-size:9px;letter-spacing:0.1px">(tempat kedudukan)
-    <p style="text-align:justify;margin-top:800px;margin-left:42px;width:80%;position:absolute; z-index:0">Pada Tanggal
-    <p style="text-align:justify;margin-top:800px;margin-left:150px;width:80%;position:absolute; z-index:0">:
-    <p style="text-align:left;margin-top:820px;margin-left:150px;width:92%;position:absolute;z-index:1">Ka. Sub Bag Tata Usaha
-    <p style="text-align:left;margin-top:910px;margin-left:150px;width:92%;position:absolute;z-index:3"><?php echo $p->nama_kasub ?>
-    <p style="text-align:left;margin-top:930px;margin-left:150px;width:92%;position:absolute;z-index:4">NIP.<?php echo ' ' . $p->nip_kasub ?>
+    <p style="text-align:justify;margin-top:800px;margin-left:42px;width:80%;position:absolute; z-index:0;font-size:12px">Pada Tanggal
+    <p style="text-align:justify;margin-top:800px;margin-left:150px;width:80%;position:absolute; z-index:0;font-size:12px">:
+    <p style="text-align:left;margin-top:820px;margin-left:150px;width:92%;position:absolute;z-index:1; font-size:12px">Ka. Sub Bag Tata Usaha
+    <p style="text-align:left;margin-top:910px;margin-left:150px;width:92%;position:absolute;z-index:3; font-size:12px"><?php echo $p->nama_kasub ?>
+    <p style="text-align:left;margin-top:930px;margin-left:150px;width:92%;position:absolute;z-index:4; font-size:12px">NIP.<?php echo ' ' . $p->nip_kasub ?>
 
     <p style="line-height:12px;text-align:left;margin-top:765px;margin-left:420px;width:40%;position:absolute; z-index:0;font-size:10px">Telah diperiksa, dengan keterangan bahwa perjalanan tersebut di atas benar dilakukan atas perintahnya semata-mata untuk kepentingan jabatan dalam waktu yang sesingkat-singkatnya
-    <p style="text-align:left;margin-top:820px;margin-left:520px;width:80%;position:absolute;z-index:1">An. Kuasa Pengguna Anggaran
-    <p style="text-align:left;margin-top:840px;margin-left:520px;width:80%;position:absolute;z-index:2">Pejabat Pembuat Komitmen
-    <p style="text-align:left;margin-top:910px;margin-left:520px;width:92%;position:absolute;z-index:3"><?php echo $p->nama_ppk ?></b>
-    <p style="text-align:left;margin-top:930px;margin-left:520px;width:92%;position:absolute;z-index:4">NIP.<?php echo ' ' . $p->nip_ppk ?>
+    <p style="text-align:left;margin-top:820px;margin-left:520px;width:80%;position:absolute;z-index:1; font-size:12px">An. Kuasa Pengguna Anggaran
+    <p style="text-align:left;margin-top:840px;margin-left:520px;width:80%;position:absolute;z-index:2; font-size:12px">Pejabat Pembuat Komitmen
+    <p style="text-align:left;margin-top:910px;margin-left:520px;width:92%;position:absolute;z-index:3; font-size:12px"><?php echo $p->nama_ppk ?></b>
+    <p style="text-align:left;margin-top:930px;margin-left:520px;width:92%;position:absolute;z-index:4; font-size:12px">NIP.<?php echo ' ' . $p->nip_ppk ?>
 
-    <p style="text-align:justify;margin-top:958px;margin-left:20px; width:75%; position:absolute;z-index:5">VI.
-    <p style="text-align:justify;margin-top:958px;margin-left:42px;width:80%;position:absolute; z-index:0">CATATAN LAIN-LAIN
+    <p style="text-align:justify;margin-top:953px;margin-left:20px; width:75%; position:absolute;z-index:5; font-size:12px">VI.
+    <p style="text-align:justify;margin-top:953px;margin-left:42px;width:80%;position:absolute; z-index:0; font-size:12px">CATATAN LAIN-LAIN
 
-    <p style="text-align:justify;margin-top:983px;margin-left:20px; width:75%; position:absolute;z-index:5">VII.
-    <p style="text-align:justify;margin-top:983px;margin-left:42px;width:80%;position:absolute; z-index:0">PERHATIAN
+    <p style="text-align:justify;margin-top:978px;margin-left:20px; width:75%; position:absolute;z-index:5; font-size:12px">VII.
+    <p style="text-align:justify;margin-top:978px;margin-left:42px;width:80%;position:absolute; z-index:0; font-size:12px">PERHATIAN
     <p style="line-height:12px; text-align:justify;margin-top:1008px;margin-left:42px;width:86%;position:absolute; z-index:0;font-size:10px">Pejabat yang berwenang menerbitkan SPPD, pegawai yang melakukan perjalanan dinas, para pejabat yang mengesahkan tanggal
         berangkat/tiba serta bendaharawan bertanggung jawab berdasarkan peraturan-peraturan Keuangan Negara, apabila Negara menderita
         rugi akibat kesalahan, kelalaian dan kealpaannya. (Angka 8, lampiran Surat Edaran Menteri Keuangan tanggal 23 April 1996 Nomor: SE-67/A/622/0496).

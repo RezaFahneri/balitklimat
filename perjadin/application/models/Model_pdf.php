@@ -60,7 +60,7 @@ class Model_pdf extends CI_model
 		$this->db->join('data_golongan as anggota_golongan', 'anggota_golongan.id_golongan = anggota.id_golongan');
         return $this->db->get()->row();
     }
-    public function getListCapsah($id_anggota_perjadin)
+    public function getListSppd($id_anggota_perjadin)
     {
         //return $query = $this->db->order_by('id_data_kegiatan', 'ASC')->get('data_kegiatan')->result();
         $this->db->select('data_anggota_perjadin.*,jabatan_anggota.*,data_perjalanan_dinas.*,anggota.nama_pegawai as nama_pegawai, anggota.nip as nip, anggota_golongan.golongan 
