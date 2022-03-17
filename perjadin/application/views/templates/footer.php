@@ -48,12 +48,21 @@
     <script src="<?= base_url('assets'); ?>/js/ddtf.js"></script>
     <script src="<?= base_url('assets'); ?>/js/myscript.js"></script>
     <script>
+<<<<<<< HEAD
     var table = document.getElementById("dtBasicExample"),
         sumHsl = 0;
     for (var t = 1; t < table.rows.length; t++) {
         sumHsl = sumHsl + parseInt(table.rows[t].cells[7].innerHTML);
     }
     document.getElementById("hasil").innerHTML = "Sum Value = " + sumHsl;
+=======
+        var table = document.getElementById("dtBasicExample"),
+            sumHsl = 0;
+        for (var t = 1; t < table.rows.length; t++) {
+            sumHsl = sumHsl + parseInt(table.rows[t].cells[7].innerHTML);
+        }
+        document.getElementById("hasil").innerHTML = "Sum Value = " + sumHsl;
+>>>>>>> 494ad9088e5e1c050d250bfc2ffda7e311ab5390
     </script>
     <script>
     jQuery('#dtBasicExample').ddTableFilter();
@@ -110,11 +119,128 @@
     </script>
     <script type="text/javascript" charset="utf8" src="<?php echo base_url() ?>assets//DataTables/datatables.js">
     </script>
+<<<<<<< HEAD
+=======
+    <script>
+        $('#nip_pj_rrr').select2({
+            allowClear: true,
+            placeholder: "--Pilih PJ RPTP / RDHP / RKTM--",
+            theme: "bootstrap-5",
+        });
+    </script>
+    <script>
+        $('#nip_pj_keg').select2({
+            allowClear: true,
+            placeholder: "--Pilih Kasub / Kasie / Ka.Kelti--",
+            theme: "bootstrap-5",
+        });
+    </script>
+    <script>
+        $('#id_jenis_keg').select2({
+            allowClear: true,
+            placeholder: "--Pilih Jenis Kegiatan--",
+            theme: "bootstrap-5",
+        });
+    </script>
+    <script>
+        $('#kode_kegiatan').select2({
+            allowClear: true,
+            placeholder: "--Pilih Kode Kegiatan--",
+            theme: "bootstrap-5",
+        });
+    </script>
+    <script>
+        $('#nip_verifikator').select2({
+            allowClear: true,
+            placeholder: "--Pilih Verifikator Perjalanan Dinas--",
+            theme: "bootstrap-5",
+        });
+    </script>
+    <script>
+        $('#nip_kpa').select2({
+            allowClear: true,
+            placeholder: "--Pilih Kuasa Pengguna Anggaran--",
+            theme: "bootstrap-5",
+        });
+    </script>
+    <script>
+        $('#nip_ppk').select2({
+            allowClear: true,
+            placeholder: "--Pilih Pejabat Pembuat Komitmen--",
+            theme: "bootstrap-5",
+        });
+    </script>
+    <script>
+        $('#nip_bendahara').select2({
+            allowClear: true,
+            placeholder: "--Pilih Bendahara--",
+            theme: "bootstrap-5",
+        });
+    </script>
+    <script>
+        $('#kode_mak').select2({
+            allowClear: true,
+            placeholder: "--Pilih MAK--",
+            theme: "bootstrap-5",
+        });
+    </script>
+    <script>
+        $('#jenis_pengajuan').select2({
+            allowClear: true,
+            placeholder: "--Pilih Jenis Pengajuan--",
+            theme: "bootstrap-5",
+        });
+    </script>
+    <script>
+        $('#id_jenis_pd').select2({
+            allowClear: true,
+            placeholder: "--Pilih Jenis Perjalanan Dinas--",
+            theme: "bootstrap-5",
+        });
+    </script>
+    <script>
+        $('#id_jeken').select2({
+            allowClear: true,
+            placeholder: "--Pilih jenis kendaraan--",
+            theme: "bootstrap-5",
+        });
+    </script>
+    <script>
+        $('#nip_kasub_bag_tu').select2({
+            allowClear: true,
+            placeholder: "--Pilih Ka. Sub Bag Tata Usaha--",
+            theme: "bootstrap-5",
+        });
+    </script>
+    <script>
+        $('#nip_kepala_balai').select2({
+            allowClear: true,
+            placeholder: "--Pilih Kepala Balai--",
+            theme: "bootstrap-5",
+        });
+    </script>
+    <script>
+        $('#nip_plt_kb').select2({
+            allowClear: true,
+            placeholder: "--Pilih Plh Kepala Balai--",
+            theme: "bootstrap-5",
+        });
+    </script>
+    <script>
+        $('#nip_anggota_perjadin').select2({
+            allowClear: true,
+            placeholder: "--Pilih Pegawai--",
+            theme: "bootstrap-5",
+        });
+    </script>
+    <script type="text/javascript" charset="utf8" src="<?php echo base_url() ?>assets//DataTables/datatables.js"></script>
+>>>>>>> 494ad9088e5e1c050d250bfc2ffda7e311ab5390
     <script>
     $(document).ready(function() {
         $('#datatable').DataTable();
     });
     </script>
+
 
     <!-- button muncul input type -->
     <!-- <script>

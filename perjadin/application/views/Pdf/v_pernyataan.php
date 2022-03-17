@@ -37,7 +37,13 @@
     <p style="text-align:justify;margin-top:10px;margin-left:75px;width:92%;position:absolute;z-index:0">Nama
     <p style="text-align:justify;margin-left:150px;width:92%;;position:absolute;z-index:0">: <?php echo $p->nama_pegawai ?>
     <p style="text-align:justify;margin-top:25px;margin-left:75px;width:92%;position:absolute;z-index:0">NIP
-    <p style="text-align:justify;margin-top:25px;margin-left:150px;width:92%;position:absolute;z-index:0">: <?php echo $p->nip ?>
+    <p style="text-align:justify;margin-top:25px;margin-left:150px;width:92%;position:absolute;z-index:0">: <?php 
+    if ($p->nip[0] == 'H'){
+       echo ' '; 
+    } else{
+        echo $p->nip;
+    }
+     ?>
     <p style="text-align:justify;margin-top:45px;margin-left:75px;width:92%;position:absolute;z-index:0">Jabatan
     <p style="text-align:justify;margin-top:45px;margin-left:150px;width:92%;position:absolute;z-index:0">: <?php echo $p->jabatan ?><br>
     <p style="text-align:justify;margin-top:85px;margin-left:75px;width:92%;position:absolute;z-index:0">Berdasarkan Surat Perintah Perjalanan Dinas (SPPD) pada :
@@ -93,7 +99,7 @@
     <p style="text-align:left;margin-top:190px;margin-left:100px;width:92%;position:absolute;z-index:1">An. Kuasa Pengguna Anggaran
     <p style="text-align:left;margin-top:210px;margin-left:100px;width:92%;position:absolute;z-index:2">Pejabat Pembuat Komitmen
     <p style="text-align:left;margin-top:320px;margin-left:100px;width:92%;position:absolute;z-index:3"><?php echo $p->nama_ppk ?>
-    <p style="text-align:left;margin-top:350px;margin-left:100px;width:92%;position:absolute;z-index:4">NIP. <?php echo ' ' . $nip; ?>
+    <p style="text-align:left;margin-top:350px;margin-left:100px;width:92%;position:absolute;z-index:4">NIP. <?php echo ' ' . $p->nip_ppk; ?>
    
 
 
