@@ -4,6 +4,7 @@
             <div class="col-md-12 grid-margin">
                 <div class="shadow">
                     <div class="card-header py-3">
+                    <a title="Kembali" class="btn btn-sm btn-success" style="border-radius:90px; color:white;margin-bottom:15px;" href="<?php echo site_url('pinjam_alat') ?>"><i class="ti ti-arrow-left" style="border-radius:8px;"></i></a>
                         <h3 class="m-0 font-weight-bold">Edit Peminjaman Alat</h3><br>
                         <div class="flash-data" id="flash5" data-flash="<?= $this->session->flashdata('gagal');?>"></div>
                         <div class="col-md-12 grid-margin">

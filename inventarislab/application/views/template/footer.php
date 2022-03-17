@@ -90,6 +90,23 @@
             $('.js-example-basic-single').select2();
         });
     </script>
+    <script>
+        var loadFile = function(event) {
+            var foto_update = document.getElementById('foto_update');
+            foto_update.src = URL.createObjectURL(event.target.files[0]);
+            foto_update.onload = function() {
+                URL.revokeObjectURL(foto_update.src) // free memory 
+            }
+            $('#foto').hide();
+            $('#kamera').hide();
+            // let element = document.getElementById("but");
+            // let hidden = element.getAttribute("hidden");
+
+            // if (!hidden) {
+            //     element.removeAttribute("hidden");
+            // }
+        };
+    </script>
 
 
 </body>

@@ -37,11 +37,11 @@
                         <div class="wrapper auth-form-light text-center py-5 px-4 px-sm-5">
                             <div class="flash-data" id="flash3" data-flash="<?= $this->session->flashdata('gagal'); ?>"></div>
                             <div class="flash-data" id="flash2" data-flash="<?= $this->session->flashdata('sukses'); ?>"></div>
-                            <a data-toggle="tooltip" title="Portal Internal Balitklimat" style="margin-top: -40px;margin-bottom:10px;margin-left:-430px;text-align:left" class="btn btn-sm btn-success text-left" href="<?php echo base_url() ?>.."><i class="mdi mdi-home" style="font-size:22px;color:white"></i></a>
+                            <a data-toggle="tooltip" title="Dashboard Inventaris Lab" style="margin-top: -40px;margin-bottom:10px;margin-left:-430px;text-align:left" class="btn btn-sm btn-success text-left" href="<?php echo base_url() ?>../inventarislab"><i class="mdi mdi-home" style="font-size:22px;color:white"></i></a>
                             <div class="brand-logo">
                                 <img src="<?= base_url('assets'); ?>/images/logo/kementan.png" style="width: 90px;" alt="logo">
                             </div>
-                            <h4><b>Sistem Inventaris Barang Kantor</b></h4>
+                            <h4><b>Sistem Inventaris Lab</b></h4>
                             <h4><b>Balai Penelitian Agroklimat dan Hidrologi</b></h4>
                             <h4><b>Login Admin</b></h4>
                             <form class="pt-3" action="<?php echo base_url() ?>login/prosesloginadmin" method="post">

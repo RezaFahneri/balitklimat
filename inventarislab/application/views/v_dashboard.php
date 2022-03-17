@@ -10,6 +10,7 @@
                         <?php if ($this->session->userdata('logged_in') == true) { ?>
                             <div class="col-12 col-xl-8 mb-4 mb-xl-0">
                                 <h4 class="font-weight-normal mb-0">Halo, <?php echo $this->db->where('email', $this->session->userdata('email'))->get('data_pegawai')->row('nama_pegawai'); ?> !</h4></br>
+                                <h3 class="font-weight-bold">Sistem Inventaris Lab</h3>
                                 <h3 class="font-weight-bold">Balai Agroklimat dan Hidrologi</h3>
                                 <h3 class="font-weight-bold">Kementerian Pertanian Republik Indonesia</h3>
                             </div>
@@ -17,6 +18,7 @@
                         <?php if ($this->session->userdata('logged_in') == false) { ?>
                             <div class="col-12 col-xl-8 mb-4 mb-xl-0">
                                 <h4 class="font-weight-normal mb-0">Selamat Datang !</h4></br>
+                                <h3 class="font-weight-bold">Sistem Inventaris Lab</h3>
                                 <h3 class="font-weight-bold">Balai Agroklimat dan Hidrologi</h3>
                                 <h3 class="font-weight-bold">Kementerian Pertanian Republik Indonesia</h3>
                             </div>

@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="<?= base_url('assets'); ?>/vendors/feather/feather.css">
   <link rel="stylesheet" href="<?= base_url('assets'); ?>/vendors/ti-icons/css/themify-icons.css">
   <link rel="stylesheet" href="<?= base_url('assets'); ?>/vendors/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="<?= base_url('assets'); ?>/vendors/mdi/css/materialdesignicons.min.css">
   <!-- endinject -->
   <!-- Plugin css for this page -->
   <!-- End plugin css for this page -->
@@ -36,23 +37,29 @@
             <div class="wrapper auth-form-light text-center py-5 px-4 px-sm-5">
               <div class="flash-data" id="flash3" data-flash="<?= $this->session->flashdata('gagal'); ?>"></div>
               <div class="flash-data" id="flash2" data-flash="<?= $this->session->flashdata('sukses'); ?>"></div>
+              <a data-toggle="tooltip" title="Dashboard Inventaris Lab" style="margin-top: -40px;margin-bottom:10px;margin-left:-430px;text-align:left" class="btn btn-sm btn-success text-left" href="<?php echo base_url() ?>../inventarislab"><i class="mdi mdi-home" style="font-size:22px;color:white"></i></a>
               <div class="brand-logo">
-                <img src="<?= base_url('assets'); ?>/images/logo/kementan.png" alt="logo">
+                <img src="<?= base_url('assets'); ?>/images/logo/kementan.png" style="width: 90px;" alt="logo">
               </div>
-              <h3><b>Balai Penelitian</b></h3>
-              <h3><b>Agroklimat dan Hidrologi</b></h3>
-              <form class="pt-3" action="<?php echo base_url() ?>login/proseslogin" method="post">
+              <h4><b>Sistem Inventaris Lab</b></h4>
+              <h4><b>Balai Penelitian Agroklimat dan Hidrologi</b></h4>
+              <form class="pt-3 text-center" action="<?php echo base_url() ?>login/proseslogin" method="post">
                 <div class="form-field">
                   <input type="email" id='email' class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Email" name='email' required>
                 </div>
                 <div class="form-field">
                   <input type="password" id='password' class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password" name='password' required">
-                </div>
+                </div></br>
+                <p class=" text-left"><b><a style="color:red">
+                      *</a>Silahkan login untuk mengakses sistem ini</b></p>
                 <div class="mt-3">
                   <button type="submit" class="btn btn-block btn-success btn-lg font-weight-medium auth-form-btn">LOGIN</button>
                 </div></br>
-                <div class="my-2 d-flex text-center">
-                  <a href="#" class="auth-link text-black">Forgot password?</a>
+                <div>
+                  <a href="<?php echo base_url() ?>login/loginadmin" class="text-black">Login sebagai Admin?</a>
+                </div>
+                <div>
+                  <a href="#" class="text-black">Lupa Password?</a>
                 </div>
               </form>
             </div>

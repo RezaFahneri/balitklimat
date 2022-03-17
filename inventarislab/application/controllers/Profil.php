@@ -23,7 +23,7 @@ class Profil extends CI_Controller
 		$data['update_foto'] = $this->Model_pegawai->getDetail($email);
 		// $nip = $this->input->post('nip');
 		// $data['detail'] =  $this->Model_pegawai->getDetail($nip);
-		$data['title'] = "Inventaris Barang Balitklimat | Detail Pegawai";
+		$data['title'] = "Inventaris Lab Balitklimat | Detail Pegawai";
 		$this->load->view('template/template', $data);
 		$this->load->view('profil/v_detail_profil', $data);
 		$this->load->view('template/footer', $data);
@@ -31,7 +31,7 @@ class Profil extends CI_Controller
 
 	function edit()
 	{
-		$data['title'] = "Inventaris Barang Balitklimat | Edit Detail Pegawai";
+		$data['title'] = "Inventaris Lab Balitklimat | Edit Detail Pegawai";
 		$data['update_profil'] = $this->db->get_where('data_pegawai', ['email' =>
 		$this->session->userdata('email')])->row_array();
 

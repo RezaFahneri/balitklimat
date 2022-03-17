@@ -4,8 +4,9 @@
             <div class="col-md-12 grid-margin">
                 <div class="shadow">
                     <div class="card-header py-3">
+                        <a title="Kembali" class="btn btn-sm btn-success" style="border-radius:90px; color:white;margin-bottom:15px;" href="<?php echo site_url('stok_alat') ?>"><i class="ti ti-arrow-left" style="border-radius:8px;"></i></a>
                         <h3 class="m-0 font-weight-bold">Edit Data Alat</h3><br>
-                        <div class="flash-data" id="flash5" data-flash="<?= $this->session->flashdata('gagal');?>"></div>
+                        <div class="flash-data" id="flash5" data-flash="<?= $this->session->flashdata('gagal'); ?>"></div>
                         <div class="col-md-12 grid-margin">
                             <div class="card shadow mb-12">
                                 <div class="col-lg-12 grid-margin stretch-card">
@@ -26,7 +27,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>Kelengkapan </label>
-                                                <input type="text" name="deskripsi" class="form-control" value="<?php echo $edit->deskripsi ?>"required>
+                                                <input type="text" name="deskripsi" class="form-control" value="<?php echo $edit->deskripsi ?>" required>
                                                 <?php echo form_error('deskripsi', '<div class="text-small text-danger"></div>') ?>
                                             </div>
                                             <div class="form-group">
@@ -38,8 +39,12 @@
                                                 <label>Kondisi Alat</label>
                                                 <select name="kondisi" id="kondisi" class="form-control" required>
                                                     <option value="">--Pilih Kondisi Barang--</option>
-                                                    <option value="Baik" <?php if($edit->kondisi == 'Baik'){echo 'selected';}?>>Baik</option>
-                                                    <option value="Kurang Baik" <?php if($edit->kondisi == 'Kurang Baik'){echo 'selected';}?>>Kurang Baik</option>
+                                                    <option value="Baik" <?php if ($edit->kondisi == 'Baik') {
+                                                                                echo 'selected';
+                                                                            } ?>>Baik</option>
+                                                    <option value="Kurang Baik" <?php if ($edit->kondisi == 'Kurang Baik') {
+                                                                                    echo 'selected';
+                                                                                } ?>>Kurang Baik</option>
                                                 </select>
                                                 <?php echo form_error('kondisi', '<div class="text-small text-danger"></div>') ?>
                                             </div>

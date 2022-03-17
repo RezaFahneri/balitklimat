@@ -14,7 +14,7 @@
                                         <div id="myBtnContainer">
                                             <button class="btn-filter btn-secondary" onclick="filterSelection('semua')">2022</button>
                                             <button class="btn-filter btn-secondary" onclick="filterSelection('jan')"> Jan</button>
-                                            <button class="btn-filter btn-secondary" onclick="filterSelection('feb')"> Feb</button>
+                                            <button class="btn-filter btn-secondary " onclick="filterSelection('feb')"> Feb</button>
                                             <button class="btn-filter btn-secondary" onclick="filterSelection('mar')"> Mar</button>
                                             <button class="btn-filter btn-secondary" onclick="filterSelection('apr')"> Apr</button>
                                             <button class="btn-filter btn-secondary" onclick="filterSelection('mei')"> Mei</button>

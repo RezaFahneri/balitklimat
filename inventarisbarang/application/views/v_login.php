@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="<?= base_url('assets'); ?>/vendors/feather/feather.css">
   <link rel="stylesheet" href="<?= base_url('assets'); ?>/vendors/ti-icons/css/themify-icons.css">
   <link rel="stylesheet" href="<?= base_url('assets'); ?>/vendors/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="<?= base_url('assets'); ?>/vendors/mdi/css/materialdesignicons.min.css">
   <!-- endinject -->
   <!-- Plugin css for this page -->
   <!-- End plugin css for this page -->
@@ -36,6 +37,7 @@
             <div class="wrapper auth-form-light text-center py-5 px-4 px-sm-5">
               <div class="flash-data" id="flash3" data-flash="<?= $this->session->flashdata('gagal'); ?>"></div>
               <div class="flash-data" id="flash2" data-flash="<?= $this->session->flashdata('sukses'); ?>"></div>
+              <a data-toggle="tooltip" title="Portal Internal Balitklimat" style="margin-top: -40px;margin-bottom:10px;margin-left:-430px;text-align:left" class="btn btn-sm btn-success text-left" href="<?php echo base_url() ?>.."><i class="mdi mdi-home" style="font-size:22px;color:white"></i></a>
               <div class="brand-logo">
                 <img src="<?= base_url('assets'); ?>/images/logo/kementan.png" style="width: 90px;" alt="logo">
               </div>

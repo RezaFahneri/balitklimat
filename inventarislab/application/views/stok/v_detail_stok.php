@@ -4,6 +4,7 @@
             <div class="col-md-12 grid-margin">
                 <div class="shadow">
                     <div class="card-header py-3">
+                        <a title="Kembali" class="btn btn-sm btn-success" style="border-radius:90px; color:white;margin-bottom:15px;" href="<?php echo site_url('stok_alat') ?>"><i class="ti ti-arrow-left" style="border-radius:8px;"></i></a>
                         <h3 class="m-0 font-weight-bold">Detail Data Alat</h3><br>
                         <div class="col-md-12 grid-margin">
                             <div class="card mb-12">

@@ -156,7 +156,46 @@ $(document).on('click', '#logout', function (e) {
 })
 
 //filter statistik penggunaan mobil
-filterSelection("mar")
+const d = new Date();
+let month = d.getMonth();
+if (month == "0") {
+    filterSelection("jan")
+}
+if (month == "1") {
+    filterSelection("feb")
+}
+if (month == "2") {
+    filterSelection("mar")
+}
+if (month == "3") {
+    filterSelection("apr")
+}
+if (month == "4") {
+    filterSelection("mei")
+}
+if (month == "5") {
+    filterSelection("jun")
+}
+if (month == "6") {
+    filterSelection("jul")
+}
+if (month == "7") {
+    filterSelection("ags")
+}
+if (month == "8") {
+    filterSelection("sep")
+}
+if (month == "9") {
+    filterSelection("okt")
+}
+if (month == "10") {
+    filterSelection("nov")
+}
+if (month == "11") {
+    filterSelection("des")
+}
+
+// filterSelection("mar")
 
 function filterSelection(c) {
     var x, i;
@@ -228,10 +267,10 @@ function ShowHideDiv(btnPassport) {
 
 function showperjalanan() {
     var status = document.getElementById("statusperjalanan");
-    if(status.value == "Dalam Kota") {
-        document.getElementById("lama_pakai").style.visibility="visible";
+    if (status.value == "Dalam Kota") {
+        document.getElementById("lama_pakai").style.visibility = "visible";
     }
     else {
-        document.getElementById("lama_pakai").style.visibility="hidden";
+        document.getElementById("lama_pakai").style.visibility = "hidden";
     }
 }

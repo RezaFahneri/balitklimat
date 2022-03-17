@@ -56,20 +56,24 @@
                     <li class="nav-item nav-profile dropdown">
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
                             <?php if ($this->session->userdata('logged_in') == true) { ?>
-                                <img src="<?php echo base_url() ?>assets/images/upload/<?php echo $this->db->where('email', $this->session->userdata('email'))->get('data_pegawai')->row('foto') ?>" class="img-circle profile_img" alt="profile" />
+                                <img src="<?php echo base_url() ?>../asn/assets/images/foto/<?php echo $this->db->where('email', $this->session->userdata('email'))->get('data_pegawai')->row('foto') ?>" class="img-circle profile_img" alt="profile" />
                             <?php } else { ?>
                                 <img src="<?php echo base_url() ?>assets/images/upload/default.png" class="img-circle profile_img" alt="profile" />
                             <?php } ?>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
                             <?php if ($this->session->userdata('logged_in') == true) { ?>
+                                <a href="<?php echo base_url() ?>profil" class="dropdown-item">
+                                    <i class="mdi mdi-account"></i>
+                                    Detail Profil
+                                </a>
                                 <a id="logout" class="dropdown-item" href="<?php echo base_url(); ?>dashboard/logout">
-                                    <i class="mdi mdi-logout"></i>
+                                    <i class="ti ti-logout"></i>
                                     Logout
                                 </a>
                             <?php } else if ($this->session->userdata('logged_in') == false) { ?>
                                 <a class="dropdown-item" href="<?php echo base_url(); ?>login">
-                                    <i class="mdi mdi-login"></i>
+                                    <i class="ti ti-login"></i>
                                     Login
                                 </a>
                             <?php } ?>
@@ -278,10 +282,18 @@
                         </a>
                     </li>
                     <?php if ($this->session->userdata('logged_in') == false) { ?>
-                        <li class="nav-item" style="margin-top: 397px;">
+                        <li class="nav-item" style="margin-top: 340px;margin-bottom: -10px;">
                             <a class="nav-link" href="<?php echo base_url(); ?>login" aria-expanded="false">
                                 <i class="mdi mdi-login" style="font-size: 20px;"></i>
-                                <span class="menu-title" style="margin-left: 12px;">Login</span>
+                                <span class="menu-title" style="margin-left: 15px;">Login</span>
+                            </a>
+                        </li>
+                    <?php } ?>
+                    <?php if ($this->session->userdata('logged_in') == false) { ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?php echo base_url(); ?>.." aria-expanded="false">
+                                <i class="mdi mdi-backburger menu-icon" style="font-size: 20px"></i>
+                                <span class="menu-title">Kembali ke Portal</span>
                             </a>
                         </li>
                     <?php } ?>
