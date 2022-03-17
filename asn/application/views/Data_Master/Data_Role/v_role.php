@@ -18,7 +18,11 @@
                                                         <tr>
                                                             <th>No</th>
                                                             <th>Nama Role</th>
-                                                            <th>Aksi</th>
+                                                            <th style="width:7%;"><label
+                                                                    style="width:100%;height:100%;margin-top:10px"
+                                                                    type="button" class="btn-xs"><label
+                                                                        style="margin-top:10px;margin-left:8px;color:gray">Aksi</label>
+                                                            </th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>

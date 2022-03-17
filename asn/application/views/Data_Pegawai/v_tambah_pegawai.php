@@ -30,7 +30,7 @@
                                                 autocomplete="off" class="form-control">
                                             <?php echo form_error('nip', '<div class="text-small text-danger"></div>') ?>
                                         </div>
-                                  
+
                                         <div class="form-group">
                                             <label for="id_golongan"><b>Golongan</b></label></br>
                                             <select style="color:dimgray" name="id_golongan" id="id_golongan"

@@ -78,6 +78,7 @@ class Data_Pegawai extends CI_Controller
         $id_divisi = $this->input->post('id_divisi');
         $nik = $this->input->post('nik');
         $email = $this->input->post('email');
+        // $password = md5($this->input->post('password'));
         $password = $this->input->post('password');
         $no_whatsapp = $this->input->post('62') . $this->input->post('no_whatsapp');
 
@@ -169,6 +170,7 @@ class Data_Pegawai extends CI_Controller
         $id_pangkat = $this->input->post('id_pangkat');
         $nik = $this->input->post('nik');
         $email = $this->input->post('email');
+        // $password = md5($this->input->post('password'));
         $password = $this->input->post('password');
         $no_whatsapp = $this->input->post('no_whatsapp');
 
@@ -204,6 +206,17 @@ class Data_Pegawai extends CI_Controller
         $where = array(
             'nip'   => $nip,
         );
+        if ($this->Model_pegawai->EmailCheck($email) == true) {
+
+            $this->Model_pegawai->input_data($data, 'data_pegawai');
+            $this->Model_pegawai->input_data($data2, 'status_perjalanan');
+            $this->Model_pegawai->input_data($data3, 'detail_role');
+            $this->session->set_flashdata('sukses', 'Data pegawai berhasil ditambahkan');
+            redirect('data_pegawai');
+        } else {
+            $this->session->set_flashdata('error', 'Email sudah digunakan, gunakan email lain');
+            redirect('data_pegawai/tambah');
+        }
         $this->load->Model('Model_pegawai');
         $this->Model_pegawai->update_data($where, $data1, 'data_pegawai');
         $this->Model_pegawai->update_data2($where, $data2, 'status_perjalanan');

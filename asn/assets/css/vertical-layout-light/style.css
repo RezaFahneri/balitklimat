@@ -10533,7 +10533,7 @@ pre code {
 .jsgrid .jsgrid-table .jsgrid-filter-row select::placeholder, .jsgrid .jsgrid-table .jsgrid-filter-row input[type=number]::placeholder, .select2-container--default .select2-selection--single::placeholder, .select2-container--default .select2-selection--single .select2-search__field::placeholder, .typeahead::placeholder,
 .tt-query::placeholder,
 .tt-hint::placeholder {
-  color: #c9c8c8;
+  color: #495057;
   opacity: 1;
 }
 
@@ -22632,7 +22632,7 @@ code {
 
 .input-group-append,
 .input-group-prepend {
-  color: #c9c8c8;
+  color: #495057;
   width: auto;
   border: none;
 }
@@ -22641,7 +22641,7 @@ code {
 .input-group-prepend .input-group-text {
   border-color: #CED4DA;
   padding: 0.875rem 0.75rem;
-  color: #c9c8c8;
+  color: #495057;
 }
 
 .form-control, .asColorPicker-input, .dataTables_wrapper select, .jsgrid .jsgrid-table .jsgrid-filter-row input[type=text],
@@ -22661,7 +22661,7 @@ select.tt-hint {
   padding: .4375rem .75rem;
   border: 0;
   outline: 1px solid #CED4DA;
-  color: #c9c8c8;
+  color: #000000;
 }
 
 select.form-control:focus, select.asColorPicker-input:focus, .dataTables_wrapper select:focus,
@@ -28345,7 +28345,7 @@ div.tagsinput span.tag a {
 }
 
 .auth .auth-form-light select {
-  color: #c9c8c8;
+  color: #000000;
 }
 .form-group{
   border-radius: 10px;

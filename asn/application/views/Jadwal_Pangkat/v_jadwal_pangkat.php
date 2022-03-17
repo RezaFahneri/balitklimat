@@ -12,7 +12,7 @@
                             </div>
                             <div class="col-md-8 grid-margin">
                                 <a href="<?php echo base_url() ?>jadwal_kp/tambah" class="btn btn-success btn-md"><i
-                                        class="ti ti-info-alt mx-0"></i>Tambah Jadwal Kenaikan Pangkat</a>
+                                        class="ti ti-plus"></i>Tambah Jadwal Kenaikan Pangkat</a>
                                 <a href="<?php echo base_url() ?>jadwal_kp/kalender" type="button"
                                     class="btn btn-outline-dark">
                                     <i class="ti ti-calendar"></i>
@@ -27,23 +27,21 @@
                                                     <table id="dtBasicExample"
                                                         class="table table-striped table-bordered table-md"
                                                         data-page-length='25' style="width:100%">
-                                                        <!-- <table  id="dtBasicExample" class="table table-striped table-bordered table-md" cellspacing="0" height='50%'> -->
                                                         <thead class="thead-light">
                                                             <tr>
-                                                                <th style="width:3%">No</th>
-                                                                <th style="width:30%">Nama Pegawai</th>
-                                                                <!-- <th class="th-sm">Pangkat Sekarang</th> -->
-                                                                <!-- <th class="th-sm">Golongan Sekarang</th> -->
-                                                                <th style="width:3%">Pangkat Berikutnya</th>
-                                                                <!-- <th class="th-sm">Golongan Berikutnya</th>
-                                                                <th class="th-sm">TMT 1</th>
-                                                                <th class="th-sm">TMT 2</th>
-                                                                <th class="th-sm">TMT 3</th>
-                                                                <th class="th-sm">TMT 4</th>
-                                                                <th class="th-sm">TMT 5</th> -->
-                                                                <th style="width:3%">Jadwal Kenaikan Pangkat</th>
-                                                                <!-- <th>Role</th> -->
-                                                                <th style="width:2%">Aksi</th>
+                                                                <th title="No" style="width:14%; color:black"><label
+                                                                        style="width:100%;height:100%;margin-top:10px;"
+                                                                        type="button" class="btn-xs"><label
+                                                                            style="margin-top:10px;color:gray">No</label>
+                                                                </th>
+                                                                <th style="width:25%">Nama Pegawai</th>
+                                                                <th style="width:13%">Pangkat Baru</th>
+                                                                <th style="width:1%">Jadwal Kenaikan Pangkat
+                                                                <th style="width:1%;"><label
+                                                                        style="width:100%;height:100%;margin-top:10px"
+                                                                        type="button" class="btn-xs"><label
+                                                                            style="margin-top:10px;margin-left:8px;">Aksi</label>
+                                                                </th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
@@ -52,17 +50,9 @@
                                                             foreach ($jadwal_kp as $kp) {
                                                             ?>
                                                             <tr>
-                                                                <td><?php echo $no++ ?></td>
+                                                                <td style="text-align:center"><?php echo $no++ ?></td>
                                                                 <td><?php echo  $kp->nama_pegawai ?></td>
-                                                                <!-- <td><//?php echo  $kp->pangkat ?></td>
-                                                                <td><?//php echo  $kp->golongan ?></td> -->
                                                                 <td><?php echo  $kp->nama_pangkat?></td>
-                                                                <!-- <td><?//php echo  $kp->nama_golongan?></td>
-                                                                <td><?//php echo  $kp->tmt_pangkat_1 ?></td>
-                                                                <td><?//php echo  $kp->tmt_pangkat_2 ?></td>
-                                                                <td><?//php echo  $kp->tmt_pangkat_3 ?></td>
-                                                                <td><?//php echo  $kp->tmt_pangkat_4 ?></td>
-                                                                <td><?//php echo  $kp->tmt_pangkat_5 ?></td> -->
                                                                 <td><?php echo  $kp->jadwal_kp?></td>
                                                                 <td>
                                                                     <a title="Detail Jadwal Kenaikan Pangkat"

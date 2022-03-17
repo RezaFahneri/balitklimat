@@ -39,14 +39,7 @@
 <script src="<?php echo base_url() ?>assets/js/Chart.roundedBarCharts.js"></script>
 <!-- End custom js for this page-->
 <script type="text/javascript" src="<?php echo base_url() . 'assets/js/jquery-3.3.1.js' ?>"></script>
-<!-- MDBootstrap Datatables  -->
-<script type="text/javascript" src="<?php echo base_url() ?>assets/js/addons/datatables.min.js"></script>
-<script>
-$(document).ready(function() {
-    $('#dtBasicExample').DataTable();
-    $('.dataTables_length').addClass('bs-select');
-});
-</script>
+
 <!-- jquery validate -->
 <!-- <script src="<?//php echo base_url() ?>assets/js/jquery-validate/jquery-validate.js"></script> -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.js">
@@ -64,6 +57,31 @@ $(document).ready(function() {
 <!-- ddtf -->
 <script src="<?= base_url('assets'); ?>/js/select2.js"></script>
 <script src="<?= base_url('assets'); ?>/js/ddtf/ddtf.js"></script>
+
+
+<script src="<?= base_url('assets'); ?>/js/myscript.js"></script>
+<!-- MDBootstrap Datatables  -->
+<script type="text/javascript" src="<?php echo base_url() ?>assets/js/addons/datatables.min.js"></script>
+<script>
+$(document).ready(function() {
+    $('#dtTable').DataTable();
+    $('.dataTables_length').addClass('bs-select');
+});
+</script>
+<script>
+$('#dtBasicExample').DataTable();
+$('.dataTables_length').addClass('bs-select');
+jQuery('#dtBasicExample').ddTableFilter();
+var table = document.getElementById("dtBasicExample"),
+    sumHsl = 0;
+for (var t = 1; t < table.rows.length; t++) {
+    sumHsl = sumHsl + parseInt(table.rows[t].cells[7].innerHTML);
+}
+document.getElementById("hasil").innerHTML = "Sum Value = " + sumHsl;
+</script>
+<!-- <script>
+jQuery('#dtBasicExample').ddTableFilter();
+</script> -->
 
 <!-- <script src="//code.jquery.com/jquery-1.11.3.min.js"></script> -->
 

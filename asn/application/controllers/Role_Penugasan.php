@@ -102,6 +102,7 @@ class Role_Penugasan extends CI_Controller {
         $id_divisi = $this->input->post('id_divisi');
         $nik	 = $this->input->post('nik');
         $email = $this->input->post('email');
+        // $password = md5($this->input->post('password'));
         $password = $this->input->post('password');
         $no_whatsapp	 = $this->input->post('no_whatsapp');
 
