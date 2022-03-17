@@ -64,9 +64,9 @@ class Kegiatan extends CI_Controller
         $data['update_kegiatan'] = $this->Model_kegiatan->getList2($kode_kegiatan);
         $data['jenis_kegiatan'] = $this->Model_jenis_keg->getList();
 
-        $data['pjk'] = $this->Model_pegawai->getList();
+        $data['pjk'] = $this->Model_pegawai->getListKKK();
 
-        $data['pjr'] = $this->Model_pegawai->getList();
+        $data['pjr'] = $this->Model_pegawai->getListPj();
         $data['title'] = "PERJADIN | Edit Data Kegiatan";
 
         $this->load->view('templates/v_template', $data);

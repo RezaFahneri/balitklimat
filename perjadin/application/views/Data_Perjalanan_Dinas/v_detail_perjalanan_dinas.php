@@ -52,6 +52,10 @@
                                                     <td><input class="form-control" type="text" readonly value="<?php echo $detail->nama_bendahara ?>"></td>
                                                 </tr>
                                                 <tr>
+                                                    <th>Ka. Sub Bag Tata Usaha</th>
+                                                    <td><input class="form-control" type="text" readonly value="<?php echo $detail->nama_kasub ?>"></td>
+                                                </tr>
+                                                <tr>
                                                     <th>Tanggal Pengajuan</th>
                                                     <td><input class="form-control" type="text" readonly value="<?php echo $detail->tanggal_pengajuan ?>"></td>
                                                 </tr>

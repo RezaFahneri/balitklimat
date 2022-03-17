@@ -71,7 +71,8 @@ class Model_perjalanan_dinas extends CI_model
 		pumk.nama_pegawai as nama_pumk, tujuan.kota as kota_tujuan, 
 		sbuh_tujuan.nama_provinsi as provinsi_tujuan, sbuh_tujuan.luar_kota as luar_kota_tujuan, 
 		sbuh_tujuan.dalam_kota as dalam_kota_tujuan,verifikator.nama_pegawai as nama_verifikator,
-		,kpa.nama_pegawai as nama_kpa, ppk.nama_pegawai as nama_ppk, bendahara.nama_pegawai as nama_bendahara');
+		,kpa.nama_pegawai as nama_kpa, ppk.nama_pegawai as nama_ppk, bendahara.nama_pegawai as nama_bendahara,
+		kasub.nama_pegawai as nama_kasub');
 		$this->db->from('data_perjalanan_dinas');
 		$this->db->join('data_mak', 'data_mak.kode_mak = data_perjalanan_dinas.kode_mak');
 		$this->db->join('data_kegiatan', 'data_kegiatan.kode_kegiatan = data_perjalanan_dinas.kode_kegiatan');
@@ -87,6 +88,7 @@ class Model_perjalanan_dinas extends CI_model
 		$this->db->join('data_pegawai as kpa', 'kpa.nip = data_perjalanan_dinas.nip_kpa');
 		$this->db->join('data_pegawai as ppk', 'ppk.nip = data_perjalanan_dinas.nip_ppk');
 		$this->db->join('data_pegawai as bendahara', 'bendahara.nip = data_perjalanan_dinas.nip_bendahara');
+		$this->db->join('data_pegawai as kasub', 'kasub.nip = data_perjalanan_dinas.nip_kasub_bag_tu');
 		return $this->db->where('id_perjalanan_dinas',$id_perjalanan_dinas)->get()->row();
 	}
 	public function getDetail($kode_kegiatan)

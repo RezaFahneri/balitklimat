@@ -19,9 +19,9 @@
                                             <div class="card-body">
                                                 <div class="table-responsive pt-8 ">
                                                     <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                                        <label class="mdi mdi-format-list-bulleted btn-success btn-outline-success active btn-sm" onclick="window.location.href='<?php echo base_url() ?>data_pegawai'"> Data Pegawai
+                                                        <label class="mdi mdi-format-list-bulleted btn-light btn-outline-success btn-sm" onclick="window.location.href='<?php echo base_url() ?>data_pegawai'"> Data Pegawai
                                                         </label>
-                                                        <label class="mdi mdi-format-list-bulleted btn-light btn-outline-success btn-sm" onclick="window.location.href='<?php echo base_url() ?>data_pegawai/non_balai'"> Data Pegawai Non Balai
+                                                        <label class="mdi mdi-format-list-bulleted btn-success btn-outline-success active btn-sm" onclick="window.location.href='<?php echo base_url() ?>data_pegawai/non_balai'"> Data Pegawai Non Balai
                                                         </label>
                                                     </div><br><br>
                                                     <table id="dtBasicExample" class="table table-striped table-bordered table-sm" style="width:100%">
@@ -70,7 +70,6 @@
                                                                     <td style="font-size: 12px;"><?php echo $dp->divisi; ?></td>
                                                                     <td style="font-size: 12px;">
 
-                                                                        <a style="height: 35px;color:#ffffff" title="Detail data pegawai" class="btn btn-sm btn-warning" href="<?php echo base_url('data_pegawai/detail/' . $dp->nip) ?>"><i class="mdi mdi-account-card-details"></i></a>
                                                                         <?php if ($dp->divisi == 'Tidak Ada') {
                                                                         ?>
                                                                             <a id="hapus_pegawai" style="height: 35px;color:#ffffff" title="Detail data pegawai" class="btn btn-sm btn-danger" href="<?php echo base_url('data_pegawai/hapus/' . $dp->nip) ?>"><i class="mdi mdi-trash-can"></i></a>

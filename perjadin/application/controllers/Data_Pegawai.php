@@ -20,6 +20,14 @@ class Data_Pegawai extends CI_Controller
         $this->load->view('Data_Pegawai/v_pegawai', $data);
         $this->load->view('templates/footer', $data);
     }
+    function non_balai()
+    {
+        $data['data_pegawai'] = $this->Model_pegawai->getListNb();
+        $data['title'] = "PERJADIN BALITKLIMAT | Data Pegawai";
+        $this->load->view('templates/v_template', $data);
+        $this->load->view('Data_Pegawai/v_pegawai_non_balai', $data);
+        $this->load->view('templates/footer', $data);
+    }
     public function detail($nip)
     {
         $data['title'] = "PERJADIN BALITKLIMAT | Detail Pegawai";
@@ -32,41 +40,49 @@ class Data_Pegawai extends CI_Controller
     function tambah()
     {
         $data['title'] = 'PERJADIN BALITKLIMAT | Tambah Pegawai';
-        $data['golongan'] = $this->Model_master_pegawai->getListGolongan();
-        $data['status_kepegawaian'] = $this->Model_master_pegawai->getListSPG();
-        $data['pangkat'] = $this->Model_master_pegawai->getListPangkat();
-        $data['jabatan'] = $data['jabatan'] = $this->Model_master_pegawai->getListJabatan();
-        $data['divisi'] = $this->Model_master_pegawai->getListDivisi();
+        // $data['golongan'] = $this->Model_master_pegawai->getListGolongan();
+        // $data['status_kepegawaian'] = $this->Model_master_pegawai->getListSPG();
+        // $data['pangkat'] = $this->Model_master_pegawai->getListPangkat();
+        // $data['jabatan'] = $data['jabatan'] = $this->Model_master_pegawai->getListJabatan();
+        // $data['divisi'] = $this->Model_master_pegawai->getListDivisi();
         $this->load->view('templates/v_template', $data);
         $this->load->view('Data_Pegawai/v_tambah_pegawai', $data);
         $this->load->view('templates/footer', $data);
+    }
+    public function generateID()
+    {
+        $query = $this->db->order_by('nip', 'DESC')->limit(1)->get('data_pegawai')->row('nip');
+        $lastNo = (int) substr($query, 3);
+        $next = $lastNo + 1;
+        $kd = 'HNR';
+        return $kd . sprintf('%04s', $next);
     }
     function tambah_aksi()
     {
         $nama_pegawai = $this->input->post('nama_pegawai');
         $data = array(
             'nama_pegawai' => $nama_pegawai,
-            'nip'   => $this->input->post('nip'),
+            'nip'   => $this->generateID(),
             'id_golongan'  => $this->input->post('id_golongan'),
             'id_status_peg'  => $this->input->post('id_status_peg'),
             'foto'  => $this->input->post('foto'),
             'id_pangkat'  => $this->input->post('id_pangkat'),
             'id_jabatan' => $this->input->post('id_jabatan'),
             'id_divisi' => $this->input->post('id_divisi'),
-            'nik' => $this->input->post('nik'),
-            'email' => $this->input->post('email'),
-            'password' => $this->input->post('password'),
-            'no_whatsapp' => $this->input->post('62') . $this->input->post('no_whatsapp')
+            // 'nik' => $this->input->post('nik'),
+            // 'email' => $this->input->post('email'),
+            // 'password' => $this->input->post('password'),
+            // 'no_whatsapp' => $this->input->post('62') . $this->input->post('no_whatsapp')
         );
 
         if ($this->Model_pegawai->input_data($data, 'data_pegawai')) {
             $this->session->set_flashdata('sukses', 'Data pegawai dengan nama ' . $nama_pegawai . ' berhasil ditambahkan');
-            redirect('data_pegawai');
+            redirect('data_pegawai/non_balai');
         } else {
             $this->session->set_flashdata('error');
         }
         $this->session->set_flashdata('sukses', 'Data pegawai dengan nama ' . $nama_pegawai . ' berhasil ditambahkan');
-        redirect('data_pegawai');
+        redirect('data_pegawai/non_balai');
     }
     function edit()
     {
@@ -121,11 +137,11 @@ class Data_Pegawai extends CI_Controller
         $where = array('nip' => $nip);
         if ($this->Model_pegawai->hapus_data($where, 'data_pegawai') == true) :
             $this->session->set_flashdata('sukses', 'Data pegawai berhasil dihapus');
-            redirect('data_pegawai');
+            redirect('data_pegawai/non_balai');
         endif;
         if ($this->Model_pegawai->hapus_data($where, 'data_pegawai') == false) :
             $this->session->set_flashdata('error', 'Data pegawai gagal dihapus karena data pegawai ini digunakan pada tabel lain');
-            redirect('data_pegawai');
+            redirect('data_pegawai/non_balai');
         endif;
     }
 }

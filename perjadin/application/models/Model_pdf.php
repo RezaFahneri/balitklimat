@@ -64,7 +64,7 @@ class Model_pdf extends CI_model
     {
         //return $query = $this->db->order_by('id_data_kegiatan', 'ASC')->get('data_kegiatan')->result();
         $this->db->select('data_anggota_perjadin.*,jabatan_anggota.*,data_perjalanan_dinas.*,anggota.nama_pegawai as nama_pegawai, anggota.nip as nip, anggota_golongan.golongan 
-        as golongan, ppk.nama_pegawai as nama_ppk, ppk.nip as nip_ppk,data_kota.*, data_sbuh.*,
+        as golongan, ppk.nama_pegawai as nama_ppk, ppk.nip as nip_ppk, kasub.nama_pegawai as nama_kasub, kasub.nip as nip_kasub, data_kota.*, data_sbuh.*,
         tujuan.kota as kota_tujuan, sbuh_tujuan.nama_provinsi as provinsi_tujuan');
         $this->db->from('data_anggota_perjadin');
         $this->db->where('data_anggota_perjadin.id_anggota_perjadin', $id_anggota_perjadin);
@@ -77,6 +77,7 @@ class Model_pdf extends CI_model
 		$this->db->join('data_sbuh', 'data_sbuh.id_sbuh = data_kota.id_sbuh');
 		$this->db->join('data_kota as tujuan', 'tujuan.id_kota = data_perjalanan_dinas.id_kota_tujuan');
 		$this->db->join('data_sbuh as sbuh_tujuan', 'sbuh_tujuan.id_sbuh = tujuan.id_sbuh');
+		$this->db->join('data_pegawai as kasub', 'kasub.nip = data_perjalanan_dinas.nip_kasub_bag_tu');
         return $this->db->get()->row();
     }
     public function getListKuitansi($id_anggota_perjadin)
