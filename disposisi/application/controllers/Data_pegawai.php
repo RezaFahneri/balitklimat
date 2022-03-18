@@ -16,6 +16,8 @@ class Data_Pegawai extends CI_Controller {
         $this->load->view('template/template',$data);
 		$this->load->view('DataMaster/data_pegawai/v_datapegawai',$data);
         $this->load->view('template/footer',$data);
+
+        // var_dump($data['data_pegawai']);
     }
     // function get_golongan()
     // {

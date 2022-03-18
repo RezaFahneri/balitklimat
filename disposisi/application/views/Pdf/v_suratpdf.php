@@ -31,12 +31,13 @@
                 <td><img src="<?= base_url('assets'); ?>/images/logo.png" width="90" height="90"></td>
                 <td width="100%">
                     <center>
-                        <font size="3">KEMENTERIAN PERTANIAN</font><br>
-                        <font size="3">BADAN PENELITIAN DAN PENGEMBAGAN PERTANIAN</font><br>
-                        <font size="4">BADAN PENELITIAN AGROKLIMAT DAN HIDROLOGI</font><br>
-                        <font size="2">Jl. Tentara Pelajar No. 1A, Kampus Penelitian Pertanian Cimanggu Bogor 16111</font><br>
-                        <font size="2">Telepon (0251) 8312760, Faksimili (0251) 8323909</font><br>
-                        <font size="2">WEBSITE http://balitklimat.litbang.pertanian.go.id EMAIL: balitklimat@litbang.pertanian.go.id</font><br>
+                        <font size="3"><?php echo $kop->nama_kementerian?></font><br>
+                        <font size="3"><?php echo $kop->eslon_satu?></font><br> 
+                        <font size="4"><?php echo $kop->eslon_dua?></font><br>
+                        <font size="2"><?php echo $kop->eslon_tiga?></font><br>
+                        <font size="2"><?php echo $kop->alamat?></font><br>
+                        <font size="2"><?php echo $kop->kontak?></font><br>
+                        <font size="2"><?php echo $kop->web_email?></font><br>
                     </center>
                 </td>
             </tr>
@@ -88,9 +89,74 @@
                 <td style="height: 3%;">Perihal/Isi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <?php echo $datapeg->perihal?> </td>
             </tr>
         </table>
+        <!-- <table style="border: 1px solid black; border-collapse: collapse;" width="100%">
+            <tr>
+                <td style="height: 3%;">Diteruskan ke&nbsp;: </?php echo $datapeg->nama_pegawai?> </td>
+            </tr>
+        </table> -->
         <table style="border: 1px solid black; border-collapse: collapse;" width="100%">
             <tr>
                 <td style="height: 3%;">Diteruskan ke&nbsp;: <?php echo $datapeg->nama_pegawai?> </td>
+                <tr><div><label class="col-form-label" style="margin-top: -25px;">I. STRUKTURAL</label></tr>
+                    <div class="form-check ">
+                        <label class="form-check-label"> 
+                        <input type="checkbox" id="kepada" name="kepada[]" value="Kepala Sub Bagian Tata Usaha" class="form-check-input">
+                        1. Kepala Sub Bagian Tata Usaha
+                        </label>
+                    </div>
+                    <div class="form-check ">
+                        <label class="form-check-label"> 
+                        <input type="checkbox" id="kepada" name="kepada[]" value="Subkoordinator Pelayanan Teknis" class="form-check-input">
+                        2. Subkoordinator Pelayanan Teknis
+                        </label>
+                    </div>
+                    <div class="form-check ">
+                        <label class="form-check-label"> 
+                        <input type="checkbox" id="kepada" name="kepada[]" value="Subkoordinator Jasa Penelitian" class="form-check-input">
+                        3. Subkoordinator Jasa Penelitian
+                        </label>
+                    </div>
+                    <br>
+                <tr><div><label class="col-form-label" style="margin-top: -25px;">II. PENGELOLA KEUANGAN DLL</label></tr>
+                    <div class="form-check ">
+                        <label class="form-check-label"> 
+                        <input type="checkbox" id="kepada" name="kepada[]" value="Kepala Sub Bagian Tata Usaha" class="form-check-input">
+                        1. Pejabat Pembuat Komitmen
+                        </label>
+                    </div>
+                    <div class="form-check ">
+                        <label class="form-check-label"> 
+                        <input type="checkbox" id="kepada" name="kepada[]" value="Kepala Sub Bagian Tata Usaha" class="form-check-input">
+                        2. Bendahara Pengeluaran
+                        </label>
+                    </div>
+                    <div class="form-check ">
+                        <label class="form-check-label"> 
+                        <input type="checkbox" id="kepada" name="kepada[]" value="Kepala Sub Bagian Tata Usaha" class="form-check-input">
+                        3. Bendahara Penerimaan
+                        </label>
+                    </div>
+                    <br>
+                <tr><div><label class="col-form-label" style="margin-top: -25px;">III. LAIN-LAIN</label></tr>
+                    <div class="form-check ">
+                        <label class="form-check-label"> 
+                        <input type="checkbox" id="kepada" name="kepada[]" value="Kepala Sub Bagian Tata Usaha" class="form-check-input">
+                        1. 
+                        </label>
+                    </div>
+                    <div class="form-check ">
+                        <label class="form-check-label"> 
+                        <input type="checkbox" id="kepada" name="kepada[]" value="Kepala Sub Bagian Tata Usaha" class="form-check-input">
+                        2. 
+                        </label>
+                    </div>
+                    <div class="form-check ">
+                        <label class="form-check-label"> 
+                        <input type="checkbox" id="kepada" name="kepada[]" value="Kepala Sub Bagian Tata Usaha" class="form-check-input">
+                        3. 
+                        </label>
+                    </div>
+                    <br>
             </tr>
         </table>
         <table style="border: 1px solid black; border-collapse: collapse;" width="100%">
@@ -100,9 +166,14 @@
         </table>
         <table style="border: 1px solid black; border-collapse: collapse;" width="100%">
             <tr>
-                <td style="height: 3%;">Catatan&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <?php echo $datapeg->catatan?> </td>
+                <td style="height: 5%;">Catatan&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <?php echo $datapeg->catatan?> </td>
             </tr>
         </table>
-        
+        <table style="border: 1px solid black; border-collapse: collapse;" width="100%" height="10%">
+            <div style="width: 25%; text-align: left; float: right;">Bogor, <?php echo date('d M Y');?></div><br>
+            <div style="width: 25%; text-align: left; float: right;">Kepala Balai, </div><br><br><br><br>
+            <div style="width: 25%; text-align: left; float: right;"><?php echo $datapeg->nama_pegawai?></div><br>
+            <div style="width: 25%; text-align: left; float: right;"><?php echo $datapeg->nip?></div><br>
+        </table>
 </body>
 </html>

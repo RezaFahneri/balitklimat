@@ -4,6 +4,7 @@
             <div class="col-md-12 grid-margin">
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
+                    <a href="<?php echo base_url() ?>riwayatsurat" class="btn btn-sm btn-warning float-right"><i class="ti ti-arrow-left"></i> Kembali ke Riwayat Surat Masuk</a>
                     <h3 class="m-0 font-weight-bold text">Detail Surat Masuk</h3><br>
                     <div class="col-md-12 grid-margin">
                         <div class="card shadow p-5 md-12">
@@ -48,7 +49,6 @@
                                     <td><a class="btn btn-sm btn-outline-primary btn-icon-text" href="<?php echo base_url() ?>assets/file/suratmasuk/<?php echo $detail->dokumen ?>"><i class="ti ti-download"></i> <?php echo $detail->dokumen?></a></td>
                                 </tr>
                             </table>
-                            <a href="<?php echo base_url() ?>riwayatsurat" class="btn btn-warning float-right" >Kembali</a>
                             </div>
                         </div>
                     </div>

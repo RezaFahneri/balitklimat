@@ -1,9 +1,19 @@
 <!-- content-wrapper ends
 <!-- partial:partials/_footer.html -->
-<footer class="footer fixed-bottom">
+</body>
+<!-- <footer class="footer fixed-bottom">
     <div class="d-sm-flex justify-content-center justify-content-sm-between">
-    <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © Balai Penelitian Agroklimat dan Hidrologi 2022 </span>
+        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © Balai Penelitian
+            Agroklimat dan Hidrologi 2022 </span>
     </div>
+</footer> -->
+<footer class="text-center fixed-bottom" style="background-color: #21081a;">
+
+  <!-- Copyright -->
+  <div class="text-muted text-center py-3" style="background-color:#e3f5e3; font-size: 14px;">Copyright © Balai Penelitian Agroklimat dan Hidrologi 2022
+  </div>
+  <!-- Copyright -->
+
 </footer>
 <!-- partial -->
 </div>
@@ -64,7 +74,7 @@
 <script type="text/javascript">
 $(document).ready(function() {
             var table = $('#dataTable').DataTable({
-                buttons: ['copy', 'csv', 'print', 'excel', 'pdf'],
+                buttons: ['copy', 'print', 'excel', 'pdf'],
                 dom: "<'row px-2 px-md-2 pt-2'<'col-md-3'l><'col-md-5 text-center mt-2'B><'col-md-4'f>>" +
                     "<'row'<'col-md-12'tr>>" +
                     "<'row px-2 px-md-4 py-3'<'col-md-5'i><'col-md-7'p>>",
@@ -78,11 +88,11 @@ $(document).ready(function() {
                     searchable: false
                 }]
             });
-
+            $('#dataTable td').css('white-space', 'initial');
             table.buttons().container().appendTo('#dataTable_wrapper .col-md-5:eq(0)');
         });
 </script>
 
 </body>
 
-</html> -->
+</html>

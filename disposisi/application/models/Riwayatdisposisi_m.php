@@ -9,6 +9,11 @@ class Riwayatdisposisi_m extends CI_model
 		$this->db->insert($table,$data);
 	}
 
+    public function insert($table, $data, $batch = false)
+    {
+        return $batch ? $this->db->insert_batch($table, $data) : $this->db->insert($table, $data);
+    }
+
 	public function edit_data($where,$table){
 		return $this->db->get_where($table,$where);
 	}
@@ -65,7 +70,7 @@ class Riwayatdisposisi_m extends CI_model
         return $query;
     }
 
-    function join2($table, $table2, $ktabel21, $ket, $param)
+    public function join2($table, $table2, $ktabel21, $ket, $param)
     {
         $this->db->select('*');
         $this->db->from($table);
@@ -75,7 +80,7 @@ class Riwayatdisposisi_m extends CI_model
         return $query->row();
     }
 
-    function join2innerdetail($ket, $param)
+    public function join2innerdetail($ket, $param)
     {
         $this->db->select('*');
         $this->db->from('riwayat_disposisi');
@@ -85,24 +90,21 @@ class Riwayatdisposisi_m extends CI_model
         return $query->row();
     }
 
-    function join3($table, $table2, $table3, $ktabel21, $ktable31, $ket)
+    public function join2inner()
     {
         $this->db->select('*');
-        $this->db->from($table);
-        $this->db->join($table2, $ktabel21, 'left');
-        $this->db->join($table3, $ktable31, 'left');
-        $this->db->where($ket);
+        $this->db->from('riwayat_disposisi');
+        $this->db->join('surat_masuk', 'surat_masuk.id_suratmasuk = riwayat_disposisi.suratmasuk_id', 'inner');
+        $this->db->order_by('id_riwayat', 'DESC');
         $query = $this->db->get();
         return $query->result();
     }
 
-    public function join3inner()
+    public function join2dispo()
     {
         $this->db->select('*');
         $this->db->from('riwayat_disposisi');
-        $this->db->join('surat_masuk', 'surat_masuk.id_suratmasuk = riwayat_disposisi.suratmasuk_id', 'inner');
-        $this->db->join('data_pegawai', 'data_pegawai.nip = riwayat_disposisi.nip', 'inner');
-        $this->db->order_by('id_riwayat', 'DESC');
+        $this->db->join('detail_disposisi', 'detail_disposisi.suratmasuk_id = riwayat_disposisi.suratmasuk_id', 'inner');
         $query = $this->db->get();
         return $query->result();
     }

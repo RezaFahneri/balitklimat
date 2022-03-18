@@ -4,6 +4,7 @@
             <div class="col-md-12 grid-margin">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
+                <a href="<?php echo base_url() ?>suratmasuk" class="btn btn-sm btn-warning float-right"><i class="ti ti-arrow-left"></i> Kembali ke Surat Masuk</a>
                 <h3 class="m-0 font-weight-bold">Tambah Disposisi</h3><br>
                 <div class="col-md-12 grid-margin">
                     <div class="card-body">
@@ -108,19 +109,74 @@
                                 </div> <br>
                                 <h4 class="card-title">Tambah Disposisi</h4>
                                 <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Diteruskan Kepada Yth</label>
-                                <div class="col-sm-12">
-                                        <select id="nip" name="nip" class="form-control" required>
-                                            <option value="" selected disabled>--Pilih Nama--</option>
-                                            <?php foreach ($data_pegawai as $dp) : ?>
-                                                <option <?php echo set_select('nip', $dp['nip']) ?> value="<?php echo $dp['nip'] ?>"><?php echo $dp['jabatan'] . ' | ' . $dp['nama_pegawai'] ?></option>
-                                            <?php endforeach; ?>
-                                        </select>
+                                <label class="col-sm-3">Diteruskan Kepada Yth <span style="color: red;"> *</span></label></div>
+                                    <div class="col-md-4 mb-3">
+                                        <div><label class="col-form-label" style="margin-top: -25px;">I. STRUKTURAL</label>
+                                        <div class="form-check ">
+                                            <label class="form-check-label"> 
+                                            <input type="checkbox" id="kepada" name="kepada[]" value="Kepala Sub Bagian Tata Usaha" class="form-check-input">
+                                            1. Kepala Sub Bagian Tata Usaha
+                                            </label>
+                                        </div>
+                                        <div class="form-check ">
+                                            <label class="form-check-label"> 
+                                            <input type="checkbox" id="kepada" name="kepada[]" value="Subkoordinator Pelayanan Teknis" class="form-check-input">
+                                            2. Subkoordinator Pelayanan Teknis
+                                            </label>
+                                        </div>
+                                        <div class="form-check ">
+                                            <label class="form-check-label"> 
+                                            <input type="checkbox" id="kepada" name="kepada[]" value="Subkoordinator Jasa Penelitian" class="form-check-input">
+                                            3. Subkoordinator Jasa Penelitian
+                                            </label>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div>
+                                    <div class="col-md-4 mb-3">
+                                    <div><label class="col-form-label">II. PENGELOLA KEUANGAN DLL</label></div>
+                                    <div class="form-check ">
+                                        <label class="form-check-label"> 
+                                        <input type="checkbox" id="kepada" name="kepada[]" value="Pejabat Pembuat Komitmen" class="form-check-input">
+                                        1. Pejabat Pembuat Komitmen
+                                        </label>
+                                    </div>
+                                    <div class="form-check ">
+                                        <label class="form-check-label"> 
+                                        <input type="checkbox" id="kepada" name="kepada[]" value="Bendahara Pengeluaran" class="form-check-input">
+                                        2. Bendahara Pengeluaran
+                                        </label>
+                                    </div>
+                                    <div class="form-check ">
+                                        <label class="form-check-label"> 
+                                        <input type="checkbox" id="kepada" name="kepada[]" value="Bendahara Penerimaan" class="form-check-input">
+                                        3. Bendahara Penerimaan
+                                        </label>
+                                    </div>
+                                    <div><label class="col-form-label">III. LAIN-LAIN</label></div>
+                                    <div class="form-check ">
+                                        <label class="form-check-label"> 
+                                        <input type="checkbox" class="form-check-input">
+                                        1. 
+                                        </label>
+                                    </div>
+                                    <div class="form-check ">
+                                        <label class="form-check-label"> 
+                                        <input type="checkbox" class="form-check-input">
+                                        2. 
+                                        </label>
+                                    </div>
+                                    <div class="form-check ">
+                                        <label class="form-check-label"> 
+                                        <input type="checkbox" class="form-check-input">
+                                        3. 
+                                        </label>
+                                    </div>
                                 </div>
                                 </div>
                                 <div>
                                 <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Isi Disposisi</label>
+                                <label class="col-sm-3 col-form-label">Isi Disposisi <span style="color: red;"> *</span></label>
                                 <div class="col-sm-12">
                                         <select id="isi" name="isi" class="form-control" required>
                                             <option value="" selected disabled>--Pilih Isi Disposisi--</option>
@@ -139,8 +195,8 @@
                                 </div>
                                 </div>
                                 
-                                <button type="submit" class="btn btn-success">Simpan</a></button>&nbsp &nbsp
-                                <a href="<?php echo base_url() ?>suratmasuk" class="btn btn-warning" >Kembali</a>
+                                <button type="submit" class="btn btn-success">Simpan</a></button>&nbsp; &nbsp;
+                                <!-- <a href="</?php echo base_url() ?>suratmasuk" class="btn btn-warning" >Kembali</a> -->
                         </div>
                     </div>
                     </div>
