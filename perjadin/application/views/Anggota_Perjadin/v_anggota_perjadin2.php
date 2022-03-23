@@ -41,8 +41,8 @@
                                                             <td style="font-size: 12px;"><?php echo $j->judul_kegiatan ?></td>
                                                             <td style="font-size: 12px;"><?php echo $j->dalam_rangka ?></td>
                                                             <td style="font-size: 12px;"><?php echo $j->kota_tujuan ?></td>
-                                                            <td style="font-size: 12px;"><?php echo $j->tanggal_berangkat ?></td>
-                                                            <td style="font-size: 12px;"><?php echo $j->tanggal_kembali ?></td>
+                                                            <td style="font-size: 12px;"><?php echo tanggal_indonesia($j->tanggal_berangkat) ?></td>
+                                                            <td style="font-size: 12px;"><?php echo tanggal_indonesia($j->tanggal_kembali) ?></td>
                                                             <td style="font-size: 12px;"><?php echo $j->lama_perjalanan ?></td>
                                                             <td style="font-size: 12px;"><?php echo 'Rp' . number_format($j->total_pendapatan) ?></td>
                                                             <td style="font-size: 12px;"><?php echo $j->nama_pumk ?></td>
@@ -61,3 +61,29 @@
             </div>
         </div>
     </div>
+    <?php
+    function tanggal_indonesia($tanggal)
+    {
+
+        $bulan = array(
+            1 =>       'Januari',
+            'Februari',
+            'Maret',
+            'April',
+            'Mei',
+            'Juni',
+            'Juli',
+            'Agustus',
+            'September',
+            'Oktober',
+            'November',
+            'Desember'
+        );
+
+        $var = explode('-', $tanggal);
+
+        return $var[2] . ' ' . $bulan[(int)$var[1]] . ' ' . $var[0];
+        // var 0 = tanggal
+        // var 1 = bulan
+        // var 2 = tahun
+    } ?>

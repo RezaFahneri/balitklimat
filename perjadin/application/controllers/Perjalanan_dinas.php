@@ -48,7 +48,7 @@ class Perjalanan_dinas extends CI_Controller
         // $data['pumk'] = $this->Model_pegawai->getListPUMK();
         $data['data_pegawai'] = $this->db->get_where('data_pegawai', ['email' =>
         $this->session->userdata('email')])->row_array();
-        $data['nip'] = $this->Model_pegawai->getList();
+        $data['nip'] = $this->Model_pegawai->getListVerifikator();
         $data['nip_ppk'] = $this->Model_pegawai->getListPPK();
         $data['nip_kpa'] = $this->Model_pegawai->getListKPA();
         $data['nip_bendahara'] = $this->Model_pegawai->getListBendahara();
@@ -122,7 +122,7 @@ class Perjalanan_dinas extends CI_Controller
         $data['data_pegawai'] = $this->db->get_where('data_pegawai', ['email' =>
         $this->session->userdata('email')])->row_array();
         $data['kota'] = $this->Model_kota->getList();
-        $data['nip'] = $this->Model_pegawai->getList();
+        $data['nip'] = $this->Model_pegawai->getListVerifikator();
         $data['nip_ppk'] = $this->Model_pegawai->getListPPK();
         $data['nip_kpa'] = $this->Model_pegawai->getListKPA();
         $data['nip_bendahara'] = $this->Model_pegawai->getListBendahara();

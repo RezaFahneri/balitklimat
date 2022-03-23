@@ -122,7 +122,7 @@
                             </a>
                             <a href="<?php echo base_url() ?>dashboard/logout" class="dropdown-item">
                                 <i class="mdi mdi-power text-primary"></i>
-                                Logout
+                                Keluar
                             </a>
                         </div>
                     </li>

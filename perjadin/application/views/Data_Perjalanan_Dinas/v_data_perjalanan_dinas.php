@@ -50,7 +50,7 @@
                                                             <td colspan="12" class="hiddenRow">
                                                                 <div class="accordian-body collapse" id="data<?php echo $j->id_perjalanan_dinas ?>">
                                                                     <table style="margin-top:5px; width:98%; margin-left:8px;margin-bottom:5px;" class="table table-bordered table-md">
-                                                                        <a style="height:35px; margin-top:10px; margin-left:21px;margin-bottom:5px;" class="btn btn-xs btn-info mdi mdi-file"> <b>Surat Pengajuan</a>
+                                                                        <a style="height:35px; margin-top:10px; margin-left:21px;margin-bottom:5px;" class="btn btn-xs btn-info mdi mdi-file" href="<?php echo base_url('pdf/pengajuan/' . $j->id_perjalanan_dinas) ?>"> <b>Surat Pengajuan</a>
                                                                         <a style="height:35px; margin-top:10px; margin-left:21px;margin-bottom:5px;" class="btn btn-xs btn-info mdi mdi-file"> <b>Perincian</a>
                                                                         <!-- <a style="height:35px; margin-top:10px; margin-left:21px;margin-bottom:5px;" class="btn btn-xs btn-info mdi mdi-file" href="<?php echo base_url('pdf/surat_tugas/' . $j->id_perjalanan_dinas) ?>"> <b>Surat Tugas (Kepala Balai)</a>
                                                                         <a style="height:35px; margin-top:10px; margin-left:21px;margin-bottom:5px;" class="btn btn-xs btn-info mdi mdi-file" href="<?php echo base_url('pdf/surat_tugas_plt/' . $j->id_perjalanan_dinas) ?>"> <b>Surat Tugas (Plh. Kepala Balai)</a> -->
