@@ -11,9 +11,9 @@
                     <div class="form-group">
                         <label>Data Sifat Surat</label>
                         <input type="text" name="sifat_surat" class="form-control" required>
-                        <?php echo form_error('sifat_surat', '<div class="text-small text-danger"></div>') ?>
+                        <?php echo form_error('sifat_surat', '<small class="text-danger">') ?>
                     </div>
-                    <button type="submit" class="btn btn-success">Simpan</a></button>&nbsp &nbsp
+                    <button type="submit" class="btn btn-success">Simpan</a></button>&nbsp; &nbsp;
                     <a href="<?php echo base_url() ?>sifatsurat" class="btn btn-warning" >Kembali</a>
                 </form>
             </div>

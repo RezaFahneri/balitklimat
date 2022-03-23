@@ -41,12 +41,12 @@ class Masuk extends CI_Controller
                 $this->session->set_userdata($data);
                 redirect('sifatsurat');
             } else {
-                $this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible" role="alert">
+                $this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible" role="alert" style="width:80%; margin-left: 50px">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> Kata Sandi Salah!</div>');
                 redirect('masuk');
             }
         } else {
-            $this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible" role="alert">
+            $this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible" role="alert" style="width:80%; margin-left: 50px">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> Akun Tidak Terdaftar!</div>');
             redirect('masuk');
         }
@@ -56,7 +56,7 @@ class Masuk extends CI_Controller
     {
         $this->session->unset_userdata('email');
 
-        $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible" role="alert">
+        $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible" role="alert", style="width:80%; margin-left: 50px">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> Berhasil keluar!</div>');
         redirect('masuk');
     }

@@ -4,6 +4,7 @@
             <div class="col-md-12 grid-margin">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
+                <a href="<?php echo base_url() ?>suratmasuk" class="btn btn-sm btn-warning float-right"><i class="ti ti-arrow-left"></i> Kembali ke Surat Masuk</a>
                 <h3 class="m-0 font-weight-bold">Tambah Surat Masuk</h3><br>
                 <div class="col-md-12 grid-margin">
                     <div class="card-body">
@@ -15,77 +16,77 @@
                             <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Sifat Surat</label>
+                                <label class="col-sm-3 col-form-label">Sifat Surat <span style="color: red;"> *</span></label>
                                 <div class="col-sm-9">
-                                    <select id="sifatsurat_id" name="sifatsurat_id" class="form-control" required>
-                                        <option value="" selected disabled>--Pilih Sifat Surat--</optiion>
+                                    <select id="sifatsurat_id" name="sifatsurat_id" class="form-control">
+                                        <option value="" selected disabled>--Pilih Sifat Surat--</option>
                                         <?php foreach ($sifatsurat as $ss) : ?>
                                             <option <?php echo set_select('sifatsurat_id', $ss['id_sifatsurat']) ?> value="<?php echo $ss['id_sifatsurat'] ?>"><?php echo $ss['sifat_surat']?></option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
                                 </div>
-                                <?php echo form_error('sifat_surat', '<div class="text-small text-danger"></div>') ?>
+                                <?php echo form_error('sifat_surat', '<small class="text-danger">') ?>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Kode/Indeks</label>
+                                <label class="col-sm-3 col-form-label">Kode/Indek<span style="color: red;">*</span></label>
                                 <div class="col-sm-9">
-                                    <input type='numeric' id="kode" name="kode" class="form-control" required/>
+                                    <input type='numeric' id="kode" name="kode" class="form-control"/>
                                 </div>
                                 </div>
-                                <?php echo form_error('kode', '<div class="text-small text-danger"></div>') ?>
+                                <?php echo form_error('kode', '<small class="text-danger">') ?>
                             </div>
                             </div>
                             <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Tanggal Surat</label>
+                                <label class="col-sm-3 col-form-label">Tanggal Surat <span style="color: red;"> *</span></label>
                                 <div class="col-sm-9">
-                                    <input type="date" class="form-control" id="tanggal_surat" name="tanggal_surat" required/>
+                                    <input type="date" class="form-control" id="tanggal_surat" name="tanggal_surat"/>
                                 </div>
                                 </div>
-                                <?php echo form_error('tanggal_surat', '<div class="text-small text-danger"></div>') ?>
+                                <?php echo form_error('tanggal_surat', '<small class="text-danger">') ?>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Tanggal Input</label>
+                                <label class="col-sm-3 col-form-label">Tanggal Input<span style="color: red;"> *</span></label>
                                 <div class="col-sm-9">
-                                    <input type="date" class="form-control" id="tanggal_input" name="tanggal_input" required/>
+                                    <input type="date" class="form-control" id="tanggal_input" name="tanggal_input"/>
                                 </div>
                                 </div>
-                                <?php echo form_error('tanggal_input', '<div class="text-small text-danger"></div>') ?>
+                                <?php echo form_error('tanggal_input', '<small class="text-danger">') ?>
                             </div>
                             </div>
                             <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">No. Surat</label>
+                                <label class="col-sm-3 col-form-label">No. Surat<span style="color: red;"> *</span></label>
                                 <div class="col-sm-9">
-                                    <input type="numeric" class="form-control" id="no_surat" name="no_surat" required/>
+                                    <input type="numeric" class="form-control" id="no_surat" name="no_surat"/>
                                 </div>
                                 </div>
-                                <?php echo form_error('no_surat', '<div class="text-small text-danger"></div>') ?>
+                                <?php echo form_error('no_surat', '<small class="text-danger">') ?>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">No. Urut</label>
+                                <label class="col-sm-3 col-form-label">No. Urut<span style="color: red;"> *</span></label>
                                 <div class="col-sm-9">
-                                    <input type="numeric" class="form-control" id="no_urut" name="no_urut" required/>
+                                    <input type="numeric" class="form-control" id="no_urut" name="no_urut"/>
                                 </div>
                                 </div>
-                                <?php echo form_error('no_urut', '<div class="text-small text-danger"></div>') ?>
+                                <?php echo form_error('no_urut', '<small class="text-danger">') ?>
                             </div>
                             </div>
                             <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Asal Surat</label>
+                                <label class="col-sm-3 col-form-label">Asal Surat<span style="color: red;"> *</span></label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="asal_surat" name="asal_surat" required/>
+                                    <input type="text" class="form-control" id="asal_surat" name="asal_surat"/>
                                 </div>
                                 </div>
-                                <?php echo form_error('asal_surat', '<div class="text-small text-danger"></div>') ?>
+                                <?php echo form_error('asal_surat', '<small class="text-danger">') ?>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group row">
@@ -94,17 +95,17 @@
                                     <input type="file" class="form-control" id="dokumen" name="dokumen"  />
                                 </div>
                                 </div>
-                                <?php echo form_error('dokumen', '<div class="text-small text-danger"></div>') ?>
+                                <?php echo form_error('dokumen', '<small class="text-danger">') ?>
                             </div>
                             </div>
                             <div class="form-group row">
-                            <label for="exampleInputMobile" class="col-sm-3 col-form-label">Perihal/Isi Surat</label>
+                            <label for="exampleInputMobile" class="col-sm-3 col-form-label">Perihal/Isi Surat<span style="color: red;"> *</span></label>
                             <div class="col-sm-12">
-                                <textarea class="form-control" id="perihal" name="perihal" rows="4" required></textarea>
+                                <textarea class="form-control" id="perihal" name="perihal" rows="4"></textarea>
                             </div>
                             </div>
-                            <button type="submit" class="btn btn-success">Simpan</a></button>&nbsp &nbsp
-                            <a href="<?php echo base_url() ?>suratmasuk" class="btn btn-warning" >Kembali</a>
+                            <button type="submit" class="btn btn-success">Simpan</a></button>&nbsp; &nbsp;
+                            <!-- <a href="</?php echo base_url() ?>suratmasuk" class="btn btn-warning" >Kembali</a> -->
                         </div>
                     </div>
                     </div>

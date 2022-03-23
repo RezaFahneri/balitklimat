@@ -4,6 +4,7 @@
             <div class="col-md-12 grid-margin">
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
+                    <a href="<?php echo base_url() ?>suratmasuk" class="btn btn-sm btn-warning float-right"><i class="ti ti-arrow-left"></i> Kembali ke Surat Masuk</a>
                     <h3 class="m-0 font-weight-bold">Riwayat Surat Masuk</h3><br>
                     <div class="flash-data" id="flash2" data-flash="<?= $this->session->flashdata('sukses'); ?>"></div>
                     <div class="col-md-4 grid-margin mb-3"></div>
@@ -24,7 +25,7 @@
                                         <th style= "text-align: center;">Asal Surat</th>
                                         <!-- <th style= "text-align: center;">Perihal/Isi Surat</th> -->
                                         <!-- <th style= "text-align: center;">File Surat</th> -->
-                                        <th style= "text-align: center;">Status</th>
+                                        <th style= "text-align: center;">Diteruskan Kepada</th>
                                         <!-- <th style= "text-align: center;">Tanggal Input</th>
                                         <th style= "text-align: center;">No. Urut</th> -->
                                         <th style= "text-align: center;">Aksi</th>
@@ -45,12 +46,15 @@
                                                 <!-- <td></?php echo $sm->perihal ?></td> -->
                                                 <!-- <td><a class="btn btn-sm btn-outline-primary btn-icon-text" href="</?php echo base_url() ?>assets/file/suratmasuk/</?php echo $sm->dokumen ?>"><i class="ti ti-download"></i> Unduh</a></td> -->
                                                 <td><?php
-                                                    if ($sm->status == 'Belum Disposisi') { ?>
-                                                        <a class="badge badge-warning">Belum Disposisi</a>
-                                                    <?php } else { ?>
-                                                        <a class="badge badge-success">Diteruskan Ke <?= $sm->nama_pegawai?></a>
+                                                    foreach ($detaildisposisi as $ds) {
+                                                        ?>
+                                                         <?php
+                                                        if($ds['suratmasuk_id'] == $sm->id_suratmasuk) {
+                                                        ?>
+                                                            <?php echo $ds['kepada']; ?>,<br>
+                                                           
                                                     <?php } ?>
-                                                </td>
+                                                    <?php } ?></td>
                                                 <td>
                                                 <a class="btn btn-sm btn-warning" href="<?php echo base_url('/riwayatsurat/detail/' . $sm->id_suratmasuk) ?>"><i class="ti ti-eye"></i></a>
                                             </td>
@@ -64,6 +68,10 @@
                     </div>
                 </div> 
             </div> 
-    </div>                   
+        </div>                   
+    </div>
 </div>
 </div>
+</div>
+</div>
+</table>

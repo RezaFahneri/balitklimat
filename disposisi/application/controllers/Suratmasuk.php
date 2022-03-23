@@ -13,6 +13,7 @@ class SuratMasuk extends CI_Controller {
     public function index()
     {
         $data['suratmasuk'] = $this->Suratmasuk_m->join2left();
+        $data['detaildisposisi'] = $this->Suratmasuk_m->get('detail_disposisi');
         $data['title'] = "Surat Masuk | Disposisi";
         $this->load->view('template/template',$data);
 		$this->load->view('SuratMasuk/v_suratmasuk',$data);
@@ -141,6 +142,11 @@ class SuratMasuk extends CI_Controller {
         $sifatsurat_id = $detail->sifatsurat_id;
         $ket = ['id_suratmasuk' => $id_suratmasuk];
         $data['datapeg'] = $this->Suratmasuk_m->join2left2($ket, $id_suratmasuk);
+        $ket = ['id_suratmasuk' => $id_suratmasuk];
+        $data['kepada'] = $this->Suratmasuk_m->joinkepada($ket, $id_suratmasuk);
+        $detaildispo = $this->Suratmasuk_m->join2dispo();
+        $data['detaildispo'] = $detaildispo;
+        // var_dump($data['kepada']);
         $data['suratmasuk'] = $this->Suratmasuk_m->get('surat_masuk', ['id_suratmasuk' => $id_suratmasuk]);
         $data['title'] = 'Detail Surat Masuk | Disposisi';
         $this->load->view('template/template', $data);
@@ -166,6 +172,8 @@ class SuratMasuk extends CI_Controller {
         $ket = ['id_suratmasuk' => $id_suratmasuk];
         $datapeg = $this->Suratmasuk_m->join3left($ket, $id_suratmasuk);
         $this->data['datapeg'] = $datapeg;
+        $kop = $this->Suratmasuk_m->getkop('data_header_surat');
+        $this->data['kop'] = $kop;
 
         // panggil library yang kita buat sebelumnya yang bernama pdfgenerator
         $this->load->library('pdfgenerator');

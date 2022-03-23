@@ -39,35 +39,10 @@
         <!-- partial:partials/_navbar.html -->
         <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center" style="padding: 0 0 0 5px;">
-                <a class="navbar-brand brand-logo mr-5" href="<?php echo base_url(); ?>data_pegawai"><img src="<?= base_url('assets'); ?>/images/logodisposisi.png" /></a>
+                <a class="navbar-brand brand-logo mr-5" href="<?php echo base_url(); ?>sifatsurat"><img src="<?= base_url('assets'); ?>/images/logodisposisi.png" /></a>
             </div>
             <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
                 <ul class="navbar-nav navbar-nav-right">
-                    <li class="nav-item dropdown">
-                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
-                            <p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
-                            <a class="dropdown-item preview-item">
-                                <div class="preview-thumbnail">
-                                    <div class="preview-icon bg-success">
-                                        <i class="ti-info-alt mx-0"></i>
-                                    </div>
-                                </div>
-                            </a>
-                            <a class="dropdown-item preview-item">
-                                <div class="preview-thumbnail">
-                                    <div class="preview-icon bg-info">
-                                        <i class="ti-user mx-0"></i>
-                                    </div>
-                                </div>
-                                <div class="preview-item-content">
-                                    <h6 class="preview-subject font-weight-normal">New user registration</h6>
-                                    <p class="font-weight-light small-text mb-0 text-muted">
-                                        2 days ago
-                                    </p>
-                                </div>
-                            </a>
-                        </div>
-                    </li>
                     <li class="nav-item nav-profile dropdown">
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
                             <img src="<?= base_url('assets'); ?>/images/logo/kementan.png" alt="profile" />
@@ -115,7 +90,7 @@
                     </a>
                     <div class="collapse" id="ui-basic">
                     <ul class="nav flex-column sub-menu">
-                        <li class="nav-item"> <a class="nav-link" href="<?=base_url()?>data_pegawai">Data Pegawai</a></li>
+                        <!-- <li class="nav-item"> <a class="nav-link" href="</?=base_url()?>data_pegawai">Data Pegawai</a></li> -->
                         <li class="nav-item"> <a class="nav-link" href="<?=base_url()?>sifatsurat">Sifat Surat</a></li>
                     </ul>
                     </div>
@@ -129,7 +104,7 @@
                 <li class="nav-item">
                     <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
                     <i class="ti ti-history" style="font-size: 22px; margin-right: 8px;"></i>
-                    <span class="menu-title">Riwayat Surat</span>
+                    <span class="menu-title">Transaksi Surat</span>
                     <i class="menu-arrow"></i>
                     </a>
                     <div class="collapse" id="form-elements">

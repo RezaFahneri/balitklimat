@@ -107,3 +107,25 @@ $(document).on('click', '#hapussifat', function (e) {
         }
     })
 })
+
+// $(document).on('click', '#logout', function (e) {
+
+//     e.preventDefault();
+//     var href = $(this).attr('href')
+
+//     Swal.fire({
+//         title: 'Apakah Anda Yakin?',
+//         text: "Keluar",
+//         icon: 'warning',
+//         showCancelButton: true,
+//         confirmButtonColor: '#3085d6',
+//         cancelButtonColor: '#d33',
+//         confirmButtonText: 'Keluar',
+//         closeOnConfirm: true,
+//         closeOnCancel: true
+//     }).then((result) => {
+//         if (result.isConfirmed) {
+//             window.location = href;
+//         }
+//     })
+// })

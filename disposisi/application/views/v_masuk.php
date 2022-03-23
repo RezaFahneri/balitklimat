@@ -25,20 +25,20 @@
       <div style="background-repeat:no-repeat; background-position:center; background-attachment:fixed; background-size:100%" class="content-wrapper-login d-flex align-items-center auth px-0">
         <div class="row w-100 mx-0">
           <div class="col-lg-4 mx-auto">
-            <div class="wrapper auth-form-light text-center py-5 px-4 px-sm-5">
-              <div class="brand-logo">
-                <img src="<?= base_url('assets'); ?>/images/logo/kementan.png" alt="logo">
-              </div>
-              <h3><b>Balai Penelitian</b></h3>
-              <h3><b>Agroklimat dan Hidrologi</b></h3>
+            <div class="wrapper auth-form-light text-center py-3 px-1">
+                <img src="<?= base_url('assets'); ?>/images/logo/kementan.png" alt="logo" width="130px;" height="130px;">
+              <br>
+              <br>
+              <h4><b>Sistem Informasi Disposisi</b></h4>
+              <h4><b>Balai Penelitian Agroklimat dan Hidrologi</b></h4>
               <form class="pt-3" action="<?php echo base_url() ?>masuk" method="post">
-              <?php echo $this->session->flashdata('message'); ?>
                 <div class="form-field">
-                  <input type="email" id='email' class="form-control form-control-lg" placeholder="Email" name='email' value="<?= set_value('email'); ?>" required>
+                  <?php echo $this->session->flashdata('message'); ?>
+                  <input type="email" style="width:80%; margin-left: 50px" id='email' class="form-control form-control-lg" placeholder="Email" name='email' value="<?= set_value('email'); ?>" required>
                   <?php echo form_error('email', '<small class="text-danger">', '</small>'); ?>
                 </div>
                 <br>
-                <div class="input-group mb-3">
+                <div class="input-group mb-3" style="width:80%; margin-left: 50px" >
                   <input type="password" class="form-control form-control-lg" placeholder="Kata Sandi" id="password" name="password">
                   <div class="input-group-append">
                       <span id="mybutton" onclick="password()" class="input-group-text">
@@ -51,8 +51,9 @@
                   <?php echo form_error('password', '<small class="text-danger">', '</small>'); ?>
                 </div>
                 <div class="mt-3">
-                  <button type="submit" class="btn btn-block btn-success btn-lg font-weight-medium auth-form-btn">MASUK</button>
+                  <button type="submit" class="btn btn-block btn-success btn-lg font-weight-medium auth-form-btn" style="width:80%; margin-left: 50px">LOGIN</button>
                 </div></br>
+                <a href="<?php echo base_url() ?>balitklimat" class="btn btn-sm btn-outline-secondary btn-fw">Kembali ke Beranda</a>
                 <?php
                 $error = $this->session->flashdata('error');
                 if (!empty($error)) {
@@ -91,6 +92,7 @@
 <script src="<?= base_url('assets'); ?>/js/settings.js"></script>
 <script src="<?= base_url('assets'); ?>/js/todolist.js"></script>
 <!-- endinject -->
+
 <script>
         function password() {
             var x = document.getElementById('password').type;

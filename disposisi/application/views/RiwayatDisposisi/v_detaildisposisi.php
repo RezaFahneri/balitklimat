@@ -4,6 +4,7 @@
             <div class="col-md-12 grid-margin">
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
+                    <a href="<?php echo base_url() ?>riwayatdisposisi" class="btn btn-sm btn-warning float-right"><i class="ti ti-arrow-left"></i> Kembali ke Riwayat Disposisi</a>
                     <h3 class="m-0 font-weight-bold text">Detail Disposisi Surat</h3><br>
                     <div class="col-md-12 grid-margin">
                         <div class="card shadow p-5 md-12">
@@ -22,7 +23,15 @@
                                 <tr>
                                 <tr>
                                     <th>Diteruskan Kepada</th>
-                                    <td><?php echo $detail->nama_pegawai?></td>
+                                    <td><?php
+                                        foreach ($detaildispo as $ds) {
+                                            ?>
+                                                <?php
+                                            if($ds->suratmasuk_id == $detail->suratmasuk_id) {
+                                            ?>
+                                                <?php echo $ds->kepada ?>,<br>
+                                        <?php } ?>
+                                        <?php } ?></td>
                                 </tr>
                                 <tr>
                                     <th>Isi Disposisi</th>
@@ -33,7 +42,6 @@
                                     <td><?php echo $detail->catatan?></td>
                                 </tr>
                             </table>
-                            <a href="<?php echo base_url() ?>riwayatdisposisi" class="btn btn-warning float-right" >Kembali</a>
                             </div>
                         </div>
                     </div>

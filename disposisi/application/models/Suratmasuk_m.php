@@ -43,6 +43,11 @@ class Suratmasuk_m extends CI_model
         return $query;
     }
 
+    public function getkop($table)
+    {
+        return $this->db->get_where($table)->row();
+    }
+
     public function detail_data($sifatsurat_id)
     {
         $this->db->select('*');
@@ -91,6 +96,24 @@ class Suratmasuk_m extends CI_model
         $this->db->from('surat_masuk');
         $this->db->join('data_pegawai', 'data_pegawai.nip= surat_masuk.status', 'left');
         $this->db->order_by('id_suratmasuk', 'DESC');
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    public function joinkepada($ket, $param)
+    {
+        $this->db->select('*');
+        $this->db->from('surat_masuk');
+        $this->db->join('detail_disposisi', 'detail_disposisi.suratmasuk_id = surat_masuk.id_suratmasuk', 'left');
+        $this->db->where($ket, $param);
+        $query = $this->db->get();
+        return $query->row();
+    }
+    public function join2dispo()
+    {
+        $this->db->select('*');
+        $this->db->from('riwayat_disposisi');
+        $this->db->join('detail_disposisi', 'detail_disposisi.suratmasuk_id = riwayat_disposisi.suratmasuk_id', 'inner');
         $query = $this->db->get();
         return $query->result();
     }
