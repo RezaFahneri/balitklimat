@@ -19,8 +19,7 @@
                                                 <label for="file-input">
                                                     <img id="foto"
                                                         style="position:absolute; z-index:2;border-radius:50%; height: 210px; width:200px"
-                                                        src="<?php echo base_url() ?>assets/images/foto/<?php echo 
-                                                            $this->db->where('email', $this->session->userdata('email'))->where('role', $this->session->userdata('role'))->get('detail_role')->row('foto') ?>"
+                                                        src="<?php echo base_url() ?>../asn/assets/images/foto/<?php echo $this->db->where('email', $this->session->userdata('email'))->get('data_pegawai')->row('foto') ?>"
                                                         class="img-thumbnail" alt="profile">
                                                     <img class="img-thumbnail" id="kamera"
                                                         style="position:absolute;z-index:4;width:50px;height:50px; margin-left:140px;margin-top:155px"
@@ -33,8 +32,7 @@
                                                     <input type="hidden" name="nip" class="form-control"
                                                         value="<?php echo $update_foto['nip'] ?>" required>
                                                     <img class="img-thumbnail" id="foto_update"
-                                                        style="z-index:1; height: 210px; width:200px">
-                                                    <!-- <img class="img-thumbnail" id="foto_update" style="z-index:1; border-radius:50%; height: 210px; width:200px"> -->
+                                                        style="z-index:1; border-radius:50%; height: 210px; width:200px">
                                                 </label>
                                                 <input id="file-input" type="file" name="foto"
                                                     onchange="loadFile(event)">
@@ -44,37 +42,35 @@
 
                                         <div class="col-lg-12 col-md-12 col-xs-9">
                                             <table class="table table-no-bordered">
-                                                <!-- <tr>
-                                                    <th>Nomor Induk Pegawai</th>
-                                                    <td><?//php echo $data_pegawai['nip'] ?></td>
-                                                </tr> -->
                                                 <tr>
                                                     <th>Nama Pegawai</th>
-                                                    <td><?php echo $data_pegawai['nama_pegawai'] ?></td>
+                                                    <td><input type="text" readonly class="form-control"
+                                                            value="<?php echo $data_pegawai['nama_pegawai'] ?>"></td>
                                                 </tr>
-                                                <!-- <tr>
-                                                    <th>Role</th>
-                                                    <td><?//php echo $data_pegawai['role'] ?></td>
-                                                </tr> -->
-                                                <!-- <tr>
+                                                <tr>
                                                     <th>Jabatan</th>
-                                                    <td><?//php echo $data_pegawai['jabatan'] ?></td>
+                                                    <td><input type="text" readonly class="form-control"
+                                                            value="<?php echo $data_pegawai['jabatan'] ?>"></td>
                                                 </tr>
                                                 <tr>
                                                     <th>Divisi</th>
-                                                    <td><?//php echo $data_pegawai['divisi'] ?></td>
+                                                    <td><input type="text" readonly class="form-control"
+                                                            value="<?php echo $data_pegawai['divisi'] ?>"></td>
                                                 </tr>
                                                 <tr>
                                                     <th>Golongan</th>
-                                                    <td><?//php echo ($data_pegawai['golongan']) ?></td>
+                                                    <td><input type="text" readonly class="form-control"
+                                                            value="<?php echo ($data_pegawai['golongan']) ?>"></td>
                                                 </tr>
                                                 <tr>
                                                     <th>Pangkat</th>
-                                                    <td><?//php echo ($data_pegawai['pangkat']) ?></td>
-                                                </tr> -->
+                                                    <td><input type="text" readonly class="form-control"
+                                                            value="<?php echo ($data_pegawai['pangkat']) ?>"></td>
+                                                </tr>
                                                 <tr>
                                                     <th>Email</th>
-                                                    <td><?php echo $data_pegawai['email'] ?></td>
+                                                    <td><input type="text" readonly class="form-control"
+                                                            value="<?php echo $data_pegawai['email'] ?>"></td>
                                                 </tr>
                                                 <tr>
                                                     <th>
@@ -97,20 +93,3 @@
             </div>
         </div>
     </div>
-    <script>
-    var loadFile = function(event) {
-        var foto_update = document.getElementById('foto_update');
-        foto_update.src = URL.createObjectURL(event.target.files[0]);
-        foto_update.onload = function() {
-            URL.revokeObjectURL(foto_update.src) // free memory 
-        }
-        $('#foto').hide();
-        $('#kamera').hide();
-        // let element = document.getElementById("but");
-        // let hidden = element.getAttribute("hidden");
-
-        // if (!hidden) {
-        //     element.removeAttribute("hidden");
-        // }
-    };
-    </script>

@@ -75,8 +75,12 @@
                                 ?>
                                 <div>
                                     <div>
-                                        <a href="https://api.whatsapp.com/send?phone=085270047977"
-                                            class="text-center mb-2">Lupa password? </a>
+                                        <a href="https://web.whatsapp.com/send?phone='.<?php echo base_url() ?>.'&text=
+                                            Hallo Admin saya lupa password
+                                            class=" text-center mb-2">Lupa password? </a>
+                                        <!-- <a href="https://web.whatsapp.com/send?phone='.<?//php echo base_url($this->db->where('role' == 'Admin ASN')) ?>.'&text=
+                                            Hallo Admin saya lupa password
+                                            class=" text-center mb-2">Lupa password? </a> -->
                                     </div>
                                 </div>
                             </form>

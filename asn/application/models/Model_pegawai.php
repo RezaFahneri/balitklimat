@@ -112,6 +112,10 @@ class Model_pegawai extends CI_model
 			return false;
 		}
 	}
+	public function get_nip($email){
+		$query = $this->db->where('email', $email)->get('data_pegawai')->row()->nip;
+		return $query;
+	}
 	// function hapus_data($where,$table){
 	// 	$this->db->where($where);
 	// 	$this->db->delete($table);
