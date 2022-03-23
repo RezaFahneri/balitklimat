@@ -21,4 +21,9 @@ class Model_satuan extends CI_model
 	function getList(){
 		return $query = $this->db->order_by('id_satuan', 'ASC')->get('satuan_barang')->result();
 	}
+	function tampil_datasatuan()
+	{
+		return $query = $this->db->get_where('satuan_barang', array('satuan_barang'))->result();
+	}
+	
 }

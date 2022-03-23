@@ -17,7 +17,8 @@ class Stok_barang extends CI_Controller
 
     function index()
     {
-        $data['data_stok'] = $this->Model_stok->tampil_data('stok_barang')->result();
+        // $data['data_stok'] = $this->Model_stok->tampil_data('stok_barang')->result();
+        $data['data_stok'] = $this->Model_stok->getList();
         $data['title'] = "Stok Barang | Balitklimat";
         $this->load->view('template/template', $data);
         $this->load->view('stok/v_stok_barang', $data);
@@ -36,10 +37,12 @@ class Stok_barang extends CI_Controller
     function tambah()
     {
         $data['title'] = 'Tambah Stok Barang | Balitklimat';
-        $id_jenis = $this->input->post('id_jenis', TRUE);
-        $data['jenis_barang'] = $this->Model_stok->get_jenis($id_jenis);
-        $id_satuan = $this->input->post('id_satuan', TRUE);
-        $data['satuan_barang'] = $this->Model_stok->get_satuan($id_satuan);
+        // $id_jenis = $this->input->post('id_jenis', TRUE);
+        // $data['jenis_barang'] = $this->Model_stok->get_jenis($id_jenis);
+        $data['jenis_barang'] = $this->Model_jenis->tampil_datajenis();
+        // $id_satuan = $this->input->post('id_satuan', TRUE);
+        // $data['satuan_barang'] = $this->Model_stok->get_satuan($id_satuan);
+        $data['satuan_barang'] = $this->Model_satuan->tampil_datasatuan();
         $this->load->view('template/template', $data);
         $this->load->view('stok/v_tambah_stok', $data);
         $this->load->view('template/footer', $data);
@@ -51,11 +54,10 @@ class Stok_barang extends CI_Controller
         if ($this->input->post('submit')); {
             $this->form_validation->set_rules('kode', 'kode', 'required');
             $this->form_validation->set_rules('nama_barang', 'nama_barang', 'required');
-            $this->form_validation->set_rules('jenis_barang', 'jenis_barang', 'required');
-            $this->form_validation->set_rules('satuan_barang', 'satuan_barang');
+            $this->form_validation->set_rules('id_jenis', 'id_jenis', 'required');
+            $this->form_validation->set_rules('id_satuan', 'id_satuan');
             $this->form_validation->set_rules('jumlah_barang', 'jumlah_barang', 'required');
             $this->form_validation->set_rules('kondisi_barang', 'kondisi_barang', 'required');
-            $this->form_validation->set_rules('keterangan', 'keterangan');
 
             if ($this->form_validation->run() == true) {
                 $config['upload_path'] = './assets/images/upload';
@@ -70,7 +72,7 @@ class Stok_barang extends CI_Controller
                         $this->session->set_flashdata('sukses', 'Data barang berhasil ditambah');
                         redirect('stok_barang');
                     } else {
-                        $this->session->set_flashdata('gagal', 'Gagal menyimpan data');
+                        $this->session->set_flashdata('gagal', validation_errors());
                         redirect('stok_barang/tambah');
                     }
                 } else {
@@ -118,11 +120,10 @@ class Stok_barang extends CI_Controller
         if ($this->input->post('submit')) {
             $this->form_validation->set_rules('kode', 'kode', 'required');
             $this->form_validation->set_rules('nama_barang', 'nama_barang', 'required');
-            $this->form_validation->set_rules('jenis_barang', 'jenis_barang', 'required');
-            $this->form_validation->set_rules('satuan_barang', 'satuan_barang');
+            $this->form_validation->set_rules('id_jenis', 'id_jenis', 'required');
+            $this->form_validation->set_rules('id_satuan', 'id_satuan');
             $this->form_validation->set_rules('jumlah_barang', 'jumlah_barang', 'required');
             $this->form_validation->set_rules('kondisi_barang', 'kondisi_barang', 'required');
-            $this->form_validation->set_rules('keterangan', 'keterangan');
 
             if ($this->form_validation->run() == true) {
                 $config['upload_path'] = './assets/images/upload';

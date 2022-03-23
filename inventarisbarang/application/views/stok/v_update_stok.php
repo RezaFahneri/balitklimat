@@ -33,25 +33,29 @@
                                             <div class="form-group">
                                                 <label>Jenis Barang </label></br>
                                                 <?php $jenis1 = $edit->jenis_barang ?>
-                                                <select name="jenis_barang" id="jenis_barang" class="form-control" value="<?php echo $edit->jenis_barang ?>" required>
-                                                    <option value="">--pilih Jenis Barang--</option>
-                                                    <?php foreach ($jenis as $row) : ?>
+                                                <select name="id_jenis" id="id_jenis" class="js-example-basic-single form-control" required>
+                                                    <option value="">--Pilih Jenis Barang--</option>
+                                                    <?php
+                                                    foreach ($jenis_barang as $row) { ?>
                                                         <option <?php if ($jenis1 == $row->jenis_barang) {
                                                                     echo 'selected="selected"';
-                                                                } ?> value="<?php echo $row->jenis_barang ?>"><?php echo $row->jenis_barang ?></option>
-                                                    <?php endforeach; ?>
+                                                                } ?> value="<?php echo $row->id_jenis; ?>"><?php echo $row->jenis_barang; ?></option>';
+                                                        }
+                                                    <?php } ?>
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <label>Satuan Barang</label>
+                                                <label>Satuan Barang </label></br>
                                                 <?php $satuan1 = $edit->satuan_barang ?>
-                                                <select name="satuan_barang" id="satuan_barang" class="form-control" value="<?php echo $edit->satuan_barang ?>">
+                                                <select name="id_satuan" id="id_satuan" class="js-example-basic-single form-control">
                                                     <option value="">--Pilih Satuan Barang--</option>
-                                                    <?php foreach ($satuan as $row) : ?>
+                                                    <?php
+                                                    foreach ($satuan_barang as $row) { ?>
                                                         <option <?php if ($satuan1 == $row->satuan_barang) {
                                                                     echo 'selected="selected"';
-                                                                } ?> value="<?php echo $row->satuan_barang ?>"><?php echo $row->satuan_barang ?></option>
-                                                    <?php endforeach; ?>
+                                                                } ?>value="<?php echo $row->id_satuan; ?>"><?php echo $row->satuan_barang; ?></option>';
+                                                        }
+                                                    <?php } ?>
                                                 </select>
                                             </div>
                                             <div class="form-group">

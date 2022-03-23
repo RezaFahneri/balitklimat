@@ -21,8 +21,19 @@ class Model_stok extends CI_model
 	// }
 
 	function detail_data($id=NULL){
+		$this->db->join('jenis_barang', 'jenis_barang.id_jenis = stok_barang.id_jenis');
+		$this->db->join('satuan_barang', 'satuan_barang.id_satuan = stok_barang.id_satuan');
 		$query = $this->db->get_where('stok_barang', array('id_barang' => $id)) ->row();
 		return $query;
+	}
+
+	public function getList()
+	{
+		$this->db->select('*');
+		$this->db->from('stok_barang');
+		$this->db->join('jenis_barang', 'jenis_barang.id_jenis = stok_barang.id_jenis');
+		$this->db->join('satuan_barang', 'satuan_barang.id_satuan = stok_barang.id_satuan');
+		return $this->db->get()->result();
 	}
 
 	function input_data($dokumen)
@@ -31,11 +42,10 @@ class Model_stok extends CI_model
 			'kode'               => $this->input->post('kode'),
 			'gambar'                  => $dokumen['file_name'],
 			'nama_barang'               => $this->input->post('nama_barang'),
-			'jenis_barang' => $this->input->post('jenis_barang'),
-			'satuan_barang' => $this->input->post('satuan_barang'),
+			'id_jenis' => $this->input->post('id_jenis'),
+			'id_satuan' => $this->input->post('id_satuan'),
 			'jumlah_barang'                             => $this->input->post('jumlah_barang'),
 			'kondisi_barang'                             => $this->input->post('kondisi_barang'),
-			'keterangan'    => $this->input->post('keterangan'),
 		);
 
 		$this->db->insert('stok_barang', $data);
@@ -70,11 +80,10 @@ class Model_stok extends CI_model
 			'kode'               => $this->input->post('kode'),
 			'gambar'                  => $dokumen['file_name'],
 			'nama_barang'               => $this->input->post('nama_barang'),
-			'jenis_barang' => $this->input->post('jenis_barang'),
-			'satuan_barang' => $this->input->post('satuan_barang'),
+			'id_jenis' => $this->input->post('id_jenis'),
+			'id_satuan' => $this->input->post('id_satuan'),
 			'jumlah_barang'                             => $this->input->post('jumlah_barang'),
 			'kondisi_barang'                             => $this->input->post('kondisi_barang'),
-			'keterangan'    => $this->input->post('keterangan'),
 		);
 
 		$this->db->where('id_barang', $id)->update('stok_barang', $data);
@@ -93,6 +102,8 @@ class Model_stok extends CI_model
 
 	public function getDetail($id)
 	{
+		$this->db->join('jenis_barang', 'jenis_barang.id_jenis = stok_barang.id_jenis');
+		$this->db->join('satuan_barang', 'satuan_barang.id_satuan = stok_barang.id_satuan');
 		return $this->db->where('id_barang', $id)->get('stok_barang')->row();
 		// return $this->db->query("SELECT * FROM stok_barang WHERE id_barang='$id'")->result();
 	}

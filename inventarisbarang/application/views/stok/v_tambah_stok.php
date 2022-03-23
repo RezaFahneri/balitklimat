@@ -29,27 +29,26 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>Jenis Barang </label></br>
-                                                <select name="jenis_barang" id="jenis_barang" class="form-control" required>
-                                                    <option value="">--pilih Jenis Barang--</option>
-                                                    <?php foreach ($jenis_barang as $row) { ?>
-                                                        <option value="<?php echo $row->jenis_barang; ?>"><?php echo $row->jenis_barang; ?></option>';
+                                                <select name="id_jenis" id="id_jenis" class="js-example-basic-single form-control" required>
+                                                    <option value="">--Pilih Jenis Barang--</option>
+                                                    <?php
+                                                    foreach ($jenis_barang as $row) { ?>
+                                                        <option value="<?php echo $row->id_jenis; ?>"><?php echo $row->jenis_barang; ?></option>';
                                                         }
                                                     <?php } ?>
-                                                    <!-- <option value="Kamera">Kamera</option>
-                                                    <option value="Sepeda Motor">Sepeda Motor</option>
-                                                    <option value="Proyektor">Proyektor</option> -->
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <label>Satuan Barang</label>
-                                                <select name="satuan_barang" id="satuan_barang" class="form-control">
+                                                <label>Satuan Barang </label></br>
+                                                <select name="id_satuan" id="id_satuan" class="js-example-basic-single form-control">
                                                     <option value="">--Pilih Satuan Barang--</option>
-                                                    <?php foreach ($satuan_barang as $row) { ?>
-                                                        <option value="<?php echo $row->satuan_barang; ?>"><?php echo $row->satuan_barang; ?></option>';
+                                                    <?php
+                                                    foreach ($satuan_barang as $row) { ?>
+                                                        <option value="<?php echo $row->id_satuan; ?>"><?php echo $row->satuan_barang; ?></option>';
                                                         }
                                                     <?php } ?>
                                                 </select>
-                                            </div>
+                                             </div>
                                             <div class="form-group">
                                                 <label>Jumlah Barang</label>
                                                 <input type="text" name="jumlah_barang" class="form-control" required>

@@ -21,4 +21,8 @@ class Model_jenis extends CI_model
 	function getList(){
 		return $query = $this->db->order_by('id_jenis', 'ASC')->get('jenis_barang')->result();
 	}
+	function tampil_datajenis()
+	{
+		return $query = $this->db->get_where('jenis_barang', array('jenis_barang'))->result();
+	}
 }
