@@ -12,6 +12,9 @@
 <!-- Set also "landscape" if you need -->
 
 <body class="main-page">
+    <h6 style="margin-left:250px;margin-top:150px;position:absolute;z-index:0"><b>SURAT PERINTAH PERJALANAN DINAS</b></h6>
+    <hr width=36.5% color="black" style="margin-left:248px;margin-top:172px; height:3px;position:absolute;z-index:0">
+    <hr width=36.5% color="black" style="margin-left:248px;margin-top:173px; height:3px;position:absolute;z-index:0">
 
     <!-- Each sheet element should have the class "sheet" -->
     <!-- "padding-**mm" is optional: you can set 10, 15, 20 or 25 -->
@@ -78,7 +81,15 @@
             left: 33px;
             margin-top:-10.5px"></div>
 
-    <p style="text-align:justify;margin-top:178px;margin-left:62px; width:75%; position:absolute;z-index:5; font-size:12px">Pejabat yang memberi perintah
+    <p style="text-align:justify;margin-top:52px;margin-left:100px; width:75%; position:absolute;z-index:5; font-size:8px"><b><?php echo $header->nama_kementerian ?></b>
+    <p style="text-align:justify;margin-top:66px;margin-left:42px; width:75%; position:absolute;z-index:5; font-size:8px"><b><?php echo $header->eslon_satu ?></b>
+    <p style="text-align:justify;margin-top:80px;margin-left:55px; width:75%; position:absolute;z-index:5; font-size:6.7px"><b><?php echo $header->eslon_dua ?></b>
+    <p style="text-align:justify;margin-top:94px;margin-left:53px; width:75%; position:absolute;z-index:5; font-size:8px"><b><?php echo $header->eslon_tiga ?></b>
+    <p style="text-align:justify;margin-top:52px;margin-left:380px; width:75%; position:absolute;z-index:5; font-size:12px">Lembar ke
+    <p style="text-align:justify;margin-top:52px;margin-left:480px; width:75%; position:absolute;z-index:5; font-size:12px">:
+    <p style="text-align:justify;margin-top:94px;margin-left:380px; width:75%; position:absolute;z-index:5; font-size:12px">No SPPD
+    <p style="text-align:justify;margin-top:94px;margin-left:480px; width:75%; position:absolute;z-index:5; font-size:12px">:
+    <p style="text-align:justify;margin-top:94px;margin-left:550px; width:75%; position:absolute;z-index:5; font-size:12px"><?php echo $p->no_sppd2 ?>
 
     <div style="border-left: 1px solid rgba(0, 0, 0, 0.1);
             height: 60px;

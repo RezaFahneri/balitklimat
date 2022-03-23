@@ -17,7 +17,7 @@ class Pdf extends CI_Controller
     function surat_tugas($id_perjalanan_dinas)
     {
         $data['header'] = $this->Model_pdf->getHeader();
-        $data['data_anggota_perjadin'] = $this->Model_pdf->getListSt1($id_perjalanan_dinas);
+        $data['data_anggota_perjadin'] = $this->Model_pdf->getListDataSurat($id_perjalanan_dinas);
         $data['isi_surat'] = $this->Model_pdf->getListTableSt1($id_perjalanan_dinas);
         $this->load->view('Pdf/v_surat_tugas', $data);
         // $html = $this->load->view('table_report', $data, true);
@@ -41,7 +41,7 @@ class Pdf extends CI_Controller
     function surat_tugas_plt($id_perjalanan_dinas)
     {
         $data['header'] = $this->Model_pdf->getHeader();
-        $data['data_anggota_perjadin'] = $this->Model_pdf->getListSt2($id_perjalanan_dinas);
+        $data['data_anggota_perjadin'] = $this->Model_pdf->getListDataSurat($id_perjalanan_dinas);
         $data['isi_surat'] = $this->Model_pdf->getListTableSt2($id_perjalanan_dinas);
         $this->load->view('Pdf/v_surat_tugas_plt', $data);
 
@@ -104,7 +104,7 @@ class Pdf extends CI_Controller
         $this->dompdf->render();
         
         // Output the generated PDF (1 = download and 0 = preview)
-        $this->dompdf->stream("SPPD Halaman 2.pdf", array("Attachment"=>0));
+        $this->dompdf->stream("SPPD Halaman 1.pdf", array("Attachment"=>0));
     }
     function sppd_halaman_2($id_anggota_perjadin)
     {
@@ -171,7 +171,30 @@ class Pdf extends CI_Controller
         $this->dompdf->render();
         
         // Output the generated PDF (1 = download and 0 = preview)
-        $this->dompdf->stream("surat_pernyataan.pdf", array("Attachment"=>0));
+        $this->dompdf->stream("Kuitansi.pdf", array("Attachment"=>0));
+    }
+    function pengajuan($id_perjalanan_dinas)
+    {
+        $data['header'] = $this->Model_pdf->getHeader();
+        $data['data_anggota_perjadin'] = $this->Model_pdf->getListDataSuratPengajuan($id_perjalanan_dinas);
+        $data['isi_surat'] = $this->Model_pdf->getListPengajuan($id_perjalanan_dinas);
+        $this->load->view('Pdf/v_pengajuan', $data);
+        $html = $this->output->get_output();
+        
+        // Load pdf library
+        $this->load->library('pdf_gen');
+        
+        // Load HTML content
+        $this->dompdf->loadHtml($html);
+        
+        // (Optional) Setup the paper size and orientation
+        $this->dompdf->setPaper('A4', 'landscape');
+        
+        // Render the HTML as PDF
+        $this->dompdf->render();
+        
+        // Output the generated PDF (1 = download and 0 = preview)
+        $this->dompdf->stream("Pengajuan.pdf", array("Attachment"=>0));
     }
 }
 // tes perubahan 3

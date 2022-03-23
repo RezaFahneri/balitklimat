@@ -13,5 +13,10 @@ class Model_profil extends CI_model
 		$this->db->where($where);
 		$this->db->update($table,$data);
 	}
+  
+  function update_data1($where,$data,$table){
+		$this->db->where($where);
+		$this->db->update($table,$data);
+	}
 
 }

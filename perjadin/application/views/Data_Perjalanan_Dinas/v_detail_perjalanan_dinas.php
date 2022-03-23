@@ -57,7 +57,7 @@
                                                 </tr>
                                                 <tr>
                                                     <th>Tanggal Pengajuan</th>
-                                                    <td><input class="form-control" type="text" readonly value="<?php echo $detail->tanggal_pengajuan ?>"></td>
+                                                    <td><input class="form-control" type="text" readonly value="<?php echo tanggal_indonesia($detail->tanggal_pengajuan) ?>"></td>
                                                 </tr>
                                                 <tr>
                                                     <th>No Surat Tugas</th>
@@ -93,11 +93,11 @@
                                                 </tr>
                                                 <tr>
                                                     <th>Tanggal Berangkat</th>
-                                                    <td><input class="form-control" type="text" readonly value="<?php echo $detail->tanggal_berangkat ?>"></td>
+                                                    <td><input class="form-control" type="text" readonly value="<?php echo tanggal_indonesia($detail->tanggal_berangkat) ?>"></td>
                                                 </tr>
                                                 <tr>
                                                     <th>Tanggal Kembali</th>
-                                                    <td><input class="form-control" type="text" readonly value="<?php echo $detail->tanggal_kembali ?>"></td>
+                                                    <td><input class="form-control" type="text" readonly value="<?php echo tanggal_indonesia($detail->tanggal_kembali) ?>"></td>
                                                 </tr>
                                                 <tr>
                                                     <th>Lama Perjalanan</th>
@@ -118,3 +118,29 @@
             </div>
         </div>
     </div>
+    <?php
+    function tanggal_indonesia($tanggal)
+    {
+
+        $bulan = array(
+            1 =>       'Januari',
+            'Februari',
+            'Maret',
+            'April',
+            'Mei',
+            'Juni',
+            'Juli',
+            'Agustus',
+            'September',
+            'Oktober',
+            'November',
+            'Desember'
+        );
+
+        $var = explode('-', $tanggal);
+
+        return $var[2] . ' ' . $bulan[(int)$var[1]] . ' ' . $var[0];
+        // var 0 = tanggal
+        // var 1 = bulan
+        // var 2 = tahun
+    } ?>

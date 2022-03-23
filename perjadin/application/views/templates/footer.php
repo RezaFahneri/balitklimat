@@ -48,21 +48,12 @@
     <script src="<?= base_url('assets'); ?>/js/ddtf.js"></script>
     <script src="<?= base_url('assets'); ?>/js/myscript.js"></script>
     <script>
-<<<<<<< HEAD
     var table = document.getElementById("dtBasicExample"),
         sumHsl = 0;
     for (var t = 1; t < table.rows.length; t++) {
         sumHsl = sumHsl + parseInt(table.rows[t].cells[7].innerHTML);
     }
     document.getElementById("hasil").innerHTML = "Sum Value = " + sumHsl;
-=======
-        var table = document.getElementById("dtBasicExample"),
-            sumHsl = 0;
-        for (var t = 1; t < table.rows.length; t++) {
-            sumHsl = sumHsl + parseInt(table.rows[t].cells[7].innerHTML);
-        }
-        document.getElementById("hasil").innerHTML = "Sum Value = " + sumHsl;
->>>>>>> 494ad9088e5e1c050d250bfc2ffda7e311ab5390
     </script>
     <script>
     jQuery('#dtBasicExample').ddTableFilter();
@@ -119,8 +110,6 @@
     </script>
     <script type="text/javascript" charset="utf8" src="<?php echo base_url() ?>assets//DataTables/datatables.js">
     </script>
-<<<<<<< HEAD
-=======
     <script>
         $('#nip_pj_rrr').select2({
             allowClear: true,
@@ -234,7 +223,6 @@
         });
     </script>
     <script type="text/javascript" charset="utf8" src="<?php echo base_url() ?>assets//DataTables/datatables.js"></script>
->>>>>>> 494ad9088e5e1c050d250bfc2ffda7e311ab5390
     <script>
     $(document).ready(function() {
         $('#datatable').DataTable();

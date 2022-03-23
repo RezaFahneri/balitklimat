@@ -208,7 +208,7 @@ class Data_Pegawai extends CI_Controller
         );
         if ($this->Model_pegawai->EmailCheck($email) == true) {
 
-            $this->Model_pegawai->input_data($data, 'data_pegawai');
+            $this->Model_pegawai->input_data($data1, 'data_pegawai');
             $this->Model_pegawai->input_data($data2, 'status_perjalanan');
             $this->Model_pegawai->input_data($data3, 'detail_role');
             $this->session->set_flashdata('sukses', 'Data pegawai berhasil ditambahkan');

@@ -34,21 +34,22 @@
     <h4 style="text-align:center;margin-top:-10px"><b><?php echo $header->eslon_tiga ?></b></h4><br>
     <p style="text-align:center;margin-top:-25px"><?php echo $header->alamat ?></p>
     <hr color="black" style="margin-top:-10px; height:0.1px;width:90%">
-    <hr color="black" style="margin-top:-14px; height:0.1px;width:90%"><br><br><br>
+    <hr color="black" style="margin-top:-14px; height:0.1px;width:90%"><br>
     <h4 style="text-align:center;margin-top:-20px;letter-spacing:3px"><b>SURAT TUGAS</b></h4>
     <hr width=23% color="black" style="margin-top:-7px; height:1px">
+    <hr width=23% color="black" style="margin-top:-17px; height:1px">
     <?php
     foreach ($data_anggota_perjadin as $p) {
     ?>
           <p style="margin-left:290px;margin-top:-15px;position:absolute;z-index:0">Nomor : 
         <p style="text-align:left;margin-top:0px;margin-left:400px;width:92%;position:absolute;z-index:0"><?php echo $p->no_surat_tugas ?></p><br><br><br>
-        <p style="text-align:left;margin-top:520px;margin-left:420px;width:92%;position:absolute;z-index:0">Dikeluarkan di
-        <p style="text-align:left;margin-top:520px;margin-left:520px;width:92%;position:absolute;z-index:0">:
-        <p style="text-align:left;margin-top:540px;margin-left:420px;width:92%;position:absolute;z-index:1">Pada tanggal
-        <p style="text-align:left;margin-top:540px;margin-left:520px;width:92%;position:absolute;z-index:0">:
-        <p style="text-align:left;margin-top:560px;margin-left:420px;width:92%;position:absolute;z-index:2"><b>Kepala Balai,</b>
-        <p style="text-align:left;margin-top:670px;margin-left:420px;width:92%;position:absolute;z-index:3"><b><?php echo $p->nama_kb ?></b>
-        <p style="text-align:left;margin-top:700px;margin-left:420px;width:92%;position:absolute;z-index:4"><b>NIP.<?php echo ' ' . $p->nip_kb ?></b>
+        <p style="text-align:left;margin-top:600px;margin-left:420px;width:92%;position:absolute;z-index:0">Dikeluarkan di
+        <p style="text-align:left;margin-top:600px;margin-left:520px;width:92%;position:absolute;z-index:0">:
+        <p style="text-align:left;margin-top:620px;margin-left:420px;width:92%;position:absolute;z-index:1">Pada tanggal
+        <p style="text-align:left;margin-top:620px;margin-left:520px;width:92%;position:absolute;z-index:0">:
+        <p style="text-align:left;margin-top:640px;margin-left:420px;width:92%;position:absolute;z-index:2"><b>Kepala Balai,</b>
+        <p style="text-align:left;margin-top:750px;margin-left:420px;width:92%;position:absolute;z-index:3"><b><?php echo $p->nama_kb ?></b>
+        <p style="text-align:left;margin-top:780px;margin-left:420px;width:92%;position:absolute;z-index:4"><b>NIP.<?php echo ' ' . $p->nip_kb ?></b>
         <p style="text-align:justify;margin-top:-15px;margin-left:75px;width:80%">Yang bertanda tangan di bawah ini Kepala Balai Penelitian Agroklimat dan Hidrologi,
             memberi TUGAS untuk melaksanakan perjalanan dinas kepada :<br><br>
         
@@ -77,12 +78,16 @@
             </tbody>
         </table>
         <p style="text-align:left;margin-top:30px;margin-left:75px;width:80%;position:absolute;z-index:0">Maksud perjalanan
-        <p style="text-align:left;margin-left:200px;width:80%;position:absolute;z-index:0">: <?php echo $p->dalam_rangka ?>
-        <p style="text-align:left;margin-top:50px;margin-left:75px;width:80%; position:absolute;z-index:0">Tempat tujuan
-        <p style="text-align:left;margin-top:50px;margin-left:200px;width:80%;position:absolute;z-index:0">: <?php echo $p->kota . ', ' . $p->nama_provinsi ?>
+        <p style="text-align:left;margin-top:3px;margin-left:200px;width:70%;position:absolute;z-index:0;line-height:15px">: 
+        <p style="text-align:left;margin-top:3px;margin-left:210px;width:65%;position:absolute;z-index:0;line-height:15px"> <?php echo $p->dalam_rangka ?>
+        <p style="text-align:left;margin-top:60px;margin-left:75px;width:80%; position:absolute;z-index:0">Tempat tujuan
+        <p style="text-align:left;margin-top:60px;margin-left:200px;width:80%;position:absolute;z-index:0">: 
+        <p style="text-align:left;margin-top:60px;margin-left:210px;width:80%;position:absolute;z-index:0"><?php echo $p->kota . ', ' . $p->nama_provinsi ?>
 
         <p style="text-align:left;margin-top:90px;margin-left:75px;width:80%;position:absolute;z-index:0"">Lama perjalanan
-        <p style="text-align:left;margin-top:90px;margin-left:200px;width:80%;position:absolute;z-index:0">: <?php echo $p->lama_perjalanan . ' hari' ?>
+        <p style="text-align:left;margin-top:90px;margin-left:200px;width:80%;position:absolute;z-index:0">:
+        <p style="text-align:left;margin-top:90px;margin-left:210px;width:80%;position:absolute;z-index:0"><?php echo $p->lama_perjalanan . ' hari' ?>
+       
         <p style="text-align:justify;margin-top:140px;margin-left:75px;width:80%;">Demikian surat tugas ini diberikan untuk dapat dilaksanakan sebagaimana mestinya dan
             setelah menyelesaikan tugas tersebut, bersangkutan wajib membuat dan menyampaikan
             laporan secara tertulis.
