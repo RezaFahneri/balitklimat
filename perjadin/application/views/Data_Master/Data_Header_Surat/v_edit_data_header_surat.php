@@ -47,7 +47,7 @@
                 </div><div class="form-group">
                     <label>Web dan Email </label>
                     <input type="text" name="web_email" class="form-control" value="<?php echo $sp->web_email?>" required>
-                </div></div><div class="form-group">
+                </div><div class="form-group">
                     <label>Kode Balai </label>
                     <input type="number" name="kode_balai" class="form-control" value="<?php echo $sp->kode_balai?>" required>
                 </div>

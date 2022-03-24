@@ -101,12 +101,7 @@ class Perjalanan_dinas extends CI_Controller
         $this->session->set_flashdata('sukses','Data perjalanan dinas berhasil ditambahkan');
         redirect('perjalanan_dinas');
     }
-    public function generateID(){
-		$query = $this->db->order_by('no_st', 'DESC')->limit(1)->get('data_perjalanan_dinas')->row('no_st');
-		$lastNo = (int) substr($query, 0);
-		$next = $lastNo + 1;
-		return ($next);
-	}
+   
     function edit()
     {
         $id_perjalanan_dinas = $this->input->get('id_perjalanan_dinas');

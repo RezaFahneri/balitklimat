@@ -103,11 +103,4 @@ class Kegiatan extends CI_Controller
             redirect('kegiatan');
         endif;
     }
-
-    function get_pegawai()
-    {
-        $kode = $this->input->post('nip_pj_keg');
-        $data = $this->Model_pegawai->get_data_barang_bykode($kode);
-        echo json_encode($data);
-    }
 }
