@@ -34,7 +34,7 @@ class Divisi extends CI_Controller {
         );
         $this->Model_divisi->input_data($data, 'data_divisi');
         $this->session->set_flashdata('sukses','Data divisi berhasil ditambahkan');
-        redirect('data_divisi');
+        redirect('divisi');
     }
     function edit($id_divisi)
     {
@@ -59,16 +59,16 @@ class Divisi extends CI_Controller {
         $this->load->Model('Model_divisi');
         $this->Model_divisi->update_data($where, $data, 'data_divisi');
         $this->session->set_flashdata('sukses','Data divisi berhasil diperbarui');
-        redirect('data_divisi');
+        redirect('divisi');
     }
     function hapus($id_divisi)
 	{
 		$where = array('id_divisi' => $id_divisi);
-        if ($this->Model_divisi->hapus_data($where, 'divisi') == true) :
+        if ($this->Model_divisi->hapus_data($where, 'data_divisi') == true) :
             $this->session->set_flashdata('sukses','Data divisi berhasil dihapus');
 			redirect('divisi');
 		endif;
-        if ($this->Model_divisi->hapus_data($where, 'divisi') == false) :
+        if ($this->Model_divisi->hapus_data($where, 'data_divisi') == false) :
             $this->session->set_flashdata('error','Data divisi gagal dihapus karena sudah digunakan pada tabel lain');
 			redirect('divisi');
 		endif;
