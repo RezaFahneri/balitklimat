@@ -1,21 +1,25 @@
 <body>
     <div class="container-scroller">
         <div class="container-fluid page-body-wrapper full-page-wrapper">
-            <div class="content-wrapper d-flex align-items-center auth px-0">
+            <div style="background-repeat:no-repeat; background-position:center; background-attachment:fixed; background-size:100%" class="content-wrapper-login d-flex align-items-center auth px-0">
                 <div class="row w-100 mx-0">
                     <div class="col-lg-5 mx-auto">
-                        <div class="auth-form-light text-center py-5 px-4 px-sm-5">
-                            <?= $this->session->flashdata('message'); ?>
-                            <a class="navbar-brand" href="<?= base_url(); ?>buku_tamu">
-                                <div class="brand-logo">
-                                    <img src="<?= base_url('assets/'); ?>images/logo.png" class="img-fluid" style="width:100px" alt="logo">
-                                </div>
-                            </a>
-
-                            <h4><b>Sistem Informasi Buku Tamu</b></h4>
-                            <h4><b>Balai Penelitian Agroklimat dan Hidrologi</b></h4>
-
+                        <a href="<?= base_url(); ?>buku_tamu" class="btn btn-sm float-left"><i><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
+                                </svg></i> Kembali ke <b>Beranda</b></a>
+                        <div class="auth-form-light py-5 px-4 px-sm-5">
+                            <div class="text-center">
+                                <a title="Kembali ke beranda" class="navbar-brand" href="<?= base_url(); ?>buku_tamu">
+                                    <div class="brand-logo">
+                                        <img src="<?= base_url('assets/'); ?>images/logo.png" class="img-fluid" style="width:100px" alt="logo">
+                                    </div>
+                                </a>
+                                <h4><b>Sistem Informasi Buku Tamu</b></h4>
+                                <h4><b>Balai Penelitian Agroklimat dan Hidrologi</b></h4>
+                            </div>
                             <br>
+                            <h6 class="font-weight-light" class="text-left" style="font-size: small; text-align:justify">Masukkan email dan kata sandi untuk masuk sebagai pegawai ataupun admin</h6>
+                            <?= $this->session->flashdata('message'); ?>
                             <form class="pt-3" method="post" action="<?= base_url('masuk'); ?>">
                                 <div class="form-group text-left">
                                     <label>
@@ -49,9 +53,8 @@
                     </div>
                 </div>
             </div>
-            <!-- content-wrapper ends -->
         </div>
-        <!-- page-body-wrapper ends -->
+    </div>
     </div>
     <!-- container-scroller -->
     <!-- plugins:js -->

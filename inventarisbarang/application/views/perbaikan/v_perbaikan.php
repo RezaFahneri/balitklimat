@@ -6,9 +6,11 @@
                     <div class="card-header py-3">
                         <h3 class="m-0 font-weight-bold">Perbaikan Barang</h3><br>
                         <div class="flash-data" id="flash2" data-flash="<?= $this->session->flashdata('sukses'); ?>"></div>
-                        <div class="col-md-4 grid-margin">
-                            <a href="<?php echo base_url() ?>perbaikan_barang/tambah" class="btn btn-success btn-md">Tambah Perbaikan Barang</a>
-                        </div>
+                        <?php if ($this->session->userdata('role') == "Admin Inventaris") { ?>
+                            <div class="col-md-4 grid-margin">
+                                <a href="<?php echo base_url() ?>perbaikan_barang/tambah" class="btn btn-success btn-md">Tambah Perbaikan Barang</a>
+                            </div>
+                        <?php } ?>
                         <div class="col-md-12 grid-margin">
                             <div class="card mb-12">
                                 <div class="col-lg-12 grid-margin stretch-card">
@@ -45,7 +47,7 @@
                                                                 <td>
                                                                     <button type="button" class="btn btn-outline-danger btn-md" style="height:40px;" disabled>Diperbaiki</button>
                                                                     <hr style="width:100%;text-align:left;margin-left:0">
-                                                                    <a type="button" class="btn btn-outline-info btn-md" href="<?php echo base_url('perbaikan_barang/selesai/'.$dp->id_perbaikan).'/'.$dp->id_barang ?>">Selesai</a>
+                                                                    <a type="button" class="btn btn-outline-info btn-md" href="<?php echo base_url('perbaikan_barang/selesai/' . $dp->id_perbaikan) . '/' . $dp->id_barang ?>">Selesai</a>
                                                                 </td>
                                                             <?php } else { ?>
                                                                 <td>

@@ -83,6 +83,42 @@ class Laporan extends CI_Controller
           </button> </div>');
         redirect('pegawai/laporan/detail/' . $id_lap_ming);
     }
+    public function re_view($id_lap_ming)
+    {
+        //id notif
+        $idnp = $this->Model_pegawai->idnp();
+        $ket = ['id_lap_ming' => $id_lap_ming];
+        $datarev = [
+            'review_lap' => htmlspecialchars($this->input->post('isirev')),
+            'status_rev' => 'sent',
+        ];
+        $ket2 = ['id_aksi' => $id_lap_ming];
+        $getdetailnotif = $this->Model_pegawai->getdet('notif_peserta', $ket2)->result();
+        if (!$getdetailnotif) {
+            $datanp = [
+                'id_np' => $idnp,
+                'tgl_notif' => mdate('%Y-%m-%d'),
+                'jenis' => 'Review',
+                'id_aksi' => $id_lap_ming,
+                'status_np' => 'sent',
+            ];
+        } else {
+            $datanp = [
+                'id_np' => $idnp,
+                'tgl_notif' => mdate('%Y-%m-%d'),
+                'jenis' => 'UReview',
+                'id_aksi' => $id_lap_ming,
+                'status_np' => 'sent',
+            ];
+        }
+        // var_dump($datanp);
+        $this->Model_pegawai->insert('notif_peserta', $datanp);
+        $this->Model_peserta->updata('laporan_mingguan', $datarev, $ket);
+        $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show" role="alert"> Review laporan mingguan berhasil disimpan! <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button> </div>');
+        redirect('pegawai/laporan/detail/' . $id_lap_ming);
+    }
 
     public function hapus($id_lap_ming)
     {

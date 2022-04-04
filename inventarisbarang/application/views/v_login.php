@@ -37,6 +37,7 @@
             <div class="wrapper auth-form-light text-center py-5 px-4 px-sm-5">
               <div class="flash-data" id="flash3" data-flash="<?= $this->session->flashdata('gagal'); ?>"></div>
               <div class="flash-data" id="flash2" data-flash="<?= $this->session->flashdata('sukses'); ?>"></div>
+              <div class="flash-data" data-flash="<?= $this->session->flashdata('sukses'); ?>"></div>
               <a data-toggle="tooltip" title="Portal Internal Balitklimat" style="margin-top: -40px;margin-bottom:10px;margin-left:-430px;text-align:left" class="btn btn-sm btn-success text-left" href="<?php echo base_url() ?>.."><i class="mdi mdi-home" style="font-size:22px;color:white"></i></a>
               <div class="brand-logo">
                 <img src="<?= base_url('assets'); ?>/images/logo/kementan.png" style="width: 90px;" alt="logo">
@@ -58,9 +59,9 @@
                 <div>
                   <a href="<?php echo base_url() ?>login/loginadmin" class="text-black">Login sebagai Admin?</a>
                 </div>
-                <div>
+                <!-- <div>
                   <a href="#" class="text-black">Lupa Password?</a>
-                </div>
+                </div> -->
               </form>
             </div>
           </div>

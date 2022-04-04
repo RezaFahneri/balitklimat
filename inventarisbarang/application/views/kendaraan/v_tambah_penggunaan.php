@@ -32,7 +32,7 @@
                                                 <h5>1. Ujang Suseno</h5>
                                                 <p>Perjalanan dalam Kota : <?= $sopir1_dalam; ?> kali</p>
                                                 <p>Perjalanan luar Kota : <?= $sopir1_luar; ?> kali</p>
-                                                <h5>2. Asep Pisan</h5>
+                                                <h5>2. Asep Kurniawan</h5>
                                                 <p>Perjalanan dalam Kota : <?= $sopir2_dalam; ?> kali</p>
                                                 <p>Perjalanan luar Kota : <?= $sopir2_luar; ?> kali</p>
                                             </div>
@@ -41,7 +41,7 @@
                                                 <h5>1. Ujang Suseno</h5>
                                                 <p>Perjalanan dalam Kota : <?= $sopir1_dalam_jan; ?> kali</p>
                                                 <p>Perjalanan luar Kota : <?= $sopir1_luar_jan; ?> kali</p>
-                                                <h5>2. Asep Pisan</h5>
+                                                <h5>2. Asep Kurniawan</h5>
                                                 <p>Perjalanan dalam Kota : <?= $sopir2_dalam_jan; ?> kali</p>
                                                 <p>Perjalanan luar Kota : <?= $sopir2_luar_jan; ?> kali</p>
                                             </div>
@@ -50,7 +50,7 @@
                                                 <h5>1. Ujang Suseno</h5>
                                                 <p>Perjalanan dalam Kota : <?= $sopir1_dalam_feb; ?> kali</p>
                                                 <p>Perjalanan luar Kota : <?= $sopir1_luar_feb; ?> kali</p>
-                                                <h5>2. Asep Pisan</h5>
+                                                <h5>2. Asep Kurniawan</h5>
                                                 <p>Perjalanan dalam Kota : <?= $sopir2_dalam_feb; ?> kali</p>
                                                 <p>Perjalanan luar Kota : <?= $sopir2_luar_feb; ?> kali</p>
                                             </div>
@@ -59,7 +59,7 @@
                                                 <h5>1. Ujang Suseno</h5>
                                                 <p>Perjalanan dalam Kota : <?= $sopir1_dalam_mar; ?> kali</p>
                                                 <p>Perjalanan luar Kota : <?= $sopir1_luar_mar; ?> kali</p>
-                                                <h5>2. Asep Pisan</h5>
+                                                <h5>2. Asep Kurniawan</h5>
                                                 <p>Perjalanan dalam Kota : <?= $sopir2_dalam_mar; ?> kali</p>
                                                 <p>Perjalanan luar Kota : <?= $sopir2_luar_mar; ?> kali</p>
                                             </div>
@@ -68,7 +68,7 @@
                                                 <h5>1. Ujang Suseno</h5>
                                                 <p>Perjalanan dalam Kota : <?= $sopir1_dalam_apr; ?> kali</p>
                                                 <p>Perjalanan luar Kota : <?= $sopir1_luar_apr; ?> kali</p>
-                                                <h5>2. Asep Pisan</h5>
+                                                <h5>2. Asep Kurniawan</h5>
                                                 <p>Perjalanan dalam Kota : <?= $sopir2_dalam_apr; ?> kali</p>
                                                 <p>Perjalanan luar Kota : <?= $sopir2_luar_apr; ?> kali</p>
                                             </div>
@@ -77,7 +77,7 @@
                                                 <h5>1. Ujang Suseno</h5>
                                                 <p>Perjalanan dalam Kota : <?= $sopir1_dalam_mei; ?> kali</p>
                                                 <p>Perjalanan luar Kota : <?= $sopir1_luar_mei; ?> kali</p>
-                                                <h5>2. Asep Pisan</h5>
+                                                <h5>2. Asep Kurniawan</h5>
                                                 <p>Perjalanan dalam Kota : <?= $sopir2_dalam_mei; ?> kali</p>
                                                 <p>Perjalanan luar Kota : <?= $sopir2_luar_mei; ?> kali</p>
                                             </div>
@@ -86,7 +86,7 @@
                                                 <h5>1. Ujang Suseno</h5>
                                                 <p>Perjalanan dalam Kota : <?= $sopir1_dalam_jun; ?> kali</p>
                                                 <p>Perjalanan luar Kota : <?= $sopir1_luar_jun; ?> kali</p>
-                                                <h5>2. Asep Pisan</h5>
+                                                <h5>2. Asep Kurniawan</h5>
                                                 <p>Perjalanan dalam Kota : <?= $sopir2_dalam_jun; ?> kali</p>
                                                 <p>Perjalanan luar Kota : <?= $sopir2_luar_jun; ?> kali</p>
                                             </div>
@@ -95,7 +95,7 @@
                                                 <h5>1. Ujang Suseno</h5>
                                                 <p>Perjalanan dalam Kota : <?= $sopir1_dalam_jul; ?> kali</p>
                                                 <p>Perjalanan luar Kota : <?= $sopir1_luar_jul; ?> kali</p>
-                                                <h5>2. Asep Pisan</h5>
+                                                <h5>2. Asep Kurniawan</h5>
                                                 <p>Perjalanan dalam Kota : <?= $sopir2_dalam_jul; ?> kali</p>
                                                 <p>Perjalanan luar Kota : <?= $sopir2_luar_jul; ?> kali</p>
                                             </div>
@@ -104,7 +104,7 @@
                                                 <h5>1. Ujang Suseno</h5>
                                                 <p>Perjalanan dalam Kota : <?= $sopir1_dalam_ags; ?> kali</p>
                                                 <p>Perjalanan luar Kota : <?= $sopir1_luar_ags; ?> kali</p>
-                                                <h5>2. Asep Pisan</h5>
+                                                <h5>2. Asep Kurniawan</h5>
                                                 <p>Perjalanan dalam Kota : <?= $sopir2_dalam_ags; ?> kali</p>
                                                 <p>Perjalanan luar Kota : <?= $sopir2_luar_ags; ?> kali</p>
                                             </div>
@@ -113,7 +113,7 @@
                                                 <h5>1. Ujang Suseno</h5>
                                                 <p>Perjalanan dalam Kota : <?= $sopir1_dalam_sep; ?> kali</p>
                                                 <p>Perjalanan luar Kota : <?= $sopir1_luar_sep; ?> kali</p>
-                                                <h5>2. Asep Pisan</h5>
+                                                <h5>2. Asep Kurniawan</h5>
                                                 <p>Perjalanan dalam Kota : <?= $sopir2_dalam_sep; ?> kali</p>
                                                 <p>Perjalanan luar Kota : <?= $sopir2_luar_sep; ?> kali</p>
                                             </div>
@@ -122,7 +122,7 @@
                                                 <h5>1. Ujang Suseno</h5>
                                                 <p>Perjalanan dalam Kota : <?= $sopir1_dalam_okt; ?> kali</p>
                                                 <p>Perjalanan luar Kota : <?= $sopir1_luar_okt; ?> kali</p>
-                                                <h5>2. Asep Pisan</h5>
+                                                <h5>2. Asep Kurniawan</h5>
                                                 <p>Perjalanan dalam Kota : <?= $sopir2_dalam_okt; ?> kali</p>
                                                 <p>Perjalanan luar Kota : <?= $sopir2_luar_okt; ?> kali</p>
                                             </div>
@@ -131,7 +131,7 @@
                                                 <h5>1. Ujang Suseno</h5>
                                                 <p>Perjalanan dalam Kota : <?= $sopir1_dalam_nov; ?> kali</p>
                                                 <p>Perjalanan luar Kota : <?= $sopir1_luar_nov; ?> kali</p>
-                                                <h5>2. Asep Pisan</h5>
+                                                <h5>2. Asep Kurniawan</h5>
                                                 <p>Perjalanan dalam Kota : <?= $sopir2_dalam_nov; ?> kali</p>
                                                 <p>Perjalanan luar Kota : <?= $sopir2_luar_nov; ?> kali</p>
                                             </div>
@@ -140,7 +140,7 @@
                                                 <h5>1. Ujang Suseno</h5>
                                                 <p>Perjalanan dalam Kota : <?= $sopir1_dalam_des; ?> kali</p>
                                                 <p>Perjalanan luar Kota : <?= $sopir1_luar_des; ?> kali</p>
-                                                <h5>2. Asep Pisan</h5>
+                                                <h5>2. Asep Kurniawan</h5>
                                                 <p>Perjalanan dalam Kota : <?= $sopir2_dalam_des; ?> kali</p>
                                                 <p>Perjalanan luar Kota : <?= $sopir2_luar_des; ?> kali</p>
                                             </div>

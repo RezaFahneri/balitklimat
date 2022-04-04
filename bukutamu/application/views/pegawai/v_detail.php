@@ -1,5 +1,8 @@
 <div class="main-panel">
     <div class="content-wrapper">
+        <a href="<?= base_url(); ?>pegawai/bukutamu_a" class="btn btn-light mb-2"><i><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
+                </svg></i> Kembali ke <b>Tamu Bertemu</b></a>
         <div class="row">
             <div class="col-12 grid-margin">
                 <div class="card mb-3">
@@ -24,13 +27,13 @@
                                 <label>
                                     Tanggal
                                 </label>
-                                <input type="date" class="form-control form-control-user" id="tgl" name="tgl" value="<?= date('d M Y', strtotime($detail->tanggal)) ?>" readonly>
+                                <input type="text" class="form-control form-control-user" id="tgl" name="tgl" value="<?= date('d M Y', strtotime($detail->tanggal)) ?>" readonly>
                             </div>
                             <div class="form-group col-md-6">
                                 <label>
                                     Waktu
                                 </label>
-                                <input type="time" class="form-control form-control-user" id="waktu" name="waktu" value="<?= date('h:i', strtotime($detail->tanggal)) ?>" readonly>
+                                <input type="text" class="form-control form-control-user" id="waktu" name="waktu" value="<?= date('h:i', strtotime($detail->waktu)) ?>" readonly>
                             </div>
                             <div class="form-group col-12">
                                 <label class="form-label">

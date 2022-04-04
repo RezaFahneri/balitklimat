@@ -12,8 +12,16 @@ function cekmasuk()
 
         if ($jenis == 'peserta' && $akses == 'pegawai') {
             redirect('peserta/laporan');
+        } elseif ($jenis == 'adminmagang' && $akses == 'pegawai') {
+            redirect('admin/penugasan');
         } elseif ($jenis == 'pegawai' && $akses == 'peserta') {
             redirect('pegawai/penugasan');
+        } elseif ($jenis == 'adminmagang' && $akses == 'peserta') {
+            redirect('admin/penugasan');
+        } elseif ($jenis == 'pegawai' && $akses == 'admin') {
+            redirect('pegawai/penugasan');
+        } elseif ($jenis == 'peserta' && $akses == 'admin') {
+            redirect('peserta/laporan');
         }
     }
 }

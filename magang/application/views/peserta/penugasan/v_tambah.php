@@ -8,7 +8,12 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="table-responsive">
-                            <h3 class="font-weight-bold mb-10">Tambah Hasil penugasan</h3>
+                            <?php
+                            if ($detail) { ?>
+                                <h3 class="font-weight-bold mb-10">Edit Hasil penugasan</h3>
+                            <?php } else { ?>
+                                <h3 class="font-weight-bold mb-10">Tambah Hasil penugasan</h3>
+                            <?php } ?>
                         </div>
                         <?= $this->session->flashdata('message'); ?>
                         <?= form_open_multipart('peserta/penugasan/simpan', 'class="mt-4"'); ?>

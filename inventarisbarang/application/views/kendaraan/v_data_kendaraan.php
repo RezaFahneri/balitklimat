@@ -7,9 +7,11 @@
                         <h3 class="m-0 font-weight-bold">Data Kendaraan</h3><br>
                         <div class="flash-data" id="flash2" data-flash="<?= $this->session->flashdata('sukses'); ?>"></div>
                         <div class="flash-data" id="flash6" data-flash="<?= $this->session->flashdata('gagal'); ?>"></div>
-                        <div class="col-md-4 grid-margin">
-                            <a href="<?php echo base_url() ?>kendaraan/tambah" class="btn btn-success"><i class="ti ti-plus">&nbsp;</i>Tambah Data</a>
-                        </div>
+                        <?php if ($this->session->userdata('role') == "Admin Inventaris") { ?>
+                            <div class="col-md-4 grid-margin">
+                                <a href="<?php echo base_url() ?>kendaraan/tambah" class="btn btn-success"><i class="ti ti-plus">&nbsp;</i>Tambah Data</a>
+                            </div>
+                        <?php } ?>
                         <div class="col-md-12 grid-margin">
                             <div class="card shadow mb-12">
                                 <div class="col-lg-12 grid-margin stretch-card">

@@ -253,28 +253,19 @@
                             <span class="menu-title">Data Alat</span>
                         </a>
                     </li>
-                    <?php if ($this->session->userdata('logged_in') == true) { ?>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="collapse" href="#data" aria-expanded="false" aria-controls="master">
-                                <i class="mdi mdi-export menu-icon" style="font-size: 20px; margin-left: 2px;"></i>
-                                <span class="menu-title" style="margin-left: -2px;">Data Peminjaman</span>
-                                <i class="menu-arrow" style="margin-left: 17%;"></i>
-                            </a>
-                            <div class="collapse" id="data">
-                                <ul class="nav flex-column sub-menu">
-                                    <li class="nav-item"> <a class="nav-link" href="<?php echo base_url(); ?>pinjam_alat">Peminjaman Alat</a></li>
-                                    <li class="nav-item"> <a class="nav-link" href="<?php echo base_url(); ?>riwayat_peminjaman">Riwayat Peminjaman</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                    <?php } else if ($this->session->userdata('logged_in') == false) { ?>
-                        <li class="nav-item">
-                            <a class="nav-link" href="<?php echo base_url(); ?>pinjam_alat" aria-expanded="false">
-                                <i class="mdi mdi-export menu-icon" style="font-size: 20px"></i>
-                                <span class="menu-title">Peminjaman Alat</span>
-                            </a>
-                        </li>
-                    <?php } ?>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="collapse" href="#data" aria-expanded="false" aria-controls="master">
+                            <i class="mdi mdi-export menu-icon" style="font-size: 20px; margin-left: 2px;"></i>
+                            <span class="menu-title" style="margin-left: -2px;">Data Peminjaman</span>
+                            <i class="menu-arrow" style="margin-left: 17%;"></i>
+                        </a>
+                        <div class="collapse" id="data">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"> <a class="nav-link" href="<?php echo base_url(); ?>pinjam_alat">Peminjaman Alat</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="<?php echo base_url(); ?>riwayat_peminjaman">Riwayat Peminjaman</a></li>
+                            </ul>
+                        </div>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="<?php echo base_url(); ?>perbaikan_alat" aria-expanded="false">
                             <i class="mdi mdi-settings-box menu-icon" style="font-size: 20px;"></i>
@@ -282,15 +273,15 @@
                         </a>
                     </li>
                     <?php if ($this->session->userdata('logged_in') == false) { ?>
-                        <li class="nav-item" style="margin-top: 340px;margin-bottom: -10px;">
-                            <a class="nav-link" href="<?php echo base_url(); ?>login" aria-expanded="false">
+                        <li class="nav-item" style="margin-top: 550px;margin-bottom: -10px;position:fixed">
+                            <a class="nav-link" style="margin-right:-196px" href="<?php echo base_url(); ?>login" aria-expanded="false">
                                 <i class="mdi mdi-login" style="font-size: 20px;"></i>
                                 <span class="menu-title" style="margin-left: 15px;">Login</span>
                             </a>
                         </li>
                     <?php } ?>
                     <?php if ($this->session->userdata('logged_in') == false) { ?>
-                        <li class="nav-item">
+                        <li class="nav-item" style="margin-top:610px;margin-bottom: -10px;position:fixed">
                             <a class="nav-link" href="<?php echo base_url(); ?>.." aria-expanded="false">
                                 <i class="mdi mdi-backburger menu-icon" style="font-size: 20px"></i>
                                 <span class="menu-title">Kembali ke Portal</span>

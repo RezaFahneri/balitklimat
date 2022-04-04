@@ -10,7 +10,7 @@ function cekmasuk()
         $akses = $gi->uri->segment(1);
         $akses2 = $gi->uri->segment(2);
 
-        if ($jenis == 'pegawai' && $akses == 'admin') {
+        if ($jenis == 'pegbt' && $akses == 'admin') {
             redirect('pegawai/bukutamu_a');
             // } elseif ($jenis == 'pegawai' && $akses == 'peserta') {
             //     redirect('pegawai/dashboard');
@@ -18,8 +18,8 @@ function cekmasuk()
             //     redirect('pegawai/dashboard');
             // } elseif ($jenis == 'peserta' && $akses == 'admin') {
             //     redirect('peserta/laporan');
-        } elseif ($jenis == 'admin' && $akses == 'pegawai') {
-            redirect('admin/dashboard');
+        } elseif ($jenis == 'adminbt' && $akses == 'pegawai') {
+            redirect('admin/peg_tamu_a');
         } //elseif ($jenis == 'admin' && $akses == 'peserta') {
         //     redirect('admin/dashboard');
         // }

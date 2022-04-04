@@ -59,9 +59,9 @@
                                 <div>
                                     <a href="<?php echo base_url() ?>login" class="text-black">Login sebagai Pegawai?</a>
                                 </div>
-                                <div>
+                                <!-- <div>
                                     <a href="#" class="text-black">Lupa Password?</a>
-                                </div>
+                                </div> -->
                             </form>
                         </div>
                     </div>

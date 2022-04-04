@@ -18,7 +18,8 @@
                                 <h4><b>Balai Penelitian Agroklimat dan Hidrologi</b></h4>
                             </div>
                             <br>
-                            <h6 class="font-weight-light" class="text-left" style="font-size: small; text-align:justify">Masukkan email dan kata sandi untuk masuk sebagai pegawai ataupun peserta</h6>
+                            <h6 class="font-weight-light" class="text-left" style="font-size: small; text-align:justify">*Masukkan email dan kata sandi untuk masuk sebagai pegawai ataupun peserta</h6>
+                            <h6 class="font-weight-light" class="text-left" style="font-size: small; text-align:justify">*Untuk peserta magang, apabila tanggal selesai magang sudah lewat, maka secara otomatis tidak bisa mengakses sistem</h6>
                             <?= $this->session->flashdata('message'); ?>
                             <form class="pt-3" method="post" action="<?= base_url('masuk'); ?>">
                                 <div class="form-group text-left">
@@ -49,6 +50,9 @@
                                 <div class="mt-3">
                                     <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">Masuk</button>
                             </form>
+                            <div style="text-align: center;" class="mt-3">
+                                <a href="<?= base_url(); ?>masuk/lupa_sandi" class="btn btn-sm btn-light"><b>Lupa Sandi</b></a>
+                            </div>
                         </div>
                     </div>
                 </div>

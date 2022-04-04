@@ -48,7 +48,7 @@
                                                             <?php if ($this->session->userdata('role') == "User") { ?>
                                                                 <?php if ($dp->status_penggunaan == '1') { ?>
                                                                     <td>
-                                                                        <button class="btn btn-outline-warning btn-md" disabled>Digunakan</button>
+                                                                        <button class="btn btn-outline-warning btn-md" disabled>Dalam penugasan</button>
                                                                     </td>
                                                                 <?php } else { ?>
                                                                     <td>
@@ -58,7 +58,7 @@
                                                             <?php } else if ($this->session->userdata('role') == "Admin Inventaris") { ?>
                                                                 <?php if ($dp->status_penggunaan == '1') { ?>
                                                                     <td>
-                                                                        <button class="btn btn-outline-warning btn-md" disabled>Digunakan</button>
+                                                                        <button class="btn btn-outline-warning btn-md" disabled>Dalam penugasan</button>
                                                                         <hr style="width:80%;text-align:left;margin-left:0">
                                                                         <a type="button" class="btn btn-outline-info btn-md" href="<?php echo base_url('penggunaan_mobil/selesai/' . $dp->id_penggunaan) . '/' . $dp->id_kendaraan . '/' . $dp->nip ?>">Selesai</a>
                                                                     </td>

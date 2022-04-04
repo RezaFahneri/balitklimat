@@ -213,6 +213,36 @@ class Pinjam_alat extends CI_Controller
         redirect('pinjam_alat');
     }
 
+    public function pdf($id)
+    {
+
+        // Ambil Data
+        $data['detail'] = $this->Model_pinjam->detail_data($id);
+        $this->load->view('Pdf/v_buktipinjam', $data);
+
+        // panggil library yang kita buat sebelumnya yang bernama pdfgenerator
+        $this->load->library('pdf');
+        
+        // title dari pdf
+        $this->data['title_pdf'] = 'Bukti Peminjaman Alat';
+        
+        // filename dari pdf ketika didownload
+        $file_pdf = 'bukti_peminjaman_alat';
+
+        // setting paper
+        $paper = 'A4';
+
+        //orientasi paper potrait / landscape
+        $orientation = "portrait";
+        
+		// $html=$this->load->view('pdf/v_buktipinjam', $this->data, true);	   
+        $html = $this->output->get_output(); 
+        
+        // run dompdf
+        $this->pdf->generate($html, $file_pdf,$paper,$orientation);
+    }
+
+
     // function hapus($id)
     // {
     //     $where = array('id_barang' => $id);

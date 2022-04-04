@@ -44,7 +44,7 @@ if (flash5) {
     })
 }
 
-var flash6 = $('#flash5').data('flash');
+var flash6 = $('#flash6').data('flash');
 if (flash6) {
     Swal.fire({
         icon: 'error',
@@ -148,6 +148,26 @@ $(document).on('click', '#logout', function (e) {
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         confirmButtonText: 'Logout'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location = href;
+        }
+    })
+})
+
+$(document).on('click', '#ditolak',function (e) {
+
+    e.preventDefault();
+    var href = $(this).attr('href')
+
+    Swal.fire({
+        title: 'Tolak Peminjaman Alat?',
+        text: "",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#808080',
+        confirmButtonText: 'Tolak'
     }).then((result) => {
         if (result.isConfirmed) {
             window.location = href;

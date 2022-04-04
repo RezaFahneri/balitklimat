@@ -7,10 +7,13 @@
                         <div class="table-responsive">
                             <h3 class="font-weight-bold mb-10">Penugasan</h3>
                             <div class="mt-3">
-                                <a title="Tambah penugasan" href="<?= base_url() ?>pegawai/penugasan/tambah" class="btn btn-primary btn-sm btn-icon-text mb-2">
-                                    <i class="ti ti-plus"></i>
-                                    Tambah penugasan
-                                </a>
+                                <?php
+                                if ($peserta) { ?>
+                                    <a title="Tambah penugasan" href="<?= base_url() ?>pegawai/penugasan/tambah" class="btn btn-primary btn-sm btn-icon-text mb-2">
+                                        <i class="ti ti-plus"></i>
+                                        Tambah penugasan
+                                    </a>
+                                <?php } ?>
                             </div>
                             <?= $this->session->flashdata('message'); ?>
                             <div class="mt-3">

@@ -63,9 +63,13 @@ class Jenis_barang extends CI_Controller {
     }
     function hapus($id)
 	{
-		$where = array('id_jenis' => $id);
-		$this->Model_jenis->hapus_data($where, 'jenis_barang');
-        $this->session->set_flashdata('sukses', 'Data jenis barang berhasil dihapus');
-		redirect('jenis_barang');
+		if ($this->Model_jenis->hapus_data($id) == true) :
+            $this->session->set_flashdata('sukses', 'Data jenis barang berhasil dihapus');
+            redirect('jenis_barang');
+        endif;
+        if ($this->Model_jenis->hapus_data($id) == false) :
+            $this->session->set_flashdata('gagal', 'Data jenis barang ini digunakan pada tabel lain');
+            redirect('jenis_barang');
+        endif;
 	}
 }

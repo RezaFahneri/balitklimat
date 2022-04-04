@@ -23,6 +23,25 @@ class Model_daftar extends CI_model
         return $query;
     }
 
+    public function getdet($table, $ket, $field = NULL, $urtn = NULL)
+    {
+        if ($field == NULL and $urtn == NULL) {
+            $this->db->where($ket);
+            $query = $this->db->get($table);
+        } else {
+            $this->db->where($ket);
+            $this->db->order_by($field, $urtn);
+            $query = $this->db->get($table);
+        }
+        return $query;
+    }
+
+    public function hapus($table, $where)
+    {
+        $this->db->where($where);
+        $query = $this->db->delete($table);
+        return $query;
+    }
     public function join2($table, $table2, $ktabel21, $jns, $field, $urtn)
     {
 
@@ -31,6 +50,18 @@ class Model_daftar extends CI_model
         $this->db->join($table2, $ktabel21, $jns);
         $this->db->order_by('divisi', 'ASC');
         $this->db->order_by($field, $urtn);
+        $query = $this->db->get();
+        return $query;
+    }
+    public function join2where($table, $table2, $ktabel21, $jns, $field, $urtn)
+    {
+
+        $this->db->select('*');
+        $this->db->from($table);
+        $this->db->join($table2, $ktabel21, $jns);
+        $this->db->order_by('divisi', 'ASC');
+        $this->db->order_by($field, $urtn);
+        $this->db->where('divisi !=', 'Tidak Ada');
         $query = $this->db->get();
         return $query;
     }

@@ -10,6 +10,11 @@ class Model_buku_tamu extends CI_model
             return $this->db->get($table)->result();
         }
     }
+    public function get_data_not()
+    {
+        $this->db->where('id_divisi !=', '1');
+        $this->db->get('data_divisi')->result();
+    }
 
     function insert_data($table, $data)
     {
@@ -25,6 +30,28 @@ class Model_buku_tamu extends CI_model
         // $this->db->where($ket, $param);
         $query = $this->db->get();
         return $query->result();
+    }
+    public function join3($table, $table2, $ktabel21, $table3, $ktabel31, $ket, $param)
+    {
+
+        $this->db->select('*');
+        $this->db->from($table);
+        $this->db->join($table2, $ktabel21, 'left');
+        $this->db->join($table3, $ktabel31, 'left');
+        $this->db->where($ket, $param);
+        $query = $this->db->get();
+        return $query->result();
+    }
+    public function join3a($table, $table2, $ktabel21, $table3, $ktabel31, $ket, $param)
+    {
+
+        $this->db->select('*');
+        $this->db->from($table);
+        $this->db->join($table2, $ktabel21, 'left');
+        $this->db->join($table3, $ktabel31, 'left');
+        $this->db->where($ket, $param);
+        $query = $this->db->get();
+        return $query->row();
     }
     public function join2where($table, $table2, $ktabel21, $ket, $param, $jns, $field = null, $urutan = null)
     {
@@ -124,6 +151,12 @@ class Model_buku_tamu extends CI_model
         $query = $this->db->get_where($table, $ket)->result();
         return $query;
     }
+    public function getspecdataa($table)
+    {
+        $this->db->where('divisi !=', 'Tidak Ada');
+        $query = $this->db->get($table)->result();
+        return $query;
+    }
 
     //ambil data dari suatu baris sesuai $ket
     public function getdetail($table, $ket)
@@ -167,5 +200,93 @@ class Model_buku_tamu extends CI_model
             $output .= '<option value="' . $row->nip . '">' . $row->nama_pegawai . '</option>';
         }
         return $output;
+    }
+
+    public function ajoin3($table, $table2, $table3, $ktabel21, $ktable31, $ket, $param, $jns, $jns2, $field = NULL, $urtn = NULL)
+    {
+        if ($field == NULL or $urtn == NULL) {
+            $this->db->select('*');
+            $this->db->from($table);
+            $this->db->join($table2, $ktabel21, $jns);
+            $this->db->join($table3, $ktable31, $jns2);
+            $this->db->where($ket, $param);
+            $query = $this->db->get();
+            return $query;
+        } else {
+            $this->db->select('*');
+            $this->db->from($table);
+            $this->db->join($table2, $ktabel21, $jns);
+            $this->db->join($table3, $ktable31, $jns2);
+            $this->db->where($ket, $param);
+            $this->db->order_by($field, $urtn);
+            $query = $this->db->get();
+            return $query;
+        }
+    }
+    public function ajoin32($table, $table2, $table3, $ktabel21, $ktable31, $ket, $param, $ket2, $param2, $jns, $jns2, $field = NULL, $urtn = NULL)
+    {
+        if ($field == NULL or $urtn == NULL) {
+            $this->db->select('*');
+            $this->db->from($table);
+            $this->db->join($table2, $ktabel21, $jns);
+            $this->db->join($table3, $ktable31, $jns2);
+            $this->db->where($ket, $param);
+            $this->db->where($ket2, $param2);
+            $query = $this->db->get();
+            return $query;
+        } else {
+            $this->db->select('*');
+            $this->db->from($table);
+            $this->db->join($table2, $ktabel21, $jns);
+            $this->db->join($table3, $ktable31, $jns2);
+            $this->db->where($ket, $param);
+            $this->db->where($ket2, $param2);
+            $this->db->order_by($field, $urtn);
+            $query = $this->db->get();
+            return $query;
+        }
+    }
+    public function ajoin33($table, $table2, $table3, $ktabel21, $ktable31, $ket, $param, $jns, $jns2, $field = NULL, $urtn = NULL)
+    {
+        if ($field == NULL or $urtn == NULL) {
+            $this->db->select('*');
+            $this->db->from($table);
+            $this->db->join($table2, $ktabel21, $jns);
+            $this->db->join($table3, $ktable31, $jns2);
+            $this->db->where($ket, $param);
+            $query = $this->db->get();
+            return $query;
+        } else {
+            $this->db->select('*');
+            $this->db->from($table);
+            $this->db->join($table2, $ktabel21, $jns);
+            $this->db->join($table3, $ktable31, $jns2);
+            $this->db->where($ket, $param);
+            $this->db->order_by($field, $urtn);
+            $query = $this->db->get();
+            return $query;
+        }
+    }
+
+    public function bjoin3($table, $table2, $table3, $ktabel21, $ktable31, $jns, $jns2, $field = NULL, $urtn = NULL)
+    {
+        if ($field == NULL or $urtn == NULL) {
+            $this->db->select('*');
+            $this->db->from($table);
+            $this->db->join($table2, $ktabel21, $jns);
+            $this->db->join($table3, $ktable31, $jns2);
+            // $this->db->where($ket, $param);
+            $query = $this->db->get();
+            return $query;
+        } else {
+            $this->db->select('*');
+            $this->db->from($table);
+            $this->db->join($table2, $ktabel21, $jns);
+            $this->db->join($table3, $ktable31, $jns2);
+            // $this->db->where($ket, $param);
+            $this->db->order_by($field, $urtn);
+            $query = $this->db->get();
+            return $query;
+        }
     }
 }

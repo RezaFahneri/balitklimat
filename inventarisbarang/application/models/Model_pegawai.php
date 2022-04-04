@@ -25,6 +25,11 @@ class Model_pegawai extends CI_model
 		}
 	}
 
+	public function get_nip($email){
+		$query = $this->db->where('email', $email)->get('data_pegawai')->row()->nip;
+		return $query;
+	}
+
 	function getList(){
 		$this->db->select('*');
 		$this->db->from('data_pegawai');

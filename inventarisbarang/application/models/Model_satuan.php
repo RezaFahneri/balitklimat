@@ -14,9 +14,18 @@ class Model_satuan extends CI_model
 		$this->db->where($where);
 		$this->db->update($table,$data);
 	}
-	function hapus_data($where,$table){
-		$this->db->where($where);
-		$this->db->delete($table);
+	// function hapus_data($where,$table){
+	// 	$this->db->where($where);
+	// 	$this->db->delete($table);
+	// }
+	function hapus_data($id)
+	{
+		$this->db->delete('satuan_barang', array("id_satuan" => $id));
+		if($this->db->affected_rows() > 0){
+			return true;
+		}else{
+			return false;
+		}
 	}
 	function getList(){
 		return $query = $this->db->order_by('id_satuan', 'ASC')->get('satuan_barang')->result();

@@ -87,15 +87,24 @@
                                                                     <td>
                                                                         <a data-toggle="tooltip" title="Detail" style="font-size:25px" class="btn btn-sm btn-info" href="<?php echo base_url('/pinjam_alat/detail/' . $dp->id_pinjam) ?>"><i class="mdi mdi-information-outline"></i></a>
                                                                         <a data-toggle="tooltip" title="Edit" style="font-size:25px" class="btn btn-md btn-success" href="<?php echo base_url() ?>pinjam_alat/edit?id_pinjam=<?php echo $dp->id_pinjam ?>"><i class="mdi mdi-pencil"></i></a>
+                                                                        <?php if ($dp->status == '2') { ?>
+                                                                            <a data-toggle="tooltip" title="Bukti Peminjaman" style="font-size:25px;color:white" class="btn btn-sm btn-warning" href="<?php echo base_url('/pinjam_alat/pdf/' . $dp->id_pinjam) ?>"><i class="mdi mdi-note-text"></i></a>
+                                                                        <?php } ?>  
                                                                     </td>
                                                                 <?php } else if ($this->session->userdata('role') == "User") { ?>
                                                                     <td>
                                                                         <a data-toggle="tooltip" title="Detail" style="font-size:25px" class="btn btn-sm btn-info" href="<?php echo base_url('/pinjam_alat/detail/' . $dp->id_pinjam) ?>"><i class="mdi mdi-information-outline"></i></a>
+                                                                        <?php if ($dp->status == '2') { ?>
+                                                                            <a data-toggle="tooltip" title="Bukti Peminjaman" style="font-size:25px;color:white" class="btn btn-sm btn-warning" href="<?php echo base_url('/pinjam_alat/pdf/' . $dp->id_pinjam) ?>"><i class="mdi mdi-note-text"></i></a>
+                                                                        <?php } ?>
                                                                     </td>
                                                                 <?php } ?>
                                                             <?php } else if ($this->session->userdata('logged_in') == false) { ?>
                                                                 <td>
                                                                     <a data-toggle="tooltip" title="Detail" style="font-size:25px" class="btn btn-sm btn-info" href="<?php echo base_url('/pinjam_alat/detail/' . $dp->id_pinjam) ?>"><i class="mdi mdi-information-outline"></i></a>
+                                                                    <?php if ($dp->status == '2') { ?>
+                                                                        <a data-toggle="tooltip" title="Bukti Peminjaman" style="font-size:25px;color:white" class="btn btn-sm btn-warning" href="<?php echo base_url('/pinjam_alat/pdf/' . $dp->id_pinjam) ?>"><i class="mdi mdi-note-text"></i></a>
+                                                                    <?php } ?>
                                                                 </td>
                                                             <?php } ?>
                                                         </tr>

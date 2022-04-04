@@ -1,6 +1,9 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+
 class Bukutamu_b extends CI_Controller
 {
     public function __construct()
@@ -16,6 +19,8 @@ class Bukutamu_b extends CI_Controller
         $data['sub'] = 'Buku Tamu - Tidak Bertemu';
         $ket = ['pegawai_nip' => $data['user']['nip'], 'jenis' => 'Tidak Bertemu'];
         $data['detail'] = $this->Model_buku_tamu->getdet('buku_tamu', $ket, 'tanggal', 'DESC')->result();
+        $keterangan = ['pegawai_nip' => $data['user']['nip'], 'jenis' => 'Bertemu'];
+        $data['b'] = $this->Model_buku_tamu->getdet('buku_tamu', $keterangan)->result();
         // var_dump($data['detail']);
         $this->load->view('templates/header', $data);
         $this->load->view('templates/navbar', $data);
@@ -74,5 +79,115 @@ class Bukutamu_b extends CI_Controller
         <span aria-hidden="true">&times;</span>
       </button> </div>');
         redirect('pegawai/bukutamu_b');
+    }
+
+    public function export_excela()
+    {
+        $data['user'] = $this->Model_buku_tamu->getuser();
+        $nip = $data['user']['nip'];
+        $ket = ['pegawai_nip' => $data['user']['nip'], 'jenis' => 'Bertemu'];
+        $ketb = 'data_divisi.id_divisi = buku_tamu.id_divisi';
+        $keta = 'data_pegawai.nip = buku_tamu.pegawai_nip';
+        $where = 'buku_tamu.jenis';
+        $where2 = 'buku_tamu.pegawai_nip';
+        $tamu = $this->Model_buku_tamu->ajoin32('buku_tamu', 'data_divisi', 'data_pegawai', $ketb, $keta, $where, 'Tidak Bertemu', $where2, $nip, 'left', 'left')->result();
+        // var_dump($tamu);
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+        $sheet->setCellValue('A1', "No");
+        $sheet->setCellValue('B1', "ID Tamu");
+        $sheet->setCellValue('C1', "Jenis Tamu");
+        $sheet->setCellValue('D1', "Tanggal");
+        $sheet->setCellValue('E1', "Waktu");
+        $sheet->setCellValue('F1', "Nama Lengkap");
+        $sheet->setCellValue('G1', "Asal Instansi");
+        $sheet->setCellValue('H1', "Email");
+        $sheet->setCellValue('I1', "Nomor Whatsapp");
+        $sheet->setCellValue('J1', "Divisi");
+        $sheet->setCellValue('K1', "Pegawai");
+        $sheet->setCellValue('L1', "Keperluan");
+        $sheet->setCellValue('M1', "Keterangan");
+        $sheet->setCellValue('N1', "Laporan");
+        $no = 1;
+        $numrow = 2;
+        foreach ($tamu as  $pm) {
+            $sheet->setCellValue('A' . $numrow, $no);
+            $sheet->setCellValue('B' . $numrow,  $pm->id_buku_tamu);
+            $sheet->setCellValue('C' . $numrow,  $pm->jenis);
+            $sheet->setCellValue('D' . $numrow,  $pm->tanggal);
+            $sheet->setCellValue('E' . $numrow,  $pm->waktu);
+            $sheet->setCellValue('F' . $numrow,  $pm->nama_lengkap);
+            $sheet->setCellValue('G' . $numrow,  $pm->asal_instansi);
+            $sheet->setCellValue('H' . $numrow,  $pm->email);
+            $sheet->setCellValue('I' . $numrow,  $pm->no_wa);
+            $sheet->setCellValue('J' . $numrow,  $pm->divisi);
+            $sheet->setCellValue('K' . $numrow,  $pm->nama_pegawai);
+            $sheet->setCellValue('L' . $numrow,  $pm->keperluan);
+            $sheet->setCellValue('M' . $numrow,  $pm->keterangan);
+            $sheet->setCellValue('N' . $numrow,  $pm->laporan);
+            $no++;
+            $numrow++;
+        }
+        $sheet->getPageSetup()->setOrientation(\PhpOffice\PhpSpreadsheet\Worksheet\PageSetup::ORIENTATION_LANDSCAPE);
+        $sheet->setTitle("Data Tamu Tidak Bertemu");
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        header('Content-Disposition: attachment; filename="Data Tamu Tidak Bertemu.xlsx"');
+        header('Cache-Control: max-age=0');
+        $writer = new Xlsx($spreadsheet);
+        $writer->save('php://output');
+    }
+    public function export_excel()
+    {
+        $data['user'] = $this->Model_buku_tamu->getuser();
+        $nip = $data['user']['nip'];
+        $ket = ['pegawai_nip' => $data['user']['nip'], 'jenis' => 'Bertemu'];
+        $ketb = 'data_divisi.id_divisi = buku_tamu.id_divisi';
+        $keta = 'data_pegawai.nip = buku_tamu.pegawai_nip';
+        $where2 = 'buku_tamu.pegawai_nip';
+        $tamu = $this->Model_buku_tamu->ajoin3('buku_tamu', 'data_divisi', 'data_pegawai', $ketb, $keta, $where2, $nip, 'left', 'left')->result();
+        // var_dump($tamu);
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+        $sheet->setCellValue('A1', "No");
+        $sheet->setCellValue('B1', "ID Tamu");
+        $sheet->setCellValue('C1', "Jenis Tamu");
+        $sheet->setCellValue('D1', "Tanggal");
+        $sheet->setCellValue('E1', "Waktu");
+        $sheet->setCellValue('F1', "Nama Lengkap");
+        $sheet->setCellValue('G1', "Asal Instansi");
+        $sheet->setCellValue('H1', "Email");
+        $sheet->setCellValue('I1', "Nomor Whatsapp");
+        $sheet->setCellValue('J1', "Divisi");
+        $sheet->setCellValue('K1', "Pegawai");
+        $sheet->setCellValue('L1', "Keperluan");
+        $sheet->setCellValue('M1', "Keterangan");
+        $sheet->setCellValue('N1', "Laporan");
+        $no = 1;
+        $numrow = 2;
+        foreach ($tamu as  $pm) {
+            $sheet->setCellValue('A' . $numrow, $no);
+            $sheet->setCellValue('B' . $numrow,  $pm->id_buku_tamu);
+            $sheet->setCellValue('C' . $numrow,  $pm->jenis);
+            $sheet->setCellValue('D' . $numrow,  $pm->tanggal);
+            $sheet->setCellValue('E' . $numrow,  $pm->waktu);
+            $sheet->setCellValue('F' . $numrow,  $pm->nama_lengkap);
+            $sheet->setCellValue('G' . $numrow,  $pm->asal_instansi);
+            $sheet->setCellValue('H' . $numrow,  $pm->email);
+            $sheet->setCellValue('I' . $numrow,  $pm->no_wa);
+            $sheet->setCellValue('J' . $numrow,  $pm->divisi);
+            $sheet->setCellValue('K' . $numrow,  $pm->nama_pegawai);
+            $sheet->setCellValue('L' . $numrow,  $pm->keperluan);
+            $sheet->setCellValue('M' . $numrow,  $pm->keterangan);
+            $sheet->setCellValue('N' . $numrow,  $pm->laporan);
+            $no++;
+            $numrow++;
+        }
+        $sheet->getPageSetup()->setOrientation(\PhpOffice\PhpSpreadsheet\Worksheet\PageSetup::ORIENTATION_LANDSCAPE);
+        $sheet->setTitle("Data Tamu Seluruh");
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        header('Content-Disposition: attachment; filename="Data Tamu Seluruh.xlsx"');
+        header('Cache-Control: max-age=0');
+        $writer = new Xlsx($spreadsheet);
+        $writer->save('php://output');
     }
 }

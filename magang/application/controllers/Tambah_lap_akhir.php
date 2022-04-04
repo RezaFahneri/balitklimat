@@ -88,9 +88,8 @@ class Tambah_lap_akhir extends CI_Controller
         $data['nama'] = $this->input->post('nama');
         $getheader = $this->Model_peserta->getdet('data_header_surat', ['id_header_surat' => 'h01'])->row();
         $data['instansi'] = $getheader->eslon_tiga;
-        $email = $this->input->post('id_pm');
-        $nama = $getdetail->nama_pm;
-        // var_dump($data1, $nama, $email, $data);
+        $email = $this->input->post('email_pm');
+        $nama = $getdetail->id_pm;
         $file_name = 'Sertifikat_' . $nama . '.pdf';
         $size = 'A4';
         $orientation = "landscape";

@@ -14,10 +14,10 @@ class Masuk extends CI_Controller
         if ($this->session->userdata('email')) {
             $jenis = $this->session->userdata('jenis');
 
-            if ($jenis == 'pegawai') {
+            if ($jenis == 'pegbt') {
                 redirect('pegawai/bukutamu_a');
-            } elseif ($jenis == 'admin') {
-                redirect('admin/dashboard');
+            } elseif ($jenis == 'adminbt') {
+                redirect('admin/peg_tamu_a');
             }
         }
 
@@ -37,30 +37,34 @@ class Masuk extends CI_Controller
         $email = $this->input->post('email');
         $ks = $this->input->post('ks');
         $user = $this->Model_buku_tamu->getem($email, 'data_pegawai', 'email');
-
         if ($user) {
-            if ($user['password'] == $ks) {
-                $data = [
-                    'email' => $user['email'],
-                    'jenis' => 'pegawai'
-                ];
-                $this->session->set_userdata($data);
-                redirect('pegawai/bukutamu_a');
+            $nip = $user['nip'];
+            $ket = ['nip' => $nip, 'role' => 'Admin Buku Tamu'];
+            $getrole = $this->Model_buku_tamu->getdet('detail_role', $ket)->row();
+            if ($getrole) {
+                if ($user['password'] == $ks) {
+                    $data = [
+                        'email' => $user['email'],
+                        'jenis' => 'adminbt'
+                    ];
+                    $this->session->set_userdata($data);
+                    redirect('admin/peg_tamu_a');
+                } else {
+                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert"> Kata sandi salah!  </div>');
+                    redirect('masuk');
+                }
             } else {
-                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">  Kata Sandi Salah! </div>');
-                redirect('masuk');
-            }
-        } elseif ($email == 'admin@gmail.com') {
-            if ($ks == 'admin1234') {
-                $data = [
-                    'email' => 'admin@gmail.com',
-                    'jenis' => 'admin'
-                ];
-                $this->session->set_userdata($data);
-                redirect('admin/dashboard');
-            } else {
-                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert"> Kata Sandi Admin Salah!  </div>');
-                redirect('masuk');
+                if ($user['password'] == $ks) {
+                    $data = [
+                        'email' => $user['email'],
+                        'jenis' => 'pegbt'
+                    ];
+                    $this->session->set_userdata($data);
+                    redirect('pegawai/bukutamu_a');
+                } else {
+                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert"> Kata sandi salah!  </div>');
+                    redirect('masuk');
+                }
             }
         } else {
             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert"> Akun tidak terdaftar!  </div>');

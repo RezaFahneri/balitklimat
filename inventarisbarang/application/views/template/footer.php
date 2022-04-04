@@ -29,7 +29,7 @@
     <!-- partial:partials/_footer.html -->
     <footer class="footer">
         <div class="d-sm-flex text-center">
-            <span class="text-muted text-center d-block d-sm-inline-block">Copyright © 2021. All rights reserved.</span>
+            <span class="text-muted text-center d-block d-sm-inline-block">Copyright © 2022. balitklimat.litbang.pertanian.go.id.</span>
         </div>
     </footer>
     <!-- container-scroller -->

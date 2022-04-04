@@ -69,10 +69,10 @@
                                 if ($detail->status == 'Berlangsung') { ?>
                                     <a title="Kerjakan tugas" href=" <?= base_url('peserta/penugasan/tambah/' . $detail->id_det_tugas) ?>" class="btn btn-sm btn-primary float-right mb-3"><i class="ti ti-plus"></i> Kerjakan</a>
                                 <?php } else { ?>
+                                    <a title="Hapus hasil tugas" onclick="return confirm('Apakah anda yakin untuk menghapus hasil tugas?')" href="<?= base_url('peserta/penugasan/hapus/' . $detail->id_det_tugas) ?>" class="btn ml-2 btn-sm btn-danger float-right"><i class="ti ti-trash"></i></a>
                                     <a title="Edit hasil tugas" href=" <?= base_url('peserta/penugasan/tambah/' . $detail->id_det_tugas) ?>" class="btn btn-sm btn-info float-right mb-3"><i class="ti ti-pencil"></i> Edit</a>
                                 <?php } ?>
                             <?php } ?>
-                            <label for="doktgs" style="color: red;">*Apabila pembimbing melakukan perubahan penugasan, maka hasil penugasan sebelumya akan hilang</label>
                         </div>
                         <div class="px-3">
                             <table class="table col-lg table-sm table-borderless" style="width: 100%">

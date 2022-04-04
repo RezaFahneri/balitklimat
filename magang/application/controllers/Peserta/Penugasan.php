@@ -102,4 +102,23 @@ class Penugasan extends CI_Controller
     {
         echo "blok";
     }
+    public function hapus($id_det_tugas)
+    {
+        $ket = ['id_det_tugas' => $id_det_tugas];
+        $getdetail = $this->Model_peserta->getdet('detail_penugasan', $ket)->row();
+        $id_tugas = $getdetail->id_tugas;
+        $filelama = $getdetail->dok_hasil_tugas;
+        unlink(FCPATH . '/assets/dokumen/hasil_tugas/' . $filelama);
+        $data = [
+            'hasil_tugas' => NULL,
+            'dok_hasil_tugas' => NULL,
+            'status' => 'Berlangsung'
+        ];
+        $this->Model_peserta->updata('detail_penugasan', $data, $ket);
+        //$this->Model_peserta->updata('laporan_mingguan', $data, $ket);
+        $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show" role="alert"> Hasil penugasan berhasil dihapus! <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button> </div>');
+        redirect('peserta/penugasan/detail/' . $id_tugas);
+    }
 }

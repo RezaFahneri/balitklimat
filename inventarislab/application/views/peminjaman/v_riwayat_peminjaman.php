@@ -38,7 +38,7 @@
                                                     ?>
                                                         <tr>
                                                             <td><?php echo $no++ ?></td>
-                                                            <td><?php echo character_limiter($dr->namaalat,10) ?></td>
+                                                            <td><?php echo character_limiter($dr->namaalat, 10) ?></td>
                                                             <td><?php echo $dr->peminjam ?></td>
                                                             <td><?php echo tanggal_indonesia($dr->tglpinjam) ?></td>
                                                             <td><?php echo tanggal_indonesia($dr->tglselesai) ?></td>
@@ -53,6 +53,7 @@
                                                             <?php } ?>
                                                             <td>
                                                                 <a data-toggle="tooltip" title="Detail" style="font-size:25px" class="btn btn-sm btn-info" href="<?php echo base_url('/riwayat_peminjaman/detail/' . $dr->id_riwayat) ?>"><i class="mdi mdi-information-outline"></i></a>
+                                                                <a data-toggle="tooltip" title="Bukti Peminjaman" style="font-size:25px;color:white" class="btn btn-sm btn-warning" href="<?php echo base_url('/riwayat_peminjaman/pdf/' . $dr->id_riwayat) ?>"><i class="mdi mdi-note-text"></i></a>
                                                             </td>
                                                         </tr>
                                                     <?php } ?>

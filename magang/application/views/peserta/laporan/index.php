@@ -1,6 +1,7 @@
 <div class="main-panel">
     <div class="content-wrapper">
         <div class="row">
+            <h6 class="font-weight-bold" style="color: red;">*Status magang akan otomatis selesai apabila sudah melewati tanggal selesai magang.</h6>
             <div class="col-12 grid-margin">
                 <div class="card">
                     <div class="card-body">

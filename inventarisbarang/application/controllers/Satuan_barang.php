@@ -63,9 +63,13 @@ class Satuan_barang extends CI_Controller {
     }
     function hapus($id)
 	{
-		$where = array('id_satuan' => $id);
-		$this->Model_satuan->hapus_data($where, 'satuan_barang');
-        $this->session->set_flashdata('sukses', 'Data satuan barang berhasil dihapus');
-		redirect('satuan_barang');
-	}
+		if ($this->Model_satuan->hapus_data($id) == true) :
+            $this->session->set_flashdata('sukses', 'Data satuan barang berhasil dihapus');
+            redirect('satuan_barang');
+        endif;
+        if ($this->Model_satuan->hapus_data($id) == false) :
+            $this->session->set_flashdata('gagal', 'Data satuan barang ini digunakan pada tabel lain');
+            redirect('satuan_barang');
+        endif;
+    }
 }

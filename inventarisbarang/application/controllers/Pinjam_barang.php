@@ -108,6 +108,24 @@ class Pinjam_barang extends CI_Controller
         redirect('pinjam_barang');
     }
 
+    function tolak($id, $id_barang)
+    {
+        //menambah kembali stok barang
+        $where2 = array('id_barang' => $id_barang);
+        $stokbarang = $this->db->where('id_barang', $id_barang)->get('stok_barang')->row('jumlah_barang');
+        $qty = $this->db->where('id_pinjam', $id)->get('pinjam_barang')->row('qty');
+        $data2 = array(
+            'jumlah_barang' => (int) $stokbarang + $qty,
+        );
+        $this->Model_stok->update_data_stok($where2, $data2, 'stok_barang');
+
+        //hapus datanya
+        $where = array('id_pinjam' => $id);
+        $this->Model_pinjam->hapus_data($where, 'pinjam_barang');
+        $this->session->set_flashdata('sukses', 'Peminjaman barang ditolak');
+        redirect('pinjam_barang');
+    }
+
     function selesai($id, $idbarang)
     {
         //input data ke tabel riwayat

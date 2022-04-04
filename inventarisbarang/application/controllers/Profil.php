@@ -1,4 +1,4 @@
-<?php
+  <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
 class Profil extends CI_Controller
@@ -41,7 +41,8 @@ class Profil extends CI_Controller
 	}
 	function update()
 	{
-		$nip = $this->input->post('nip');
+		// $nip = $this->session->userdata('nip');
+		$nip = $this->Model_pegawai->get_nip($this->session->userdata('email'));
 		$password = $this->input->post('password');
 		$cpassword = $this->input->post('cpassword');
 		if ($password == $cpassword) {
@@ -51,12 +52,8 @@ class Profil extends CI_Controller
 			$where = array(
 				'nip'   => $nip,
 			);
-			if ($this->Model_profil->update_data($where, $data1, 'data_pegawai')) {
-				$this->session->set_flashdata('sukses', 'Password berhasil diperbaharui');
-				redirect('profil');
-			} else {
-				$this->session->set_flashdata('error');
-			}
+			$this->Model_profil->update_data($where, $data1, 'detail_role');
+			$this->Model_profil->update_data1($where, $data1, 'data_pegawai');
 			$this->session->set_flashdata('sukses', 'Password berhasil diperbaharui');
 			redirect('profil');
 		} else {

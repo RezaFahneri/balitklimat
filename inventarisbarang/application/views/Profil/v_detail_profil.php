@@ -15,8 +15,8 @@
                                             <div class="image-upload text-center">
                                                 <label for="file-input">
                                                     <img id="foto" style="position:absolute; z-index:2;border-radius:50%; height: 210px; width:200px" src="<?php echo base_url() ?>../asn/assets/images/foto/<?php echo $this->db->where('email', $this->session->userdata('email'))->get('data_pegawai')->row('foto') ?>" class="img-thumbnail" alt="profile">
-                                                    <img class="img-thumbnail" id="kamera" style="position:absolute;z-index:4;width:50px;height:50px; margin-left:140px;margin-top:155px" src="<?php echo base_url() ?>assets/images/kamera.png">
-                                                    <button class="text-center" title="Simpan perubahan edit profile" style="position:absolute;z-index:3;margin-left:140px;margin-top:155px" type="submit" id="but"><img class="text-center" style="width:35px;height:42px" src="<?php echo base_url() ?>assets/images/ceklis.png"></button>
+                                                    <!-- <img class="img-thumbnail" id="kamera" style="position:absolute;z-index:4;width:50px;height:50px; margin-left:140px;margin-top:155px" src="<?php echo base_url() ?>assets/images/kamera.png"> -->
+                                                    <!-- <button class="text-center" title="Simpan perubahan edit profile" style="position:absolute;z-index:3;margin-left:140px;margin-top:155px" type="submit" id="but"><img class="text-center" style="width:35px;height:42px" src="<?php echo base_url() ?>assets/images/ceklis.png"></button> -->
                                                     <input type="hidden" name="nip" class="form-control" value="<?php echo $update_foto['nip'] ?>" required>
                                                     <img class="img-thumbnail" id="foto_update" style="z-index:1; border-radius:50%; height: 210px; width:200px">
                                                 </label>

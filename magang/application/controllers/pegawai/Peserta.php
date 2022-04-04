@@ -1,6 +1,9 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+
 class Peserta extends CI_Controller
 {
     public function __construct()
@@ -524,41 +527,103 @@ class Peserta extends CI_Controller
     }
 
 
-    // public function test()
-    // {
-    //     $data['title_pdf'] = 'Laporan Penjualan Toko Kita';
-    //     $nama_file = 'laporan_penjualan_toko_kita';
-    //     $size = 'A4';
-    //     $orientation = "landscape";
-    //     $this->load->library('pdfgenerator');
-
-    //     $html = $this->load->view('laporan_pdf', $data, true);
-    //     $this->pdfgenerator->generate($html, $nama_file, $size, $orientation);
-    // }
-    // public function test()
-    // {
-    //     $data = [
-    //         'pembimbing_balai' => '196710081994032013',
-    //         'jns_magang' => 'Mahasiswa',
-    //     ];
-    //     var_dump($this->Model_pegawai->mhs_nip($data));
-    //     echo "<br>";
-    //     echo "INI ATAS ITU YANG PEMBIMBING BALAI MA MAHASISWA";
-    //     echo "<br>";
-    //     $data2 = [
-    //         'jns_magang' => 'Mahasiswa',
-    //     ];
-    //     var_dump($this->Model_pegawai->mhs_nip($data2));
-    //     echo "<br>";
-    //     echo "INI ATAS ITU YANG PEMBIMBING BALAI MA MAHASISWA";
-    //     echo "<br>";
-    //     $data3 = [
-    //         'pembimbing_balai' => '196710081994032013',
-    //     ];
-    //     var_dump($this->Model_pegawai->mhs_nip($data3));
-    //     echo "<br>";
-    //     // echo "INI ATAS ITU YANG PEMBIMBING BALAI MA MAHASISWA";
-    //     // echo "<br>";
-    //     // var_dump($this->Model_pegawai->mhs('2022-02-11', '2022-02-25', $data2));
-    // }
+    public function export_excel()
+    {
+        $data['user'] = $this->Model_admin->getuser();
+        $nip = $data['user']['nip'];
+        $data['nip'] = $data['user']['nip'];
+        $ket1 = 'data_pegawai.nip = peserta_magang.pembimbing_balai';
+        $ket = 'peserta_magang.pembimbing_balai';
+        $ket = ['pembimbing_balai' => $nip];
+        $peserta = $this->Model_admin->ajoin2('peserta_magang', 'data_pegawai', $ket1, $ket, $nip, 'inner', 'nama_pm', 'ASC')->result();
+        // $peserta = $this->Model_admin->getdet('peserta_magang', $ket)->result();
+        // var_dump($peserta);
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+        $sheet->setCellValue('A1', "No");
+        $sheet->setCellValue('B1', "ID Peserta");
+        $sheet->setCellValue('C1', "Nama Lengkap");
+        $sheet->setCellValue('D1', "Email");
+        $sheet->setCellValue('E1', "No Whatsapp");
+        $sheet->setCellValue('F1', "Jenis Magang");
+        $sheet->setCellValue('G1', "Asal Instansi");
+        $sheet->setCellValue('H1', "Jurusan Instansi");
+        $sheet->setCellValue('I1', "Pembimbing Instansi");
+        $sheet->setCellValue('J1', "No WA Pembimbing Instansi");
+        $sheet->setCellValue('K1', "Pembimbing Balai");
+        $sheet->setCellValue('L1', "Tanggal Mulai");
+        $sheet->setCellValue('M1', "Tanggal Selesai");
+        $no = 1;
+        $numrow = 2;
+        foreach ($peserta as  $pm) {
+            $sheet->setCellValue('A' . $numrow, $no);
+            $sheet->setCellValue('B' . $numrow,  $pm->id_pm);
+            $sheet->setCellValue('C' . $numrow,  $pm->nama_pm);
+            $sheet->setCellValue('D' . $numrow,  $pm->email_pm);
+            $sheet->setCellValue('E' . $numrow,  $pm->no_wa_pm);
+            $sheet->setCellValue('F' . $numrow,  $pm->jns_magang);
+            $sheet->setCellValue('G' . $numrow,  $pm->asal_instansi_pm);
+            $sheet->setCellValue('H' . $numrow,  $pm->jurusan_pm);
+            $sheet->setCellValue('I' . $numrow,  $pm->pi_pm);
+            $sheet->setCellValue('J' . $numrow,  $pm->no_wa_pi_pm);
+            $sheet->setCellValue('K' . $numrow,  $pm->nama_pegawai);
+            $sheet->setCellValue('L' . $numrow,  $pm->tgl_mli_pm);
+            $sheet->setCellValue('M' . $numrow,  $pm->tgl_sls_pm);
+            $no++;
+            $numrow++;
+        }
+        $sheet->getPageSetup()->setOrientation(\PhpOffice\PhpSpreadsheet\Worksheet\PageSetup::ORIENTATION_LANDSCAPE);
+        $sheet->setTitle("Data Peserta Magang Balitklimat");
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        header('Content-Disposition: attachment; filename="Data Peserta Magang Balitklimat.xlsx"');
+        header('Cache-Control: max-age=0');
+        $writer = new Xlsx($spreadsheet);
+        $writer->save('php://output');
+    }
+    public function export_excel2()
+    {
+        $ket1 = 'data_pegawai.nip = peserta_magang.pembimbing_balai';
+        $peserta = $this->Model_admin->bjoin2('peserta_magang', 'data_pegawai', $ket1, 'inner', 'nama_pm', 'ASC')->result();
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+        $sheet->setCellValue('A1', "No");
+        $sheet->setCellValue('B1', "ID Peserta");
+        $sheet->setCellValue('C1', "Nama Lengkap");
+        $sheet->setCellValue('D1', "Email");
+        $sheet->setCellValue('E1', "No Whatsapp");
+        $sheet->setCellValue('F1', "Jenis Magang");
+        $sheet->setCellValue('G1', "Asal Instansi");
+        $sheet->setCellValue('H1', "Jurusan Instansi");
+        $sheet->setCellValue('I1', "Pembimbing Instansi");
+        $sheet->setCellValue('J1', "No WA Pembimbing Instansi");
+        $sheet->setCellValue('K1', "Pembimbing Balai");
+        $sheet->setCellValue('L1', "Tanggal Mulai");
+        $sheet->setCellValue('M1', "Tanggal Selesai");
+        $no = 1;
+        $numrow = 2;
+        foreach ($peserta as  $pm) {
+            $sheet->setCellValue('A' . $numrow, $no);
+            $sheet->setCellValue('B' . $numrow,  $pm->id_pm);
+            $sheet->setCellValue('C' . $numrow,  $pm->nama_pm);
+            $sheet->setCellValue('D' . $numrow,  $pm->email_pm);
+            $sheet->setCellValue('E' . $numrow,  $pm->no_wa_pm);
+            $sheet->setCellValue('F' . $numrow,  $pm->jns_magang);
+            $sheet->setCellValue('G' . $numrow,  $pm->asal_instansi_pm);
+            $sheet->setCellValue('H' . $numrow,  $pm->jurusan_pm);
+            $sheet->setCellValue('I' . $numrow,  $pm->pi_pm);
+            $sheet->setCellValue('J' . $numrow,  $pm->no_wa_pi_pm);
+            $sheet->setCellValue('K' . $numrow,  $pm->nama_pegawai);
+            $sheet->setCellValue('L' . $numrow,  $pm->tgl_mli_pm);
+            $sheet->setCellValue('M' . $numrow,  $pm->tgl_sls_pm);
+            $no++;
+            $numrow++;
+        }
+        $sheet->getPageSetup()->setOrientation(\PhpOffice\PhpSpreadsheet\Worksheet\PageSetup::ORIENTATION_LANDSCAPE);
+        $sheet->setTitle("Data Peserta Magang Balitklimat");
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        header('Content-Disposition: attachment; filename="Data Peserta Magang Balitklimat.xlsx"');
+        header('Cache-Control: max-age=0');
+        $writer = new Xlsx($spreadsheet);
+        $writer->save('php://output');
+    }
 }

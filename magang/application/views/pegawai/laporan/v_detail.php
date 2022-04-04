@@ -25,7 +25,17 @@
                         </div>
                         <?php
                         if ($jns == "1") { ?>
-                            <button title="Tambah review" onclick="addrev()" class="btn btn-sm btn-primary float-right mb-3"><i class="ti ti-plus"></i> Review</button>
+                            <?php
+                            if ($detail->review_lap) { ?>
+                                <button title="Ubah review" class="btn btn-sm btn-info float-right mb-3" data-toggle="modal" data-target="#exampleModalLong<?= $detail->id_lap_ming ?>">
+                                    <i class="ti ti-pencil"></i>Review
+                                </button>
+                            <?php } else { ?>
+                                <button title="Tambah review" class="btn btn-sm btn-primary float-right mb-3" data-toggle="modal" data-target="#exampleModalLong<?= $detail->id_lap_ming ?>">
+                                    <i class="ti ti-plus"></i>Review
+                                </button>
+                            <?php } ?>
+                            <!-- <button title="Tambah review" onclick="addrev()" class="btn btn-sm btn-primary float-right mb-3"><i class="ti ti-plus"></i> Review</button> -->
                         <?php } ?>
                         <div class="table-responsive">
                             <div class="px-3 mt-3">
@@ -77,6 +87,7 @@
                             <?php
                             if ($detail->review_lap) { ?>
                                 <h5 class="font-weight-bold mt-3 text-primary">Review</h5>
+                                <a title="Hapus review" onclick="return confirm('Apakah anda yakin untuk menghapus review?')" href="<?= base_url('pegawai/laporan/hapus/' . $detail->id_lap_ming) ?>" class="btn btn-sm btn-danger float-right"><i class="ti ti-trash"></i></a>
                                 <div class="com-text">
                                     <p style="text-align: justify;"><?= nl2br($detail->review_lap); ?></p>
                                 </div>
@@ -117,6 +128,32 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="exampleModalLong<?= $detail->id_lap_ming ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Review | <?= $detail->id_lap_ming ?></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="POST" action="<?= base_url('pegawai/laporan/re_view/' . $detail->id_lap_ming) ?>">
+                    <textarea class="form-control" id="isirev" name="isirev" rows="8"><?= $detail->review_lap; ?></textarea>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light" data-dismiss="modal">Kembali</button>
+                <?php
+                if ($detail->review_lap) { ?>
+                    <button type="submit" class="btn btn-info">Ubah</button>
+                <?php } else { ?>
+                    <button type="submit" class="btn btn-primary">Tambah</button>
+                <?php } ?>
+            </div>
+            </form>
         </div>
     </div>
 </div>

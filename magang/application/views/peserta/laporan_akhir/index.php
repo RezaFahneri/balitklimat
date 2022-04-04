@@ -17,7 +17,7 @@
                         </div>
                         <?= $this->session->flashdata('message'); ?>
                         <div class="mt-4">
-                            <h6 class="font-weight-light" style="color: red;">Apabila sudah menyelesaikan tugas, maka bisa menambahakan Laporan Akhir dari kegiatan magang yang sudah dikerjakan. <br>- Hanya bisa menambahkan satu kali laporan akhir.<br>- Setelah menambahkan laporan akhir, maka akan mendapatkan sertifikat melalui Email.</h6>
+                            <h6 class="font-weight-light" style="color: red;">Apabila sudah menyelesaikan tugas, maka bisa menambahakan Laporan Akhir dari kegiatan magang yang sudah dikerjakan. <br>- Hanya bisa menambahkan satu kali laporan akhir.<br>- Setelah menambahkan laporan akhir, maka akan mendapatkan sertifikat melalui Email. <br>- Apabila belum sempat untuk menambahkan laporan akhir selama masa magang berlangsung, bisa menambahkan dengan cara mengakses sistem.</h6>
                             <?php
                             if ($detail) { ?>
                                 <div class="mb-3">

@@ -56,7 +56,8 @@ class Profil extends CI_Controller
         $ket = ['id_pm' => $id_pm];
         $getdetail = $this->Model_peserta->getdet('peserta_magang', $ket)->row();
         $data['detail'] = $getdetail;
-        $pegawai = $this->Model_peserta->getall('data_pegawai')->result();
+        $keta = 'data_divisi.id_divisi = data_pegawai.id_divisi';
+        $pegawai = $this->Model_daftar->join2where('data_pegawai', 'data_divisi', $keta, 'inner', 'nama_pegawai', 'ASC')->result();
         $data['pegawai'] = $pegawai;
         $this->load->view('templates/header', $data);
         $this->load->view('templates/navbar', $data);
@@ -132,8 +133,55 @@ class Profil extends CI_Controller
         redirect('peserta/profil');
     }
 
-    public function blok()
+    public function edit_akun($id_pm)
     {
-        echo "blok";
+        $data['title'] = 'Peserta | Edit Akun';
+        $ket = ['id_pm' => $id_pm];
+        $getdetail = $this->Model_peserta->getdet('peserta_magang', $ket)->row();
+        $data['detail'] = $getdetail;
+        $this->form_validation->set_rules('ks', 'Kata Sandi Lama', 'required');
+        $this->form_validation->set_rules('ks2', 'Kata Sandi Baru', 'required|trim|min_length[8]|matches[ks3]');
+        $this->form_validation->set_rules('ks3', 'Ulang Kata Sandi Baru', 'required|trim|matches[ks2]');
+        if ($this->form_validation->run() == false) { //kl form validasi gagal
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/navbar', $data);
+            $this->load->view('templates/sidebar');
+            $this->load->view('peserta/profil/v_edit_akun', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $this->_simpanakun();
+        }
+    }
+
+    private function _simpanakun()
+    {
+        $id_pm = $this->input->post('id_pm');
+        $ket = ['id_pm' => $id_pm];
+        $getdetail = $this->Model_peserta->getdet('peserta_magang', $ket)->row();
+        $ks = $this->input->post('ks');
+        if (password_verify($ks, $getdetail->kata_sandi_pm)) {
+            if ($ks == $this->input->post('ks2')) {
+                $this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible fade show" role="alert"> Kata sandi baru tidak boleh sama dengan kata sandi lama <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button> </div>');
+                redirect('peserta/profil/edit_akun/' . $id_pm);
+            } else {
+                $data = [
+                    'kata_sandi_pm' => password_hash($this->input->post('ks2'), PASSWORD_DEFAULT),
+                ];
+                $this->Model_peserta->updata('peserta_magang', $data, $ket);
+                //$this->Model_peserta->updata('laporan_mingguan', $data, $ket);
+                $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show" role="alert"> Kata sandi berhasil diubah! <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button> </div>');
+                redirect('peserta/profil');
+            }
+        } else {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible fade show" role="alert"> Kata sandi lama salah <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button> </div>');
+            redirect('peserta/profil/edit_akun/' . $id_pm);
+        }
+        // var_dump($getdetail, $this->input->post('ks'), $this->input->post('ks2'), $this->input->post('ks3'));
     }
 }

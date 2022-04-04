@@ -57,7 +57,7 @@
                                                 <td><b>Status</b></td>
                                                 <td colspan="2">
                                                     <?php if ($detail->status == '1') { ?>
-                                                        <input type="text" class="form-control" value="<?php echo "Menunggu Verivikasi" ?>" disabled>
+                                                        <input type="text" class="form-control" value="<?php echo "Menunggu Verifikasi" ?>" disabled>
                                                     <?php } else { ?>
                                                         <input type="text" class="form-control" value="<?php echo "Dipinjam" ?>" disabled>
                                                     <?php } ?>

@@ -56,7 +56,7 @@
                   <div class="form-group col-md-6">
                     <label>
                       <h6 class="font-weight-bold">Email<i style="color:red">*</i></h6>
-                      <h6 class="font-weight-light">Akan digunakan untuk mengakses sistem</h6>
+                      <h6 class="font-weight-light">Untuk aktivasi akun dan akses sistem | Menggunakan @gmail</h6>
                     </label>
                     <input type="text" class="form-control form-control-user" id="email" name="email" value="<?= set_value('email'); ?>">
                     <?= form_error('email', '<small class="text-danger">', '</small>'); ?>
@@ -97,6 +97,7 @@
                   </div>
                   <div class="form-group col-md-6" id="test" name="test" hidden="true">
                     <label>
+                      <h6 class="font-weight-light" style="color: white;">.</h6>
                       <h6 class="font-weight-bold">Pembimbing Instansi/Universitas/Sekolah<i style="color:red">*</i></h6>
                     </label>
                     <input type="text" class="form-control form-control-user" id="pi" name="pi" value="<?= set_value('pi'); ?>">
@@ -105,6 +106,7 @@
                   <div class="form-group col-md-6" id="test1" name="test1" hidden="true">
                     <label>
                       <h6 class="font-weight-bold">Nomor Whatsapp Pembimbing Instansi/Universitas/Sekolah<i style="color:red">*</i></h6>
+                      <h6 class="font-weight-light">Contoh: 0857123456789 (Tanpa spasi, tanda hubung ('-'), tanda tambah ('+') dll)</h6>
                     </label>
                     <input type="int" class="form-control form-control-user" id="nowapi" name="nowapi" value="<?= set_value('nowapi'); ?>">
                     <?= form_error('nowapi', '<small class="text-danger">', '</small>'); ?>
@@ -204,10 +206,10 @@
                           <tr style="text-align: center;">
                             <th>No.</th>
                             <th>Tanggal</th>
-                            <th>Waktu</th>
-                            <th>Nama</th>
-                            <th>Asal Instansi</th>
-                            <th>Keperluan</th>
+                            <th>Jenis Magang</th>
+                            <th>Judul</th>
+                            <th>Pembimbing</th>
+                            <th>Dokumen</th>
                             <th class="no-sort">Aksi</th>
                           </tr>
                         </thead>

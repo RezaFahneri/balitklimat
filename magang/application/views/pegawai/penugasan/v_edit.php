@@ -11,7 +11,6 @@
                             <h3 class="font-weight-bold mb-10">Edit penugasan</h3>
                         </div>
                         <?= $this->session->flashdata('message'); ?>
-                        <label for="doktgs" style="color: red;">*Apabila melakukan perubahan penugasan, maka hasil penugasan sebelumya akan hilang</label>
                         <?= form_open_multipart('pegawai/penugasan/simpan', 'class="mt-4"'); ?>
                         <div class="form-group">
                             <div class="form-group">
@@ -26,7 +25,7 @@
                                     }
                                     ?>
                                     <?php foreach ($peserta as $pm) { ?>
-                                        <option value="<?= $pm->id_pm; ?>" <?= in_array($pm->id_pm, $datapeserta) ? 'selected' : '' ?>><?= $pm->nama_pm; ?></option>';
+                                        <option disabled value="<?= $pm->id_pm; ?>" <?= in_array($pm->id_pm, $datapeserta) ? 'selected' : '' ?>><?= $pm->nama_pm; ?></option>';
                                     <?php } ?>
                                 </select>
                                 <?php echo form_error('pm', '<small class="text-danger">', '</small>'); ?>

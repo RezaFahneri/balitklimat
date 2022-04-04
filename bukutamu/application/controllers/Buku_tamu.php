@@ -14,10 +14,10 @@ class Buku_tamu extends CI_Controller
         if ($this->session->userdata('email')) {
             $jenis = $this->session->userdata('jenis');
 
-            if ($jenis == 'pegawai') {
-                redirect('pegawai');
-            } elseif ($jenis == 'admin') {
-                redirect('admin');
+            if ($jenis == 'pegbt') {
+                redirect('pegawai/bukutamu_a');
+            } elseif ($jenis == 'adminbt') {
+                redirect('admin/bukutamu_a');
             }
         }
         $this->form_validation->set_rules('jenis', 'Jenis Tamu', 'required');
@@ -30,14 +30,14 @@ class Buku_tamu extends CI_Controller
         $this->form_validation->set_rules('id_divisi', 'Divisi', 'required');
         $this->form_validation->set_rules('kep', 'Keperluan', 'required');
 
-        $divisi = $this->Model_buku_tamu->get_data('data_divisi');
+        $divisi = $this->Model_buku_tamu->getspecdataa('data_divisi');
         $keta = 'data_divisi.id_divisi = data_pegawai.id_divisi';
         $pegawai = $this->Model_buku_tamu->joinpegdiv('data_pegawai', 'data_divisi', $keta, 'inner', 'nama_pegawai', 'ASC')->result();
-        $ketc = ['jabatan' => 'Plt. Kepala Balai'];
-        $namakepbalai = $this->Model_buku_tamu->getdetail('data_jabatan', $ketc);
-        $ketb = 'data_jabatan.id_jabatan = data_pegawai.id_jabatan';
-        $where = 'data_pegawai.id_jabatan';
-        $kepalabalai = $this->Model_buku_tamu->join2where('data_pegawai', 'data_jabatan', $ketb, $where, $namakepbalai->id_jabatan, 'inner')->row();
+        //v$ketc = ['jabatan' => 'Plt. Kepala Balai'];
+        //v$namakepbalai = $this->Model_buku_tamu->getdetail('data_jabatan', $ketc);
+        //v$ketb = 'data_jabatan.id_jabatan = data_pegawai.id_jabatan';
+        //v$where = 'data_pegawai.id_jabatan';
+        //v $kepalabalai = $this->Model_buku_tamu->join2where('data_pegawai', 'data_jabatan', $ketb, $where, $namakepbalai->id_jabatan, 'inner')->row();
 
         // $keperluan = $this->Model_buku_tamu->get_data('bt_keperluan');
         // $alasan = $this->Model_buku_tamu->get_data('bt_alasan');
@@ -45,8 +45,7 @@ class Buku_tamu extends CI_Controller
             $data['title'] = "Buku Tamu Balitklimat";
             $data['divisi'] = $divisi;
             $data['pegawai'] = $pegawai;
-            $data['kepalabalai'] = $kepalabalai;
-            // var_dump($kepalabalai);
+            //v $data['kepalabalai'] = $kepalabalai;
             // $data['keperluan'] = $keperluan;
             // $data['alasan'] = $alasan;
             $this->load->view('templates/header', $data);

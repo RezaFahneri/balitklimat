@@ -117,7 +117,7 @@
                             <select class="js-example-basic-single w-100" id="pb" name="pb">
                                 <option value="" selected disabled> --Pilih Pembimbing--</option>
                                 <?php foreach ($pegawai as $peg) : ?>
-                                    <option <?= $detail->pembimbing_balai == $peg->nip ? 'selected' : ''; ?> value="<?= $peg->nip ?>"><?= $peg->nama_pegawai ?></option>
+                                    <option <?= $detail->pembimbing_balai == $peg->nip ? 'selected' : ''; ?> value="<?= $peg->nip ?>"><?= $peg->divisi ?> | <?= $peg->nama_pegawai ?></option>
                                 <?php endforeach; ?>
                                 <!-- <?php foreach ($pegawai as $peg) { ?>
                                     <option value="<?= $peg->nip; ?>"><?= $peg->nama_pegawai; ?></option>';

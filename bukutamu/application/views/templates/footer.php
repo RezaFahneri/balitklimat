@@ -79,6 +79,23 @@
                 orderable: false
             }]
         });
+        $('#peg_bukutamu td').css('white-space', 'initial');
+        $('#adm_peg').DataTable({
+            lengthMenu: [25, 50, 75, 100],
+            columnDefs: [{
+                targets: 'no-sort',
+                orderable: false
+            }]
+        });
+        $('#adm_peg td').css('white-space', 'initial');
+        $('#adm_pes').DataTable({
+            lengthMenu: [25, 50, 75, 100],
+            columnDefs: [{
+                targets: 'no-sort',
+                orderable: false
+            }]
+        });
+        $('#adm_pes td').css('white-space', 'initial');
         $('#peg_bukutamu_b').DataTable({
             lengthMenu: [25, 50, 75, 100],
             columnDefs: [{
@@ -86,13 +103,15 @@
                 orderable: false
             }]
         });
-        $('#peg_laporan').DataTable({
+        $('#peg_bukutamu_b td').css('white-space', 'initial');
+        $('#adm_bukutamu').DataTable({
             lengthMenu: [25, 50, 75, 100],
             columnDefs: [{
                 targets: 'no-sort',
                 orderable: false
             }]
         });
+        $('#adm_bukutamu td').css('white-space', 'initial');
         $('#peg_laporan2').DataTable({
             lengthMenu: [25, 50, 75, 100],
             columnDefs: [{

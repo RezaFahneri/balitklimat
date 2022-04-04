@@ -13,6 +13,7 @@
                 <div class="col-lg-12 mx-auto">
                     <div class="auth-form-light text-left py-2 px-4 px-sm-4 mt-5">
                         <h3 class="font-weight-bold mb-10">Tambah Laporan Akhir</h3>
+                        <h6 class="font-weight-light" style="color: red;">- Hanya bisa menambahkan satu kali laporan akhir.<br>- Setelah menambahkan laporan akhir, maka akan mendapatkan sertifikat melalui Email.</h6>
                         <?= $this->session->flashdata('message'); ?>
                         <?= form_open_multipart('tambah_lap_akhir/simpan', 'class="mt-4"'); ?>
                         <div class="form-group">

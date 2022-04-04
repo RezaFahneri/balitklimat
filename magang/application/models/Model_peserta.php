@@ -73,6 +73,7 @@ class Model_peserta extends CI_model
         return $query;
     }
 
+
     public function getdet($table, $ket, $field = NULL, $urtn = NULL)
     {
         if ($field == NULL and $urtn == NULL) {
@@ -85,7 +86,6 @@ class Model_peserta extends CI_model
         }
         return $query;
     }
-
     public function ajoin2($table, $table2, $ktabel21, $ket, $param, $jns, $field = NULL, $urtn = NULL)
     {
         if ($field == NULL or $urtn == NULL) {
@@ -113,6 +113,19 @@ class Model_peserta extends CI_model
         $this->db->join($table2, $ktabel21, $jns);
         $this->db->where($ket, $param);
         $this->db->where($ket2, $param2);
+        $query = $this->db->get();
+        return $query;
+    }
+
+    public function join2where($table, $table2, $ktabel21, $jns, $field, $urtn)
+    {
+
+        $this->db->select('*');
+        $this->db->from($table);
+        $this->db->join($table2, $ktabel21, $jns);
+        $this->db->order_by('divisi', 'ASC');
+        $this->db->order_by($field, $urtn);
+        $this->db->where('divisi !=', 'Tidak Ada');
         $query = $this->db->get();
         return $query;
     }

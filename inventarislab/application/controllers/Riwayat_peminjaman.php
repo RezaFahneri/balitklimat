@@ -10,9 +10,9 @@ class Riwayat_peminjaman extends CI_Controller
         $this->load->helper('url', 'array', 'fungsi');
         $this->load->library('form_validation', 'upload');
         $this->load->library('session');
-        if ($this->session->userdata('logged_in') == false) {
-			redirect('login');
-		}
+        // if ($this->session->userdata('logged_in') == false) {
+		// 	redirect('login');
+		// }
     }
 
     function index()
@@ -31,5 +31,34 @@ class Riwayat_peminjaman extends CI_Controller
         $this->load->view('template/template', $data);
         $this->load->view('peminjaman/v_detail_riwayat', $data);
         $this->load->view('template/footer');
+    }
+
+    public function pdf($id)
+    {
+
+        // Ambil Data
+        $data['detail'] = $this->Model_riwayat->detail_data($id);
+        $this->load->view('Pdf/v_buktipengembalian', $data);
+
+        // panggil library yang kita buat sebelumnya yang bernama pdfgenerator
+        $this->load->library('pdf');
+        
+        // title dari pdf
+        $this->data['title_pdf'] = 'Bukti Pengembalian Alat';
+        
+        // filename dari pdf ketika didownload
+        $file_pdf = 'bukti_pengembalian_alat';
+
+        // setting paper
+        $paper = 'A4';
+
+        //orientasi paper potrait / landscape
+        $orientation = "portrait";
+        
+		// $html=$this->load->view('pdf/v_buktipinjam', $this->data, true);	   
+        $html = $this->output->get_output(); 
+        
+        // run dompdf
+        $this->pdf->generate($html, $file_pdf,$paper,$orientation);
     }
 }

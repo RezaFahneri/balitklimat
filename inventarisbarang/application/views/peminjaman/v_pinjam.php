@@ -48,6 +48,8 @@
                                                                 <?php if ($dp->status == '1') { ?>
                                                                     <td>
                                                                         <a id="dipinjamkan1" class="btn btn-outline-warning btn-md" href="<?php echo site_url('pinjam_barang/dipinjamkan/' . $dp->id_pinjam) ?>">Verifikasi</a>
+                                                                        <hr style="width:60%;text-align:left;margin-left:0">
+                                                                        <a id="ditolak" class="btn btn-outline-danger btn-md" href="<?php echo site_url('pinjam_barang/tolak/' . $dp->id_pinjam . '/' . $dp->id_barang) ?>">Tolak</a>
                                                                     </td>
                                                                 <?php } else { ?>
                                                                     <td height="40px">

@@ -25,6 +25,11 @@ class Model_pinjam extends CI_model
 		$query = $this->db->get_where('pinjam_alat', array('id_pinjam' => $id)) ->row();
 		return $query;
 	}
+	function detail_datapdf($id){
+		$this->db->join('stok_alat', 'stok_alat.idalat = pinjam_alat.idalat');
+		$query = $this->db->get_where('pinjam_alat', array('id_pinjam' => $id)) ->row();
+		return $query;
+	}
 
 	function input_data($data,$table){
 		$this->db->insert($table,$data);

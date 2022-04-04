@@ -20,6 +20,7 @@ class Penugasan extends CI_Controller
         $ket1 = 'peserta_magang.id_pm = detail_penugasan.id_pm';
         $detailtgs = $this->Model_pegawai->bjoin2('detail_penugasan', 'peserta_magang', $ket1, 'inner', 'nama_pm', 'ASC')->result();
         $data['detailtgs'] = $detailtgs;
+        $data['peserta'] = $this->Model_pegawai->getdet('peserta_magang', $ket, 'nama_pm', 'ASC')->result();
         // var_dump($detailtgs);
         $this->load->view('templates/header', $data);
         $this->load->view('templates/navbar', $data);
@@ -186,51 +187,25 @@ class Penugasan extends CI_Controller
         } else {
             $dok_tgs = $getdetail->dok_tugas;
         }
-        $jmlh = count($this->input->post('pm'));
         $data = [
             'isi_tugas' => $this->input->post('isitgs'),
-            'jumlah_pm' => $jmlh,
             'tgl_pengumpulan' => date('Y-m-d', strtotime($this->input->post('tgltgs'))),
             'dok_tugas' => $dok_tgs,
         ];
-        // var_dump($data);
-        $file = $this->Model_pegawai->getdet('detail_penugasan', $ket)->result_array();
-        $count = count($file);
-        // var_dump($file);
-        for ($i = 0; $i < $count; $i++) {
-            // if ($file->id_tugas[$i]) {
-            $filelama = $file[$i];
-            $files = $filelama['dok_hasil_tugas'];
-            if ($files !== NULL) {
-                // var_dump($files);
-                unlink(FCPATH . '/assets/dokumen/hasil_tugas/' . $files);
-            }
-        }
-        $this->Model_pegawai->hapus('detail_penugasan', $ket);
         $this->Model_pegawai->updata('tugas', $data, $ket);
-        //kalau ngedit tugas, yg di peserta bakal kereset hasilnya.
-
-        $no = 1;
-        for ($x = 0; $x < $jmlh; $x++) {
-            $iddettugas = 'D' . $id_tugas . $no++;
-            $data1[$x] = [
-                'id_det_tugas' =>  $iddettugas,
-                'id_tugas' => $id_tugas,
-                'id_pm' => $this->input->post('pm[' . $x . ']'),
-                'status' => 'Berlangsung'
-            ];
-            $datanp[$x] = [
+        $dettgs = $this->Model_pegawai->getdet('detail_penugasan', $ket)->result_array();
+        $count = count($dettgs);
+        for ($i = 0; $i < $count; $i++) {
+            $iddettgs = $dettgs[$i];
+            $iddettgss = $iddettgs['id_det_tugas'];
+            $datanp[$i] = [
                 'id_np' => $this->Model_pegawai->idnp(),
                 'tgl_notif' => mdate('%Y-%m-%d'),
                 'jenis' => 'UTugas',
-                'id_aksi' => $iddettugas,
-                // 'id_pm' => $this->input->post('pm[' . $x . ']'),
+                'id_aksi' => $iddettgss,
                 'status_np' => 'sent',
             ];
-            // var_dump($iddettugas);
-            // var_dump($data1[$x]);
-            $this->Model_pegawai->insert('detail_penugasan', $data1[$x]);
-            $this->Model_pegawai->insert('notif_peserta', $datanp[$x]);
+            $this->Model_pegawai->insert('notif_peserta', $datanp[$i]);
         }
 
         $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show" role="alert"> Penugasan berhasil diubah! <button type="button" class="close" data-dismiss="alert" aria-label="Close">

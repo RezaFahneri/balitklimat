@@ -42,14 +42,14 @@
               <label>
                 <h6 class="font-weight-bold">Tanggal<i style="color:red">*</i></h6>
               </label>
-              <input type="date" class="form-control form-control-user" id="tgl" name="tgl" value="<?= set_value('tgl'); ?>">
+              <input type="date" class="form-control form-control-user" id="tgl" name="tgl" value="<?= date('Y-m-d'); ?>">
               <?= form_error('tgl', '<small class="text-danger">', '</small>'); ?>
             </div>
             <div class="form-group col-md-6">
               <label>
                 <h6 class="font-weight-bold">Waktu<i style="color:red">*</i></h6>
               </label>
-              <input type="time" class="form-control form-control-user" id="waktu" name="waktu" value="<?= set_value('waktu'); ?>">
+              <input type="time" class="form-control form-control-user" id="waktu" name="waktu" value="<?= date('H:i:s'); ?>">
               <?= form_error('waktu', '<small class="text-danger">', '</small>'); ?>
             </div>
             <div class="form-group col-12">
@@ -89,7 +89,6 @@
                 <?php foreach ($divisi as $div) { ?>
                   <option value="<?= $div->id_divisi; ?>"><?= $div->divisi; ?></option>';
                 <?php } ?>
-                <option value="<?= $kepalabalai->nip; ?>">Plt. Kepala Balai | <?= $kepalabalai->nama_pegawai; ?></option>';
               </select>
               <?= form_error('divisi', '<small class="text-danger">', '</small>'); ?>
             </div>
