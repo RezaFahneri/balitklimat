@@ -206,20 +206,6 @@ class Data_Pegawai extends CI_Controller
         $where = array(
             'nip'   => $nip,
         );
-<<<<<<< HEAD
-=======
-        if ($this->Model_pegawai->EmailCheck($email) == true) {
-
-            $this->Model_pegawai->input_data($data1, 'data_pegawai');
-            $this->Model_pegawai->input_data($data2, 'status_perjalanan');
-            $this->Model_pegawai->input_data($data3, 'detail_role');
-            $this->session->set_flashdata('sukses', 'Data pegawai berhasil ditambahkan');
-            redirect('data_pegawai');
-        } else {
-            $this->session->set_flashdata('error', 'Email sudah digunakan, gunakan email lain');
-            redirect('data_pegawai/tambah');
-        }
->>>>>>> 238ddeba2c0b5f24abd73055e58c6b312d3baea5
         $this->load->Model('Model_pegawai');
         $this->Model_pegawai->update_data($where, $data1, 'data_pegawai');
         $this->Model_pegawai->update_data2($where, $data2, 'status_perjalanan');

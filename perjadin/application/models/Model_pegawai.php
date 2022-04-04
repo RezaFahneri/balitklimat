@@ -110,6 +110,7 @@ class Model_pegawai extends CI_model
 	}
 	public function getListPj()
 	{
+		$this->db->distinct();
 		$this->db->select('*');
 		$this->db->from('detail_tugas');
 		$this->db->join('data_pegawai', 'data_pegawai.nip=detail_tugas.nip');
@@ -120,6 +121,7 @@ class Model_pegawai extends CI_model
 	}
 	public function getListKKK()
 	{
+		$this->db->distinct();
 		$this->db->select('*');
 		$this->db->from('detail_tugas');
 		$this->db->join('data_pegawai', 'data_pegawai.nip=detail_tugas.nip');

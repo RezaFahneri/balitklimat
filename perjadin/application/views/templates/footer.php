@@ -1,7 +1,7 @@
 </body>
 <footer class="footer">
     <div class="d-sm-flex text-center">
-        <span class="text-muted text-center d-block d-sm-inline-block">Copyright ©️ 2021. All rights reserved.</span>
+        <span class="text-muted text-center d-block d-sm-inline-block">Copyright ©️ 2022. Sistem Informasi Perjalanan Dinas Balitklimat .</span>
     </div>
 
     <!-- partial -->

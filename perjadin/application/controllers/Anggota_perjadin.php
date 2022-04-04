@@ -200,13 +200,6 @@ class Anggota_perjadin extends CI_Controller
         // $this->session->set_flashdata('sukses','Data anggota perjalanan dinas berhasil diperbarui');
         // redirect('perjalanan_dinas');
     }
-    public function generateID()
-    {
-        $query = $this->db->order_by('no_sppd', 'DESC')->limit(1)->get('data_anggota_perjadin')->row('no_sppd');
-        $lastNo = (int) substr($query, 0);
-        $next = $lastNo + 1;
-        return ($next);
-    }
     function hapus($id_anggota_perjadin, $kode_mak, $kode_kegiatan)
     {
         $anggaran = $this->db->where('kode_mak', $kode_mak)->get('data_mak')->row('banyak_anggaran');
