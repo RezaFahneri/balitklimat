@@ -7,110 +7,146 @@
                         <h3 class="m-0 font-weight-bold text-primary">
                             <h3 class="m-0 font-weight-bold text-primary"><a title="Kembali"
                                     class="btn btn-sm btn-secondary" style="border-radius:90px; color:white"
-                                    href="<?php echo site_url('jadwal_kp') ?>"><i class="ti ti-arrow-left"
+                                    href="<?php echo site_url(
+                                        'jadwal_kp'
+                                    ); ?>"><i class="ti ti-arrow-left"
                                         style="border-radius:8px"></i></a>&nbsp Edit Jadwal Kenaikan Pangkat</h3><br>
                             <div class="col-md-12 grid-margin">
                                 <div class="card-body">
                                     <?php foreach ($update_jadwalkp as $up) { ?>
-                                    <form method="POST" action="<?php echo base_url() ?>jadwal_kp/update">
+                                    <form method="POST" action="<?php echo base_url(); ?>jadwal_kp/update">
                                         <tr>
                                             <td>
                                                 <div class="form-group">
                                                     <input readonly type="hidden" name="kode_kp"
-                                                        value="<?php echo $up->kode_kp;?>" class="form-control"
+                                                        value="<?php echo $up->kode_kp; ?>" class="form-control"
                                                         required>
-                                                    <?php echo form_error('kode_kp', '<div class="text-small text-danger"></div>') ?>
+                                                    <?php echo form_error(
+                                                        'kode_kp',
+                                                        '<div class="text-small text-danger"></div>'
+                                                    ); ?>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="nip"><b>Nama Pegawai</b></label></br>
-                                                    <?php $nip1 = $up->nip ?>
+                                                    <?php $nip1 = $up->nip; ?>
                                                     <select name="nip" id="nip" class="form-control" disabled="true"
                                                         required>
                                                         <option value=""></option>
-                                                        <?php foreach($nip as $row){?>
+                                                        <?php foreach (
+                                                            $nip
+                                                            as $row
+                                                        ) { ?>
                                                         <option
-                                                            <?php if($nip1==$row->nip){echo 'selected="selected"';} ?>
-                                                            value="<?php echo $row->nip;?>">
-                                                            <?php echo $row->nip. " | ".$row->nama_pegawai ;?></option>
+                                                            <?php if (
+                                                                $nip1 ==
+                                                                $row->nip
+                                                            ) {
+                                                                echo 'selected="selected"';
+                                                            } ?>
+                                                            value="<?php echo $row->nip; ?>">
+                                                            <?php echo $row->nip .
+                                                                ' | ' .
+                                                                $row->nama_pegawai; ?></option>
                                                         ';
                                                         }
-                                                        <?php }?>
+                                                        <?php } ?>
                                                     </select>
                                                 </div>
                                                 <div class="form-group">
                                                     <label><b>Golongan Sekarang</b></label>
                                                     <input type="text" name="golongan" id="golongan"
-                                                        value="<?php echo $up->golongan;?>" class="form-control"
+                                                        value="<?php echo $up->golongan; ?>" class="form-control"
                                                         readonly>
                                                 </div>
                                                 <div class="form-group">
-                                                    <?php $id_golongan1 = $up->id_golongan_berikutnya ?>
-                                                    <label><b>Golongan Berikutnya</b></label></br>
+                                                    <?php $id_golongan1 =
+                                                        $up->id_golongan_berikutnya; ?>
+                                                    <label><b>Golongan Berikutnya<a style="color:red"> *</a></b></label></br>
                                                     <select style="color:dimgray" name="id_golongan_berikutnya"
                                                         id="id_golongan_berikutnya" class="form-control" required>
                                                         <option value="">--Pilih Golongan--</option>
-                                                        <?php foreach($id_golongan as $row){?>
+                                                        <?php foreach (
+                                                            $id_golongan
+                                                            as $row
+                                                        ) { ?>
                                                         <option
-                                                            <?php if($id_golongan1==$row->id_golongan){echo 'selected="selected"';} ?>
-                                                            value="<?php echo $row->id_golongan;?>">
-                                                            <?php echo $row->golongan;?></option>';
+                                                            <?php if (
+                                                                $id_golongan1 ==
+                                                                $row->id_golongan
+                                                            ) {
+                                                                echo 'selected="selected"';
+                                                            } ?>
+                                                            value="<?php echo $row->id_golongan; ?>">
+                                                            <?php echo $row->golongan; ?></option>';
                                                         }
-                                                        <?php }?>
+                                                        <?php } ?>
                                                     </select>
                                                 </div>
                                                 <div class="form-group">
                                                     <label><b>Pangkat Sekarang</b></label>
                                                     <input type="text" name="pangkat" id="pangkat"
-                                                        value="<?php echo $up->pangkat;?>" class="form-control"
+                                                        value="<?php echo $up->pangkat; ?>" class="form-control"
                                                         readonly>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label><b>Pangkat Berikutnya</b></label></br>
-                                                    <?php $id_pangkat1 = $up->id_pangkat_berikutnya ?>
+                                                    <label><b>Pangkat Berikutnya<a style="color:red"> *</a></b></label></br>
+                                                    <?php $id_pangkat1 =
+                                                        $up->id_pangkat_berikutnya; ?>
                                                     <select style="color:dimgray" name="id_pangkat_berikutnya"
                                                         id="id_pangkat_berikutnya" class="form-control" required>
                                                         <option value="">--Pilih Pangkat--</option>
-                                                        <?php foreach($id_pangkat as $row){?>
+                                                        <?php foreach (
+                                                            $id_pangkat
+                                                            as $row
+                                                        ) { ?>
                                                         <option
-                                                            <?php if($id_pangkat1==$row->id_pangkat){echo 'selected="selected"';} ?>
-                                                            value="<?php echo $row->id_pangkat ; ?>">
+                                                            <?php if (
+                                                                $id_pangkat1 ==
+                                                                $row->id_pangkat
+                                                            ) {
+                                                                echo 'selected="selected"';
+                                                            } ?>
+                                                            value="<?php echo $row->id_pangkat; ?>">
                                                             <?php echo $row->pangkat; ?></option>';
                                                         }
-                                                        <?php }?>
+                                                        <?php } ?>
                                                     </select>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label><b>TMT 1</b></label>
-                                                    <input type="date" name="tmt_pangkat_1" id="tmt_pangkat_1"
-                                                        value="<?php echo $up->tmt_pangkat_1;?>" class="form-control">
+                                                    <label><b>TMT Pangkat 1<a style="color:red"> *</a></b></label>
+                                                    <input type="date" name="tmt_pangkat_1"  id="tmt_pangkat_1"
+                                                        value="<?php echo $up->tmt_pangkat_1; ?>" class="form-control">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label><b>TMT 2</b></label>
+                                                    <label><b>TMT Pangkat 2</b></label>
                                                     <input type="date" name="tmt_pangkat_2" id="tmt_pangkat_2"
-                                                        value="<?php echo $up->tmt_pangkat_2;?>" class="form-control">
+                                                        value="<?php echo $up->tmt_pangkat_2; ?>" class="form-control">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label><b>TMT 3</b></label>
+                                                    <label><b>TMT Pangkat 3</b></label>
                                                     <input type="date" name="tmt_pangkat_3" id="tmt_pangkat_3"
-                                                        value="<?php echo $up->tmt_pangkat_3;?>" class="form-control">
+                                                        value="<?php echo $up->tmt_pangkat_3; ?>" class="form-control">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label><b>TMT 4</b></label>
+                                                    <label><b>TMT Pangkat 4</b></label>
                                                     <input type="date" name="tmt_pangkat_4" id="tmt_pangkat_4"
-                                                        value="<?php echo $up->tmt_pangkat_4;?>" class="form-control">
+                                                        value="<?php echo $up->tmt_pangkat_4; ?>" class="form-control">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label><b>TMT 5</b></label>
+                                                    <label><b>TMT Pangkat 5</b></label>
                                                     <input type="date" name="tmt_pangkat_5" id="tmt_pangkat_5"
-                                                        value="<?php echo $up->tmt_pangkat_5;?>" class="form-control">
+                                                        value="<?php echo $up->tmt_pangkat_5; ?>" class="form-control">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label><b>Jadwal Kenaikan Pangkat</b></label>
+                                                    <label><b>Jadwal Kenaikan Pangkat<a style="color:red"> *</a></b></label>
                                                     <input type="date" name="jadwal_kp" id="jadwal_kp"
-                                                        value="<?php echo $up->jadwal_kp;?>"
+                                                        value="<?php echo $up->jadwal_kp; ?>"
                                                         placeholder="Jadwal Kenaikan Pangkat" class="form-control"
                                                         required>
-                                                    <?php echo form_error('jadwal_kp', '<div class="text-small text-danger"></div>') ?>
+                                                    <?php echo form_error(
+                                                        'jadwal_kp',
+                                                        '<div class="text-small text-danger"></div>'
+                                                    ); ?>
                                                 </div>
                                             </td>
                                         </tr>

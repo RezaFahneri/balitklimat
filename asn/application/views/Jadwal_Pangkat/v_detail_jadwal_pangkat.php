@@ -48,32 +48,32 @@
                                                     <tr>
                                                         <th>TMT 1</th>
                                                         <td><input class="form-control" type="text" readonly
-                                                                value="<?php echo $detail->tmt_pangkat_1?>"></td>
+                                                                value="<?php echo tanggal_indonesia($detail->tmt_pangkat_1)?>"></td>
                                                     </tr>
                                                     <tr>
                                                         <th>TMT 2</th>
                                                         <td><input class="form-control" type="text" readonly
-                                                                value="<?php echo $detail->tmt_pangkat_2?>"></td>
+                                                                value="<?php echo tanggal_indonesia($detail->tmt_pangkat_2)?>"></td>
                                                     </tr>
                                                     <tr>
                                                         <th>TMT 3</th>
                                                         <td><input class="form-control" type="text" readonly
-                                                                value="<?php echo $detail->tmt_pangkat_3?>"></td>
+                                                                value="<?php echo tanggal_indonesia($detail->tmt_pangkat_3)?>"></td>
                                                     </tr>
                                                     <tr>
                                                         <th>TMT 4</th>
                                                         <td><input class="form-control" type="text" readonly
-                                                                value="<?php echo $detail->tmt_pangkat_4?>"></td>
+                                                                value="<?php echo tanggal_indonesia($detail->tmt_pangkat_4)?>"></td>
                                                     </tr>
                                                     <tr>
                                                         <th>TMT 5</th>
                                                         <td><input class="form-control" type="text" readonly
-                                                                value="<?php echo $detail->tmt_pangkat_5?>"></td>
+                                                                value="<?php echo tanggal_indonesia($detail->tmt_pangkat_5)?>"></td>
                                                     </tr>
                                                     <tr>
                                                         <th>Jadwal kenaikan pangkat</th>
                                                         <td><input class="form-control" type="text" readonly
-                                                                value="<?php echo $detail->jadwal_kp?>"></td>
+                                                                value="<?php echo tanggal_indonesia($detail->jadwal_kp)?>"></td>
                                                     </tr>
                                                 </table>
                                             </div>

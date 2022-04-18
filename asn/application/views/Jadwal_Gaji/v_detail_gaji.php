@@ -29,42 +29,42 @@
                                                     <tr>
                                                         <th>Gaji Lama</th>
                                                         <td><input class="form-control" type="text" readonly
-                                                                value="Rp. <?php echo $detail->gaji_lama ;?>"></td>
+                                                                value="<?php echo $detail->gaji_lama ;?>"></td>
                                                     </tr>
                                                     <tr>
                                                         <th>Gaji Berikutnya</th>
                                                         <td><input class="form-control" type="text" readonly
-                                                                value="Rp. <?php echo $detail->gaji_baru?>"></td>
+                                                                value="<?php echo $detail->gaji_baru?>"></td>
                                                     </tr>
                                                     <tr>
                                                         <th>TMT 1</th>
                                                         <td><input class="form-control" type="text" readonly
-                                                                value="<?php echo $detail->tmt_gaji_1?>"></td>
+                                                                value="<?php echo tanggal_indonesia($detail->tmt_gaji_1)?>"></td>
                                                     </tr>
                                                     <tr>
                                                         <th>TMT 2</th>
                                                         <td><input class="form-control" type="text" readonly
-                                                                value="<?php echo $detail->tmt_gaji_2?>"></td>
+                                                                value="<?php echo tanggal_indonesia($detail->tmt_gaji_2)?>"></td>
                                                     </tr>
                                                     <tr>
                                                         <th>TMT 3</th>
                                                         <td><input class="form-control" type="text" readonly
-                                                                value="<?php echo $detail->tmt_gaji_3?>"></td>
+                                                                value="<?php echo tanggal_indonesia($detail->tmt_gaji_3)?>"></td>
                                                     </tr>
                                                     <tr>
                                                         <th>TMT 4</th>
                                                         <td><input class="form-control" type="text" readonly
-                                                                value="<?php echo $detail->tmt_gaji_4?>"></td>
+                                                                value="<?php echo tanggal_indonesia($detail->tmt_gaji_4)?>"></td>
                                                     </tr>
                                                     <tr>
                                                         <th>TMT 5</th>
                                                         <td><input class="form-control" type="text" readonly
-                                                                value="<?php echo $detail->tmt_gaji_5?>"></td>
+                                                                value="<?php echo tanggal_indonesia($detail->tmt_gaji_5)    ?>"></td>
                                                     </tr>
                                                     <tr>
                                                         <th>Jadwal kenaikan gaji berkala</th>
                                                         <td><input class="form-control" type="text" readonly
-                                                                value="<?php echo $detail->jadwal_kgb?>"></td>
+                                                                value="<?php echo tanggal_indonesia($detail->jadwal_kgb)?>"></td>
                                                     </tr>
                                                 </table>
                                             </div>

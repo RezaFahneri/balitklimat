@@ -51,35 +51,23 @@
                                                         readonly>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label><b>Gaji Lama</b></label>
+                                                    <label><b>Gaji Lama<a style="color:red"> *</a></b></label>
                                                     <div class="input-group mb-2">
-                                                        <div class="input-group-prepend">
-                                                            <div style="color:dimgray" class="input-group-text">Rp.
-                                                            </div>
-                                                        </div>
-                                                        <input type="hidden" name="Rp." value="Rp."
-                                                            class="form-control">
-                                                        <input type="text" name="gaji_lama"
+                                                        <input type="text" name="gaji_lama" id="rupiah"
                                                             value="<?php echo $ug->gaji_lama;?>" class="form-control"
                                                             required>
                                                         <?php echo form_error('gaji_lama', '<div class="text-small text-danger"></div>') ?>
                                                     </div><br>
                                                     <div class="form-group">
-                                                        <label><b>Gaji Baru</b></label>
+                                                        <label><b>Gaji Baru<a style="color:red"> *</a></b></label>
                                                         <div class="input-group mb-2">
-                                                            <div class="input-group-prepend">
-                                                                <div style="color:dimgray" class="input-group-text">Rp.
-                                                                </div>
-                                                            </div>
-                                                            <input type="hidden" name="Rp." value="Rp."
-                                                                class="form-control">
-                                                            <input type="text" name="gaji_baru"
+                                                            <input type="text" name="gaji_baru" id="rupiah1"
                                                                 value="<?php echo $ug->gaji_baru;?>"
                                                                 class="form-control" required>
                                                             <?php echo form_error('gaji_baru', '<div class="text-small text-danger"></div>') ?>
                                                         </div><br>
                                                         <div class="form-group">
-                                                            <label><b>TMT 1</b></label>
+                                                            <label><b>TMT 1<a style="color:red"> *</a></b></label>
                                                             <input type="date" name="tmt_gaji_1" id="tmt_gaji_1"
                                                                 value="<?php echo $ug->tmt_gaji_1;?>"
                                                                 class="form-control">
@@ -109,7 +97,7 @@
                                                                 class="form-control">
                                                         </div>
                                                         <div class="form-group">
-                                                            <label><b>Jadwal Kenaikan Gaji Berkala</b></label>
+                                                            <label><b>Jadwal Kenaikan Gaji Berkala<a style="color:red"> *</a></b></label>
                                                             <input type="date" name="jadwal_kgb" id="jadwal_kgb"
                                                                 value="<?php echo $ug->jadwal_kgb;?>"
                                                                 placeholder="Jadwal Kenaikan Pangkat"

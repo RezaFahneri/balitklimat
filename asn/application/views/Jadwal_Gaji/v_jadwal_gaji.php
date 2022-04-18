@@ -52,8 +52,8 @@
                                                             <tr>
                                                                 <td style="text-align:center"><?php echo $no++ ?></td>
                                                                 <td><?php echo  $kgb->nama_pegawai ?></td>
-                                                                <td>Rp. <?php echo  $kgb->gaji_baru ?></td>
-                                                                <td><?php echo  $kgb->jadwal_kgb?></td>
+                                                                <td><?php echo  $kgb->gaji_baru ?></td>
+                                                                <td><?php echo tanggal_indonesia($kgb->jadwal_kgb)?></td>
                                                                 <td>
                                                                     <a title="Detail Jadwal Kenaikan Pangkat"
                                                                         style="color:#ffffff; font-size:30px"
@@ -70,7 +70,7 @@
                                                                         Nama : <?php echo $kgb->nama_pegawai ?> %0a
                                                                         Pangkat : <?php echo $kgb->pangkat ?> %0a
                                                                         Golongan : <?php echo $kgb->golongan?> %0a
-                                                                        Pada Tanggal: <?php echo $kgb->jadwal_kgb ?>  %0a
+                                                                        Pada Tanggal: <?php echo tanggal_indonesia($kgb->jadwal_kgb) ?>  %0a
                                                                         Gaji lama senilai :<?php echo $kgb->gaji_lama ?> %0a
                                                                         akan menjadi Gaji Baru senilai : <?php echo $kgb->gaji_baru ?> %0a
                                                                         

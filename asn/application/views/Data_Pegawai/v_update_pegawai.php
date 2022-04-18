@@ -16,13 +16,13 @@
                                         <tr>
                                             <td>
                                                 <div class="form-group">
-                                                    <label><b>Nama Pegawai</b></label>
+                                                    <label><b>Nama Pegawai<a style="color:red"> *</a></b></label>
                                                     <input type="text" name="nama_pegawai"
                                                         value="<?php echo $ep->nama_pegawai ?>" class="form-control"
                                                         required>
                                                     <input type="hidden" name="foto" value="default.png"
                                                         class="form-control" required>
-                                                    <?php echo form_error('nama_pegawai', '<div class="text-small text-danger"></div>') ?>
+                                                        <?php echo form_error('nama_pegawai', '<small class="text-danger">', '</small>'); ?>
                                                 </div>
                                                 <div class="form-group">
                                                     <input readonly type="hidden" name="nip"
@@ -45,7 +45,7 @@
                                                     </select>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="id_status_peg"><b>Status Kepegawaian</b></label></br>
+                                                    <label for="id_status_peg"><b>Status Kepegawaian<a style="color:red"> *</a></b></label></br>
                                                     <?php $id_status_peg1 = $ep->id_status_peg ?>
                                                     <select style="color:dimgray" name="id_status_peg"
                                                         id="id_status_peg" class="form-control" required>
@@ -58,6 +58,7 @@
                                                         }
                                                         <?php }?>
                                                     </select>
+                                                    <?php echo form_error('id_status_peg', '<small class="text-danger">', '</small>'); ?>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="id_pangkat"><b>Pangkat</b></label></br>
@@ -75,7 +76,7 @@
                                                     </select>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="id_jabatan"><b>Jabatan</b></label></br>
+                                                    <label for="id_jabatan"><b>Jabatan<a style="color:red"> *</a></b></label></br>
                                                     <?php $id_jabatan1 = $ep->id_jabatan ?>
                                                     <select style="color:dimgray" name="id_jabatan" id="id_jabatan"
                                                         class="form-control" required>
@@ -88,9 +89,10 @@
                                                         }
                                                         <?php }?>
                                                     </select>
+                                                    <?php echo form_error('id_jabatan', '<small class="text-danger">', '</small>'); ?>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="id_divisi"><b>Divisi</b></label></br>
+                                                    <label for="id_divisi"><b>Divisi<a style="color:red"> *</a></b></label></br>
                                                     <?php $id_divisi1 = $ep->id_divisi ?>
                                                     <select style="color:dimgray" name="id_divisi" id="id_divisi"
                                                         class="form-control" required>
@@ -104,6 +106,7 @@
                                                         }
                                                         <?php }?>
                                                     </select>
+                                                    <?php echo form_error('id_divisi', '<small class="text-danger">', '</small>'); ?>
                                                 </div>
                                                 <!-- 
                                             <div class="form-group">
@@ -123,26 +126,26 @@
                                             </div> -->
 
                                                 <div class="form-group">
-                                                    <label><b>NIK</b></label>
+                                                    <label><b>NIK<a style="color:red"> *</a></b></label><br>
+                                                    <small class="text-warning">NIK 16 karakter</small>
                                                     <input type="text" name="nik" value="<?php echo $ep->nik ?>"
                                                         class="form-control" required>
-                                                    <?php echo form_error('nik', '<div class="text-small text-danger"></div>') ?>
-                                                </div>
+                                                        <?php echo form_error('nik', '<small class="text-danger">', '</small>'); ?>                                                </div>
                                                 <div class="form-group">
-                                                    <label><b>Email</b></label>
+                                                    <label><b>Email<a style="color:red"> *</a></b></label>
                                                     <input type="text" name="email" value="<?php echo $ep->email ?>"
                                                         class="form-control" required>
-                                                    <?php echo form_error('email', '<div class="text-small text-danger"></div>') ?>
-                                                </div>
+                                                        <?php echo form_error('email', '<small class="text-danger">', '</small>'); ?>                                                </div>
                                                 <div class="form-group">
-                                                    <label><b>Password</b></label>
+                                                    <label><b>Password<a style="color:red"> *</a></b></label><br>
+                                                    <small class="text-warning">Password minimal 8 karakter</small>
                                                     <input type="text" name="password"
                                                         value="<?php echo $ep->password ?>" class="form-control"
                                                         required>
-                                                    <?php echo form_error('password', '<div class="text-small text-danger"></div>') ?>
-                                                </div>
+                                                        <?php echo form_error('password', '<small class="text-danger">', '</small>'); ?>                                                </div>
                                                 <div class="form-group">
-                                                    <label><b>Nomor Whatsapp</b></label>
+                                                    <label><b>Nomor Whatsapp<a style="color:red"> *</a></b></label><br>
+                                                    <small class="text-warning">Ketikkan tanpa 62 atau 0</small>
                                                     <div class="input-group mb-2">
                                                         <div class="input-group-prepend">
                                                             <div style="color:dimgray" class="input-group-text">+62
@@ -152,8 +155,7 @@
                                                         <input type="text" name="no_whatsapp"
                                                             <?php $no = $ep->no_whatsapp; $no_fix= substr($no, 2, 15); ?>
                                                             value="<?php echo $no_fix?> " class="form-control" required>
-                                                        <?php echo form_error('no_whatsapp', '<div class="text-small text-danger"></div>') ?>
-                                                    </div>
+                                                            <?php echo form_error('no_whatsapp', '<small class="text-danger">', '</small>'); ?>                                                    </div>
                                                 </div>
                                                 <!-- <div class="form-group">
                                                     <label for="role"><b>Role</a></b></label>
