@@ -30,6 +30,7 @@ class Anggota_perjadin extends CI_Controller
     function anggota()
     {
         $data['data_anggota_perjadin'] = $this->Model_anggota_perjadin->getListAnggota();
+        // $data['total'] = $this->Model_anggota_perjadin->getTotal();
         $data['title'] = "PERJADIN BALITKLIMAT | Data Anggota Perjalanan Dinas";
         $this->load->view('templates/v_template', $data);
         $this->load->view('Anggota_Perjadin/v_anggota_perjadin2', $data);
@@ -113,7 +114,7 @@ class Anggota_perjadin extends CI_Controller
         $id_anggota_perjadin = $this->input->get('id_anggota_perjadin');
 
         $data['update_anggota_perjadin'] = $this->Model_anggota_perjadin->getList2($id_anggota_perjadin);
-        $data['nip'] = $this->Model_pegawai->getList();
+        $data['nip'] = $this->Model_pegawai->getListAll();
 
         $data['title'] = 'PERJADIN BALITKLIMAT | Edit Data Anggota Perjalanan Dinas';
 

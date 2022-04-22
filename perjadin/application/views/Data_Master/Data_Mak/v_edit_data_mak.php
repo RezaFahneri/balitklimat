@@ -19,12 +19,12 @@
                   </td>
                 </tr>    
                 <div class="form-group">
-                    <label><b>PAGU </label>
+                    <label><b>Nama Anggaran </label>
                     <input type="text" name="judul_mak" class="form-control" value="<?php echo $m->judul_mak?>" required>
                 </div>
                 <div class="form-group">
                     <label>Tahun </label>
-                    <input type="text" pattern="[0-9]{4}" name="tahun" class="form-control" value="<?php echo $m->tahun?>" required>
+                    <input type="text" pattern="[0-9]{4}" title="Masukkan format tahun yang benar" name="tahun" class="form-control" value="<?php echo $m->tahun?>" required>
                 </div>
                 <div class="form-group">
                     <label>Anggaran </label>

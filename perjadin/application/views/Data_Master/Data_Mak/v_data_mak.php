@@ -20,7 +20,7 @@
                                                 <thead class="thead-light">
                                                     <tr>
                                                         <th title="kode MAK" style="width:10%"><label style="width:100%;height:100%;margin-top:10px" type="button" class="btn-xs"><label style="margin-top:10px;color:gray">Kode MAK</label></th>
-                                                        <th title="PAGU"><label style="width:100%;height:100%;margin-top:10px" type="button" class="btn-xs"><label style="margin-top:10px;color:gray">PAGU</label></th>
+                                                        <th title="Nama Anggaran"><label style="width:100%;height:100%;margin-top:10px" type="button" class="btn-xs"><label style="margin-top:10px;color:gray">Nama Anggaran</label></th>
 
                                                         <th title="Tahun"><label style="width:100%;height:100%;margin-top:10px" type="button" class="btn-xs"><label style="margin-top:10px;color:gray">Tahun</label></th>
                                                         <th title="Anggaran"><label style="width:100%;height:100%;margin-top:10px" type="button" class="btn-xs"><label style="margin-top:10px;color:gray">Anggaran</label></th>

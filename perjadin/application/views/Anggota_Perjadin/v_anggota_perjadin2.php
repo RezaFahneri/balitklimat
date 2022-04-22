@@ -15,7 +15,7 @@
                                     <div class="card">
                                         <!-- <div class="card-body"> -->
                                         <div class="table-responsive pt-3 ">
-                                            <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" style="width:130%; height:100%">
+                                            <table id="dtBasicExamplee" class="table table-striped table-bordered table-sm" cellspacing="0" style="width:130%; height:100%">
                                                 <thead class="thead-light">
                                                     <tr>
                                                         <th style="width:5%" title="Nama"><label style="width:100%;height:100%;margin-top:10px" type="button" class="btn-xs"><label style="margin-top:10px;color:gray">Nama</label></th>
@@ -44,14 +44,17 @@
                                                             <td style="font-size: 12px;"><?php echo tanggal_indonesia($j->tanggal_berangkat) ?></td>
                                                             <td style="font-size: 12px;"><?php echo tanggal_indonesia($j->tanggal_kembali) ?></td>
                                                             <td style="font-size: 12px;"><?php echo $j->lama_perjalanan ?></td>
-                                                            <td style="font-size: 12px;"><?php echo 'Rp' . number_format($j->total_pendapatan) ?></td>
+                                                            <td style="font-size: 12px;"><?php echo 'Rp' . number_format($j->total_pendapatan,0,',','.') ?></td>
                                                             <td style="font-size: 12px;"><?php echo $j->nama_pumk ?></td>
                                                         <?php } ?>
                                                 </tbody>
                                             </table>
-                                            <!-- <span id="hasil"></span>
-                                         -->
                                         </div>
+                                        <br><p style="font: 10px;">Total biaya perjalanan : <?php echo 'Rp' . number_format(
+                                                                                            $this->db->select_sum('total_pendapatan')->from('data_anggota_perjadin')
+                                                                                                ->get()->row()->total_pendapatan,0,',','.') . ' ('.penyebut(
+                                                                                                    $this->db->select_sum('total_pendapatan')->from('data_anggota_perjadin')
+                                                                                                        ->get()->row()->total_pendapatan)." rupiah )"?></p>
                                     </div>
                                 </div>
                             </div>
@@ -86,4 +89,33 @@
         // var 0 = tanggal
         // var 1 = bulan
         // var 2 = tahun
+    } ?>
+     <?php
+    function penyebut($nilai)
+    {
+        $nilai = abs($nilai);
+        $huruf = array("", "satu", "dua", "tiga", "empat", "lima", "enam", "tujuh", "delapan", "sembilan", "sepuluh", "sebelas");
+        $temp = "";
+        if ($nilai < 12) {
+            $temp = " " . $huruf[$nilai];
+        } else if ($nilai < 20) {
+            $temp = penyebut($nilai - 10) . " belas";
+        } else if ($nilai < 100) {
+            $temp = penyebut($nilai / 10) . " puluh" . penyebut($nilai % 10);
+        } else if ($nilai < 200) {
+            $temp = " seratus" . penyebut($nilai - 100);
+        } else if ($nilai < 1000) {
+            $temp = penyebut($nilai / 100) . " ratus" . penyebut($nilai % 100);
+        } else if ($nilai < 2000) {
+            $temp = " seribu" . penyebut($nilai - 1000);
+        } else if ($nilai < 1000000) {
+            $temp = penyebut($nilai / 1000) . " ribu" . penyebut($nilai % 1000);
+        } else if ($nilai < 1000000000) {
+            $temp = penyebut($nilai / 1000000) . " juta" . penyebut($nilai % 1000000);
+        } else if ($nilai < 1000000000000) {
+            $temp = penyebut($nilai / 1000000000) . " milyar" . penyebut(fmod($nilai, 1000000000));
+        } else if ($nilai < 1000000000000000) {
+            $temp = penyebut($nilai / 1000000000000) . " trilyun" . penyebut(fmod($nilai, 1000000000000));
+        }
+        return $temp;
     } ?>

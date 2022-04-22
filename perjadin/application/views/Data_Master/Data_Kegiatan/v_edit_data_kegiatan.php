@@ -39,7 +39,7 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label><b>Tahun</b></label>
-                                                    <input type="text" name="tahun" value="<?php echo $keg->tahun ?>" class="form-control" required>
+                                                    <input type="text" name="tahun" pattern="[0-9]{4}" title="Masukkan format tahun yang benar" value="<?php echo $keg->tahun ?>" class="form-control" required>
                                                     <?php echo form_error('tahun', '<div class="text-small text-danger"></div>') ?>
                                                 </div>
 
