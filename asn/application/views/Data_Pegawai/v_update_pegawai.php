@@ -7,142 +7,215 @@
                         <h3 class="m-0 font-weight-bold text-primary">
                             <h3 class="m-0 font-weight-bold text-primary"><a title="Kembali"
                                     class="btn btn-sm btn-secondary" style="border-radius:90px; color:white"
-                                    href="<?php echo site_url('data_pegawai') ?>"><i class="ti ti-arrow-left"
+                                    href="<?php echo site_url(
+                                        'data_pegawai'
+                                    ); ?>"><i class="ti ti-arrow-left"
                                         style="border-radius:8px"></i></a>&nbsp Edit Data Pegawai</h3><br>
                             <div class="col-md-12 grid-margin">
                                 <div class="card-body">
                                     <?php foreach ($update_pegawai as $ep) { ?>
-                                    <form method="POST" action="<?php echo base_url() ?>data_pegawai/update">
+                                    <form method="POST" action="<?php echo base_url(); ?>data_pegawai/update">
                                         <tr>
                                             <td>
                                                 <div class="form-group">
                                                     <label><b>Nama Pegawai<a style="color:red"> *</a></b></label>
                                                     <input type="text" name="nama_pegawai"
-                                                        value="<?php echo $ep->nama_pegawai ?>" class="form-control"
+                                                        value="<?php echo $ep->nama_pegawai; ?>" class="form-control"
                                                         required>
                                                     <input type="hidden" name="foto" value="default.png"
                                                         class="form-control" required>
-                                                        <?php echo form_error('nama_pegawai', '<small class="text-danger">', '</small>'); ?>
+                                                        <?php echo form_error(
+                                                            'nama_pegawai',
+                                                            '<small class="text-danger">',
+                                                            '</small>'
+                                                        ); ?>
                                                 </div>
                                                 <div class="form-group">
                                                     <input readonly type="hidden" name="nip"
-                                                        value="<?php echo $ep->nip?>" class="form-control" required>
-                                                    <?php echo form_error('nip', '<div class="text-small text-danger"></div>') ?>
+                                                        value="<?php echo $ep->nip; ?>" class="form-control" required>
+                                                    <?php echo form_error(
+                                                        'nip',
+                                                        '<div class="text-small text-danger"></div>'
+                                                    ); ?>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="id_golongan"><b>Golongan</b></label></br>
-                                                    <?php $id_golongan1 = $ep->id_golongan ?>
+                                                    <?php $id_golongan1 =
+                                                        $ep->id_golongan; ?>
                                                     <select style="color:dimgray" name="id_golongan" id="id_golongan"
                                                         class="form-control" required>
                                                         <option value="1">--Pilih Golongan--</option>
-                                                        <?php foreach($id_golongan as $row){?>
+                                                        <?php foreach (
+                                                            $id_golongan
+                                                            as $row
+                                                        ) { ?>
                                                         <option
-                                                            <?php if($id_golongan1==$row->id_golongan){echo 'selected="selected"';} ?>
-                                                            value="<?php echo $row->id_golongan;?>">
-                                                            <?php echo $row->golongan ;?></option>';
+                                                            <?php if (
+                                                                $id_golongan1 ==
+                                                                $row->id_golongan
+                                                            ) {
+                                                                echo 'selected="selected"';
+                                                            } ?>
+                                                            value="<?php echo $row->id_golongan; ?>">
+                                                            <?php echo $row->golongan; ?></option>';
                                                         }
-                                                        <?php }?>
+                                                        <?php } ?>
                                                     </select>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="id_status_peg"><b>Status Kepegawaian<a style="color:red"> *</a></b></label></br>
-                                                    <?php $id_status_peg1 = $ep->id_status_peg ?>
+                                                    <?php $id_status_peg1 =
+                                                        $ep->id_status_peg; ?>
                                                     <select style="color:dimgray" name="id_status_peg"
                                                         id="id_status_peg" class="form-control" required>
                                                         <option value="">--Pilih Status Kepegawaian--</option>
-                                                        <?php foreach($id_status_peg as $row){?>
+                                                        <?php foreach (
+                                                            $id_status_peg
+                                                            as $row
+                                                        ) { ?>
                                                         <option
-                                                            <?php if($id_status_peg1==$row->id_status_peg){echo 'selected="selected"';} ?>
-                                                            value="<?php echo $row->id_status_peg;?>">
-                                                            <?php echo $row->status_kepegawaian;?></option>';
+                                                            <?php if (
+                                                                $id_status_peg1 ==
+                                                                $row->id_status_peg
+                                                            ) {
+                                                                echo 'selected="selected"';
+                                                            } ?>
+                                                            value="<?php echo $row->id_status_peg; ?>">
+                                                            <?php echo $row->status_kepegawaian; ?></option>';
                                                         }
-                                                        <?php }?>
+                                                        <?php } ?>
                                                     </select>
-                                                    <?php echo form_error('id_status_peg', '<small class="text-danger">', '</small>'); ?>
+                                                    <?php echo form_error(
+                                                        'id_status_peg',
+                                                        '<small class="text-danger">',
+                                                        '</small>'
+                                                    ); ?>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="id_pangkat"><b>Pangkat</b></label></br>
-                                                    <?php $id_pangkat1 = $ep->id_pangkat ?>
+                                                    <?php $id_pangkat1 =
+                                                        $ep->id_pangkat; ?>
                                                     <select style="color:dimgray" name="id_pangkat" id="id_pangkat"
                                                         class="form-control" required>
                                                         <option value="1">--Pilih Pangkat--</option>
-                                                        <?php foreach($id_pangkat as $row){?>
+                                                        <?php foreach (
+                                                            $id_pangkat
+                                                            as $row
+                                                        ) { ?>
                                                         <option
-                                                            <?php if($id_pangkat1==$row->id_pangkat){echo 'selected="selected"';} ?>
-                                                            value="<?php echo $row->id_pangkat;?>">
-                                                            <?php echo $row->pangkat;?></option>';
+                                                            <?php if (
+                                                                $id_pangkat1 ==
+                                                                $row->id_pangkat
+                                                            ) {
+                                                                echo 'selected="selected"';
+                                                            } ?>
+                                                            value="<?php echo $row->id_pangkat; ?>">
+                                                            <?php echo $row->pangkat; ?></option>';
                                                         }
-                                                        <?php }?>
+                                                        <?php } ?>
                                                     </select>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="id_jabatan"><b>Jabatan<a style="color:red"> *</a></b></label></br>
-                                                    <?php $id_jabatan1 = $ep->id_jabatan ?>
+                                                    <?php $id_jabatan1 =
+                                                        $ep->id_jabatan; ?>
                                                     <select style="color:dimgray" name="id_jabatan" id="id_jabatan"
                                                         class="form-control" required>
                                                         <option value="">--Pilih Jabatan--</option>
-                                                        <?php foreach($id_jabatan as $row){?>
+                                                        <?php foreach (
+                                                            $id_jabatan
+                                                            as $row
+                                                        ) { ?>
                                                         <option
-                                                            <?php if($id_jabatan1==$row->id_jabatan){echo 'selected="selected"';} ?>
-                                                            value="<?php echo $row->id_jabatan;?>">
-                                                            <?php echo $row->jabatan;?></option>';
+                                                            <?php if (
+                                                                $id_jabatan1 ==
+                                                                $row->id_jabatan
+                                                            ) {
+                                                                echo 'selected="selected"';
+                                                            } ?>
+                                                            value="<?php echo $row->id_jabatan; ?>">
+                                                            <?php echo $row->jabatan; ?></option>';
                                                         }
-                                                        <?php }?>
+                                                        <?php } ?>
                                                     </select>
-                                                    <?php echo form_error('id_jabatan', '<small class="text-danger">', '</small>'); ?>
+                                                    <?php echo form_error(
+                                                        'id_jabatan',
+                                                        '<small class="text-danger">',
+                                                        '</small>'
+                                                    ); ?>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="id_divisi"><b>Divisi<a style="color:red"> *</a></b></label></br>
-                                                    <?php $id_divisi1 = $ep->id_divisi ?>
+                                                    <?php $id_divisi1 =
+                                                        $ep->id_divisi; ?>
                                                     <select style="color:dimgray" name="id_divisi" id="id_divisi"
                                                         class="form-control" required>
                                                         <option value="">--Pilih Divisi--</option>
-                                                        <?php foreach($id_divisi as $row){?>
+                                                        <?php foreach (
+                                                            $id_divisi
+                                                            as $row
+                                                        ) { ?>
                                                         <option
-                                                            <?php if($id_divisi1==$row->id_divisi){echo 'selected="selected"';} ?>
-                                                            value="<?php echo $row->id_divisi;?>">
-                                                            <?php echo $row->divisi;?>
+                                                            <?php if (
+                                                                $id_divisi1 ==
+                                                                $row->id_divisi
+                                                            ) {
+                                                                echo 'selected="selected"';
+                                                            } ?>
+                                                            value="<?php echo $row->id_divisi; ?>">
+                                                            <?php echo $row->divisi; ?>
                                                         </option>';
                                                         }
-                                                        <?php }?>
+                                                        <?php } ?>
                                                     </select>
-                                                    <?php echo form_error('id_divisi', '<small class="text-danger">', '</small>'); ?>
+                                                    <?php echo form_error(
+                                                        'id_divisi',
+                                                        '<small class="text-danger">',
+                                                        '</small>'
+                                                    ); ?>
                                                 </div>
-                                                <!-- 
-                                            <div class="form-group">
-                                                <label><b>Tugas Tambahan</b></label> -->
-                                                <!-- <?//php $id_tugas1 = $ep->id_tugas ?> -->
-                                                <!-- <select name="id_tugas[]" id="id_tugas" class="form-control" multiple> -->
-                                                <!-- <option value=""></option> -->
-                                                <?//php foreach($id_tugas as $row){?>
-                                                <!-- <option
-                                                        <?//php if($id_tugas==$row->id_tugas){echo 'selected="selected"';}  ?>
-                                                        value="<?//php echo $row->id_tugas?>">
-                                                        <?//php echo $row->penugasan;?>
-                                                    </option>';
-                                                    }
-                                                    <?//php }?>
-                                                </select>
-                                            </div> -->
-
                                                 <div class="form-group">
                                                     <label><b>NIK<a style="color:red"> *</a></b></label><br>
                                                     <small class="text-warning">NIK 16 karakter</small>
-                                                    <input type="text" name="nik" value="<?php echo $ep->nik ?>"
+                                                    <input type="text" name="nik" value="<?php echo $ep->nik; ?>"
                                                         class="form-control" required>
-                                                        <?php echo form_error('nik', '<small class="text-danger">', '</small>'); ?>                                                </div>
+                                                        <?php echo form_error(
+                                                            'nik',
+                                                            '<small class="text-danger">',
+                                                            '</small>'
+                                                        ); ?>                                                
+                                                        </div>
                                                 <div class="form-group">
                                                     <label><b>Email<a style="color:red"> *</a></b></label>
-                                                    <input type="text" name="email" value="<?php echo $ep->email ?>"
+                                                    <input type="text" name="email" value="<?php echo $ep->email; ?>"
                                                         class="form-control" required>
-                                                        <?php echo form_error('email', '<small class="text-danger">', '</small>'); ?>                                                </div>
-                                                <div class="form-group">
-                                                    <label><b>Password<a style="color:red"> *</a></b></label><br>
-                                                    <small class="text-warning">Password minimal 8 karakter</small>
-                                                    <input type="text" name="password"
-                                                        value="<?php echo $ep->password ?>" class="form-control"
+                                                        <?php echo form_error(
+                                                            'email',
+                                                            '<small class="text-danger">',
+                                                            '</small>'
+                                                        ); ?>                                                
+                                                        </div>
+                                               <div class="form-group text-left">
+                                                <label><b>Password<a style="color:red"> *</a></b></label><br>
+                                                <small class="text-warning">Password minimal 8 karakter</small>
+                                                    <div class="input-group mb-3">
+                                                    <input type="password" name="password" id="password"
+                                                        value="<?php echo $ep->password; ?>" class="form-control"
                                                         required>
-                                                        <?php echo form_error('password', '<small class="text-danger">', '</small>'); ?>                                                </div>
+                                                        <div class="input-group-append">
+                                                        <span id="mybutton" onclick="password()" class="input-group-text">
+                                                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-eye-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
+                                                                <path fill-rule="evenodd" d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
+                                                            </svg>
+                                                        </span>
+                                                    </div>
+                                                    </div>
+                                                        <?php echo form_error(
+                                                            'password',
+                                                            '<small class="text-danger">',
+                                                            '</small>'
+                                                        ); ?>                                                </div>
                                                 <div class="form-group">
                                                     <label><b>Nomor Whatsapp<a style="color:red"> *</a></b></label><br>
                                                     <small class="text-warning">Ketikkan tanpa 62 atau 0</small>
@@ -153,44 +226,23 @@
                                                         </div>
                                                         <input type="hidden" name="62" value="62" class="form-control">
                                                         <input type="text" name="no_whatsapp"
-                                                            <?php $no = $ep->no_whatsapp; $no_fix= substr($no, 2, 15); ?>
-                                                            value="<?php echo $no_fix?> " class="form-control" required>
-                                                            <?php echo form_error('no_whatsapp', '<small class="text-danger">', '</small>'); ?>                                                    </div>
+                                                            <?php
+                                                            $no =
+                                                                $ep->no_whatsapp;
+                                                            $no_fix = substr(
+                                                                $no,
+                                                                2,
+                                                                15
+                                                            );
+                                                            ?>
+                                                            value="<?php echo $no_fix; ?> " class="form-control" required>
+                                                            <?php echo form_error(
+                                                                'no_whatsapp',
+                                                                '<small class="text-danger">',
+                                                                '</small>'
+                                                            ); ?>                                                    </div>
                                                 </div>
-                                                <!-- <div class="form-group">
-                                                    <label for="role"><b>Role</a></b></label>
-                                                    <?php $role = $ep->role ?>
-                                                    <select style="color:dimgray" name="role" class="form-control"
-                                                        required>
-                                                        <option value="">-- Pilih Role --</option> -->
-                                                <!-- <option <?php if($role == 'Admin
-                                                        ASN'){echo 'selected="selected"'; } ?>>Admin
-                                                    ASN
-                                                </option> -->
-                                                <!-- <option value='Admin Perjalanan Dinas'
-                                                    <?php if($role == 'Admin Perjalanan Dinas'){echo 'selected="selected"'; } ?>>
-                                                    Admin Perjalanan Dinas</option>
-                                                <option value='Admin Inventaris'
-                                                    <?php if($role == 'Admin Inventaris'){echo 'selected="selected"'; } ?>>
-                                                    Admin Inventaris</option>
-                                                <option value='Admin Disposisi'
-                                                    <?php if($role == 'Admin Disposisi'){echo 'selected="selected"'; } ?>>
-                                                    Admin Disposisi</option>
-                                                <option value='Admin Buku Tamu'
-                                                    <?php if($role == 'Admin Buku Tamu'){echo 'selected="selected"'; } ?>>
-                                                    Admin Buku Tamu</option>
-                                                <option value='Admin Bahan Diseminasi'
-                                                    <?php if($role == 'Admin Bahan Diseminasi'){echo 'selected="selected"'; } ?>>
-                                                    Admin Bahan Diseminasi</option>
-                                                <option value='Admin Laporan Magang'
-                                                    <?php if($role == 'Admin Laporan Magang'){echo 'selected="selected"'; } ?>>
-                                                    Admin Laporan Magang</option>
-                                                <option value='User'
-                                                    <?php if($role == 'User'){echo 'selected="selected"'; } ?>>
-                                                    User
-                                                </option>
-                                                </select> -->
-                                                <!-- </div>  -->
+                                        
                                 </div>
                                 </td>
                                 </tr>
@@ -240,4 +292,23 @@ $('#id_divisi').select2({
     theme: "bootstrap-5",
 });
 $('#id_tugas').select2();
+</script>
+<script>
+    function password() {
+        var x = document.getElementById('password').type;
+        if (x == 'password') {
+            document.getElementById('password').type = 'text';
+            document.getElementById('mybutton').innerHTML = `<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-eye-slash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10.79 12.912l-1.614-1.615a3.5 3.5 0 0 1-4.474-4.474l-2.06-2.06C.938 6.278 0 8 0 8s3 5.5 8 5.5a7.029 7.029 0 0 0 2.79-.588zM5.21 3.088A7.028 7.028 0 0 1 8 2.5c5 0 8 5.5 8 5.5s-.939 1.721-2.641 3.238l-2.062-2.062a3.5 3.5 0 0 0-4.474-4.474L5.21 3.089z"/>
+                <path d="M5.525 7.646a2.5 2.5 0 0 0 2.829 2.829l-2.83-2.829zm4.95.708l-2.829-2.83a2.5 2.5 0 0 1 2.829 2.829z"/>
+                <path fill-rule="evenodd" d="M13.646 14.354l-12-12 .708-.708 12 12-.708.708z"/>
+                </svg>`;
+        } else {
+            document.getElementById('password').type = 'password';
+            document.getElementById('mybutton').innerHTML = `<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-eye-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
+                <path fill-rule="evenodd" d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
+                </svg>`;
+        }
+    }
 </script>

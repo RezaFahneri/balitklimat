@@ -137,20 +137,12 @@ class Role_Penugasan extends CI_Controller
             'password' => $password,
             'no_whatsapp' => $no_whatsapp,
         ];
-        if ($this->Model_detail_role->NIPCheck($nip) == true) {
-            $this->Model_detail_role->input_data($data, 'detail_role');
-            $this->session->set_flashdata(
-                'sukses',
-                'Data tim role berhasil ditambahkan'
-            );
-            redirect('role_penugasan');
-        } else {
-            $this->session->set_flashdata(
-                'error',
-                'Pegawai sudah ditambahkan pada role ini'
-            );
-            redirect('role_penugasan');
-        }
+        $this->Model_detail_role->input_data($data, 'detail_role');
+        $this->session->set_flashdata(
+            'sukses',
+            'Data tim role berhasil ditambahkan'
+        );
+        redirect('role_penugasan');
     }
     function hapus_tim_role($id_detail_role)
     {

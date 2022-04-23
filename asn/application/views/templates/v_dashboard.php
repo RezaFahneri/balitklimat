@@ -205,7 +205,7 @@
                                         $this->session->userdata('nip')
                                     )
                                     ->get('data_jadwal_gaji_berkala')
-                                    ->row('jadwal_kgb');
+                                    ->row(tanggal_indonesia('jadwal_kgb'));
                                 echo '   .Beri notifikasi kepada admin untuk memberi peringatan dengan menekan tombol dibawah ini';
                             } ?>
 
