@@ -20,13 +20,13 @@
                         <?php echo form_error('kode_mak', '<div class="text-small text-danger"></div>') ?>
                     </div>
                     <div class="form-group">
-                        <label>PAGU </label>
+                        <label>Nama Anggaran </label>
                         <input type="text" name="judul_mak" class="form-control" required>
                         <?php echo form_error('judul_mak', '<div class="text-small text-danger"></div>') ?>
                     </div>
                     <div class="form-group">
                         <label>Tahun </label>
-                        <input type="text" pattern="[0-9]{4}"  type="text" name="tahun" class="form-control" required>
+                        <input type="text" pattern="[0-9]{4}" title="Masukkan format tahun yang benar"  type="text" name="tahun" class="form-control" required>
                         <?php echo form_error('tahun', '<div class="text-small text-danger"></div>') ?>
                     </div>
                     <div class="form-group">

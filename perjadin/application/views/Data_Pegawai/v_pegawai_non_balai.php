@@ -28,21 +28,21 @@
                                                         <!-- <table  id="dtBasicExample" class="table table-striped table-bordered table-md" cellspacing="0" height='50%'> -->
                                                         <thead class="thead-light">
                                                             <tr>
-                                                                <th title="No" style="width:8%"><label style="width:100%;height:100%;margin-top:10px" type="button" class="btn-xs"><label style="margin-top:10px;color:gray">No</label></th>
+                                                                <th title="No" style="width:0.6%"><label style="width:100%;height:100%;margin-top:10px" type="button" class="btn-xs"><label style="margin-top:10px;color:gray">No</label></th>
                                                                 <th title="Nama Pegawai" style="width:10%"><label style="width:100%;height:100%;margin-top:10px" type="button" class="btn-xs"><label style="margin-top:10px;color:gray">Nama Pegawai</label></th>
-                                                                <th title="NIP" style="width:10%"><label style="width:100%;height:100%;margin-top:10px" type="button" class="btn-xs"><label style="margin-top:10px;color:gray">NIP</label></th>
+                                                                <!-- <th title="NIP" style="width:10%"><label style="width:100%;height:100%;margin-top:10px" type="button" class="btn-xs"><label style="margin-top:10px;color:gray">NIP</label></th> -->
 
                                                                 <!-- <th>Pangkat</th> -->
                                                                 <!-- <th style="width:4%" class="th-sm">Foto</th> -->
-                                                                <th title="Jabatan" style="width:4%"><label style="width:100%;height:100%;margin-top:10px" type="button" class="btn-xs"><label style="margin-top:10px;color:gray">Jabatan</label></th>
+                                                                <!-- <th title="Jabatan" style="width:4%"><label style="width:100%;height:100%;margin-top:10px" type="button" class="btn-xs"><label style="margin-top:10px;color:gray">Jabatan</label></th>
                                                                 <th title="Golongan" style="width:10%"><label style="width:100%;height:100%;margin-top:10px" type="button" class="btn-xs"><label style="margin-top:10px;color:gray">Golongan</label></th>
-                                                                <th title="Divisi" style="width:4%"><label style="width:100%;height:100%;margin-top:10px" type="button" class="btn-xs"><label style="margin-top:10px;color:gray">Divisi</label></th>
+                                                                <th title="Divisi" style="width:4%"><label style="width:100%;height:100%;margin-top:10px" type="button" class="btn-xs"><label style="margin-top:10px;color:gray">Divisi</label></th> -->
                                                                 <!-- <th style="width:4%">KPA</th>
                                                                 <th style="width:4%">Admin</th>
                                                                 <th style="width:4%">PPK</th>
                                                                 <th style="width:4%">PJ</th>
                                                                 <th style="width:4%">Bendahara</th> -->
-                                                                <th style="width:1%;"><label style="width:100%;height:100%;margin-top:10px" type="button" class="btn-xs"><label style="margin-top:10px;margin-left:8px;color:gray">Aksi</label></th>
+                                                                <th style="width:0.1%;"><label style="width:100%;height:100%;margin-top:10px" type="button" class="btn-xs"><label style="margin-top:10px;margin-left:8px;color:gray">Aksi</label></th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
@@ -53,21 +53,21 @@
                                                                 <tr>
                                                                     <td style="font-size: 12px;text-align:center"><?php echo $no++ ?></td>
                                                                     <td style="font-size: 12px;"><?php echo $dp->nama_pegawai ?></td>
-                                                                    <?php
+                                                                    <!-- <?php
                                                                     $nip = $dp->nip;
                                                                     if ($nip[0] == 'H') {
                                                                     ?><td style="font-size: 12px;"><?php echo ' '; ?></td><?php
                                                                                                                         } else {
                                                                                                                             ?><td style="font-size: 12px;"><?php echo $nip; ?></td><?php
-                                                                                                                                                                                } ?>
+                                                                                                                                                                                } ?> -->
                                                                     <!-- <td style="font-size: 12px;"><?php echo $dp->nip ?></td> -->
                                                                     <!--  <td style="font-size: 12px;">
                                                                         <img  style="width:50px;height: 50px;" src="<?php //echo base_url() . '../asn/assets/images/foto/' . $dp->foto 
                                                                                                                     ?> " class="zoomable">
                                                                     </td> -->
-                                                                    <td style="font-size: 12px;"><?php echo $dp->jabatan; ?></td>
+                                                                    <!-- <td style="font-size: 12px;"><?php echo $dp->jabatan; ?></td>
                                                                     <td style="font-size: 12px;"><?php echo $dp->golongan; ?></td>
-                                                                    <td style="font-size: 12px;"><?php echo $dp->divisi; ?></td>
+                                                                    <td style="font-size: 12px;"><?php echo $dp->divisi; ?></td> -->
                                                                     <td style="font-size: 12px;">
 
                                                                         <?php if ($dp->divisi == 'Tidak Ada') {

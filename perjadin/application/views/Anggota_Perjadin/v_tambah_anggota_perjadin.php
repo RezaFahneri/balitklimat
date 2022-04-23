@@ -79,7 +79,12 @@
                                         </div>
                                         <div class="form-group">
                                             <label><b>Uang Harian</b></label>
-                                            <input type="number" name="uang_harian" <?php if ($dpd->kota == $dpd->kota_tujuan) {
+                                            <input type="number" <?php if ($dpd->kota == $dpd->kota_tujuan) {
+                                                                                    ?> placeholder="<?php echo $dpd->dalam_kota_tujuan * $dpd->lama_perjalanan ?>" <?php
+                                                                                                                                                            } else {
+                                                                                                                                                                ?>placeholder="<?php echo $dpd->luar_kota_tujuan * $dpd->lama_perjalanan ?>" <?php
+                                                                                                                                                                                                                                            } ?> 
+                                            name="uang_harian" <?php if ($dpd->kota == $dpd->kota_tujuan) {
                                                                                     ?> value="<?php echo $dpd->dalam_kota_tujuan * $dpd->lama_perjalanan ?>" <?php
                                                                                                                                                             } else {
                                                                                                                                                                 ?>value="<?php echo $dpd->luar_kota_tujuan * $dpd->lama_perjalanan ?>" <?php

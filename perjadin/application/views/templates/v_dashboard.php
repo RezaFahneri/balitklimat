@@ -74,7 +74,7 @@
               <table class="table table-striped table-borderless" style="width:100%">
                 <thead>
                   <tr>
-                    <th>PAGU</th>
+                    <th>Nama Anggaran</th>
                     <th>Tahun</th>
                     <th>Anggaran</th>
                   </tr>
@@ -90,7 +90,8 @@
                     </tr>
                   <?php } ?>
                 </tbody>
-              </table>
+              </table><br>
+              <a style="font-size:12px" href="mak"><< lihat selengkapnya >></a>
             </div>
           </div>
         </div>
@@ -119,7 +120,8 @@
                     </tr>
                   <?php } ?>
                 </tbody>
-              </table>
+              </table><br>
+              <a style="font-size:12px" href="kegiatan"><< lihat selengkapnya >></a>
             </div>
           </div>
         </div>

@@ -22,13 +22,14 @@
                                             <input readonly type="hidden" name="kode_kegiatan" class="form-control" value="<?php echo $apd->kode_kegiatan ?>" required>
                                             <input readonly type="hidden" name="total_pendapatan_lama" class="form-control" value="<?php echo $apd->total_pendapatan ?>" required>
                                             <label><b>Nama</b></label></br>
+                                            <?php //echo $apd->nip_anggota_perjadin ?>
                                             <?php $nap = $apd->nip_anggota_perjadin ?>
                                             <select title="Pilih pegawai yang akan ditambahkan kedalam perjalanan dinas" name="nip_anggota_perjadin" id="nip_anggota_perjadin" class="form-control" required>
                                                 <option value="">--Pilih Pegawai--</option>
                                                 <?php foreach ($nip as $row) : ?>
                                                     <option <?php if ($nap == $row->nip) {
                                                                 echo 'selected="selected"';
-                                                            } ?> value="<?php echo $row->nip ?>"><?php echo $row->nip . " | " . $row->nama_pegawai; ?></option>
+                                                            } ?> value="<?php echo $row->nip ?>"><?php echo $row->nama_pegawai; ?></option>
                                                 <?php endforeach; ?>
                                             </select>
                                         </div>
@@ -47,6 +48,10 @@
                                         <div class="form-group">
                                             <label><b>No. Surat Tugas</b></label>
                                             <input readonly type="text" value="<?php echo $apd->no_surat_tugas ?>" class="form-control" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label><b>No. Surat Tugas (TU)</b></label>
+                                            <input readonly type="text" value="<?php echo $apd->no_surat . $apd->no_surat_tugas_tu ?>" class="form-control" required>
                                         </div>
                                         <div class="form-group">
                                             <label><b>Berangkat Dari</b></label>

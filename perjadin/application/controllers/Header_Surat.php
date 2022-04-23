@@ -47,7 +47,7 @@ class Header_Surat extends CI_Controller
             'eslon_satu' => $eslon_satu,
             'eslon_dua' => $eslon_dua,
             'eslon_tiga' => $eslon_tiga,
-            'eslon_tiga' => $eslon_tiga_2,
+            'eslon_tiga_2' => $eslon_tiga_2,
             'alamat' => $alamat,
             'kontak' => $kontak,
             'web_email' => $web_email,

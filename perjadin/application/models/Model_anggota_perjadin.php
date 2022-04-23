@@ -79,6 +79,14 @@ class Model_anggota_perjadin extends CI_model
 		$this->db->from('data_anggota_perjadin');
 		return $this->db->get()->result();
 	}
+	public function getTotal()
+	{
+		//return $query = $this->db->order_by('id_data_kegiatan', 'ASC')->get('data_kegiatan')->result();
+		//$this->db->where('nip_anggota_perjadin =', $nip_anggota_perjadin);
+		$this->db->select_sum('data_anggota_perjadin.*');
+		$this->db->from('data_anggota_perjadin');
+		return $this->db->get('total_pendapatan')->result();
+	}
 	public function getList2($id_anggota_perjadin)
 	{
 		//return $query = $this->db->order_by('id_data_kegiatan', 'ASC')->get('data_kegiatan')->result();

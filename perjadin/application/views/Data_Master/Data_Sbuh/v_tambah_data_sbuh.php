@@ -18,12 +18,12 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Luar Kota </label>
-                                        <input type="text" name="luar_kota" class="form-control" required>
+                                        <input type="text" name="luar_kota" id="rupiah_luar_kota" class="form-control" required>
                                         <?php echo form_error('luar_kota', '<div class="text-small text-danger"></div>') ?>
                                     </div>
                                     <div class="form-group">
                                         <label>Dalam Kota </label>
-                                        <input type="text" name="dalam_kota" class="form-control" required>
+                                        <input type="text" name="dalam_kota" id="rupiah_dalam_kota" class="form-control" required>
                                         <?php echo form_error('dalam_kota', '<div class="text-small text-danger"></div>') ?>
                                     </div>
                                     <button type="submit" class="btn btn-success">Submit</button>&nbsp &nbsp

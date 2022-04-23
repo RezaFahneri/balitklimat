@@ -18,12 +18,14 @@ class Model_dashboard extends CI_model
     }
     public function getListMak()
 	{
-		return $query = $this->db->order_by('kode_mak', 'ASC')->get('data_mak')->result();
+		return $query = $this->db->order_by('kode_mak', 'ASC')->limit(3)
+        ->get('data_mak')->result();
 	}
     public function getListKegiatan()
 	{
 		//return $query = $this->db->order_by('id_data_kegiatan', 'ASC')->get('data_kegiatan')->result();
 		$this->db->select('*');
+		$this->db->limit(3);
 		$this->db->from('data_kegiatan');
         $this->db->where('biaya_pengeluaran!=',0);
 		return $this->db->get()->result();

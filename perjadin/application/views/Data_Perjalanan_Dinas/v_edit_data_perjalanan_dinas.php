@@ -110,7 +110,7 @@
                                                 <div class="form-group">
                                                     <label><b>No. Surat Tugas (TU)</b></label>
                                                     <div class="input-group mb-2">
-                                                        <input type="text" name="no_surat" value="<?php echo $pd->no_surat ?>" placeholder="Nomor Surat" class="form-control col-md-2" required>
+                                                        <input type="text" name="no_surat" value="<?php echo $pd->no_surat ?>" placeholder="Nomor Surat" class="form-control col-md-2">
 
                                                         <div class="input-group-prepend">
                                                             <div style="width:130px;color:dimgray" class="input-group-text">/TU.040/H.8.3/</div>

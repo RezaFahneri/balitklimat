@@ -30862,9 +30862,6 @@ body .container-scroller .card-page .box-page {
   transition: 0.5s;
 }
 
-body .container-scroller .card-page .box-page:hover {
-  transform: translateY(-50px);
-}
 
 /* body .container-scroller .card-page .box-page:before {
   content: "";
