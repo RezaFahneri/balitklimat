@@ -275,7 +275,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="<?php echo base_url(); ?>jadwal_kgb" aria-expanded="false">
                             <i class="ti ti-report-money" style="font-size: 22px; margin-right: 8px;"></i>
-                            <span class="menu-title">Jadwal KGB</span>
+                            <span class="menu-title">Jadwal Naik Gaji</span>
                             <i class="menu"></i>
                         </a>
                     </li>

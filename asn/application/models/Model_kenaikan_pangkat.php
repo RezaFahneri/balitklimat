@@ -169,69 +169,15 @@ class Model_kenaikan_pangkat extends CI_model
         $this->db->where($where);
         $this->db->delete($table);
     }
-    // function tmtPangkatcheck($tmt_pangkat_2, $tmt_pangkat_3, $tmt_pangkat_4, $tmt_pangkat_5){
-    //     $dataTmtP1 =  $this->db->where('tmt_pangkat_1', $tmt_pangkat_1)->get('data_jadwal_naik_pangkat');
-    //     $dataTmtP2 =  $this->db->where('tmt_pangkat_2', $tmt_pangkat_2)->get('data_jadwal_naik_pangkat');
-    //     $dataTmtP3 =  $this->db->where('tmt_pangkat_3', $tmt_pangkat_3)->get('data_jadwal_naik_pangkat');
-    //     $dataTmtP4 =  $this->db->where('tmt_pangkat_4', $tmt_pangkat_4)->get('data_jadwal_naik_pangkat');
-    //     $dataTmtP5 =  $this->db->where('tmt_pangkat_5', $tmt_pangkat_5)->get('data_jadwal_naik_pangkat');
-    //     if ($dataTmtP2 <= $dataTmtP1){
-    //         return false;
-    //     }
-    //     elseif ($dataTmtP3 <= $dataTmtP2 ){
-    //         return false;
-    //     }
-    //     elseif ($dataTmtP4 <= $dataTmtP2 ){
-    //         return false;
-    //     }
-    //     elseif ($dataTmtP5 <= $dataTmtP4 ){
-    //         return false;
-    //     }
-    //     else{
-    // 		return false;
-    // 	}
-    // }
-    // function tmtPangkatcheck2($tmt_pangkat_2){
-    //     $dataTmtP1 =  $this->db->where('tmt_pangkat_1', $tmt_pangkat_1)->get('data_jadwal_naik_pangkat');
-    //     $dataTmtP2 =  $this->db->where('tmt_pangkat_2', $tmt_pangkat_2)->get('data_jadwal_naik_pangkat');
-    //     if ($dataTmtP2 < $dataTmtP1){
-    //         return false;
-    //     }
-    //     else{
-    // 		return true;
-    // 	}
-    // }
-    // function tmtPangkatcheck3($tmt_pangkat_3){
-    //     $dataTmtP3 =  $this->db->where('tmt_pangkat_3', $tmt_pangkat_3)->get('data_jadwal_naik_pangkat');
-    //     $dataTmtP2 =  $this->db->where('tmt_pangkat_2', $tmt_pangkat_2)->get('data_jadwal_naik_pangkat');
-    //     if ($dataTmtP3 < $dataTmtP2){
-    //         return false;
-    //     }
-    //     else{
-    // 		return true;
-    // 	}
-    // }
-    // function tmtPangkatcheck4($tmt_pangkat_4){
-    //     $dataTmtP3 =  $this->db->where('tmt_pangkat_3', $tmt_pangkat_3)->get('data_jadwal_naik_pangkat');
-    //     $dataTmtP4 =  $this->db->where('tmt_pangkat_4', $tmt_pangkat_4)->get('data_jadwal_naik_pangkat');
-    //     if ($dataTmtP4 < $dataTmtP3){
-    //         return false;
-    //     }
-    //     else{
-    // 		return true;
-    // 	}
-    // }
-    // function tmtPangkatcheck5($tmt_pangkat_5){
-    //     $dataTmtP4 =  $this->db->where('tmt_pangkat_4', $tmt_pangkat_4)->get('data_jadwal_naik_pangkat');
-    //     $dataTmtP5 =  $this->db->where('tmt_pangkat_5', $tmt_pangkat_5)->get('data_jadwal_naik_pangkat');
-    //     if ($dataTmtP5 < $dataTmtP4){
-    //         return false;
-    //     }
-    //     else{
-    // 		return true;
-    // 	}
-    // }
-
+    function NIPCheck($nip)
+    {
+        $datanip = $this->db->where('nip', $nip)->get('data_jadwal_naik_pangkat');
+        if ($datanip->num_rows() == 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
     // function fetch_all_event(){
     //     $this->db->order_by('kode_kp');
     // $tampil = $this->db->query("SELECT * FROM data_jadwal_naik_pangkat order by kode_kp") ;

@@ -119,22 +119,22 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label><b>TMT Pangkat 2</b></label>
-                                                    <input type="date" name="tmt_pangkat_2" id="tmt_pangkat_2"
+                                                    <input type="date" name="tmt_pangkat_2" onblur="validasi_tmt21()" id="tmt_pangkat_2"
                                                         value="<?php echo $up->tmt_pangkat_2; ?>" class="form-control">
                                                 </div>
                                                 <div class="form-group">
                                                     <label><b>TMT Pangkat 3</b></label>
-                                                    <input type="date" name="tmt_pangkat_3" id="tmt_pangkat_3"
+                                                    <input type="date" name="tmt_pangkat_3" onblur="validasi_tmt32()" id="tmt_pangkat_3"
                                                         value="<?php echo $up->tmt_pangkat_3; ?>" class="form-control">
                                                 </div>
                                                 <div class="form-group">
                                                     <label><b>TMT Pangkat 4</b></label>
-                                                    <input type="date" name="tmt_pangkat_4" id="tmt_pangkat_4"
+                                                    <input type="date" name="tmt_pangkat_4" onblur="validasi_tmt43()" id="tmt_pangkat_4"
                                                         value="<?php echo $up->tmt_pangkat_4; ?>" class="form-control">
                                                 </div>
                                                 <div class="form-group">
                                                     <label><b>TMT Pangkat 5</b></label>
-                                                    <input type="date" name="tmt_pangkat_5" id="tmt_pangkat_5"
+                                                    <input type="date" name="tmt_pangkat_5" onblur="validasi_tmt54()" id="tmt_pangkat_5"
                                                         value="<?php echo $up->tmt_pangkat_5; ?>" class="form-control">
                                                 </div>
                                                 <div class="form-group">
@@ -187,5 +187,38 @@ $('#id_pangkat_berikutnya').select2({
     placeholder: "---Pilih Pangkat---",
     theme: "bootstrap-5",
 });
+</script>
+<script>
+	function validasi_tmt21() {
+		var tmt_pangkat_1 = document.getElementById("tmt_pangkat_1").value;
+		var tmt_pangkat_2 = document.getElementById("tmt_pangkat_2").value;
+		if (tmt_pangkat_2 <= tmt_pangkat_1) {
+            alert("Tanggal TMT Pangkat Ke-2 Tidak Boleh Kurang Dari TMT Pangkat Ke-1");
+		}
+    }
+    function validasi_tmt32() {
+        var tmt_pangkat_3 = document.getElementById("tmt_pangkat_3").value;
+        if (tmt_pangkat_3 <= tmt_pangkat_2) {
+		alert("Tanggal TMT Pangkat Ke-3 Tidak Boleh Kurang Dari TMT Pangkat Ke-2");
+		}
+    }
+    function validasi_tmt43() {
+        var tmt_pangkat_4 = document.getElementById("tmt_pangkat_4").value;
+        if (tmt_pangkat_4 <= tmt_pangkat_3) {
+		alert("Tanggal TMT Pangkat Ke-4 Tidak Boleh Kurang Dari TMT Pangkat Ke-3");
+		}
+    }
+    function validasi_tmt54() {
+        var tmt_pangkat_5 = document.getElementById("tmt_pangkat_5").value;
+        if (tmt_pangkat_5 <= tmt_pangkat_4) {
+		alert("Tanggal TMT Pangkat Ke-5 Tidak Boleh Kurang Dari TMT Pangkat Ke-4");
+		}
+	}
+    function validasi_jadwalkp() {
+        var jadwal_kp = document.getElementById("jadwal_kp").value;
+        if (jadwal_kp <= tmt_pangkat_1 || tmt_pangkat_2 || tmt_pangkat_3 || tmt_pangkat_4 || tmt_pangkat_5 ) {
+		alert("Jadwal Kenaikan Pangkat Tidak Boleh Kurang dari TMT");
+		}
+	}
 </script>
 </div>

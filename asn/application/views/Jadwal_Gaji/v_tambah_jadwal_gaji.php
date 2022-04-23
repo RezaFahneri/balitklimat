@@ -72,7 +72,7 @@
                                             <div class="form-group"><br>
                                                 <label><b>Gaji Baru<a style="color:red"> *</a></b></label>
                                                 <div class="input-group mb-2">
-                                                    <input type="text" name="gaji_baru"  id="rupiah1" placeholder="Gaji Baru"
+                                                    <input type="text" name="gaji_baru" onblur="validasi_gaji()" id="rupiah1" placeholder="Gaji Baru"
                                                         class="form-control" >
                                                 </div>
                                                 <?php echo form_error(
@@ -92,30 +92,29 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="tmt_gaji_2"><b>TMT Gaji 2</b></label>
-                                                    <input type="date" id="tmt_gaji_2" name="tmt_gaji_2"
+                                                    <input type="date" id="tmt_gaji_2"  onblur="validasi_tmt21()" name="tmt_gaji_2" onblur="validasi_tmt21()"
                                                         class="form-control">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="tmt_gaji_3"><b>TMT Gaji 3</b></label>
-                                                    <input type="date" id="tmt_gaji_3" name="tmt_gaji_3"
+                                                    <input type="date" id="tmt_gaji_3" name="tmt_gaji_3" onblur="validasi_tmt32()"
                                                         class="form-control">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="tmt_gaji_4"><b>TMT Gaji 4</b></label>
-                                                    <input type="date" id="tmt_gaji_4" name="tmt_gaji_4"
+                                                    <input type="date" id="tmt_gaji_4" name="tmt_gaji_4" onblur="validasi_tmt43()"
                                                         class="form-control">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="tmt_gaji_5"><b>TMT Gaji 5</b></label>
-                                                    <input type="date" id="tmt_gaji_5" name="tmt_gaji_5"
+                                                    <input type="date" id="tmt_gaji_5" name="tmt_gaji_5" onblur="validasi_tmt54()"
                                                         class="form-control">
                                                 </div>
                                                 <div class="form-group">
                                                     <label><b>Jadwal Kenaikan Gaji Berkala<a style="color:red">
                                                                 *</a></b></label>
-                                                    <input type="date" name="jadwal_kgb" id="jadwal_kgb"
-                                                        placeholder="Jadwal Kenaikan Gaji Berkala" class="form-control"
-                                                        >
+                                                    <input type="date" name="jadwal_kgb" onblur="validasi_jadwalkgb()" id="jadwal_kgb"
+                                                        placeholder="Jadwal Kenaikan Gaji Berkala" class="form-control">
                                                         <?php echo form_error(
                                                             'jadwal_kgb',
                                                             '<small class="text-small text-danger">',
@@ -171,4 +170,44 @@ $('#nip').on('input', function() {
     });
     return false;
 });
+</script>
+<script>
+    function validasi_gaji() {
+        var rupiah1 = document.getElementById("rupiah1").value;
+        if (rupiah1 <= rupiah ) {
+		alert("Gaji Baru Tidak Boleh Kurang dari Gaji Lama");
+		}
+	}
+	function validasi_tmt21() {
+		var tmt_gaji_1 = document.getElementById("tmt_gaji_1").value;
+		var tmt_gaji_2 = document.getElementById("tmt_gaji_2").value;
+		if (tmt_gaji_2 <= tmt_gaji_1) {
+            alert("Tanggal TMT Gaji Ke-2 Tidak Boleh Kurang Dari TMT Gaji Ke-1");
+		}
+    }
+    function validasi_tmt32() {
+        var tmt_gaji_3 = document.getElementById("tmt_gaji_3").value;
+        if (tmt_gaji_3 <= tmt_gaji_2) {
+		alert("Tanggal TMT Gaji Ke-3 Tidak Boleh Kurang Dari TMT Gaji Ke-2");
+		}
+    }
+    function validasi_tmt43() {
+        var tmt_gaji_4 = document.getElementById("tmt_gaji_4").value;
+        if (tmt_gaji_4 <= tmt_gaji_3) {
+		alert("Tanggal TMT Gaji Ke-4 Tidak Boleh Kurang Dari TMT Gaji Ke-3");
+		}
+    }
+    function validasi_tmt54() {
+        var tmt_gaji_5 = document.getElementById("tmt_gaji_5").value;
+        if (tmt_gaji_5 <= tmt_gaji_4) {
+		alert("Tanggal TMT Gaji Ke-5 Tidak Boleh Kurang Dari TMT Gaji Ke-4");
+		}
+	}
+    function validasi_jadwalkgb() {
+        var jadwal_kgb = document.getElementById("jadwal_kgb").value;
+        if (jadwal_kgb <= tmt_gaji_1 || tmt_gaji_2 || tmt_gaji_3 || tmt_gaji_4 || tmt_gaji_5 ) {
+		alert("Jadwal Kenaikan Gaji Tidak Boleh Kurang dari TMT");
+		}
+	}
+    
 </script>

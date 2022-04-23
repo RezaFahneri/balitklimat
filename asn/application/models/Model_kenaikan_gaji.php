@@ -69,5 +69,13 @@ class Model_kenaikan_gaji extends CI_model
 		$this->db->where($where);
 		$this->db->delete($table);
 	}
-   
+	function NIPCheck($nip)
+    {
+        $datanip = $this->db->where('nip', $nip)->get('data_jadwal_gaji_berkala');
+        if ($datanip->num_rows() == 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

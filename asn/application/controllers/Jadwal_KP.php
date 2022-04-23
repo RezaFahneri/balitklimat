@@ -95,7 +95,6 @@ class Jadwal_KP extends CI_Controller
             'required',
             '%s masih kosong, silahkan isi'
         );
-
         if ($this->form_validation->run() == false) {
             $data['title'] = 'ASN BALITKLIMAT | Tambah Jadwal Kenaikan Pangkat';
             $data['jadwal_kp'] = $this->Model_kenaikan_pangkat->get_kode_kp(
@@ -131,15 +130,24 @@ class Jadwal_KP extends CI_Controller
                 'tmt_pangkat_5' => $tmt_pangkat_5,
                 'jadwal_kp' => $jadwal_kp,
             ];
-            $this->Model_kenaikan_pangkat->input_data(
-                $data,
-                'data_jadwal_naik_pangkat'
-            );
-            $this->session->set_flashdata(
-                'sukses',
-                'Jadwal kenaikan pangkat berhasil ditambahkan'
-            );
-            redirect('jadwal_kp');
+
+            if ($this->Model_kenaikan_pangkat->NIPCheck($nip) == true) {
+                $this->Model_kenaikan_pangkat->input_data(
+                    $data,
+                    'data_jadwal_naik_pangkat'
+                );
+                $this->session->set_flashdata(
+                    'sukses',
+                    'Jadwal kenaikan pangkat berhasil ditambahkan'
+                );
+                redirect('jadwal_kp');
+            } else {
+                $this->session->set_flashdata(
+                    'error',
+                    'Pegawai sudah dijadwalkan kenaikan pangkat'
+                );
+                redirect('jadwal_kp');
+            }
         }
     }
 

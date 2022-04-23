@@ -71,12 +71,18 @@ class Data_Pegawai extends CI_Controller
             'Nama Pegawai',
             'required|max_length[50]'
         );
-        $this->form_validation->set_rules('nip');
+        $nip = $this->input->post('nip');
         if (!empty($nip)) {
             $this->form_validation->set_rules('nip', 'NIP', 'exact_length[18]');
         } else {
             $nip = $this->generateID();
         }
+        // $nip = $this->form_validation->set_rules('nip', 'NIP', 'required|exact_length[18]');
+        // if (!empty($nip)) {
+        //     $this->form_validation->set_rules('nip', 'NIP', 'exact_length[18]');
+        // } else if(empty($nip)) {
+        //     $nip = $this->generateID();
+        // }
         $this->form_validation->set_rules('id_golongan', 'Golongan');
         $this->form_validation->set_rules(
             'id_status_peg',
@@ -119,6 +125,10 @@ class Data_Pegawai extends CI_Controller
             'exact_length',
             '{field} harus 16 karakter'
         );
+        $this->form_validation->set_message(
+            'exact_length',
+            '{field} harus 18 karakter'
+        );
         if ($this->form_validation->run() == false) {
             $data['title'] = 'ASN BALITKLIMAT | Tambah Pegawai';
             $data['id_golongan'] = $this->Model_golongan->getList();
@@ -134,6 +144,11 @@ class Data_Pegawai extends CI_Controller
         } else {
             $nama_pegawai = $this->input->post('nama_pegawai');
             $nip = $this->input->post('nip');
+            if (!empty($nip)) {
+                $nip = $nip;
+            } else {
+                $nip = $this->generateID();
+            }
             $id_golongan = $this->input->post('id_golongan');
             $id_status_peg = $this->input->post('id_status_peg');
             $id_pangkat = $this->input->post('id_pangkat');
@@ -202,16 +217,6 @@ class Data_Pegawai extends CI_Controller
             }
         }
     }
-    // function tambah_penugasan($nip)
-    // {
-    //     $where = array('nip' => $nip);
-    //     $data['data_tugas'] = $this->db->query("SELECT * FROM data_tugas WHERE id_tugas='$id_tugas'")->result();
-    //     // $data['nip'] = $this->Model_pegawai->getList();
-    //     $data['title'] = 'ASN BALITKLIMAT | Tambah Penugasan Pegawai';
-    //     $this->load->view('templates/v_template',$data);
-    // 	$this->load->view('Data_Pegawai/v_tambah_penugasan_pegawai',$data);
-    //     $this->load->view('templates/footer',$data);
-    // }
     function edit()
     {
         $nip = $this->input->get('nip');

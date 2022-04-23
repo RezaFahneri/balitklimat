@@ -63,24 +63,13 @@ class Jadwal_KGB extends CI_Controller
         $this->form_validation->set_rules('nip', 'Nama Pegawai', 'required');
         $this->form_validation->set_rules('gaji_lama', 'Gaji Lama', 'required');
         $this->form_validation->set_rules('gaji_baru', 'Gaji Baru', 'required');
-        $this->form_validation->set_rules(
-            'tmt_gaji_1',
-            'TMT Gaji 1',
-            'required'
-        );
+        $this->form_validation->set_rules('tmt_gaji_1','TMT Gaji 1','required');
         $this->form_validation->set_rules('tmt_gaji_2', 'TMT Gaji 2');
         $this->form_validation->set_rules('tmt_gaji_3', 'TMT Gaji 3');
         $this->form_validation->set_rules('tmt_gaji_4', 'TMT Gaji 4');
         $this->form_validation->set_rules('tmt_gaji_5', 'TMT Gaji 5');
-        $this->form_validation->set_rules(
-            'jadwal_kgb',
-            'Jadwal Kenaikan Gaji Berkala',
-            'required'
-        );
-        $this->form_validation->set_message(
-            'required',
-            '%s masih kosong, silahkan isi'
-        );
+        $this->form_validation->set_rules('jadwal_kgb','Jadwal Kenaikan Gaji Berkala','required');
+        $this->form_validation->set_message('required','%s masih kosong, silahkan isi');
         if ($this->form_validation->run() == false) {
             $data['title'] =
                 'ASN BALITKLIMAT | Tambah Jadwal Kenaikan Gaji Berkala';
@@ -118,15 +107,17 @@ class Jadwal_KGB extends CI_Controller
                 'tmt_gaji_5' => $tmt_gaji_5,
                 'jadwal_kgb' => $jadwal_kgb,
             ];
-            $this->Model_kenaikan_gaji->input_data(
-                $data,
-                'data_jadwal_gaji_berkala'
-            );
-            $this->session->set_flashdata(
-                'sukses',
-                'Jadwal kenaikan gaji berkala berhasil ditambahkan'
-            );
-            redirect('jadwal_kgb');
+            if ($this->Model_kenaikan_gaji->NIPCheck($nip) == true) {
+                $this->Model_kenaikan_gaji->input_data($data,'data_jadwal_gaji_berkala');
+                $this->session->set_flashdata('sukses','Jadwal kenaikan gaji berkala berhasil ditambahkan');
+                redirect('jadwal_kgb');
+            } else {
+                $this->session->set_flashdata(
+                    'error',
+                    'Pegawai sudah dijadwalkan kenaikan gaji berkala'
+                );
+                redirect('jadwal_kgb');
+            } 
         }
     }
     function edit()

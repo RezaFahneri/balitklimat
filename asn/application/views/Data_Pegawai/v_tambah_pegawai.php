@@ -114,7 +114,7 @@
                                          <div class="form-group">
                                              <label><b>Password<a style="color:red"> *</a></b></label><br>
                                              <small class="text-warning">Password minimal 8 karakter</small>
-                                             <input style="color:dimgray" type="text" autocomplete="off" name="password" value="<?= set_value('password'); ?>" placeholder="Password" class="form-control">
+                                             <input style="color:dimgray" type="password" autocomplete="off" name="password" value="<?= set_value('password'); ?>" placeholder="Password" class="form-control">
                                              <?php echo form_error('password', '<small class="text-danger">', '</small>'); ?>
                                          </div>
                                          <div class="form-group">

@@ -114,7 +114,7 @@
                                         <div class="form-group">
                                             <label for="tmt_pangkat_2"><b>TMT Pangkat 2</b></label>
                                             <input style="color:dimgray" type="date" id="tmt_pangkat_2"
-                                                name="tmt_pangkat_2" class="form-control">
+                                                name="tmt_pangkat_2" onblur="validasi_tmt21()" class="form-control">
                                             <!-- <input style="color:dimgray" type="date" id="tmt_pangkat_2"
                                                 name="tmt_pangkat_2" class="form-control"> -->
 
@@ -122,27 +122,23 @@
                                         <div class="form-group">
                                             <label for="tmt_pangkat_3"><b>TMT Pangkat 3</b></label>
                                             <input style="color:dimgray" type="date" id="tmt_pangkat_3"
-                                                name="tmt_pangkat_3" class="form-control">
+                                                name="tmt_pangkat_3" onblur="validasi_tmt32()" class="form-control">
                                         </div>
                                         <div class="form-group">
                                             <label for="tmt_pangkat_4"><b>TMT Pangkat 4</b></label>
                                             <input style="color:dimgray" type="date" id="tmt_pangkat_4"
-                                                name="tmt_pangkat_4" class="form-control">
+                                                name="tmt_pangkat_4" onblur="validasi_tmt43()" class="form-control">
                                         </div>
                                         <div class="form-group">
                                             <label for="tmt_pangkat_5"><b>TMT Pangkat 5</b></label>
                                             <input style="color:dimgray" type="date" id="tmt_pangkat_5"
-                                                name="tmt_pangkat_5" class="form-control">
+                                                name="tmt_pangkat_5" onblur="validasi_tmt54()" class="form-control">
                                         </div>
                                         <div class="form-group">
                                             <label><b>Jadwal Kenaikan Pangkat<a style="color:red"> *</a></b></label>
-                                            <input style="color:dimgray" type="date" name="jadwal_kp" id="jadwal_kp"
+                                            <input style="color:dimgray" type="date" name="jadwal_kp" onblur="validasi_jadwalkp()" id="jadwal_kp"
                                                 placeholder="Jadwal Kenaikan Pangkat" class="form-control" >
-                                                <?php echo form_error(
-                                                    'jadwal_kp',
-                                                    '<small class="text-danger">',
-                                                    '</small>'
-                                                ); ?>
+                                                <?php echo form_error('jadwal_kp','<small class="text-danger">','</small>'); ?>
                                         </div>
                                         <button type="submit" class="btn btn-success">Simpan</a></button>&nbsp &nbsp
                                         <!-- <a class="btn btn-outline-dark" href="<?php echo base_url(); ?>akun">Cancel</a> -->
@@ -200,4 +196,37 @@ $('#nip').on('input', function() {
     });
     return false;
 });
+</script>
+<script>
+	function validasi_tmt21() {
+		var tmt_pangkat_1 = document.getElementById("tmt_pangkat_1").value;
+		var tmt_pangkat_2 = document.getElementById("tmt_pangkat_2").value;
+		if (tmt_pangkat_2 <= tmt_pangkat_1) {
+            alert("Tanggal TMT Pangkat Ke-2 Tidak Boleh Kurang Dari TMT Pangkat Ke-1");
+		}
+    }
+    function validasi_tmt32() {
+        var tmt_pangkat_3 = document.getElementById("tmt_pangkat_3").value;
+        if (tmt_pangkat_3 <= tmt_pangkat_2) {
+		alert("Tanggal TMT Pangkat Ke-3 Tidak Boleh Kurang Dari TMT Pangkat Ke-2");
+		}
+    }
+    function validasi_tmt43() {
+        var tmt_pangkat_4 = document.getElementById("tmt_pangkat_4").value;
+        if (tmt_pangkat_4 <= tmt_pangkat_3) {
+		alert("Tanggal TMT Pangkat Ke-4 Tidak Boleh Kurang Dari TMT Pangkat Ke-3");
+		}
+    }
+    function validasi_tmt54() {
+        var tmt_pangkat_5 = document.getElementById("tmt_pangkat_5").value;
+        if (tmt_pangkat_5 <= tmt_pangkat_4) {
+		alert("Tanggal TMT Pangkat Ke-5 Tidak Boleh Kurang Dari TMT Pangkat Ke-4");
+		}
+	}
+    function validasi_jadwalkp() {
+        var jadwal_kp = document.getElementById("jadwal_kp").value;
+        if (jadwal_kp <= tmt_pangkat_1 || tmt_pangkat_2 || tmt_pangkat_3 || tmt_pangkat_4 || tmt_pangkat_5 ) {
+		alert("Jadwal Kenaikan Pangkat Tidak Boleh Kurang dari TMT");
+		}
+	}
 </script>

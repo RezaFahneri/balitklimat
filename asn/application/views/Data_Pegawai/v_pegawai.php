@@ -43,11 +43,6 @@
                                                                         type="button" class="btn-xs"><label
                                                                             style="margin-top:10px;color:gray">NIP</label>
                                                                 </th>
-                                                                <!-- <th title="Jabatan" style="width:1%"><label
-                                                                        style="width:100%;height:100%;margin-top:10px"
-                                                                        type="button" class="btn-xs"><label
-                                                                            style="margin-top:10px;color:gray">Jabatan</label>
-                                                                </th> -->
                                                                 <th title="Golongan" style="width:2%"><label
                                                                         style="width:100%;height:100%;margin-top:10px"
                                                                         type="button" class="btn-xs"><label
