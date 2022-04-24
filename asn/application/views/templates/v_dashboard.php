@@ -114,15 +114,17 @@
                             ) {
                                 echo 'Mohon maaf.. Saat ini jadwal Kenaikan pangkat anda belum dijadwalkan';
                             } else {
-                                echo 'Kenaikan pangkat anda akan di laksanakan pada tanggal ';
-                                echo $this->db
-                                    ->where(
-                                        'nip',
-                                        $this->session->userdata('nip')
-                                    )
-                                    ->get('data_jadwal_naik_pangkat')
-                                    ->row('jadwal_kp');
-                                echo '   .Beri notifikasi kepada admin untuk memberi peringatan dengan menekan tombol dibawah ini';
+                                echo 'Kenaikan Pangkat anda akan di laksanakan pada tanggal ';
+                                echo tanggal_indonesia(
+                                    $this->db
+                                        ->where(
+                                            'nip',
+                                            $this->session->userdata('nip')
+                                        )
+                                        ->get('data_jadwal_naik_pangkat')
+                                        ->row('jadwal_kp')
+                                );
+                                echo '   . Kirim notifikasi kepada admin untuk memberi peringatan kenaikan pangkat dengan menekan tombol dibawah ini';
                             } ?>
                             <hr>
                             <form method="POST" enctype="multipart/form-data"
@@ -151,13 +153,19 @@
                                 <div class="form-group">
                                     <!-- <label for="pesan"><b>Pesan</a></b></label></br> -->
                                     <input style="color:dimgray" type="hidden"
-                                        value="Waktunya naik pangkat pada tanggal <?php echo $this->db
-                                            ->where(
-                                                'nip',
-                                                $this->session->userdata('nip')
-                                            )
-                                            ->get('data_jadwal_naik_pangkat')
-                                            ->row('jadwal_kp'); ?>"
+                                        value="Waktunya naik pangkat pada tanggal <?php echo tanggal_indonesia(
+                                            $this->db
+                                                ->where(
+                                                    'nip',
+                                                    $this->session->userdata(
+                                                        'nip'
+                                                    )
+                                                )
+                                                ->get(
+                                                    'data_jadwal_naik_pangkat'
+                                                )
+                                                ->row('jadwal_kp')
+                                        ); ?>"
                                         name="pesan" autocomplete="off" class="form-control" required>
                                 </div>
                                 <div class="form-group">
@@ -199,14 +207,16 @@
                                 echo 'Mohon maaf.. Saat ini jadwal Kenaikan gaji berkala anda belum dijadwalkan';
                             } else {
                                 echo 'Kenaikan Gaji Berkala anda akan di laksanakan pada tanggal ';
-                                echo $this->db
-                                    ->where(
-                                        'nip',
-                                        $this->session->userdata('nip')
-                                    )
-                                    ->get('data_jadwal_gaji_berkala')
-                                    ->row(tanggal_indonesia('jadwal_kgb'));
-                                echo '   .Beri notifikasi kepada admin untuk memberi peringatan dengan menekan tombol dibawah ini';
+                                echo tanggal_indonesia(
+                                    $this->db
+                                        ->where(
+                                            'nip',
+                                            $this->session->userdata('nip')
+                                        )
+                                        ->get('data_jadwal_gaji_berkala')
+                                        ->row('jadwal_kgb')
+                                );
+                                echo '   . Kirim notifikasi kepada admin untuk memberi peringatan kenaikan gaji berkala dengan menekan tombol dibawah ini';
                             } ?>
 
                             <hr>
@@ -234,13 +244,19 @@
                                 </div>
                                 <div class="form-group">
                                     <input style="color:dimgray" type="hidden"
-                                        value="Waktunya naik gaji pada tanggal <?php echo $this->db
-                                            ->where(
-                                                'nip',
-                                                $this->session->userdata('nip')
-                                            )
-                                            ->get('data_jadwal_gaji_berkala')
-                                            ->row('jadwal_kgb'); ?>"
+                                        value="Waktunya naik gaji pada tanggal <?php echo tanggal_indonesia(
+                                            $this->db
+                                                ->where(
+                                                    'nip',
+                                                    $this->session->userdata(
+                                                        'nip'
+                                                    )
+                                                )
+                                                ->get(
+                                                    'data_jadwal_gaji_berkala'
+                                                )
+                                                ->row('jadwal_kgb')
+                                        ); ?>"
                                         name="pesan" autocomplete="off" class="form-control" required>
                                 </div>
                                 <div class="form-group">
