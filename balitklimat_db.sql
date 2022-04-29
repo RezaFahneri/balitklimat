@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 23, 2022 at 01:04 PM
+-- Generation Time: Apr 29, 2022 at 10:40 AM
 -- Server version: 10.4.24-MariaDB
--- PHP Version: 7.4.28
+-- PHP Version: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -407,9 +407,9 @@ CREATE TABLE `data_jadwal_gaji_berkala` (
 --
 
 INSERT INTO `data_jadwal_gaji_berkala` (`kode_kgb`, `tgl_penjadwalan`, `nip`, `gaji_lama`, `gaji_baru`, `tmt_gaji_1`, `tmt_gaji_2`, `tmt_gaji_3`, `tmt_gaji_4`, `tmt_gaji_5`, `jadwal_kgb`) VALUES
-('020422002', '2022-04-17 10:42:55', '196505281991032001', 'Rp. 888.888', 'Rp. 999.999', '2022-04-02', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '2022-05-07'),
+('020422002', '2022-04-29 03:54:26', '196505281991032001', 'Rp. 3.000.000', 'Rp. 3.333.333', '2022-04-02', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '2022-05-07'),
 ('230422001', '2022-04-23 08:22:40', '196504121992031003', 'Rp. 5.000.000', 'Rp. 5.000.000', '2022-04-06', '2022-05-07', '0000-00-00', '0000-00-00', '0000-00-00', '2022-07-08'),
-('240322001', '2022-04-17 10:44:18', '196901241998032001', 'Rp. 4.000.000', 'Rp. 5.500.000', '2018-03-25', '2022-03-25', '0000-00-00', '0000-00-00', '0000-00-00', '2022-03-25');
+('290422003', '2022-04-29 08:36:57', '196901241998032001', 'Rp. 4.000.000', 'Rp. 5.000.000', '2022-04-29', '2026-04-29', '0000-00-00', '0000-00-00', '0000-00-00', '2026-04-29');
 
 -- --------------------------------------------------------
 
@@ -436,8 +436,8 @@ CREATE TABLE `data_jadwal_naik_pangkat` (
 --
 
 INSERT INTO `data_jadwal_naik_pangkat` (`kode_kp`, `tgl_penjadwalan`, `nip`, `id_pangkat_berikutnya`, `id_golongan_berikutnya`, `tmt_pangkat_1`, `tmt_pangkat_2`, `tmt_pangkat_3`, `tmt_pangkat_4`, `tmt_pangkat_5`, `jadwal_kp`) VALUES
-('240322001', '2022-03-24 10:55:50', '196901241998032001', 4, 23, '2018-03-23', '2022-03-23', '0000-00-00', '0000-00-00', '0000-00-00', '2022-03-25'),
-('240322002', '2022-03-24 10:57:08', '196505281991032001', 6, 21, '2018-02-04', '2022-02-04', '0000-00-00', '0000-00-00', '0000-00-00', '2022-02-27');
+('240322002', '2022-03-24 10:57:08', '196505281991032001', 6, 21, '2018-02-04', '2022-02-04', '0000-00-00', '0000-00-00', '0000-00-00', '2022-02-27'),
+('290422001', '2022-04-29 07:16:35', '196901241998032001', 6, 23, '2022-04-29', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '2026-04-29');
 
 -- --------------------------------------------------------
 
@@ -556,6 +556,7 @@ CREATE TABLE `data_notifikasi` (
   `id_notifikasi` int(11) NOT NULL,
   `nip` varchar(18) NOT NULL,
   `pesan` text NOT NULL,
+  `jadwal_kenaikan` date NOT NULL,
   `jenis_notif` varchar(15) NOT NULL,
   `tgl_notif` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -564,9 +565,8 @@ CREATE TABLE `data_notifikasi` (
 -- Dumping data for table `data_notifikasi`
 --
 
-INSERT INTO `data_notifikasi` (`id_notifikasi`, `nip`, `pesan`, `jenis_notif`, `tgl_notif`) VALUES
-(19, '196901241998032001', 'Waktunya naik pangkat pada tanggal 2022-03-25', 'notif_kp', '2022-03-24 11:33:54'),
-(22, '196901241998032001', 'Waktunya naik gaji pada tanggal 2022-03-25', 'notif_kgb', '2022-04-21 04:28:18');
+INSERT INTO `data_notifikasi` (`id_notifikasi`, `nip`, `pesan`, `jadwal_kenaikan`, `jenis_notif`, `tgl_notif`) VALUES
+(31, '196901241998032001', 'Waktunya naik gaji pada tanggal', '2026-04-29', 'notif_kgb', '2022-04-29 08:37:25');
 
 -- --------------------------------------------------------
 
@@ -629,7 +629,7 @@ INSERT INTO `data_pegawai` (`nip`, `nama_pegawai`, `foto`, `id_golongan`, `id_st
 ('196505281991032001', 'Ir. Erni Susanti, M.Sc', 'default.png', 20, 3, 7, 5, 2, '3271046805650004', 'ernisusanti23@gmail.com', '12345678', '6281235062988'),
 ('196710081994032013', 'Dr. Woro Estiningtyas', 'default.png', 21, 3, 2, 5, 2, '3201294810670003', 'woresti2@gmail.com', '12345678', '6281235062988 '),
 ('196803301994031001', 'Dr. Budi Kartiwa', 'WhatsApp_Image_2022-01-14_at_14_30_572.jpeg', 21, 3, 2, 5, 2, '3201293003680001', 'budikartiwa1@gmail.com', '12345678', '6281235062988   '),
-('196901241998032001', 'Dr. Elza Surmaini', 'logoasn-01.png', 22, 3, 6, 5, 2, '3271066401690004', 'elzaasmrn@gmail.com', '12345678', '6281235062988'),
+('196901241998032001', 'Dr. Elza Surmaini', 'fix_kolokium11.jpg', 22, 3, 6, 5, 2, '3271066401690004', 'elzaasmrn@gmail.com', '12345678', '6281235062988'),
 ('198007242005011001', 'Fadhullah Ramadhani, S.Kom, M.Sc', 'default.png', 19, 4, 8, 6, 2, '3271062407800008', 'ramadhanifadullah@gmail.com', '12345678', '6281235062988'),
 ('198310012008012009', 'Yeli Sarvina, S.Si, MSc', 'default.png', 18, 4, 10, 6, 2, '3271034110830014', 'sarvinayeli@gmail.com', '12345678', '6281235062988'),
 ('198909292014032004', 'Rizqa Nurkhaida S.R, ST', 'default.png', 16, 3, 13, 7, 2, '3304066909890003', 'rizkqinrkhaida@gmail.com', '12345678', '6281235062988'),
@@ -2192,7 +2192,7 @@ ALTER TABLE `data_kota`
 -- AUTO_INCREMENT for table `data_notifikasi`
 --
 ALTER TABLE `data_notifikasi`
-  MODIFY `id_notifikasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id_notifikasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `data_pangkat`

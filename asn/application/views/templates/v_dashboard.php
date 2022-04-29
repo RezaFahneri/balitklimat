@@ -101,8 +101,11 @@
             <div class="col-sm-12 grid-margin transparent">
                 <div class="row">
                     <div class="col-md-12 mb-12 stretch-card transparent">
-                        <div class="alert alert-success" role="alert">
-                            <h4 class="alert-heading"><b>Jadwal Kenaikan Pangkat!</b></h4>
+                    <div class="card bg-warning card-body">
+                            <div class="card-body-icon">
+                               <i class="fa-light fa-chart-line-up"></i>
+                            </div>
+                            <h5 class="card-title text-white">Jadwal Kenaikan Pangkat !</h5>
                             <?php if (
                                 $this->db
                                     ->where(
@@ -127,13 +130,11 @@
                                 echo '   . Kirim notifikasi kepada admin untuk memberi peringatan kenaikan pangkat dengan menekan tombol dibawah ini';
                             } ?>
                             <hr>
-                            <form method="POST" enctype="multipart/form-data"
-                                action="<?php echo base_url(
-                                    'dashboard/tambah_aksi'
-                                ); ?>">
-                                <div class="form-group">
-                                    <!-- <label><b>Nama Pegawai<a style="color:red"> *</a></b></label> -->
-                                    <input style="color:dimgray" type="hidden"
+                            <form method="POST" action="<?php echo base_url(
+                                'beranda/tambah_aksi'
+                            ); ?>">
+                                <div>
+                                    <input  type="hidden"
                                         value="<?php echo $this->db
                                             ->where(
                                                 'email',
@@ -143,34 +144,27 @@
                                             )
                                             ->get('data_pegawai')
                                             ->row('nip'); ?>"
-                                        name="nip" autocomplete="off" class="form-control" required>
-
-                                    <?php echo form_error(
-                                        'nip',
-                                        '<div class="text-small text-danger"></div>'
-                                    ); ?>
+                                        name="nip" class="form-control">
                                 </div>
-                                <div class="form-group">
-                                    <!-- <label for="pesan"><b>Pesan</a></b></label></br> -->
-                                    <input style="color:dimgray" type="hidden"
-                                        value="Waktunya naik pangkat pada tanggal <?php echo tanggal_indonesia(
-                                            $this->db
-                                                ->where(
-                                                    'nip',
-                                                    $this->session->userdata(
-                                                        'nip'
-                                                    )
-                                                )
-                                                ->get(
-                                                    'data_jadwal_naik_pangkat'
-                                                )
-                                                ->row('jadwal_kp')
-                                        ); ?>"
-                                        name="pesan" autocomplete="off" class="form-control" required>
+                                <div>
+                                    <input type="hidden"
+                                        value="Waktunya naik pangkat pada tanggal " name="pesan" class="form-control">
                                 </div>
-                                <div class="form-group">
+                                <div>
+                                <input type="hidden"
+                                    value="<?= $this->db
+                                        ->where(
+                                            'nip',
+                                            $this->session->userdata('nip')
+                                        )
+                                        ->get('data_jadwal_naik_pangkat')
+                                        ->row(
+                                            'jadwal_kp'
+                                        ) ?>"  name="jadwal_kenaikan" autocomplete="off" class="form-control">
+                                </div>
+                                <div>
                                     <!-- <label for="jenis_notif"><b>Jenis notifikasi</a></b></label></br> -->
-                                    <input type="hidden" style="color:dimgray" value="notif_kp" name="jenis_notif"
+                                    <input type="hidden"  value="notif_kp" name="jenis_notif"
                                         autocomplete="off" class="form-control" required>
                                 </div>
                                 <?php if (
@@ -190,11 +184,15 @@
                             </form>
                         </div>
                     </div>
-                </div>
+                </div><br>
                 <div class="row">
                     <div class="col-md-12 mb-12 stretch-card transparent">
-                        <div class="alert alert-warning" role="alert">
-                            <h4 class="alert-heading"><b>Jadwal Kenaikan Gaji Berkala!</b></h4>
+                    <div class="card bg-info card-body">
+                            <div class="card-body-icon">
+                               <i class="fa-light fa-chart-line-up"></i>
+                            </div>
+                            <h5 class="card-title text-white">Jadwal Kenaikan Gaji Berkala !</h5>
+
                             <?php if (
                                 $this->db
                                     ->where(
@@ -223,10 +221,10 @@
 
                             <form method="POST" enctype="multipart/form-data"
                                 action="<?php echo base_url(
-                                    'dashboard/tambah_aksi'
+                                    'beranda/tambah_aksi'
                                 ); ?>">
-                                <div class="form-group">
-                                    <input style="color:dimgray" type="hidden"
+                                <div >
+                                    <input  type="hidden"
                                         value="<?php echo $this->db
                                             ->where(
                                                 'email',
@@ -242,26 +240,25 @@
                                         '<div class="text-small text-danger"></div>'
                                     ); ?>
                                 </div>
-                                <div class="form-group">
-                                    <input style="color:dimgray" type="hidden"
-                                        value="Waktunya naik gaji pada tanggal <?php echo tanggal_indonesia(
-                                            $this->db
-                                                ->where(
-                                                    'nip',
-                                                    $this->session->userdata(
-                                                        'nip'
-                                                    )
-                                                )
-                                                ->get(
-                                                    'data_jadwal_gaji_berkala'
-                                                )
-                                                ->row('jadwal_kgb')
-                                        ); ?>"
-                                        name="pesan" autocomplete="off" class="form-control" required>
+                                <div >
+                                    <input type="hidden"
+                                        value="Waktunya naik gaji pada tanggal"  name="pesan" autocomplete="off" class="form-control">
                                 </div>
-                                <div class="form-group">
-                                    <input type="hidden" style="color:dimgray" value="notif_kgb" name="jenis_notif"
-                                        autocomplete="off" class="form-control" required>
+                                <div>
+                                <input type="hidden"
+                                    value="<?= $this->db
+                                        ->where(
+                                            'nip',
+                                            $this->session->userdata('nip')
+                                        )
+                                        ->get('data_jadwal_gaji_berkala')
+                                        ->row(
+                                            'jadwal_kgb'
+                                        ) ?>"  name="jadwal_kenaikan" autocomplete="off" class="form-control">
+                                </div>
+                                <div >
+                                    <input type="hidden" value="notif_kgb" name="jenis_notif"
+                                        autocomplete="off" class="form-control">
                                 </div>
                                 <?php if (
                                     $this->db

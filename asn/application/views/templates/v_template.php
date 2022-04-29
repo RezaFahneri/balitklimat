@@ -149,9 +149,12 @@
                                         </div>
                                         <strong><?php echo $n->nama_pegawai; ?></strong>&nbsp;
                                         <?php echo $n->pesan; ?>
-                                        <a title="Hapus Jadwal Kenaikan Pangkat" class="close" aria-label="Close"
+                                        <?php echo tanggal_indonesia(
+                                            $n->jadwal_kenaikan
+                                        ); ?>
+                                        <a title="Hapus Notifikasi" class="close" aria-label="Close"
                                             href="<?php echo site_url(
-                                                'dashboard/hapus/' .
+                                                'beranda/hapus/' .
                                                     $n->id_notifikasi
                                             ); ?>">
                                             <span aria-hidden="true">&times;</span></a>
@@ -178,16 +181,12 @@
                                 <i class="mdi mdi-account text-primary"></i>
                                 Profil
                             </a>
-                            <a href="<?php echo base_url(); ?>dashboard/logout" class="dropdown-item">
+                            <a href="<?php echo base_url(); ?>beranda/logout" class="dropdown-item">
                                 <i class="mdi mdi-power text-primary"></i>
                                 Logout
                             </a>
                         </div>
                     </li>
-                    <!-- <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
-                        data-toggle="offcanvas">
-                        <span class="icon-menu"></span>
-                    </button> -->
             </div>
         </nav>
         <!-- partial -->
@@ -199,9 +198,9 @@
 
                 <ul class="nav">  
                 <li class="nav-item ">
-                        <a class="nav-link" href="<?php echo base_url(); ?>dashboard">
+                        <a class="nav-link" href="<?php echo base_url(); ?>beranda">
                             <i class="icon-grid menu-icon"></i>
-                            <span class="menu-title">Dashboard</span>
+                            <span class="menu-title">Beranda</span>
                         </a>
                     </li>             
                     <?php if (

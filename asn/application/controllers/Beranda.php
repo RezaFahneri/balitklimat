@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Dashboard extends CI_Controller
+class Beranda extends CI_Controller
 {
     public function construct()
     {
@@ -42,7 +42,7 @@ class Dashboard extends CI_Controller
         );
         $data['total_oh'] = $total_oh->num_rows();
 
-        $data['title'] = ' ASN Balitklimat | Dashboard';
+        $data['title'] = ' ASN Balitklimat | Beranda';
         $this->load->view('templates/v_template', $data);
         $this->load->view('templates/v_dashboard', $data);
         $this->load->view('templates/footer', $data);
@@ -52,22 +52,18 @@ class Dashboard extends CI_Controller
         $data = [
             'nip' => $this->input->post('nip'),
             'pesan' => $this->input->post('pesan'),
+            'jadwal_kenaikan' => $this->input->post('jadwal_kenaikan'),
             'jenis_notif' => $this->input->post('jenis_notif'),
         ];
         if ($this->db->insert('data_notifikasi', $data)) {
             $this->session->set_flashdata(
                 'sukses',
-                'Data notifikasi berhasil ditambahkan'
+                'Notifikasi berhasil dikirim'
             );
-            redirect('dashboard');
+            redirect('beranda');
         } else {
             $this->session->set_flashdata('error');
         }
-        $this->session->set_flashdata(
-            'sukses',
-            'Data notifikasi berhasil ditambahkan'
-        );
-        redirect('dashboard');
     }
     public function hapus($id_notifikasi)
     {
@@ -76,7 +72,7 @@ class Dashboard extends CI_Controller
             "DELETE FROM data_notifikasi WHERE id_notifikasi ='$id_notifikasi'"
         );
         $this->session->set_flashdata('sukses', 'Notifikasi berhasil dihapus');
-        redirect('dashboard');
+        redirect('beranda');
     }
     public function logout()
     {
