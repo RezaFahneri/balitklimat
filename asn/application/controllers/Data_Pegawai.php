@@ -37,7 +37,6 @@ class Data_Pegawai extends CI_Controller
         $this->load->view('Data_Pegawai/v_detail_pegawai', $data);
         $this->load->view('templates/footer');
     }
-
     function tambah()
     {
         $data['title'] = 'ASN BALITKLIMAT | Tambah Pegawai';
@@ -64,71 +63,32 @@ class Data_Pegawai extends CI_Controller
         $kd = 'HNR';
         return $kd . sprintf('%04s', $next);
     }
+    // private function hash_password($password) {
+    //     return password_hash($password, PASSWORD_BCRYPT);
+    // }
     function tambah_aksi()
     {
-        $this->form_validation->set_rules(
-            'nama_pegawai',
-            'Nama Pegawai',
-            'required|max_length[50]'
-        );
+        $this->form_validation->set_rules('nama_pegawai','Nama Pegawai','required|max_length[50]');
         $nip = $this->input->post('nip');
         if (!empty($nip)) {
             $this->form_validation->set_rules('nip', 'NIP', 'exact_length[18]');
         } else {
             $nip = $this->generateID();
         }
-        // $nip = $this->form_validation->set_rules('nip', 'NIP', 'required|exact_length[18]');
-        // if (!empty($nip)) {
-        //     $this->form_validation->set_rules('nip', 'NIP', 'exact_length[18]');
-        // } else if(empty($nip)) {
-        //     $nip = $this->generateID();
-        // }
         $this->form_validation->set_rules('id_golongan', 'Golongan');
-        $this->form_validation->set_rules(
-            'id_status_peg',
-            'Status Kepegawaian',
-            'required'
-        );
+        $this->form_validation->set_rules('id_status_peg','Status Kepegawaian','required');
         $this->form_validation->set_rules('id_pangkat', 'Pangkat');
         $this->form_validation->set_rules('id_jabatan', 'Jabatan', 'required');
         $this->form_validation->set_rules('id_divisi', 'Divisi', 'required');
-        $this->form_validation->set_rules(
-            'nik',
-            'NIK',
-            'required|exact_length[16]'
-        );
+        $this->form_validation->set_rules('nik','NIK','required|exact_length[16]');
         $this->form_validation->set_rules('email', 'Email', 'required');
-        $this->form_validation->set_rules(
-            'password',
-            'Password',
-            'required|min_length[8]'
-        );
-        $this->form_validation->set_rules(
-            'no_whatsapp',
-            'Nomor Whatsapp',
-            'required'
-        );
-
-        $this->form_validation->set_message(
-            'required',
-            '%s masih kosong, silahkan isi'
-        );
-        $this->form_validation->set_message(
-            'min_length',
-            '{field} minimal 8 karakter'
-        );
-        $this->form_validation->set_message(
-            'max_length',
-            '{field} maksimal 50 karakter'
-        );
-        $this->form_validation->set_message(
-            'exact_length',
-            '{field} harus 16 karakter'
-        );
-        $this->form_validation->set_message(
-            'exact_length',
-            '{field} harus 18 karakter'
-        );
+        $this->form_validation->set_rules('password','Password','required|min_length[8]');
+        $this->form_validation->set_rules('no_whatsapp','Nomor Whatsapp','required');
+        $this->form_validation->set_message('required', '%s masih kosong, silahkan isi');
+        $this->form_validation->set_message('min_length','{field} minimal 8 karakter');
+        $this->form_validation->set_message('max_length','{field} maksimal 50 karakter');
+        $this->form_validation->set_message('exact_length','{field} harus 16 karakter');
+        $this->form_validation->set_message('exact_length','{field} harus 18 karakter');
         if ($this->form_validation->run() == false) {
             $data['title'] = 'ASN BALITKLIMAT | Tambah Pegawai';
             $data['id_golongan'] = $this->Model_golongan->getList();
@@ -157,8 +117,8 @@ class Data_Pegawai extends CI_Controller
             $id_divisi = $this->input->post('id_divisi');
             $nik = $this->input->post('nik');
             $email = $this->input->post('email');
-            // $password = md5($this->input->post('password'));
-            $password = $this->input->post('password');
+            $password = md5($this->input->post('password'));
+            // $password = $this->input->post('password');
             $no_whatsapp =
                 $this->input->post('62') . $this->input->post('no_whatsapp');
 
@@ -173,6 +133,7 @@ class Data_Pegawai extends CI_Controller
                 'foto' => $foto,
                 'nik' => $nik,
                 'email' => $email,
+                //'password' => $this->hash_password($password),
                 'password' => $password,
                 'no_whatsapp' => $no_whatsapp,
             ];
@@ -194,6 +155,7 @@ class Data_Pegawai extends CI_Controller
                 'foto' => $foto,
                 'nik' => $nik,
                 'email' => $email,
+                //'password' => $this->hash_password($password),
                 'password' => $password,
                 'no_whatsapp' => $no_whatsapp,
                 'id_role' => 8,
@@ -203,16 +165,10 @@ class Data_Pegawai extends CI_Controller
                 $this->Model_pegawai->input_data($data, 'data_pegawai');
                 $this->Model_pegawai->input_data($data2, 'status_perjalanan');
                 $this->Model_pegawai->input_data($data3, 'detail_role');
-                $this->session->set_flashdata(
-                    'sukses',
-                    'Data pegawai berhasil ditambahkan'
-                );
+                $this->session->set_flashdata('sukses','Data pegawai berhasil ditambahkan');
                 redirect('data_pegawai');
             } else {
-                $this->session->set_flashdata(
-                    'error',
-                    'Email sudah digunakan, gunakan email lain'
-                );
+                $this->session->set_flashdata('error','Email sudah digunakan, gunakan email lain');
                 redirect('data_pegawai/tambah');
             }
         }
@@ -244,8 +200,8 @@ class Data_Pegawai extends CI_Controller
         $id_pangkat = $this->input->post('id_pangkat');
         $nik = $this->input->post('nik');
         $email = $this->input->post('email');
-        // $password = md5($this->input->post('password'));
-        $password = $this->input->post('password');
+        $password = md5($this->input->post('password'));
+        //$password = $this->input->post('password');
         $no_whatsapp = $this->input->post('no_whatsapp');
 
         $data1 = [
@@ -257,6 +213,7 @@ class Data_Pegawai extends CI_Controller
             'id_pangkat' => $id_pangkat,
             'nik' => $nik,
             'email' => $email,
+            //'password' => $this->hash_password($password),
             'password' => $password,
             'no_whatsapp' =>
                 $this->input->post('62') . $this->input->post('no_whatsapp'),
@@ -275,6 +232,7 @@ class Data_Pegawai extends CI_Controller
             'id_pangkat' => $id_pangkat,
             'nik' => $nik,
             'email' => $email,
+            //'password' => $this->hash_password($password),
             'password' => $password,
             'no_whatsapp' =>
                 $this->input->post('62') . $this->input->post('no_whatsapp'),

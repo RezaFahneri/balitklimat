@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 29, 2022 at 10:40 AM
+-- Generation Time: May 12, 2022 at 01:40 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -407,8 +407,6 @@ CREATE TABLE `data_jadwal_gaji_berkala` (
 --
 
 INSERT INTO `data_jadwal_gaji_berkala` (`kode_kgb`, `tgl_penjadwalan`, `nip`, `gaji_lama`, `gaji_baru`, `tmt_gaji_1`, `tmt_gaji_2`, `tmt_gaji_3`, `tmt_gaji_4`, `tmt_gaji_5`, `jadwal_kgb`) VALUES
-('020422002', '2022-04-29 03:54:26', '196505281991032001', 'Rp. 3.000.000', 'Rp. 3.333.333', '2022-04-02', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '2022-05-07'),
-('230422001', '2022-04-23 08:22:40', '196504121992031003', 'Rp. 5.000.000', 'Rp. 5.000.000', '2022-04-06', '2022-05-07', '0000-00-00', '0000-00-00', '0000-00-00', '2022-07-08'),
 ('290422003', '2022-04-29 08:36:57', '196901241998032001', 'Rp. 4.000.000', 'Rp. 5.000.000', '2022-04-29', '2026-04-29', '0000-00-00', '0000-00-00', '0000-00-00', '2026-04-29');
 
 -- --------------------------------------------------------
@@ -436,8 +434,7 @@ CREATE TABLE `data_jadwal_naik_pangkat` (
 --
 
 INSERT INTO `data_jadwal_naik_pangkat` (`kode_kp`, `tgl_penjadwalan`, `nip`, `id_pangkat_berikutnya`, `id_golongan_berikutnya`, `tmt_pangkat_1`, `tmt_pangkat_2`, `tmt_pangkat_3`, `tmt_pangkat_4`, `tmt_pangkat_5`, `jadwal_kp`) VALUES
-('240322002', '2022-03-24 10:57:08', '196505281991032001', 6, 21, '2018-02-04', '2022-02-04', '0000-00-00', '0000-00-00', '0000-00-00', '2022-02-27'),
-('290422001', '2022-04-29 07:16:35', '196901241998032001', 6, 23, '2022-04-29', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '2026-04-29');
+('290422001', '2022-04-29 07:16:35', '196901241998032001', 4, 23, '2022-04-29', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '2026-04-29');
 
 -- --------------------------------------------------------
 
@@ -613,7 +610,7 @@ CREATE TABLE `data_pegawai` (
   `id_divisi` int(11) NOT NULL,
   `nik` varchar(16) DEFAULT NULL,
   `email` varchar(62) DEFAULT NULL,
-  `password` varchar(30) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
   `no_whatsapp` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -622,21 +619,15 @@ CREATE TABLE `data_pegawai` (
 --
 
 INSERT INTO `data_pegawai` (`nip`, `nama_pegawai`, `foto`, `id_golongan`, `id_status_peg`, `id_pangkat`, `id_jabatan`, `id_divisi`, `nik`, `email`, `password`, `no_whatsapp`) VALUES
-('195805161993032002', 'Dr. Nani Heryani', 'WhatsApp_Image_2022-01-14_at_14_30_571.jpeg', 23, 3, 4, 4, 2, '3271055605580006', 'naniheryani@gmail.com', '12345678', '6281235062988    '),
-('196401211990031002', 'Dr. Ir. A. Arivin Rivaie, M.Sc', 'images6.jpg', 23, 3, 2, 2, 2, '3271062101640004', 'arivinrivaie@gmail.com', '12345678', '6281235062988     '),
-('196411291990032002', 'Dr. Ir. Popi Redjekiningrum D M', 'DSCF5201-removebg-preview111.png', 23, 3, 4, 5, 2, '3201296911640001', 'popiredjeki@gmail.com', '12345678', '6281235062988     '),
-('196504121992031003', 'Dr. Aris Pramudia', 'default.png', 20, 3, 7, 5, 2, '3201131204650005', 'arisprmdya@gmail.com', '12345678', '6281235062988'),
-('196505281991032001', 'Ir. Erni Susanti, M.Sc', 'default.png', 20, 3, 7, 5, 2, '3271046805650004', 'ernisusanti23@gmail.com', '12345678', '6281235062988'),
-('196710081994032013', 'Dr. Woro Estiningtyas', 'default.png', 21, 3, 2, 5, 2, '3201294810670003', 'woresti2@gmail.com', '12345678', '6281235062988 '),
-('196803301994031001', 'Dr. Budi Kartiwa', 'WhatsApp_Image_2022-01-14_at_14_30_572.jpeg', 21, 3, 2, 5, 2, '3201293003680001', 'budikartiwa1@gmail.com', '12345678', '6281235062988   '),
-('196901241998032001', 'Dr. Elza Surmaini', 'fix_kolokium11.jpg', 22, 3, 6, 5, 2, '3271066401690004', 'elzaasmrn@gmail.com', '12345678', '6281235062988'),
-('198007242005011001', 'Fadhullah Ramadhani, S.Kom, M.Sc', 'default.png', 19, 4, 8, 6, 2, '3271062407800008', 'ramadhanifadullah@gmail.com', '12345678', '6281235062988'),
-('198310012008012009', 'Yeli Sarvina, S.Si, MSc', 'default.png', 18, 4, 10, 6, 2, '3271034110830014', 'sarvinayeli@gmail.com', '12345678', '6281235062988'),
-('198909292014032004', 'Rizqa Nurkhaida S.R, ST', 'default.png', 16, 3, 13, 7, 2, '3304066909890003', 'rizkqinrkhaida@gmail.com', '12345678', '6281235062988'),
-('199410302018012002', 'Dariin Firda, S.Si', 'default.png', 19, 4, 13, 7, 4, '3174047010940003', 'sasa@gmail.com', '8999999asdfg', '6281235062988 '),
-('HNR901241998032002', 'Daeng Muda Panglima', 'default.png', 1, 8, 1, 23, 4, '3520036004010222', 'daengpanglima@gmail.com', '12345678', '6281235062988'),
-('HNR901241998032003', 'Imam Susilo', 'default.png', 1, 8, 1, 23, 2, '3530021333902000', 'susiloimama@gmail.com', '12345678', '6281235062988'),
-('HNR901241998032004', 'Farida Oktavia, SP', 'default.png', 1, 8, 1, 27, 4, '3313010612900004', 'sadxasd@gmail.com', '2331413rdasd', '62891291210313');
+('196401211990031002', 'Dr. Ir. A. Arivin Rivaie, M.Sc', 'images6.jpg', 23, 3, 2, 2, 2, '3271062101640004', 'arivinrivaie@gmail.com', '48efe9460a6e7c8b0e098f66f4b6a1e0', '6281235062988     '),
+('196710081994032013', 'Dr. Woro Estiningtyas', 'default.png', 21, 3, 2, 5, 2, '3201294810670003', 'woresti2@gmail.com', '2180e7feb3469cca45bed007f6d5f6df', '6281235062988  '),
+('196803301994031001', 'Dr. Budi Kartiwa', 'WhatsApp_Image_2022-01-14_at_14_30_572.jpeg', 21, 3, 2, 5, 2, '3201293003680001', 'budikartiwa1@gmail.com', '25d55ad283aa400af464c76d713c07ad', '6281235062988   '),
+('196901241998032001', 'Dr. Elza Surmaini', 'fix_kolokium11.jpg', 22, 3, 6, 5, 2, '3271066401690004', 'elzaasmrn@gmail.com', 'd16b83e75bdfeed18316c00add3f5401', '6281235062988 '),
+('198007242005011001', 'Fadhullah Ramadhani, S.Kom, M.Sc', 'default.png', 19, 4, 8, 6, 2, '3271062407800008', 'ramadhanifadullah@gmail.com', 'c6e34f969803868ba48ecd107a92eecb', '6281235062988 '),
+('198310012008012009', 'Yeli Sarvina, S.Si, MSc', 'default.png', 18, 4, 10, 6, 2, '3271034110830014', 'sarvinayeli@gmail.com', 'e29e95451727fc7fe480492f6cdaba28', '6281235062988 '),
+('198909292014032004', 'Rizqa Nurkhaida S.R, ST', 'default.png', 16, 3, 13, 7, 2, '3304066909890003', 'rizkqinrkhaida@gmail.com', '614957a1232f1e0b324bf27834855ccc', '6281235062988 '),
+('HNR901241998032002', 'Daeng Muda Panglima', 'default.png', 1, 8, 1, 23, 4, '3520036004010222', 'daengpanglima@gmail.com', '9b361d8ef495cfa8fd6130eca5bda0dc', '6281235062988 '),
+('HNR901241998032003', 'Imam Susilo', 'default.png', 1, 8, 1, 23, 2, '3530021333902000', 'susiloimama@gmail.com', '11a2f53438c723b931ae1a585e264cda', '6281235062988 ');
 
 -- --------------------------------------------------------
 
@@ -935,7 +926,7 @@ CREATE TABLE `detail_role` (
   `id_divisi` int(11) NOT NULL,
   `nik` varchar(16) NOT NULL,
   `email` varchar(62) NOT NULL,
-  `password` varchar(30) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `no_whatsapp` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -944,45 +935,21 @@ CREATE TABLE `detail_role` (
 --
 
 INSERT INTO `detail_role` (`id_detail_role`, `id_role`, `role`, `nip`, `nama_pegawai`, `foto`, `id_golongan`, `id_status_peg`, `id_pangkat`, `id_jabatan`, `id_divisi`, `nik`, `email`, `password`, `no_whatsapp`) VALUES
-(1, 1, 'Admin ASN', '196803301994031001', 'Dr. Budi Kartiwa', 'WhatsApp_Image_2022-01-14_at_14_30_572.jpeg', 21, 3, 2, 5, 2, '3201293003680001', 'budikartiwa1@gmail.com', '12345678', '6281235062988   '),
-(26, 8, 'User', '196803301994031001', 'Dr. Budi Kartiwa', 'default.png', 21, 3, 2, 5, 2, '3201293003680001', 'budikartiwa1@gmail.com', '12345678', '6281235062988   '),
-(28, 2, 'Admin Perjalanan Dinas', '196803301994031001', 'Dr. Budi Kartiwa', 'default.png', 21, 3, 2, 5, 2, '3201293003680001', 'budikartiwa1@gmail.com', '12345678', '6281235062988   '),
-(29, 3, 'Admin Inventaris', '196803301994031001', 'Dr. Budi Kartiwa', 'default.png', 21, 3, 2, 5, 2, '3201293003680001', 'budikartiwa1@gmail.com', '12345678', '6281235062988   '),
-(30, 6, 'Admin Laporan Magang', '196803301994031001', 'Dr. Budi Kartiwa', 'default.png', 21, 3, 2, 5, 2, '3201293003680001', 'budikartiwa1@gmail.com', '12345678', '6281235062988   '),
-(31, 5, 'Admin Disposisi', '196803301994031001', 'Dr. Budi Kartiwa', 'default.png', 21, 3, 2, 5, 2, '3201293003680001', 'budikartiwa1@gmail.com', '12345678', '6281235062988   '),
-(32, 7, 'Admin Buku Tamu', '196803301994031001', 'Dr. Budi Kartiwa', 'default.png', 21, 3, 2, 5, 2, '3201293003680001', 'budikartiwa1@gmail.com', '12345678', '6281235062988   '),
-(33, 8, 'User', '196710081994032013', 'Dr. Woro Estiningtyas', 'default.png', 21, 3, 2, 5, 2, '3201294810670003', 'woresti2@gmail.com', '12345678', '6281235062988 '),
-(50, 0, '', '', 'Dr. Budi Kartiwa', '', 17, 3, 10, 5, 2, '3201293003680001', 'budi@gmail.com', '123', '6281235062988   '),
-(51, 0, '', '', 'Dr. Budi Kartiwa', '', 17, 3, 10, 5, 2, '3201293003680001', 'budi@gmail.com', '123', '6281235062988   '),
-(56, 8, 'User', '196901241998032001', 'Dr. Elza Surmaini', 'default.png', 22, 3, 6, 5, 2, '3271066401690004', 'elzaasmrn@gmail.com', '12345678', '6281235062988'),
-(57, 8, 'User', '196505281991032001', 'Ir. Erni Susanti, M.Sc', 'default.png', 20, 3, 7, 5, 2, '3271046805650004', 'ernisusanti23@gmail.com', '12345678', '6281235062988'),
-(58, 8, 'User', '196504121992031003', 'Dr. Aris Pramudia', 'default.png', 20, 3, 7, 5, 2, '3201131204650005', 'arisprmdya@gmail.com', '12345678', '6281235062988'),
-(59, 8, 'User', 'HNR901241998032002', 'Daeng Muda Panglima', 'default.png', 1, 8, 1, 23, 4, '3520036004010222', 'daengpanglima@gmail.com', '12345678', '6281235062988'),
-(60, 8, 'User', 'HNR901241998032003', 'Imam Susilo', 'default.png', 1, 8, 1, 23, 2, '3530021333902000', 'susiloimama@gmail.com', '12345678', '6281235062988'),
-(61, 8, 'User', '198310012008012009', 'Yeli Sarvina, S.Si, MSc', 'default.png', 18, 4, 10, 6, 2, '3271034110830014', 'sarvinayeli@gmail.com', '12345678', '6281235062988'),
-(62, 8, 'User', '198007242005011001', 'Fadhullah Ramadhani, S.Kom, M.Sc', 'default.png', 19, 4, 8, 6, 2, '3271062407800008', 'ramadhanifadullah@gmail.com', '12345678', '6281235062988'),
-(63, 8, 'User', '198909292014032004', 'Rizqa Nurkhaida S.R, ST', 'default.png', 16, 3, 13, 7, 2, '3304066909890003', 'rizkqinrkhaida@gmail.com', '12345678', '6281235062988'),
-(64, 8, 'User', '196401211990031002', 'Dr. Ir. A. Arivin Rivaie, M.Sc', 'images6.jpg', 23, 3, 2, 2, 2, '3271062101640004', 'arivinrivaie@gmail.com', '12345678', '6281235062988     '),
-(65, 2, 'Admin Perjalanan Dinas', '196505281991032001', 'Ir. Erni Susanti, M.Sc', 'default.png', 20, 3, 7, 5, 2, '3271046805650004', 'ernisusanti23@gmail.com', '12345678', '6281235062988'),
-(68, 1, 'Admin ASN', '196504121992031003', 'Dr. Aris Pramudia', 'default.png', 20, 3, 7, 5, 2, '3201131204650005', 'arisprmdya@gmail.com', '12345678', '6281235062988'),
-(73, 8, 'User', '', 'ssss', 'default.png', 5, 7, 4, 29, 4, '3333333333333333', 'asaasaa@gmail.com', '876543wscgdss', '628121931812'),
-(74, 8, 'User', '', 'lugas', 'default.png', 7, 5, 8, 6, 2, '9999999999999999', 'jasjasj@gmail.com', 'wgehjkalsslaslaslalsa', '628129128192121'),
-(75, 8, 'User', '', 'Yudi Riadi Fanggidae, S.Si., M.Si', 'default.png', 17, 5, 17, 4, 2, '3271042001770014', 'aaaaaaaaaas@gmail.com', '34567890-jbsaa', '6281728182131331'),
-(77, 8, 'User', '', 'ugas', 'default.png', 9, 7, 8, 29, 2, '3271020712790006', 'hahsaksk@gmail.com', '8765432mnbvcx', '62812918213131'),
-(78, 8, 'User', '', 'aci', 'default.png', 1, 8, 1, 25, 4, '3276050103850006', 'acima@gmail.com', '122131213141', '628912012931213'),
-(79, 8, 'User', '', 'boxci', 'default.png', 1, 8, 1, 25, 4, '3273200612830001', 'sasakk@gmail.com', '2131213123rtghb', '62819219310213'),
-(80, 8, 'User', '', 'acik', 'default.png', 1, 8, 1, 25, 4, '3273200612830001', 'acikk@gmail.com', '12133121313', '62812912819213'),
-(81, 8, 'User', '', 'obi', 'default.png', 1, 8, 1, 26, 4, '3273200612830001', 'aksakskak@gmail.com', '123121312121', '6289219291921'),
-(82, 8, 'User', '', 'obi', 'default.png', 1, 8, 1, 25, 4, '3471041706850001', 'obbii@gmail.com', 'asasasa121212121', '628901120121'),
-(83, 8, 'User', '', 'glglgl', 'default.png', 1, 5, 1, 24, 4, '0000000000000000', 'gogogoo@gmail.com', 'asjaisajsiajsdadasda', '628912129131'),
-(84, 8, 'User', '', 'glglglg', 'default.png', 1, 8, 1, 30, 4, '0000000000000000', 'lglglgl@gmail.com', '22222222sdasadassas', '6289192912122'),
-(85, 8, 'User', '', 'obi', 'default.png', 1, 8, 1, 25, 4, '3471041706850001', 'obiavi@gmail.com', '111121121312121', '62812921831212'),
-(86, 8, 'User', '', 'obbi', 'default.png', 1, 8, 1, 22, 4, '3271022305750002', 'kkkkk@gmail.com', '32fdsasdfbnmfds', '62812939120332'),
-(87, 8, 'User', 'HNR901241998032004', '', 'default.png', 1, 0, 1, 0, 0, '', '', '', '62'),
-(88, 8, 'User', '', 'obibii', 'default.png', 1, 8, 1, 30, 4, '3271022305750002', 'oobobob@gmail.com', 'ghajkslaaosaok', '62819212821'),
-(91, 8, 'User', '', 'Farida Oktavia, SP', 'default.png', 1, 7, 1, 6, 4, '9271066610850001', 'hslaslal@gmail.com', 'haskasia9sa', '628912812912'),
-(92, 8, 'User', '', 'Yudi Riadi Fanggidae, S.Si., M.Si', 'default.png', 1, 5, 1, 8, 4, '5371030805930005', 'asjasja@gmail.com', '2121213dsad', '62891920128131'),
-(93, 8, 'User', 'HNR901241998032004', 'Farida Oktavia, SP', 'default.png', 1, 8, 1, 27, 4, '3313010612900004', 'sadxasd@gmail.com', '2331413rdasd', '62891291210313');
+(1, 1, 'Admin ASN', '196803301994031001', 'Dr. Budi Kartiwa', 'WhatsApp_Image_2022-01-14_at_14_30_572.jpeg', 21, 3, 2, 5, 2, '3201293003680001', 'budikartiwa1@gmail.com', '25d55ad283aa400af464c76d713c07ad', '6281235062988   '),
+(26, 8, 'User', '196803301994031001', 'Dr. Budi Kartiwa', 'default.png', 21, 3, 2, 5, 2, '3201293003680001', 'budikartiwa1@gmail.com', '25d55ad283aa400af464c76d713c07ad', '6281235062988   '),
+(28, 2, 'Admin Perjalanan Dinas', '196803301994031001', 'Dr. Budi Kartiwa', 'default.png', 21, 3, 2, 5, 2, '3201293003680001', 'budikartiwa1@gmail.com', '25d55ad283aa400af464c76d713c07ad', '6281235062988   '),
+(29, 3, 'Admin Inventaris', '196803301994031001', 'Dr. Budi Kartiwa', 'default.png', 21, 3, 2, 5, 2, '3201293003680001', 'budikartiwa1@gmail.com', '25d55ad283aa400af464c76d713c07ad', '6281235062988   '),
+(30, 6, 'Admin Laporan Magang', '196803301994031001', 'Dr. Budi Kartiwa', 'default.png', 21, 3, 2, 5, 2, '3201293003680001', 'budikartiwa1@gmail.com', '25d55ad283aa400af464c76d713c07ad', '6281235062988   '),
+(31, 5, 'Admin Disposisi', '196803301994031001', 'Dr. Budi Kartiwa', 'default.png', 21, 3, 2, 5, 2, '3201293003680001', 'budikartiwa1@gmail.com', '25d55ad283aa400af464c76d713c07ad', '6281235062988   '),
+(32, 7, 'Admin Buku Tamu', '196803301994031001', 'Dr. Budi Kartiwa', 'default.png', 21, 3, 2, 5, 2, '3201293003680001', 'budikartiwa1@gmail.com', '25d55ad283aa400af464c76d713c07ad', '6281235062988   '),
+(33, 8, 'User', '196710081994032013', 'Dr. Woro Estiningtyas', 'default.png', 21, 3, 2, 5, 2, '3201294810670003', 'woresti2@gmail.com', '2180e7feb3469cca45bed007f6d5f6df', '6281235062988  '),
+(56, 8, 'User', '196901241998032001', 'Dr. Elza Surmaini', 'default.png', 22, 3, 6, 5, 2, '3271066401690004', 'elzaasmrn@gmail.com', 'd16b83e75bdfeed18316c00add3f5401', '6281235062988 '),
+(59, 8, 'User', 'HNR901241998032002', 'Daeng Muda Panglima', 'default.png', 1, 8, 1, 23, 4, '3520036004010222', 'daengpanglima@gmail.com', '9b361d8ef495cfa8fd6130eca5bda0dc', '6281235062988 '),
+(60, 8, 'User', 'HNR901241998032003', 'Imam Susilo', 'default.png', 1, 8, 1, 23, 2, '3530021333902000', 'susiloimama@gmail.com', '11a2f53438c723b931ae1a585e264cda', '6281235062988 '),
+(61, 8, 'User', '198310012008012009', 'Yeli Sarvina, S.Si, MSc', 'default.png', 18, 4, 10, 6, 2, '3271034110830014', 'sarvinayeli@gmail.com', 'e29e95451727fc7fe480492f6cdaba28', '6281235062988 '),
+(62, 8, 'User', '198007242005011001', 'Fadhullah Ramadhani, S.Kom, M.Sc', 'default.png', 19, 4, 8, 6, 2, '3271062407800008', 'ramadhanifadullah@gmail.com', 'c6e34f969803868ba48ecd107a92eecb', '6281235062988 '),
+(63, 8, 'User', '198909292014032004', 'Rizqa Nurkhaida S.R, ST', 'default.png', 16, 3, 13, 7, 2, '3304066909890003', 'rizkqinrkhaida@gmail.com', '614957a1232f1e0b324bf27834855ccc', '6281235062988 '),
+(64, 8, 'User', '196401211990031002', 'Dr. Ir. A. Arivin Rivaie, M.Sc', 'images6.jpg', 23, 3, 2, 2, 2, '3271062101640004', 'arivinrivaie@gmail.com', '48efe9460a6e7c8b0e098f66f4b6a1e0', '6281235062988     ');
 
 -- --------------------------------------------------------
 
@@ -1002,14 +969,11 @@ CREATE TABLE `detail_tugas` (
 
 INSERT INTO `detail_tugas` (`id_detail_tugas`, `id_tugas`, `nip`) VALUES
 (45, 12, '196803301994031001'),
-(47, 11, '196411291990032002'),
 (48, 17, '196803301994031001'),
 (52, 3, '196901241998032001'),
 (53, 13, '196710081994032013'),
 (54, 14, '196803301994031001'),
-(55, 15, '196803301994031001'),
-(57, 16, '196504121992031003'),
-(58, 11, '199410302018012002');
+(55, 15, '196803301994031001');
 
 -- --------------------------------------------------------
 
@@ -1574,14 +1538,11 @@ CREATE TABLE `status_perjalanan` (
 INSERT INTO `status_perjalanan` (`id_status_perjalanan`, `nip`, `nama_pegawai`, `id_jabatan`, `status_perjalanan`) VALUES
 (33, '196901241998032001', 'Dr. Elza Surmaini', 5, 0),
 (35, '196901241998032001', 'Dr. Elza Surmaini', 5, 0),
-(36, '196505281991032001', 'Ir. Erni Susanti, M.Sc', 5, 0),
-(37, '196504121992031003', 'Dr. Aris Pramudia', 5, 0),
 (38, 'HNR901241998032002', 'Daeng Muda Panglima', 23, 0),
 (39, 'HNR901241998032003', 'Imam Susilo', 23, 0),
 (40, '198310012008012009', 'Yeli Sarvina, S.Si, MSc', 6, 0),
 (41, '198007242005011001', 'Fadhullah Ramadhani, S.Kom, M.Sc', 6, 0),
 (42, '198909292014032004', 'Rizqa Nurkhaida S.R, ST', 7, 0),
-(44, '199410302018012002', 'Dariin Firda, S.Si', 7, NULL),
 (45, '', 'ssss', 29, 0),
 (46, '', 'lugas', 6, 0),
 (47, '', 'Yudi Riadi Fanggidae, S.Si., M.Si', 4, 0),
@@ -1595,11 +1556,9 @@ INSERT INTO `status_perjalanan` (`id_status_perjalanan`, `nip`, `nama_pegawai`, 
 (56, '', 'glglglg', 30, 0),
 (57, '', 'obi', 25, 0),
 (58, '', 'obbi', 22, 0),
-(59, 'HNR901241998032004', '', 0, 0),
 (60, '', 'obibii', 30, 0),
 (63, '', 'Farida Oktavia, SP', 6, 0),
-(64, '', 'Yudi Riadi Fanggidae, S.Si., M.Si', 8, 0),
-(65, 'HNR901241998032004', 'Farida Oktavia, SP', 27, 0);
+(64, '', 'Yudi Riadi Fanggidae, S.Si., M.Si', 8, 0);
 
 -- --------------------------------------------------------
 
@@ -2240,7 +2199,7 @@ ALTER TABLE `detail_dokumen`
 -- AUTO_INCREMENT for table `detail_role`
 --
 ALTER TABLE `detail_role`
-  MODIFY `id_detail_role` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
+  MODIFY `id_detail_role` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
 
 --
 -- AUTO_INCREMENT for table `detail_tugas`
@@ -2342,7 +2301,7 @@ ALTER TABLE `status_kepegawaian`
 -- AUTO_INCREMENT for table `status_perjalanan`
 --
 ALTER TABLE `status_perjalanan`
-  MODIFY `id_status_perjalanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
+  MODIFY `id_status_perjalanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 
 --
 -- AUTO_INCREMENT for table `stok_alat`

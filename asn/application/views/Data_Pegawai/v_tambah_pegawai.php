@@ -185,8 +185,7 @@
                                          <small class="text-warning">Password minimal 8 karakter</small>
                                             <div class="input-group mb-3">
                                              <input style="color:dimgray" type="password" id="password" autocomplete="off" name="password" value="<?= set_value(
-                                                 'password'
-                                             ) ?>" placeholder="Password" class="form-control">
+                                                 'password') ?>" placeholder="Password" class="form-control">
                                              <div class="input-group-append">
                                             <span id="mybutton" onclick="password()" class="input-group-text">
                                                 <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-eye-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -196,11 +195,7 @@
                                             </span>
                                         </div>
                                         </div>
-                                             <?php echo form_error(
-                                                 'password',
-                                                 '<small class="text-danger">',
-                                                 '</small>'
-                                             ); ?>
+                                             <?php echo form_error('password','<small class="text-danger">','</small>'); ?>
                                          </div>
                                          <div class="form-group">
                                              <label><b>Nomor Whatsapp<a style="color:red"> *</a></b></label><br>
@@ -214,11 +209,7 @@
                                                      'no_whatsapp'
                                                  ) ?>" autocomplete="off" placeholder="Nomor Whatsapp" class="form-control">
 
-                                             </div> <?php echo form_error(
-                                                 'no_whatsapp',
-                                                 '<small class="text-danger">',
-                                                 '</small>'
-                                             ); ?><br>
+                                             </div> <?php echo form_error('no_whatsapp','<small class="text-danger">', '</small>'); ?><br>
                                              <button type="submit" class="btn btn-success">Submit</a></button>&nbsp &nbsp
                                          </div>
                                  </div>

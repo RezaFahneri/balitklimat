@@ -23,7 +23,7 @@
                                                 data-page-length='25' cellspacing="0" height='50%'>
                                                 <thead class="thead-light">
                                                     <tr>
-                                                        <th style="width:9%">No</th>
+                                                        <th style="width:9%;text-align:center">No</th>
                                                         <th>Nama Divisi</th>
                                                         <th style="width:15%" class="th-md">Aksi</th>
                                                     </tr>
@@ -34,7 +34,7 @@
                                         foreach ($data_divisi as $d) {
                                         ?>
                                                     <tr>
-                                                        <td><?php echo $no++ ?></td>
+                                                        <td style="font-size: 12px;text-align:center"><?php echo $no++ ?></td>
                                                         <td><?php echo $d->divisi ?></td>
                                                         <td>
                                                             <a style="font-size:30px" class="btn btn-sm btn-success"
