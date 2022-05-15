@@ -76,12 +76,13 @@ class Beranda extends CI_Controller
     }
     public function logout()
     {
+        $this->session->unset_userdata('email');
+        $this->session->unset_userdata('role');
         $data = [
             'email' => '',
             'logged_in' => false,
             'role' => '',
         ];
-
         $this->session->sess_destroy();
         redirect('login');
     }

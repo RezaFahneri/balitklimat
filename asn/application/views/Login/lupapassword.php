@@ -39,7 +39,7 @@
 </head>
 
 <body>
-    <div class="container-scroller">
+<div class="container-scroller">
         <div class="container-fluid page-body-wrapper full-page-wrapper">
             <div style="background-repeat:no-repeat; background-position:center; background-attachment:fixed; background-size:100%"
                 class="content-wrapper-login d-flex align-items-center auth px-0">
@@ -60,35 +60,22 @@
                             </div>
                             <h4><b>Sistem Informasi Manajemen ASN</b></h4>
                             <h4><b>Balai Penelitian Agroklimat dan Hidrologi</b></h4>
-                            <form class="pt-3 text-center" action="<?php echo base_url(); ?>login/proseslogin"
+                            <h4><b>Lupa Password </b></h4>
+                            <form class="pt-3 text-center" action="<?php echo base_url(); ?>login/lupapassword"
                                 method="post">
-                                <?= $this->session->flashdata('message') ?>
+								<?= $this->session->flashdata('message') ?>
                                 <div class="form-group">
                                     <input type="text" id='email' class="form-control form-control" placeholder="Email"
-                                        name='email' autocomplete="on" required>
-                                </div>
-                                <div class="form-group text-left">
-                                    <div class="input-group mb-3">
-                                        <input type="password" class="form-control form-control-user" id="password" name="password" placeholder="Password" required>
-                                        <div class="input-group-append">
-                                            <span id="mybutton" onclick="password()" class="input-group-text">
-                                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-eye-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
-                                                    <path fill-rule="evenodd" d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
-                                                </svg>
-                                            </span>
-                                        </div>
-                                    </div>
+                                        name='email' value="<?= set_value('email') ?>">
+										<?php echo form_error('email','<small class="text-danger">','</small>'); ?>
                                 </div>
                                 <p class=" text-left"><b><a style="color:red">
-                                            *</a>Silahkan login untuk mengakses sistem ini</b></p>
+                                            *</a>Masukkan email anda yang sudah terdaftar</b></p>
                                 <div class="mt-3">
                                     <button type="submit"
-                                        class="btn btn-block btn-success btn-md font-weight-medium auth-form-btn">LOGIN</button>
+                                        class="btn btn-block btn-success btn-md font-weight-medium auth-form-btn">Reset Password</button>
                                 </div></br>
-                                <div>
-                                    <a href="<?php echo base_url(); ?>login/loginadmin" class="href">Login sebagai admin</a>
-                                </div><br>
+                              
                                 <?php
                                 $error = $this->session->flashdata('error');
                                 if (!empty($error)) {
@@ -103,8 +90,12 @@
                                 ?>
                                 <div>
                                     <div>
-                                    <a href="<?php echo base_url(); ?>login/lupapassword" class="href">Lupa Password ?</a>
+                                    <a href="<?php echo base_url(); ?>login" class="href">Kembali ke Login</a>
                                     </div>
+                                    <!-- <div>
+                                    <a href="https://api.whatsapp.com/send?phone=6282137000565?&text=Halo!%0AAdmin..%20%20Saya%20Lupa%20,%20password!"
+                                            class=" text-center mb-2">Lupa password? </a>
+                                    </div> -->
                                 </div>
                             </form>
                         </div>

@@ -81,7 +81,7 @@ class Data_Pegawai extends CI_Controller
         $this->form_validation->set_rules('id_jabatan', 'Jabatan', 'required');
         $this->form_validation->set_rules('id_divisi', 'Divisi', 'required');
         $this->form_validation->set_rules('nik','NIK','required|exact_length[16]');
-        $this->form_validation->set_rules('email', 'Email', 'required');
+        $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
         $this->form_validation->set_rules('password','Password','required|min_length[8]');
         $this->form_validation->set_rules('no_whatsapp','Nomor Whatsapp','required');
         $this->form_validation->set_message('required', '%s masih kosong, silahkan isi');

@@ -57,13 +57,13 @@
                                 ) ?>/images/logo.png" class="img-fluid"
                                     style="width:100px" alt="logo">
                             </div>
-                            <h4><b>Sistem Informasi Admin ASN</b></h4>
+                            <h4><b>Sistem Informasi Manajemen ASN</b></h4>
                             <h4><b>Balai Penelitian Agroklimat dan Hidrologi</b></h4>
                             <form class="pt-3 text-center" action="<?php echo base_url(); ?>login/prosesloginadmin"
                                 method="post">
                                 <div class="form-group">
                                     <input type="text" id='email' class="form-control form-control" placeholder="Email"
-                                        name='email' autocomplete="off" required>
+                                        name='email' autocomplete="on" required>
                                 </div>
                                 <div class="form-group text-left">
                                     <div class="input-group mb-3">
@@ -78,13 +78,19 @@
                                         </div>
                                     </div>
                                 </div>
-
+                                <p class=" text-left"><b><a style="color:red">
+                                            *</a>Silahkan login untuk mengakses sistem ini</b></p>
                                 <div class="mt-3">
                                     <button type="submit"
                                         class="btn btn-block btn-success btn-md font-weight-medium auth-form-btn">LOGIN</button>
                                 </div></br>
-                                <p class=" text-left"><b><a style="color:red">
-                                            *</a>Silahkan login untuk mengakses sistem ini</b></p><br>
+                                
+                                <div>
+                                    <a href="<?php echo base_url(); ?>login" class="href">Kembali login sebagai pegawai</a>
+                                </div><br>
+                                <div>
+                                    <a href="<?php echo base_url(); ?>login/lupapassword" class="href">Lupa Password ?</a>
+                                </div>
                                 <?php
                                 $error = $this->session->flashdata('error');
                                 if (!empty($error)) {

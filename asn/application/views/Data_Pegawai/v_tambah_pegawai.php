@@ -16,9 +16,8 @@
                                      ); ?>">
                                          <div class="form-group">
                                              <label><b>Nama Pegawai<a style="color:red"> *</a></b></label>
-                                             <input style="color:dimgray" type="text" name="nama_pegawai" value="<?= set_value(
-                                                 'nama_pegawai'
-                                             ) ?>" placeholder="Nama Pegawai" autocomplete="off" class="form-control">
+                                             <input style="color:dimgray" type="text" name="nama_pegawai" 
+                                             value="<?= set_value('nama_pegawai') ?>" placeholder="Nama Pegawai" autocomplete="off" class="form-control">
                                              <input type="hidden" name="foto" value="default.png" class="form-control">
                                              <?php echo form_error(
                                                  'nama_pegawai',
