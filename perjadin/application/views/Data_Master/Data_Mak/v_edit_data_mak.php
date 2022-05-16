@@ -28,7 +28,7 @@
                 </div>
                 <div class="form-group">
                     <label>Anggaran </label>
-                    <input type="number" name="banyak_anggaran" pattern="[0-9]" class="form-control" value="<?php echo $m->banyak_anggaran?>" required>
+                    <input type="number" name="banyak_anggaran" title="Anggaran tidak boleh kurang dari Rp0" min="0" pattern="[0-9]" class="form-control" value="<?php echo $m->banyak_anggaran?>" required>
                 </div>
                 <button type="submit" class="btn btn-success mr-2">Submit</a></button>&nbsp &nbsp
                 <!-- <a class="btn btn-outline-dark" href="<?php echo base_url(); ?>akun">Cancel</a> -->

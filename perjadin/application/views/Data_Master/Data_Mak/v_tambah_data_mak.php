@@ -31,7 +31,7 @@
                     </div>
                     <div class="form-group">
                         <label>Anggaran </label>
-                        <input type="number" pattern="[0-9]" name="banyak_anggaran" class="form-control" required>
+                        <input type="number" pattern="[0-9]" name="banyak_anggaran" min="0" title="Anggaran tidak boleh kurang dari Rp0" class="form-control" required>
                         <?php echo form_error('banyak_anggaran', '<div class="text-small text-danger"></div>') ?>
                     </div>
                     <button type="submit" class="btn btn-success">Submit</button>&nbsp &nbsp

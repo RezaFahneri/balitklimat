@@ -67,7 +67,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label><b>Uang Harian</b></label>
-                                            <input type="number" name="uang_harian" <?php if ($apd->kota == $apd->kota_tujuan) {
+                                            <input type="number" min="0" name="uang_harian" <?php if ($apd->kota == $apd->kota_tujuan) {
                                                                                                 ?> value="<?php echo $apd->dalam_kota_tujuan * $apd->lama_perjalanan ?>" <?php
                                                                                                                                                                     } else {
                                                                                                                                                                         ?>value="<?php echo $apd->luar_kota_tujuan * $apd->lama_perjalanan ?>" <?php
@@ -76,21 +76,21 @@
                                         </div>
                                         <div class="form-group">
                                             <label><b>Uang Transportasi</b></label>
-                                            <input title="Masukkan total biaya transportasi" value="<?php echo $apd->uang_transportasi ?>" type="number" pattern="[0-9]" name="uang_transportasi" class="form-control">
+                                            <input title="Masukkan total biaya transportasi" min="0" value="<?php echo $apd->uang_transportasi ?>" type="number" pattern="[0-9]" name="uang_transportasi" class="form-control">
                                         </div>
                                         <div class="form-group">
                                             <label><b>Uang Penginapan</b></label>
                                             <div class="input-group mb-2">
                                                 <input value="<?php echo $apd->hari1 ?>" type="number" min="0" placeholder="--Masukkan jumlah hari pernginapan di hotel 1--" name="hari1" class="form-control">
-                                                <input value="<?php echo $apd->biaya1 ?>" type="number" pattern="[0-9]" name="biaya1" placeholder="--Masukkan biaya permalam hotel 1--" class="form-control">
+                                                <input value="<?php echo $apd->biaya1 ?>" type="number" min="0" pattern="[0-9]" name="biaya1" placeholder="--Masukkan biaya permalam hotel 1--" class="form-control">
                                             </div>
                                             <div class="input-group mb-2">
                                                 <input value="<?php echo $apd->hari2 ?>" type="number" min="0" placeholder="--Masukkan jumlah hari pernginapan di hotel 2--" name="hari2" class="form-control">
-                                                <input value="<?php echo $apd->biaya2 ?>" type="number" pattern="[0-9]" name="biaya2" placeholder="--Masukkan biaya permalam hotel 2--" class="form-control">
+                                                <input value="<?php echo $apd->biaya2 ?>" type="number" min="0" pattern="[0-9]" name="biaya2" placeholder="--Masukkan biaya permalam hotel 2--" class="form-control">
                                             </div>
                                             <div class="input-group mb-2">
                                                 <input value="<?php echo $apd->hari3 ?>" type="number" min="0" placeholder="--Masukkan jumlah hari pernginapan di hotel 3--" name="hari3" class="form-control">
-                                                <input value="<?php echo $apd->biaya3 ?>" type="number" pattern="[0-9]" name="biaya3" placeholder="--Masukkan biaya permalam hotel 3--" class="form-control">
+                                                <input value="<?php echo $apd->biaya3 ?>" type="number" min="0" pattern="[0-9]" name="biaya3" placeholder="--Masukkan biaya permalam hotel 3--" class="form-control">
                                             </div>
                                         </div>
                                         <div class="form-group">
