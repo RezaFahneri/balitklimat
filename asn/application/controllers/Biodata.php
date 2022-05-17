@@ -17,7 +17,6 @@ class Biodata extends CI_Controller {
 	{
 		$email = $this->session->userdata('email');
 		$data['detail_role'] = $this->Model_detail_role->getDetail1($email);
-		//$data['update_foto'] = $this->Model_detail_role->getDetail1($email);
 		$data['title'] = " ASN Balitklimat | Detail Pegawai";
 		$this->load->view('templates/v_template', $data);
 		$this->load->view('Biodata_Pegawai/v_detail_biodata', $data);

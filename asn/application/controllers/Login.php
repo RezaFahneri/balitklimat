@@ -127,10 +127,7 @@ class Login extends CI_Controller
     {
         $email = $this->input->get('email');
         $token = $this->input->get('token');
-
-        //$user = $this->db->get_where('email', $email)->get('detail_role')->row_aray();
         $user = $this->Model_login->user($email, 'detail_role', 'email');
-        //$user = $this->db->get_where('detail_role', ['email' => $email])->row_aray();
         if($user){
             $user_token = $this->db->get_where('user_token', ['token' => $token])->row_array();
             if ($user_token) {
@@ -166,18 +163,14 @@ class Login extends CI_Controller
         else{
             $password = md5($this->input->post('password1'));
             $email = $this->session->userdata('reset_email');
-            
             $this->db->set('password', $password);
             $this->db->where('email', $email);
             $this->db->update('detail_role');
             $this->db->update('data_pegawai');
-
             $this->session->unset_userdata('reset_email');
-            
             $this->session->set_flashdata('message', '<div class="alert alert-success"
             role="alert">Password sudah diperbarui ! Silahkan Login</div>');
             redirect('login');
-
         }
     }
 }

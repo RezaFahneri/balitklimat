@@ -195,7 +195,7 @@ $('#nip').select2({
 	}
     function validasi_jadwalkgb() {
         var jadwal_kgb = document.getElementById("jadwal_kgb").value;
-        if (jadwal_kgb <= tmt_gaji_1 || tmt_gaji_2 || tmt_gaji_3 || tmt_gaji_4 || tmt_gaji_5 ) {
+        if (jadwal_kgb < tmt_gaji_1 || tmt_gaji_2 || tmt_gaji_3 || tmt_gaji_4 || tmt_gaji_5 ) {
 		alert("Jadwal Kenaikan Gaji Tidak Boleh Kurang dari TMT");
 		}
 	}

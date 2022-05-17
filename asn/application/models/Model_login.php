@@ -46,25 +46,6 @@ class Model_login extends CI_model
     public function user($email)
     {
         $query = $this->db->get_where('detail_role', ['email' => $email])->row_array();
-        // if ($query->num_rows() > 0) {
-        //     $data = array(
-        //         'email'    => $query->row()->email,
-        //         'password'    => $query->row()->password,
-        //         'role'        => $query->row()->role,
-        //         'nip'        => $query->row()->nip
-        //     );
-        return $query;
-    }
-    public function getdet($table, $ket, $field = NULL, $urtn = NULL)
-    {
-        if ($field == NULL and $urtn == NULL) {
-            $this->db->where($ket);
-            $query = $this->db->get($table);
-        } else {
-            $this->db->where($ket);
-            $this->db->order_by($field, $urtn);
-            $query = $this->db->get($table);
-        }
         return $query;
     }
 }
