@@ -216,7 +216,7 @@ $('#id_pangkat_berikutnya').select2({
 	}
     function validasi_jadwalkp() {
         var jadwal_kp = document.getElementById("jadwal_kp").value;
-        if (jadwal_kp <= tmt_pangkat_1 || tmt_pangkat_2 || tmt_pangkat_3 || tmt_pangkat_4 || tmt_pangkat_5 ) {
+        if (jadwal_kp < tmt_pangkat_1 || tmt_pangkat_2 || tmt_pangkat_3 || tmt_pangkat_4 || tmt_pangkat_5 ) {
 		alert("Jadwal Kenaikan Pangkat Tidak Boleh Kurang dari TMT");
 		}
 	}

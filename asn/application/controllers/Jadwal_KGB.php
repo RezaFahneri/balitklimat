@@ -22,9 +22,7 @@ class Jadwal_KGB extends CI_Controller
     function index()
     {
         $data['jadwal_kgb'] = $this->Model_kenaikan_gaji->getList();
-
         $data['title'] = 'ASN BALITKLIMAT | Jadwal Kenaikan Gaji Berkala';
-
         $this->load->view('templates/v_template', $data);
         $this->load->view('Jadwal_Gaji/v_Jadwal_gaji', $data);
         $this->load->view('templates/footer', $data);
@@ -71,15 +69,11 @@ class Jadwal_KGB extends CI_Controller
         $this->form_validation->set_rules('jadwal_kgb','Jadwal Kenaikan Gaji Berkala','required');
         $this->form_validation->set_message('required','%s masih kosong, silahkan isi');
         if ($this->form_validation->run() == false) {
-            $data['title'] =
-                'ASN BALITKLIMAT | Tambah Jadwal Kenaikan Gaji Berkala';
-            $data['jadwal_kgb'] = $this->Model_kenaikan_gaji->get_kode_kgb(
-                $data
-            );
+            $data['title'] ='ASN BALITKLIMAT | Tambah Jadwal Kenaikan Gaji Berkala';
+            $data['jadwal_kgb'] = $this->Model_kenaikan_gaji->get_kode_kgb($data);
             $data['nip'] = $this->Model_pegawai->getList();
             $data['id_golongan'] = $this->Model_golongan->getList();
             $data['id_pangkat'] = $this->Model_pangkat->getList();
-
             $this->load->view('templates/v_template', $data);
             $this->load->view('Jadwal_Gaji/v_tambah_jadwal_gaji', $data);
             $this->load->view('templates/footer', $data);
@@ -112,10 +106,7 @@ class Jadwal_KGB extends CI_Controller
                 $this->session->set_flashdata('sukses','Jadwal kenaikan gaji berkala berhasil ditambahkan');
                 redirect('jadwal_kgb');
             } else {
-                $this->session->set_flashdata(
-                    'error',
-                    'Pegawai sudah dijadwalkan kenaikan gaji berkala'
-                );
+                $this->session->set_flashdata('error','Pegawai sudah dijadwalkan kenaikan gaji berkala');
                 redirect('jadwal_kgb');
             } 
         }
@@ -146,7 +137,6 @@ class Jadwal_KGB extends CI_Controller
         $tmt_gaji_4 = $this->input->post('tmt_gaji_4');
         $tmt_gaji_5 = $this->input->post('tmt_gaji_5');
         $jadwal_kgb = $this->input->post('jadwal_kgb');
-
         $data = [
             'gaji_lama' => $gaji_lama,
             'gaji_baru' => $gaji_baru,
@@ -161,21 +151,14 @@ class Jadwal_KGB extends CI_Controller
             'kode_kgb' => $kode_kgb,
         ];
         $this->load->Model('Model_kenaikan_gaji');
-        $this->Model_kenaikan_gaji->update_data(
-            $where,
-            $data,
-            'data_jadwal_gaji_berkala'
-        );
-        $this->session->set_flashdata(
-            'sukses',
-            'Jadwal kenaikan gaji berkala berhasil diperbarui'
-        );
+        $this->Model_kenaikan_gaji->update_data($where, $data,'data_jadwal_gaji_berkala');
+        $this->session->set_flashdata('sukses',
+            'Jadwal kenaikan gaji berkala berhasil diperbarui');
         redirect('jadwal_kgb');
     }
     public function detail($kode_kgb)
     {
-        $data['title'] =
-            'ASN BALITKLIMAT | Detail Jadwal Kenaikan Gaji Berkala';
+        $data['title'] ='ASN BALITKLIMAT | Detail Jadwal Kenaikan Gaji Berkala';
         $detail = $this->Model_kenaikan_gaji->detail_jadwalkgb($kode_kgb);
         $data['detail'] = $detail;
         $this->load->view('templates/v_template', $data);
@@ -185,14 +168,8 @@ class Jadwal_KGB extends CI_Controller
     function hapus($kode_kgb)
     {
         $where = ['kode_kgb' => $kode_kgb];
-        $this->Model_kenaikan_gaji->hapus_data(
-            $where,
-            'data_jadwal_gaji_berkala'
-        );
-        $this->session->set_flashdata(
-            'sukses',
-            'Jadwal kenaikan gaji berkala berhasil dihapus'
-        );
+        $this->Model_kenaikan_gaji->hapus_data($where,'data_jadwal_gaji_berkala');
+        $this->session->set_flashdata('sukses','Jadwal kenaikan gaji berkala berhasil dihapus');
         redirect('jadwal_kgb');
     }
 }

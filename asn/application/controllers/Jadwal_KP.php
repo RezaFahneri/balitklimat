@@ -31,16 +31,6 @@ class Jadwal_KP extends CI_Controller
     function kalender()
     {
         $data['title'] = 'ASN BALITKLIMAT | Kalender Jadwal Kenaikan Pangkat';
-        //$data['jadwal_kp'] = $this->Model_kenaikan_pangkat->fetch_all_event('data_jadwal_naik_pangkat')->result();
-        // foreach($event_data->result_array() as $row)
-        // {
-        // $events[] = array(
-        //     'title' => $row['nip'],
-        //     'start' => $row['jadwal_kp'],
-        // );
-        // }
-        // echo json_encode($data);
-        // $data['calendar'] = json_encode($data);
         $this->load->view('templates/v_template', $data);
         $this->load->view('Jadwal_Pangkat/v_kalender_kp', $data);
         $this->load->view('templates/footer', $data);
@@ -67,39 +57,18 @@ class Jadwal_KP extends CI_Controller
     {
         $this->form_validation->set_rules('kode_kp', 'Kode KP', 'required');
         $this->form_validation->set_rules('nip', 'Nama Pegawai', 'required');
-        $this->form_validation->set_rules(
-            'id_golongan_berikutnya',
-            'Golongan Berikutnya',
-            'required'
-        );
-        $this->form_validation->set_rules(
-            'id_pangkat_berikutnya',
-            'Pangkat Berikutnya',
-            'required'
-        );
-        $this->form_validation->set_rules(
-            'tmt_pangkat_1',
-            'TMT Pangkat 1',
-            'required'
-        );
+        $this->form_validation->set_rules('id_golongan_berikutnya','Golongan Berikutnya','required');
+        $this->form_validation->set_rules('id_pangkat_berikutnya','Pangkat Berikutnya','required');
+        $this->form_validation->set_rules('tmt_pangkat_1','TMT Pangkat 1','required');
         $this->form_validation->set_rules('tmt_pangkat_2', 'TMT Pangkat 2');
         $this->form_validation->set_rules('tmt_pangkat_3', 'TMT Pangkat 3');
         $this->form_validation->set_rules('tmt_pangkat_4', 'TMT Pangkat 4');
         $this->form_validation->set_rules('tmt_pangkat_5', 'TMT Pangkat 5');
-        $this->form_validation->set_rules(
-            'jadwal_kp',
-            'Jadwal Kenaikan Pangkat',
-            'required'
-        );
-        $this->form_validation->set_message(
-            'required',
-            '%s masih kosong, silahkan isi'
-        );
+        $this->form_validation->set_rules('jadwal_kp','Jadwal Kenaikan Pangkat','required');
+        $this->form_validation->set_message('required','%s masih kosong, silahkan isi');
         if ($this->form_validation->run() == false) {
             $data['title'] = 'ASN BALITKLIMAT | Tambah Jadwal Kenaikan Pangkat';
-            $data['jadwal_kp'] = $this->Model_kenaikan_pangkat->get_kode_kp(
-                $data
-            );
+            $data['jadwal_kp'] = $this->Model_kenaikan_pangkat->get_kode_kp($data);
             $data['nip'] = $this->Model_pegawai->getList();
             $data['id_golongan'] = $this->Model_golongan->getList();
             $data['id_pangkat'] = $this->Model_pangkat->getList();
@@ -132,20 +101,11 @@ class Jadwal_KP extends CI_Controller
             ];
 
             if ($this->Model_kenaikan_pangkat->NIPCheck($nip) == true) {
-                $this->Model_kenaikan_pangkat->input_data(
-                    $data,
-                    'data_jadwal_naik_pangkat'
-                );
-                $this->session->set_flashdata(
-                    'sukses',
-                    'Jadwal kenaikan pangkat berhasil ditambahkan'
-                );
+                $this->Model_kenaikan_pangkat->input_data($data,'data_jadwal_naik_pangkat');
+                $this->session->set_flashdata('sukses','Jadwal kenaikan pangkat berhasil ditambahkan' );
                 redirect('jadwal_kp');
             } else {
-                $this->session->set_flashdata(
-                    'error',
-                    'Pegawai sudah dijadwalkan kenaikan pangkat'
-                );
+                $this->session->set_flashdata('error','Pegawai sudah dijadwalkan kenaikan pangkat');
                 redirect('jadwal_kp');
             }
         }
@@ -196,15 +156,8 @@ class Jadwal_KP extends CI_Controller
             'kode_kp' => $kode_kp,
         ];
         $this->load->Model('Model_kenaikan_pangkat');
-        $this->Model_kenaikan_pangkat->update_data(
-            $where,
-            $data,
-            'data_jadwal_naik_pangkat'
-        );
-        $this->session->set_flashdata(
-            'sukses',
-            'Jadwal Kenaikan Pangkat berhasil diperbarui'
-        );
+        $this->Model_kenaikan_pangkat->update_data($where, $data,'data_jadwal_naik_pangkat');
+        $this->session->set_flashdata('sukses','Jadwal Kenaikan Pangkat berhasil diperbarui');
         redirect('jadwal_kp');
     }
     public function detail($kode_kp)
@@ -219,12 +172,8 @@ class Jadwal_KP extends CI_Controller
     function hapus($kode_kp)
     {
         $where = ['kode_kp' => $kode_kp];
-        $this->Model_kenaikan_pangkat->hapus_data(
-            $where,
-            'data_jadwal_naik_pangkat'
-        );
-        $this->session->set_flashdata(
-            'sukses',
+        $this->Model_kenaikan_pangkat->hapus_data($where,'data_jadwal_naik_pangkat');
+        $this->session->set_flashdata('sukses',
             'Jadwal kenaikan pangkat berhasil dihapus'
         );
         redirect('jadwal_kp');

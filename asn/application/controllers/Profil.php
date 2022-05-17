@@ -35,7 +35,6 @@ class Profil extends CI_Controller
     }
     function update()
 	{
-		// $nip = $this->session->userdata('nip');
 		$nip = $this->Model_pegawai->get_nip($this->session->userdata('email'));
 		$password = md5($this->input->post('password'));
 		$cpassword = md5($this->input->post('cpassword'));

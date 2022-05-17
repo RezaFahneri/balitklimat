@@ -118,7 +118,6 @@ class Data_Pegawai extends CI_Controller
             $nik = $this->input->post('nik');
             $email = $this->input->post('email');
             $password = md5($this->input->post('password'));
-            // $password = $this->input->post('password');
             $no_whatsapp =
                 $this->input->post('62') . $this->input->post('no_whatsapp');
 
@@ -155,7 +154,6 @@ class Data_Pegawai extends CI_Controller
                 'foto' => $foto,
                 'nik' => $nik,
                 'email' => $email,
-                //'password' => $this->hash_password($password),
                 'password' => $password,
                 'no_whatsapp' => $no_whatsapp,
                 'id_role' => 8,
@@ -201,7 +199,6 @@ class Data_Pegawai extends CI_Controller
         $nik = $this->input->post('nik');
         $email = $this->input->post('email');
         $password = md5($this->input->post('password'));
-        //$password = $this->input->post('password');
         $no_whatsapp = $this->input->post('no_whatsapp');
 
         $data1 = [
@@ -213,7 +210,6 @@ class Data_Pegawai extends CI_Controller
             'id_pangkat' => $id_pangkat,
             'nik' => $nik,
             'email' => $email,
-            //'password' => $this->hash_password($password),
             'password' => $password,
             'no_whatsapp' =>
                 $this->input->post('62') . $this->input->post('no_whatsapp'),
@@ -232,7 +228,6 @@ class Data_Pegawai extends CI_Controller
             'id_pangkat' => $id_pangkat,
             'nik' => $nik,
             'email' => $email,
-            //'password' => $this->hash_password($password),
             'password' => $password,
             'no_whatsapp' =>
                 $this->input->post('62') . $this->input->post('no_whatsapp'),
@@ -254,9 +249,6 @@ class Data_Pegawai extends CI_Controller
     function hapus($nip)
     {
         $where = ['nip' => $nip];
-
-        // $this->Model_detail_role->hapus_data3($where, 'detail_role');
-
         if ($this->Model_pegawai->hapus_data($nip) == false):
             echo $this->session->set_flashdata(
                 'error',
@@ -285,18 +277,5 @@ class Data_Pegawai extends CI_Controller
             );
             redirect('data_pegawai');
         endif;
-
-        // $where = array('nip' => $nip);
-        // $table = array('status_perjalanan', 'data_pegawai');
-        // $this->Model_pegawai->hapus_data($where,$table);
-        // $error = $this->db->error();
-        // if ($error ['code'] != 0){
-        //     echo $this->session->set_flashdata('error','Data pegawai digunakan pada tabel lain');
-        // }
-        // else{
-        //     echo $this->session->set_flashdata('sukses','Data pegawai berhasil dihapus');
-        // }
-        // echo "<script>window.location='".site_url('data_pegawai')."';</script>";
-        // redirect('data_pegawai');
     }
 }

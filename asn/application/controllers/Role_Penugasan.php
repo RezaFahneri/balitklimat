@@ -24,9 +24,7 @@ class Role_Penugasan extends CI_Controller
     }
     function index()
     {
-        $data['data_role'] = $this->Model_role_tugas
-            ->tampil_data('data_role')
-            ->result();
+        $data['data_role'] = $this->Model_role_tugas->tampil_data('data_role')->result();
         $data['detail_role'] = $this->Model_detail_role->getList();
         $data['title'] = ' ASN Balitklimat | Data Role';
         $this->load->view('templates/v_template', $data);
@@ -153,17 +151,6 @@ class Role_Penugasan extends CI_Controller
         );
         redirect('role_penugasan');
     }
-    function hapus_role($id_role)
-    {
-        $where = [
-            'id_role' => $id_role,
-        ];
-        $this->Model_detail_role->hapus_data2($where, 'detail_role');
-        $this->Model_role_tugas->hapus_data($where, 'data_role');
-        $this->session->set_flashdata('sukses', 'Data role berhasil dihapus');
-        redirect('role_penugasan');
-    }
-
     function penugasan()
     {
         $data['data_tugas'] = $this->Model_role_tugas
