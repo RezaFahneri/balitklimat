@@ -40,6 +40,7 @@
               <h4><b>Sistem Informasi Perjalanan Dinas</b></h4>
               <h4><b>Balai Penelitian Agroklimat dan Hidrologi</b></h4>
               <form class="pt-3 text-center" action="<?php echo base_url()?>login/proseslogin" method="post">
+              <?= $this->session->flashdata('message') ?>
                 <div class="form-group">
                   <input type="text" id='email' class="form-control form-control" id="exampleInputEmail1" placeholder="Email" name='email' autocomplete= "off" required>
                 </div>
@@ -49,7 +50,7 @@
                 <div class="mt-3">
                   <button type="submit" class="btn btn-block btn-success btn-md font-weight-medium auth-form-btn">LOGIN</button>
                 </div></br>
-                <!-- <?php
+                <?php
                 $error = $this->session->flashdata('error');
                 if (!empty($error)) {
                   echo '
@@ -58,9 +59,9 @@
                      </div>
                    ';
                 }
-                ?> -->
+                ?>
                  <div>
-                  <a target="_blank" href="" class="auth-link text-black">Lupa Password?</a>
+                  <a target="_blank" href="<?php echo base_url(); ?>login/lupapassword" class="auth-link text-black">Lupa Password?</a>
                   </div>
               </form>
             </div>

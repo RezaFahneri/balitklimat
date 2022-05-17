@@ -21,11 +21,11 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Luar Kota </label>
-                                            <input type="text" name="luar_kota" class="form-control" value="<?php echo $p->luar_kota ?>" required>
+                                            <input title="Nilai tidak boleh kurang dari 0" type="number" min="0" name="luar_kota" class="form-control" value="<?php echo $p->luar_kota ?>" required>
                                         </div>
                                         <div class="form-group">
                                             <label>Dalam Kota </label>
-                                            <input type="text" name="dalam_kota" class="form-control" value="<?php echo $p->dalam_kota ?>" required>
+                                            <input title="Nilai tidak boleh kurang dari 0" type="number" min="0" name="dalam_kota" class="form-control" value="<?php echo $p->dalam_kota ?>" required>
                                         </div>
                                         <button type="submit" class="btn btn-success mr-2">Submit</a></button>&nbsp &nbsp
                                         <!-- <a class="btn btn-outline-dark" href="<?php echo base_url(); ?>akun">Cancel</a> -->

@@ -3,9 +3,7 @@ class Model_login extends CI_model
 {
     public function bisalogin($email, $password)
     {
-        $this->db->where('email', $email);
-        $this->db->where('password', $password);
-        $query = $this->db->where('email', $email)->where('password',($password))->where('role','Admin Perjalanan Dinas')->get('detail_role');
+        $query = $this->db->where('email', $email)->where('password', md5($password))->where('role','Admin Perjalanan Dinas')->get('detail_role');
         if ($query->num_rows() > 0) {
             $data = array(
                 'email'    => $query->row()->email,
@@ -19,5 +17,10 @@ class Model_login extends CI_model
         } else {
             return false;
         }
+    }
+    public function user($email)
+    {
+        $query = $this->db->get_where('detail_role', ['email' => $email])->row_array();
+        return $query;
     }
 }
