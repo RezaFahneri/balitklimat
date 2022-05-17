@@ -79,7 +79,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label><b>Uang Harian</b></label>
-                                            <input type="number" <?php if ($dpd->kota == $dpd->kota_tujuan) {
+                                            <input type="number" min="0" <?php if ($dpd->kota == $dpd->kota_tujuan) {
                                                                                     ?> placeholder="<?php echo $dpd->dalam_kota_tujuan * $dpd->lama_perjalanan ?>" <?php
                                                                                                                                                             } else {
                                                                                                                                                                 ?>placeholder="<?php echo $dpd->luar_kota_tujuan * $dpd->lama_perjalanan ?>" <?php
@@ -93,21 +93,21 @@
                                         </div>
                                         <div class="form-group">
                                             <label><b>Uang Transportasi</b></label>
-                                            <input title="Masukkan total biaya transportasi" type="number" pattern="[0-9]" name="uang_transportasi" class="form-control">
+                                            <input title="Masukkan total biaya transportasi" type="number" min="0" pattern="[0-9]" name="uang_transportasi" class="form-control">
                                         </div>
                                         <div class="form-group">
                                             <label><b>Uang Penginapan</b></label>
                                             <div class="input-group mb-2">
                                                 <input type="number" min="0" placeholder="--Masukkan jumlah hari pernginapan di hotel 1--" name="hari1" class="form-control">
-                                                <input type="number" pattern="[0-9]" name="biaya1" placeholder="--Masukkan biaya permalam hotel 1--" class="form-control">
+                                                <input type="number" min="0" pattern="[0-9]" name="biaya1" placeholder="--Masukkan biaya permalam hotel 1--" class="form-control">
                                             </div>
                                             <div class="input-group mb-2">
                                                 <input type="number" min="0" placeholder="--Masukkan jumlah hari pernginapan di hotel 2--" name="hari2" class="form-control">
-                                                <input type="number" pattern="[0-9]" name="biaya2" placeholder="--Masukkan biaya permalam hotel 2--" class="form-control">
+                                                <input type="number" min="0" pattern="[0-9]" name="biaya2" placeholder="--Masukkan biaya permalam hotel 2--" class="form-control">
                                             </div>
                                             <div class="input-group mb-2">
                                                 <input type="number" min="0" placeholder="--Masukkan jumlah hari pernginapan di hotel 3--" name="hari3" class="form-control">
-                                                <input type="number" pattern="[0-9]" name="biaya3" placeholder="--Masukkan biaya permalam hotel 3--" class="form-control">
+                                                <input type="number" min="0" pattern="[0-9]" name="biaya3" placeholder="--Masukkan biaya permalam hotel 3--" class="form-control">
                                             </div>
                                         </div>
 
