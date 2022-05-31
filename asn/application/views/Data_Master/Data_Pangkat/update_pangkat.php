@@ -10,6 +10,7 @@
                             Data Pangkat
                         </h3><br>
                         <div class="col-md-12 grid-margin">
+                        <?= $this->session->flashdata('message') ?>
                             <div class="card-body">
                                 <?php foreach ($data_pangkat as $p) { ?>
                                 <form method="POST" action="<?php echo base_url() ?>pangkat/update">
@@ -20,8 +21,8 @@
                                     </tr>
                                     <div class="form-group">
                                         <label>Pangkat </label>
-                                        <input type="text" name="pangkat" class="form-control"
-                                            value="<?php echo $p->pangkat?>" name="pangkat" required>
+                                        <input type="text" name="pangkat" class="form-control" value="<?php echo $p->pangkat?>" name="pangkat">
+                                        <?php echo form_error( 'pangkat','<small class="text-danger">','</small>'); ?>
                                     </div>
                                     <button type="submit" class="btn btn-success mr-2">Simpan</a></button>&nbsp
                                     &nbsp

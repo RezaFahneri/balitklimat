@@ -53,19 +53,13 @@ class Data_Pegawai extends CI_Controller
     }
     public function generateID()
     {
-        $query = $this->db
-            ->order_by('nip', 'DESC')
-            ->limit(1)
-            ->get('data_pegawai')
-            ->row('nip');
-        $lastNo = (int) substr($query, 3);
+        $query = $this->db->order_by('nip', 'DESC')->limit(1)->get('data_pegawai')->row('nip'); //dilihat dari terbesar nip
+        $lastNo = (int) substr($query, 3); //substr mengambil sebagian nilai 
         $next = $lastNo + 1;
         $kd = 'HNR';
-        return $kd . sprintf('%04s', $next);
+        return $kd . sprintf('%014s', $next); //penambahan angka 0 didepan 
     }
-    // private function hash_password($password) {
-    //     return password_hash($password, PASSWORD_BCRYPT);
-    // }
+
     function tambah_aksi()
     {
         $this->form_validation->set_rules('nama_pegawai','Nama Pegawai','required|max_length[50]');
@@ -118,8 +112,7 @@ class Data_Pegawai extends CI_Controller
             $nik = $this->input->post('nik');
             $email = $this->input->post('email');
             $password = md5($this->input->post('password'));
-            $no_whatsapp =
-                $this->input->post('62') . $this->input->post('no_whatsapp');
+            $no_whatsapp = $this->input->post('62') . $this->input->post('no_whatsapp');
 
             $data = [
                 'nama_pegawai' => $nama_pegawai,
@@ -132,7 +125,6 @@ class Data_Pegawai extends CI_Controller
                 'foto' => $foto,
                 'nik' => $nik,
                 'email' => $email,
-                //'password' => $this->hash_password($password),
                 'password' => $password,
                 'no_whatsapp' => $no_whatsapp,
             ];
@@ -171,10 +163,9 @@ class Data_Pegawai extends CI_Controller
             }
         }
     }
-    function edit()
+    function edit($nip)
     {
-        $nip = $this->input->get('nip');
-        $data['primary_view'] = 'Data_Pegawai/v_update_pegawai';
+        $where = array('nip' => $nip);
         $data['id_golongan'] = $this->Model_golongan->getList();
         $data['id_status_peg'] = $this->Model_status_pegawai->getList();
         $data['id_pangkat'] = $this->Model_pangkat->getList();
@@ -189,64 +180,100 @@ class Data_Pegawai extends CI_Controller
     }
     function update()
     {
+        $this->form_validation->set_rules('nama_pegawai','Nama Pegawai','required|max_length[50]');
         $nip = $this->input->post('nip');
-        $nama_pegawai = $this->input->post('nama_pegawai');
-        $id_golongan = $this->input->post('id_golongan');
-        $id_status_peg = $this->input->post('id_status_peg');
-        $id_jabatan = $this->input->post('id_jabatan');
-        $id_divisi = $this->input->post('id_divisi');
-        $id_pangkat = $this->input->post('id_pangkat');
-        $nik = $this->input->post('nik');
-        $email = $this->input->post('email');
-        $password = md5($this->input->post('password'));
-        $no_whatsapp = $this->input->post('no_whatsapp');
-
-        $data1 = [
-            'nama_pegawai' => $nama_pegawai,
-            'id_golongan' => $id_golongan,
-            'id_status_peg' => $id_status_peg,
-            'id_jabatan' => $id_jabatan,
-            'id_divisi' => $id_divisi,
-            'id_pangkat' => $id_pangkat,
-            'nik' => $nik,
-            'email' => $email,
-            'password' => $password,
-            'no_whatsapp' =>
-                $this->input->post('62') . $this->input->post('no_whatsapp'),
-        ];
-        $data2 = [
-            'nip' => $nip,
-            'nama_pegawai' => $nama_pegawai,
-            'id_jabatan' => $id_jabatan,
-        ];
-        $data3 = [
-            'nama_pegawai' => $nama_pegawai,
-            'id_golongan' => $id_golongan,
-            'id_status_peg' => $id_status_peg,
-            'id_jabatan' => $id_jabatan,
-            'id_divisi' => $id_divisi,
-            'id_pangkat' => $id_pangkat,
-            'nik' => $nik,
-            'email' => $email,
-            'password' => $password,
-            'no_whatsapp' =>
-                $this->input->post('62') . $this->input->post('no_whatsapp'),
-        ];
-        $where = [
-            'nip' => $nip,
-        ];
-        $this->load->Model('Model_pegawai');
-        $this->Model_pegawai->update_data($where, $data1, 'data_pegawai');
-        $this->Model_pegawai->update_data2($where, $data2, 'status_perjalanan');
-        $this->Model_pegawai->update_data3($where, $data3, 'detail_role');
-        $this->session->set_flashdata(
-            'sukses',
-            'Data Pegawai berhasil diperbarui'
-        );
-        redirect('data_pegawai');
+        if (!empty($nip)) {
+            $this->form_validation->set_rules('nip', 'NIP', 'exact_length[18]');
+        } else {
+            $nip = $this->generateID();
+        }
+        $this->form_validation->set_rules('id_golongan', 'Golongan');
+        $this->form_validation->set_rules('id_status_peg','Status Kepegawaian','required');
+        $this->form_validation->set_rules('id_pangkat', 'Pangkat');
+        $this->form_validation->set_rules('id_jabatan', 'Jabatan', 'required');
+        $this->form_validation->set_rules('id_divisi', 'Divisi', 'required');
+        $this->form_validation->set_rules('nik','NIK','required|exact_length[16]');
+        $this->form_validation->set_rules('password','Password','required|min_length[8]');
+        $this->form_validation->set_rules('no_whatsapp','Nomor Whatsapp','required');
+        $this->form_validation->set_message('required', '%s masih kosong, silahkan isi');
+        $this->form_validation->set_message('min_length','{field} minimal 8 karakter');
+        $this->form_validation->set_message('max_length','{field} maksimal 50 karakter');
+        $this->form_validation->set_message('exact_length','{field} harus 16 karakter');
+        $this->form_validation->set_message('exact_length','{field} harus 18 karakter');
+        if ($this->form_validation->run() == false) {
+            $where = array('nip' => $nip);
+            $data['id_golongan'] = $this->Model_golongan->getList();
+            $data['id_status_peg'] = $this->Model_status_pegawai->getList();
+            $data['id_pangkat'] = $this->Model_pangkat->getList();
+            $data['id_jabatan'] = $this->Model_jabatan->getList();
+            $data['id_divisi'] = $this->Model_divisi->getList();
+    
+            $data['update_pegawai'] = $this->Model_pegawai->getList2($nip);
+            $data['title'] = 'Edit Data Pegawai | ASN';
+            $this->load->view('templates/v_template', $data);
+            $this->load->view('Data_Pegawai/v_update_pegawai', $data);
+            $this->load->view('templates/footer', $data);
+        }
+        else{
+            $nip = $this->input->post('nip');
+            $nama_pegawai = $this->input->post('nama_pegawai');
+            $id_golongan = $this->input->post('id_golongan');
+            $id_status_peg = $this->input->post('id_status_peg');
+            $id_jabatan = $this->input->post('id_jabatan');
+            $id_divisi = $this->input->post('id_divisi');
+            $id_pangkat = $this->input->post('id_pangkat');
+            $nik = $this->input->post('nik');
+            $email = $this->input->post('email');
+            $password = md5($this->input->post('password'));
+            $no_whatsapp = $this->input->post('no_whatsapp');
+    
+            $data1 = [
+                'nama_pegawai' => $nama_pegawai,
+                'id_golongan' => $id_golongan,
+                'id_status_peg' => $id_status_peg,
+                'id_jabatan' => $id_jabatan,
+                'id_divisi' => $id_divisi,
+                'id_pangkat' => $id_pangkat,
+                'nik' => $nik,
+                'email' => $email,
+                'password' => $password,
+                'no_whatsapp' =>
+                    $this->input->post('62') . $this->input->post('no_whatsapp'),
+            ];
+            $data2 = [
+                'nip' => $nip,
+                'nama_pegawai' => $nama_pegawai,
+                'id_jabatan' => $id_jabatan,
+            ];
+            $data3 = [
+                'nama_pegawai' => $nama_pegawai,
+                'id_golongan' => $id_golongan,
+                'id_status_peg' => $id_status_peg,
+                'id_jabatan' => $id_jabatan,
+                'id_divisi' => $id_divisi,
+                'id_pangkat' => $id_pangkat,
+                'nik' => $nik,
+                'email' => $email,
+                'password' => $password,
+                'no_whatsapp' =>
+                    $this->input->post('62') . $this->input->post('no_whatsapp'),
+            ];
+            $where = [
+                'nip' => $nip,
+            ];
+            $this->load->Model('Model_pegawai');
+            $this->Model_pegawai->update_data($where, $data1, 'data_pegawai');
+            $this->Model_pegawai->update_data2($where, $data2, 'status_perjalanan');
+            $this->Model_pegawai->update_data3($where, $data3, 'detail_role');
+            $this->session->set_flashdata(
+                'sukses',
+                'Data Pegawai berhasil diperbarui'
+            );
+            redirect('data_pegawai');
     }
 
-    function hapus($nip)
+}
+function hapus($nip)
     {
         $where = ['nip' => $nip];
         if ($this->Model_pegawai->hapus_data($nip) == false):

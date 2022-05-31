@@ -21,13 +21,13 @@
                                                     </tr>
                                                     <tr>
                                                         <th>NIP</th>
-                                                        <?php
-                                                        $nip = $detail->nip;
-                                                        if ($nip[0] == 'H') {
-                                                            ?><td><?php echo ' ';?></td><?php
-                                                        } else {
-                                                            ?><td><?php echo $nip;?></td><?php
-                                                        } ?>
+                                                        <td><?php echo $detail->nip;?></td>
+                                                        <!-- <?//php $nip = $detail->nip;
+                                                        // if ($nip[0] == 'H') {
+                                                        //     ?><td><?//php echo ' ';?></td><?php
+                                                        // } else {
+                                                        //     ?><td><?//php echo $nip;?></td><?php
+                                                        // } ?> -->
                                                     </tr>
                                                     <tr>
                                                         <th>Golongan</th>

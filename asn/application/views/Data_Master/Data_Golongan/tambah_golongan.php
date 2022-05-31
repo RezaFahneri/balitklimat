@@ -11,17 +11,17 @@
                             Golongan
                         </h3><br>
                         <div class="col-md-12 grid-margin">
+                        <?= $this->session->flashdata('message') ?>
                             <div class="card-body">
                                 <form method="POST" action="<?php echo base_url('golongan/tambah_aksi') ?>">
                                     <div class="form-group">
                                         <label>Golongan<a style="color:red"> *</a></label>
-                                        <input type="text" name="golongan" class="form-control" required>
-                                        <?php echo form_error('golongan', '<div class="text-small text-danger"></div>') ?>
+                                        <input type="text" name="golongan" class="form-control">
+                                        <?= form_error('golongan', '<small class="text-danger">','</small>') ?>
                                     </div>
-                                    <button type="submit" class="btn btn-success"><a
-                                            onclick="return confirm('Data Golongan berhasil ditambahkan!')">Simpan</a></button>&nbsp
+                                    <button type="submit" class="btn btn-success">Simpan</a></button>&nbsp
                                     &nbsp
-                                    <!-- <a class="btn btn-outline-dark" href="<?php echo base_url(); ?>akun">Cancel</a> -->
+                                   
                                 </form>
                             </div>
                         </div>

@@ -28714,11 +28714,11 @@ div.tagsinput span.tag a {
 }
 
 .sidebar .nav.sub-menu .nav-item .nav-link:hover {
-  color: #ffffff;
+  color: #000080;
 }
 
 .sidebar .nav.sub-menu .nav-item .nav-link.active {
-  color: #ffffff;
+  color: #000080;
   background: transparent;
 }
 
@@ -28757,6 +28757,7 @@ div.tagsinput span.tag a {
 .sidebar-dark .sidebar .nav .nav-item.active > .nav-link .menu-title,
 .sidebar-dark .sidebar .nav .nav-item.active > .nav-link i {
   color: #ffffff;
+  background: #58b454;
 }
 
 .sidebar-dark .sidebar .nav:not(.sub-menu) > .nav-item:hover > .nav-link {

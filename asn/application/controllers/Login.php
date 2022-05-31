@@ -26,9 +26,6 @@ class Login extends CI_Controller
         $data['id_role'] = $this->db->get('data_role')->result();
         $this->load->view('Login/v_login_admin', $data);
     }
-    // private function hash_password($password) {
-    //     return password_hash($password, PASSWORD_BCRYPT);
-    // }
     public function proseslogin()
     {
         $this->load->library('form_validation');
@@ -45,7 +42,7 @@ class Login extends CI_Controller
             } else {
                 $this->session->set_flashdata(
                     'error',
-                    'Invalid Email and Password'
+                    'Email atau Password tidak valid'
                 );
                 redirect('login');
             }
@@ -68,7 +65,7 @@ class Login extends CI_Controller
             if ($this->Model_login->bisaloginadmin($email, $password)) {
                 redirect('beranda');
             } else {
-                $this->session->set_flashdata('error','Invalid Email and Password');
+                $this->session->set_flashdata('error','Email atau Password tidak valid');
                 redirect('login');
             }
         } else {

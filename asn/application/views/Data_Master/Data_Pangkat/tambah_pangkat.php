@@ -12,17 +12,17 @@
                             Pangkat
                         </h3><br>
                         <div class="col-md-12 grid-margin">
+                        <?= $this->session->flashdata('message') ?>
                             <div class="card-body">
                                 <form id="form_pangkat" method="POST"
                                     action="<?php echo base_url('pangkat/tambah_aksi') ?>">
                                     <div class="form-group">
                                         <label for="pangkat">Pangkat <a style="color:red"> *</a></label>
-                                        <input type="text" name="pangkat" class="form-control" required>
+                                        <input type="text" name="pangkat" value="<?= set_value('pangkat') ?>"  class="form-control">
                                         <?= form_error('pangkat', '<small class="text-danger">','</small>') ?>
                                     </div>
                                     <button type="submit" class="btn btn-success">Simpan</a></button>&nbsp
                                     &nbsp
-                                    <!-- <a class="btn btn-outline-dark" href="<?php echo base_url(); ?>akun">Cancel</a> -->
                                 </form>
                             </div>
                         </div>

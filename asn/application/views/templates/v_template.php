@@ -171,9 +171,9 @@
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
                             <img
                                 src="<?php echo base_url(); ?>assets/images/foto/<?php echo $this->db
-    ->where('email', $this->session->userdata('email'))
-    ->get('data_pegawai')
-    ->row('foto'); ?>">
+                                ->where('email', $this->session->userdata('email'))
+                                ->get('data_pegawai')
+                                ->row('foto'); ?>">
                         </a>
                         <div class="dropdown-menu dropdown-menu-right navbar-dropdown"
                             aria-labelledby="profileDropdown">
@@ -231,9 +231,6 @@
                                         href="<?php echo base_url(); ?>role_penugasan">Role &
                                         Penugasan</a>
                                 </li>
-                                <!-- <li class="nav-item"> <a class="nav-link"
-                                        href="<?//php echo base_url(); ?>penugasan">Penugasan</a></li>
-                            </ul> -->
                         </div>
                     </li>
                     <?php endif; ?>

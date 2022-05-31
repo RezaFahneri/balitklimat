@@ -36,23 +36,12 @@
                                                     <select name="nip" id="nip" class="form-control" disabled="true"
                                                         required>
                                                         <option value=""></option>
-                                                        <?php foreach (
-                                                            $nip
-                                                            as $row
-                                                        ) { ?>
+                                                        <?php foreach ($nip as $row) { ?>
                                                         <option
-                                                            <?php if (
-                                                                $nip1 ==
-                                                                $row->nip
-                                                            ) {
+                                                            <?php if ($nip1 == $row->nip) {
                                                                 echo 'selected="selected"';
                                                             } ?>
-                                                            value="<?php echo $row->nip; ?>">
-                                                            <?php echo $row->nip .
-                                                                ' | ' .
-                                                                $row->nama_pegawai; ?></option>
-                                                        ';
-                                                        }
+                                                            value="<?php echo $row->nip; ?>"><?php echo $row->nip .' | ' . $row->nama_pegawai; ?></option>
                                                         <?php } ?>
                                                     </select>
                                                 </div>
@@ -121,7 +110,8 @@
                                                                 class="form-control">
                                                         </div>
                                                         <div class="form-group">
-                                                            <label><b>Jadwal Kenaikan Gaji Berkala<a style="color:red"> *</a></b></label>
+                                                            <label><b>Jadwal Kenaikan Gaji Berkala<a style="color:red"> *</a></b></label><br>
+                                                            <small class="text-warning">Tanggal jadwal kenaikan gaji berkala diisi sesuai dengan TMT terahir</small>
                                                             <input type="date" name="jadwal_kgb" onblur="validasi_jadwalkgb()" id="jadwal_kgb"
                                                                 value="<?php echo $ug->jadwal_kgb; ?>"
                                                                 placeholder="Jadwal Kenaikan Pangkat"
@@ -163,6 +153,7 @@ $('#nip').select2({
 </script>
 <script>
     function validasi_gaji() {
+        var rupiah = document.getElementById("rupiah").value;
         var rupiah1 = document.getElementById("rupiah1").value;
         if (rupiah1 <= rupiah ) {
 		alert("Gaji Baru Tidak Boleh Kurang dari Gaji Lama");

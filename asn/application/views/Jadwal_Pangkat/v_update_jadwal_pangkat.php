@@ -138,7 +138,8 @@
                                                         value="<?php echo $up->tmt_pangkat_5; ?>" class="form-control">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label><b>Jadwal Kenaikan Pangkat<a style="color:red"> *</a></b></label>
+                                                    <label><b>Jadwal Kenaikan Pangkat<a style="color:red"> *</a></b></label><br>
+                                                    <small class="text-warning">Tanggal jadwal kenaikan pangkat diisi sesuai dengan TMT terahir</small>
                                                     <input type="date" name="jadwal_kp" id="jadwal_kp"
                                                         value="<?php echo $up->jadwal_kp; ?>"
                                                         placeholder="Jadwal Kenaikan Pangkat" class="form-control"
