@@ -7,11 +7,10 @@
                         <h3 class="m-0 font-weight-bold text-primary">
                             <h3 class="m-0 font-weight-bold text-primary"><a title="Kembali"
                                     class="btn btn-sm btn-secondary" style="border-radius:90px; color:white"
-                                    href="<?php echo site_url(
-                                        'data_pegawai'
-                                    ); ?>"><i class="ti ti-arrow-left"
+                                    href="<?php echo site_url('data_pegawai'); ?>"><i class="ti ti-arrow-left"
                                         style="border-radius:8px"></i></a>&nbsp Edit Data Pegawai</h3><br>
                             <div class="col-md-12 grid-margin">
+                            <?= $this->session->flashdata('message') ?>
                                 <div class="card-body">
                                     <?php foreach ($update_pegawai as $ep) { ?>
                                     <form method="POST" action="<?php echo base_url(); ?>data_pegawai/update">
@@ -21,179 +20,113 @@
                                                     <label><b>Nama Pegawai<a style="color:red"> *</a></b></label>
                                                     <input type="text" name="nama_pegawai"
                                                         value="<?php echo $ep->nama_pegawai; ?>" class="form-control"
-                                                        required>
+                                                        >
                                                     <input type="hidden" name="foto" value="default.png"
-                                                        class="form-control" required>
-                                                        <?php echo form_error(
-                                                            'nama_pegawai',
-                                                            '<small class="text-danger">',
-                                                            '</small>'
-                                                        ); ?>
+                                                        class="form-control" >
+                                                        <?php echo form_error('nama_pegawai','<small class="text-danger">', '</small>'); ?>
                                                 </div>
                                                 <div class="form-group">
                                                     <input readonly type="hidden" name="nip"
-                                                        value="<?php echo $ep->nip; ?>" class="form-control" required>
-                                                    <?php echo form_error(
-                                                        'nip',
-                                                        '<div class="text-small text-danger"></div>'
-                                                    ); ?>
+                                                        value="<?php echo $ep->nip; ?>" class="form-control" >
+                                                    <?php echo form_error('nip','<div class="text-small text-danger"></div>' ); ?>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="id_golongan"><b>Golongan</b></label></br>
-                                                    <?php $id_golongan1 =
-                                                        $ep->id_golongan; ?>
+                                                    <?php $id_golongan1 = $ep->id_golongan; ?>
                                                     <select style="color:dimgray" name="id_golongan" id="id_golongan"
-                                                        class="form-control" required>
+                                                        class="form-control" >
                                                         <option value="1">--Pilih Golongan--</option>
-                                                        <?php foreach (
-                                                            $id_golongan
-                                                            as $row
-                                                        ) { ?>
+                                                        <?php foreach ($id_golongan as $row) { ?>
                                                         <option
-                                                            <?php if (
-                                                                $id_golongan1 ==
-                                                                $row->id_golongan
-                                                            ) {
+                                                            <?php if ($id_golongan1 == $row->id_golongan) {
                                                                 echo 'selected="selected"';
-                                                            } ?>
-                                                            value="<?php echo $row->id_golongan; ?>">
-                                                            <?php echo $row->golongan; ?></option>';
+                                                            } ?>value="<?php echo $row->id_golongan; ?>"><?php echo $row->golongan; ?></option>';
                                                         }
                                                         <?php } ?>
                                                     </select>
+                                                    <?php echo form_error('id_golongan','<small class="text-danger">','</small>'); ?>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="id_status_peg"><b>Status Kepegawaian<a style="color:red"> *</a></b></label></br>
                                                     <?php $id_status_peg1 =
                                                         $ep->id_status_peg; ?>
                                                     <select style="color:dimgray" name="id_status_peg"
-                                                        id="id_status_peg" class="form-control" required>
+                                                        id="id_status_peg" class="form-control" >
                                                         <option value="">--Pilih Status Kepegawaian--</option>
-                                                        <?php foreach (
-                                                            $id_status_peg
-                                                            as $row
-                                                        ) { ?>
+                                                        <?php foreach ($id_status_peg as $row) { ?>
                                                         <option
-                                                            <?php if (
-                                                                $id_status_peg1 ==
-                                                                $row->id_status_peg
-                                                            ) {
+                                                            <?php if ($id_status_peg1 == $row->id_status_peg) {
                                                                 echo 'selected="selected"';
                                                             } ?>
-                                                            value="<?php echo $row->id_status_peg; ?>">
-                                                            <?php echo $row->status_kepegawaian; ?></option>';
+                                                            value="<?php echo $row->id_status_peg; ?>"><?php echo $row->status_kepegawaian; ?></option>';
                                                         }
                                                         <?php } ?>
                                                     </select>
-                                                    <?php echo form_error(
-                                                        'id_status_peg',
-                                                        '<small class="text-danger">',
-                                                        '</small>'
-                                                    ); ?>
+                                                    <?php echo form_error('id_status_peg','<small class="text-danger">','</small>'); ?>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="id_pangkat"><b>Pangkat</b></label></br>
-                                                    <?php $id_pangkat1 =
-                                                        $ep->id_pangkat; ?>
-                                                    <select style="color:dimgray" name="id_pangkat" id="id_pangkat"
-                                                        class="form-control" required>
+                                                    <?php $id_pangkat1 =$ep->id_pangkat; ?>
+                                                    <select style="color:dimgray" name="id_pangkat" id="id_pangkat" class="form-control" >
                                                         <option value="1">--Pilih Pangkat--</option>
-                                                        <?php foreach (
-                                                            $id_pangkat
-                                                            as $row
-                                                        ) { ?>
+                                                        <?php foreach ($id_pangkat as $row) { ?>
                                                         <option
-                                                            <?php if (
-                                                                $id_pangkat1 ==
-                                                                $row->id_pangkat
-                                                            ) {
+                                                            <?php if ($id_pangkat1 == $row->id_pangkat) {
                                                                 echo 'selected="selected"';
                                                             } ?>
-                                                            value="<?php echo $row->id_pangkat; ?>">
-                                                            <?php echo $row->pangkat; ?></option>';
+                                                            value="<?php echo $row->id_pangkat; ?>"><?php echo $row->pangkat; ?></option>';
                                                         }
                                                         <?php } ?>
                                                     </select>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="id_jabatan"><b>Jabatan<a style="color:red"> *</a></b></label></br>
-                                                    <?php $id_jabatan1 =
-                                                        $ep->id_jabatan; ?>
+                                                    <?php $id_jabatan1 = $ep->id_jabatan; ?>
                                                     <select style="color:dimgray" name="id_jabatan" id="id_jabatan"
-                                                        class="form-control" required>
+                                                        class="form-control" >
                                                         <option value="">--Pilih Jabatan--</option>
-                                                        <?php foreach (
-                                                            $id_jabatan
-                                                            as $row
-                                                        ) { ?>
+                                                        <?php foreach ( $id_jabatan as $row) { ?>
                                                         <option
-                                                            <?php if (
-                                                                $id_jabatan1 ==
-                                                                $row->id_jabatan
-                                                            ) {
+                                                            <?php if ($id_jabatan1 == $row->id_jabatan) {
                                                                 echo 'selected="selected"';
                                                             } ?>
-                                                            value="<?php echo $row->id_jabatan; ?>">
-                                                            <?php echo $row->jabatan; ?></option>';
+                                                            value="<?php echo $row->id_jabatan; ?>"> <?php echo $row->jabatan; ?></option>';
                                                         }
                                                         <?php } ?>
                                                     </select>
-                                                    <?php echo form_error(
-                                                        'id_jabatan',
-                                                        '<small class="text-danger">',
-                                                        '</small>'
+                                                    <?php echo form_error('id_jabatan', '<small class="text-danger">','</small>'
                                                     ); ?>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="id_divisi"><b>Divisi<a style="color:red"> *</a></b></label></br>
-                                                    <?php $id_divisi1 =
-                                                        $ep->id_divisi; ?>
+                                                    <?php $id_divisi1 = $ep->id_divisi; ?>
                                                     <select style="color:dimgray" name="id_divisi" id="id_divisi"
-                                                        class="form-control" required>
+                                                        class="form-control" >
                                                         <option value="">--Pilih Divisi--</option>
-                                                        <?php foreach (
-                                                            $id_divisi
-                                                            as $row
-                                                        ) { ?>
+                                                        <?php foreach ($id_divisi as $row) { ?>
                                                         <option
-                                                            <?php if (
-                                                                $id_divisi1 ==
-                                                                $row->id_divisi
-                                                            ) {
+                                                            <?php if ($id_divisi1 == $row->id_divisi) {
                                                                 echo 'selected="selected"';
                                                             } ?>
-                                                            value="<?php echo $row->id_divisi; ?>">
-                                                            <?php echo $row->divisi; ?>
+                                                            value="<?php echo $row->id_divisi; ?>"><?php echo $row->divisi; ?>
                                                         </option>';
                                                         }
                                                         <?php } ?>
                                                     </select>
-                                                    <?php echo form_error(
-                                                        'id_divisi',
-                                                        '<small class="text-danger">',
-                                                        '</small>'
-                                                    ); ?>
+                                                    <?php echo form_error('id_divisi','<small class="text-danger">','</small>' ); ?>
                                                 </div>
                                                 <div class="form-group">
                                                     <label><b>NIK<a style="color:red"> *</a></b></label><br>
                                                     <small class="text-warning">NIK 16 karakter</small>
                                                     <input type="text" name="nik" value="<?php echo $ep->nik; ?>"
-                                                        class="form-control" required>
-                                                        <?php echo form_error(
-                                                            'nik',
-                                                            '<small class="text-danger">',
-                                                            '</small>'
-                                                        ); ?>                                                
+                                                        class="form-control" >
+                                                        <?php echo form_error('nik','<small class="text-danger">','</small>' ); ?>                                                
                                                         </div>
                                                 <div class="form-group">
-                                                    <label><b>Email<a style="color:red"> *</a></b></label>
-                                                    <input type="text" name="email" value="<?php echo $ep->email; ?>"
-                                                        class="form-control" required>
-                                                        <?php echo form_error(
-                                                            'email',
-                                                            '<small class="text-danger">',
-                                                            '</small>'
-                                                        ); ?>                                                
+                                                    <!-- <label><b>Email<a style="color:red"> *</a></b></label> -->
+                                                    <input type="hidden" name="email" value="<?php echo $ep->email; ?>"
+                                                        class="form-control" >
+                                                        <!-- <//?php echo form_error('email','<small class="text-danger">','</small>'); ?>                                                 -->
                                                         </div>
                                                <div class="form-group text-left">
                                                 <label><b>Password<a style="color:red"> *</a></b></label><br>
@@ -201,7 +134,7 @@
                                                     <div class="input-group mb-3">
                                                     <input type="password" name="password" id="password"
                                                         value="<?php echo $ep->password; ?>" class="form-control"
-                                                        required>
+                                                        >
                                                         <div class="input-group-append">
                                                         <span id="mybutton" onclick="password()" class="input-group-text">
                                                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-eye-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -211,11 +144,8 @@
                                                         </span>
                                                     </div>
                                                     </div>
-                                                        <?php echo form_error(
-                                                            'password',
-                                                            '<small class="text-danger">',
-                                                            '</small>'
-                                                        ); ?>                                                </div>
+                                                        <?php echo form_error( 'password','<small class="text-danger">', '</small>'); ?>                                                
+                                                    </div>
                                                 <div class="form-group">
                                                     <label><b>Nomor Whatsapp<a style="color:red"> *</a></b></label><br>
                                                     <small class="text-warning">Ketikkan tanpa 62 atau 0</small>
@@ -226,21 +156,12 @@
                                                         </div>
                                                         <input type="hidden" name="62" value="62" class="form-control">
                                                         <input type="text" name="no_whatsapp"
-                                                            <?php
-                                                            $no =
-                                                                $ep->no_whatsapp;
-                                                            $no_fix = substr(
-                                                                $no,
-                                                                2,
-                                                                15
-                                                            );
+                                                            <?php $no = $ep->no_whatsapp;
+                                                              $no_fix = substr($no,2,15);
                                                             ?>
-                                                            value="<?php echo $no_fix; ?> " class="form-control" required>
-                                                            <?php echo form_error(
-                                                                'no_whatsapp',
-                                                                '<small class="text-danger">',
-                                                                '</small>'
-                                                            ); ?>                                                    </div>
+                                                            value="<?php echo $no_fix; ?> " class="form-control" >
+                                                            <?php echo form_error('no_whatsapp', '<small class="text-danger">','</small>' ); ?>                                                    
+                                                        </div>
                                                 </div>
                                         
                                 </div>

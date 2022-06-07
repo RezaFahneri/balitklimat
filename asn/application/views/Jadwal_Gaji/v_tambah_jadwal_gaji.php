@@ -111,8 +111,8 @@
                                                         class="form-control">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label><b>Jadwal Kenaikan Gaji Berkala<a style="color:red">
-                                                                *</a></b></label>
+                                                    <label><b>Jadwal Kenaikan Gaji Berkala<a style="color:red">*</a></b></label>
+                                                    <small class="text-warning">Tanggal jadwal kenaikan gaji berkala diisi sesuai dengan TMT terahir</small>
                                                     <input type="date" name="jadwal_kgb" onblur="validasi_jadwalkgb()" id="jadwal_kgb"
                                                         placeholder="Jadwal Kenaikan Gaji Berkala" class="form-control">
                                                         <?php echo form_error(
@@ -125,7 +125,6 @@
 
                                         </div>
                                         <button type="submit" class="btn btn-success">Simpan</a></button>&nbsp &nbsp
-                                        <!-- <a class="btn btn-outline-dark" href="<?php echo base_url(); ?>akun">Cancel</a> -->
                                     </form>
                                 </div>
                             </div>
@@ -173,6 +172,7 @@ $('#nip').on('input', function() {
 </script>
 <script>
     function validasi_gaji() {
+        var rupiah = document.getElementById("rupiah").value;
         var rupiah1 = document.getElementById("rupiah1").value;
         if (rupiah1 <= rupiah ) {
 		alert("Gaji Baru Tidak Boleh Kurang dari Gaji Lama");

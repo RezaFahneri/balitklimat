@@ -24,24 +24,15 @@
                                         <div class="card">
                                             <div class="card-body">
                                                 <div class="table-responsive pt-8 ">
-                                                    <table id="dtBasicExample"
-                                                        class="table table-striped table-bordered table-md"
-                                                        data-page-length='25' style="width:100%">
+                                                <table id="dtTable" class="table table-striped table-bordered table-md"
+                                                    data-page-length='25' cellspacing="0" height='50%'>
                                                         <thead class="thead-light">
                                                             <tr>
-                                                                <th title="No" style="width:9%; color:black"><label
-                                                                        style="width:100%;height:100%;margin-top:10px;"
-                                                                        type="button" class="btn-xs"><label
-                                                                            style="margin-top:10px;color:gray">No</label>
-                                                                </th>
+                                                                <th style="width:9%;text-align:center">No</th>
                                                                 <th style="width:20%">Nama Pegawai</th>
                                                                 <th style="width:13%">Gaji Baru</th>
                                                                 <th style="width:3%">Jadwal Kenaikan Gaji
-                                                                <th style="width:1%;"><label
-                                                                        style="width:100%;height:100%;margin-top:10px"
-                                                                        type="button" class="btn-xs"><label
-                                                                            style="margin-top:10px;margin-left:8px;">Aksi</label>
-                                                                </th>
+                                                                <th style="width:15%">Aksi</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>

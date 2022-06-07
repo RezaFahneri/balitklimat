@@ -28,13 +28,23 @@ class Pangkat extends CI_Controller {
 	}
     function tambah_aksi()
     {
-        $pangkat = $this->input->post('pangkat');
-        $data = array(
-            'pangkat' =>$pangkat,
-        );
-        $this->Model_pangkat->input_data($data, 'data_pangkat');
-        $this->session->set_flashdata('sukses','Data pangkat berhasil ditambahkan');
-        redirect('pangkat');
+        $this->form_validation->set_rules('pangkat', 'Pangkat','required|max_length[40]');
+        $this->form_validation->set_message('required', '%s masih kosong, silahkan isi');
+        $this->form_validation->set_message('max_length','{field} minimal 40 karakter');
+        if ($this->form_validation->run() == false) {
+            $data['title'] = 'ASN BALITKLIMAT | Tambah Pangkat';
+            $this->load->view('templates/v_template',$data);
+            $this->load->view('Data_Master/Data_Pangkat/tambah_pangkat',$data);
+            $this->load->view('templates/footer',$data);
+        }
+        else{
+            $data = array(
+                'pangkat' => $pangkat = $this->input->post('pangkat'),
+            );
+            $this->Model_pangkat->input_data($data, 'data_pangkat');
+            $this->session->set_flashdata('sukses','Data pangkat berhasil ditambahkan');
+            redirect('pangkat');
+        }      
     }
     function edit($id_pangkat)
     {
@@ -49,17 +59,30 @@ class Pangkat extends CI_Controller {
     {
         $id_pangkat = $this->input->post('id_pangkat');
         $data['data_pangkat'] = $this->db->query("SELECT * FROM data_pangkat WHERE id_pangkat='$id_pangkat'")->result();
-        $pangkat = $this->input->post('pangkat');
-        $data = array(
-            'pangkat' =>$pangkat,
-        );
-        $where = array(
-            'id_pangkat' => $id_pangkat
-        );
-        $this->load->Model('Model_pangkat');
-        $this->Model_pangkat->update_data($where, $data, 'data_pangkat');
-        $this->session->set_flashdata('sukses','Data Pangkat berhasil diperbarui');
-        redirect('pangkat');
+        $this->form_validation->set_rules('pangkat', 'Pangkat','required|max_length[40]');
+        $this->form_validation->set_message('required', '%s masih kosong, silahkan isi');
+        $this->form_validation->set_message('max_length','{field} minimal 40 karakter');
+        if ($this->form_validation->run() == false) {
+            $where = array('id_pangkat' => $id_pangkat);
+            $data['data_pangkat'] = $this->db->query("SELECT * FROM data_pangkat WHERE id_pangkat='$id_pangkat'")->result();
+            $data['title'] = "Edit Data Pangkat | ASN";
+            $this->load->view('templates/v_template', $data);
+            $this->load->view('Data_Master/Data_Pangkat/update_pangkat', $data);
+            $this->load->view('templates/footer',$data);
+        }
+        else{
+            $data = array(
+                'pangkat' =>$this->input->post('pangkat'),
+            );
+            $where = array(
+                'id_pangkat' => $id_pangkat
+            );
+            $this->load->Model('Model_pangkat');
+            $this->Model_pangkat->update_data($where, $data, 'data_pangkat');
+            $this->session->set_flashdata('sukses','Data Pangkat berhasil diperbarui');
+            redirect('pangkat');
+        }
+        
     }
     function hapus($id_pangkat)
 	{

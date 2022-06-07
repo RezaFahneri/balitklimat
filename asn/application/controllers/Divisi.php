@@ -28,13 +28,23 @@ class Divisi extends CI_Controller {
 	}
     function tambah_aksi()
     {
-        $divisi = $this->input->post('divisi');
-        $data = array(
-            'divisi' =>$divisi,
-        );
-        $this->Model_divisi->input_data($data, 'data_divisi');
-        $this->session->set_flashdata('sukses','Data divisi berhasil ditambahkan');
-        redirect('divisi');
+        $this->form_validation->set_rules('divisi', 'Divisi','required|max_length[50]');
+        $this->form_validation->set_message('required', '%s masih kosong, silahkan isi');
+        $this->form_validation->set_message('max_length','{field} minimal 50 karakter');
+        if ($this->form_validation->run() == false) {
+            $data['title'] = 'ASN BALITKLIMAT | Tambah Divisi';
+            $this->load->view('templates/v_template',$data);
+            $this->load->view('Data_Master/Data_Divisi/v_tambah_divisi',$data);
+            $this->load->view('templates/footer',$data);
+        }
+        else{
+            $data = array(
+                'divisi' =>$this->input->post('divisi'),
+            );
+            $this->Model_divisi->input_data($data, 'data_divisi');
+            $this->session->set_flashdata('sukses','Data divisi berhasil ditambahkan');
+            redirect('divisi');
+        }
     }
     function edit($id_divisi)
     {
@@ -49,17 +59,29 @@ class Divisi extends CI_Controller {
     {
         $id_divisi = $this->input->post('id_divisi');
         $data['data_divisi'] = $this->db->query("SELECT * FROM data_divisi WHERE id_divisi='$id_divisi'")->result();
-        $divisi = $this->input->post('divisi');
-        $data = array(
-            'divisi' =>$divisi,
-        );
-        $where = array(
-            'id_divisi' => $id_divisi
-        );
-        $this->load->Model('Model_divisi');
-        $this->Model_divisi->update_data($where, $data, 'data_divisi');
-        $this->session->set_flashdata('sukses','Data divisi berhasil diperbarui');
-        redirect('divisi');
+        $this->form_validation->set_rules('divisi', 'Divisi','required|max_length[50]');
+        $this->form_validation->set_message('required', '%s masih kosong, silahkan isi');
+        $this->form_validation->set_message('max_length','{field} minimal 50 karakter');
+        if ($this->form_validation->run() == false) {
+            $where = array('id_divisi' => $id_divisi);
+            $data['data_divisi'] = $this->db->query("SELECT * FROM data_divisi WHERE id_divisi='$id_divisi'")->result();
+            $data['title'] = "Edit Data Divisi | ASN";
+            $this->load->view('templates/v_template', $data);
+            $this->load->view('Data_Master/Data_Divisi/update_divisi', $data);
+            $this->load->view('templates/footer',$data);
+        }
+        else{
+            $data = array(
+                'divisi' =>$this->input->post('divisi'),
+            );
+            $where = array(
+                'id_divisi' => $id_divisi
+            );
+            $this->load->Model('Model_divisi');
+            $this->Model_divisi->update_data($where, $data, 'data_divisi');
+            $this->session->set_flashdata('sukses','Data divisi berhasil diperbarui');
+            redirect('divisi');
+        }
     }
     function hapus($id_divisi)
 	{

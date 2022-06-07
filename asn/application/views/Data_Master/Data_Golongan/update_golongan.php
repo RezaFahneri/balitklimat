@@ -10,6 +10,7 @@
                                     style="border-radius:8px"></i></a>&nbsp Edit Data Golongan
                         </h3><br>
                         <div class="col-md-12 grid-margin">
+                        <?= $this->session->flashdata('message') ?>
                             <div class="card-body">
                                 <?php foreach ($data_golongan as $g) { ?>
                                 <form method="POST" action="<?php echo base_url() ?>golongan/update">
@@ -22,10 +23,10 @@
                                     <div class="form-group">
                                         <label>Golongan </label>
                                         <input type="text" name="golongan" class="form-control"
-                                            value="<?php echo $g->golongan?>" name="pangkat" required>
+                                            value="<?php echo $g->golongan?>" name="golongan">
+                                            <?= form_error('golongan', '<small class="text-danger">','</small>') ?>
                                     </div>
                                     <button type="submit" class="btn btn-success mr-2">Simpan</a></button>&nbsp &nbsp
-                                    <!-- <a class="btn btn-outline-dark" href="<?php echo base_url(); ?>akun">Cancel</a> -->
                                 </form>
                                 <?php } ?>
                             </div>

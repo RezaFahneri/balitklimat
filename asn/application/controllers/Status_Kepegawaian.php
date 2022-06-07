@@ -28,14 +28,25 @@ class Status_Kepegawaian extends CI_Controller {
 	}
     function tambah_aksi()
     {
-        $status_kepegawaian = $this->input->post('status_kepegawaian');
-        $data = array(
-            'status_kepegawaian' =>$status_kepegawaian,
-        );
-        $this->Model_status_pegawai->input_data($data, 'status_kepegawaian');
-        $this->session->set_flashdata('sukses','Data status kepegawaian berhasil ditambahkan');
-        redirect('status_kepegawaian');
+        $this->form_validation->set_rules('status_kepegawaian', 'Status Kepegawaian','required|max_length[50]');
+        $this->form_validation->set_message('required', '%s masih kosong, silahkan isi');
+        $this->form_validation->set_message('max_length','{field} minimal 50 karakter');
+        if ($this->form_validation->run() == false) {
+            $data['title'] = 'ASN BALITKLIMAT | Tambah Status Kepegawaian';
+            $this->load->view('templates/v_template',$data);
+            $this->load->view('Data_Master/Status_Pegawai/tambah_status_peg',$data);
+            $this->load->view('templates/footer',$data);
+        }
+        else{
+            $data = array(
+                'status_kepegawaian' =>$this->input->post('status_kepegawaian'),
+            );
+            $this->Model_status_pegawai->input_data($data, 'status_kepegawaian');
+            $this->session->set_flashdata('sukses','Data status kepegawaian berhasil ditambahkan');
+            redirect('status_kepegawaian');
+        }      
     }
+
     function edit($id_status_peg)
     {
         $where = array('id_status_peg' => $id_status_peg);
@@ -49,17 +60,29 @@ class Status_Kepegawaian extends CI_Controller {
     {
         $id_status_peg = $this->input->post('id_status_peg');
         $data['status_kepegawaian'] = $this->db->query("SELECT * FROM status_kepegawaian WHERE id_status_peg='$id_status_peg'")->result();
-        $status_kepegawaian = $this->input->post('status_kepegawaian');
-        $data = array(
-            'status_kepegawaian' =>$status_kepegawaian,
-        );
-        $where = array(
-            'id_status_peg' => $id_status_peg
-        );
-        $this->load->Model('Model_status_pegawai');
-        $this->Model_status_pegawai->update_data($where, $data, 'status_kepegawaian');
-        $this->session->set_flashdata('sukses','Data status kepegawaian berhasil diperbarui');
-        redirect('status_kepegawaian');
+        $this->form_validation->set_rules('status_kepegawaian', 'Status Kepegawaian','required|max_length[50]');
+        $this->form_validation->set_message('required', '%s masih kosong, silahkan isi');
+        $this->form_validation->set_message('max_length','{field} minimal 50 karakter');
+        if ($this->form_validation->run() == false) {
+            $where = array('id_status_peg' => $id_status_peg);
+            $data['status_kepegawaian'] = $this->db->query("SELECT * FROM status_kepegawaian WHERE id_status_peg='$id_status_peg'")->result();
+            $data['title'] = "Edit Data Status Kepegawaian | ASN";
+            $this->load->view('templates/v_template', $data);
+            $this->load->view('Data_Master/Status_Pegawai/update_status_peg', $data);
+            $this->load->view('templates/footer',$data);
+        }
+        else{
+            $data = array(
+                'status_kepegawaian' =>$this->input->post('status_kepegawaian'),
+            );
+            $where = array(
+                'id_status_peg' => $id_status_peg
+            );
+            $this->load->Model('Model_status_pegawai');
+            $this->Model_status_pegawai->update_data($where, $data, 'status_kepegawaian');
+            $this->session->set_flashdata('sukses','Data status kepegawaian berhasil diperbarui');
+            redirect('status_kepegawaian');
+        }
     }
     function hapus($id_status_peg)
 	{

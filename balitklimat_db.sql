@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 15, 2022 at 08:47 AM
+-- Generation Time: May 31, 2022 at 06:55 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -273,7 +273,8 @@ CREATE TABLE `data_divisi` (
 INSERT INTO `data_divisi` (`id_divisi`, `divisi`) VALUES
 (1, 'Tidak Ada'),
 (2, 'Jasa Penelitian'),
-(4, 'Tata Usaha');
+(4, 'Tata Usaha'),
+(8, 'Pelayanan Teknis');
 
 -- --------------------------------------------------------
 
@@ -360,7 +361,7 @@ INSERT INTO `data_jabatan` (`id_jabatan`, `jabatan`) VALUES
 (6, 'Peneliti Ahli Muda\r\n'),
 (7, 'Peneliti Ahli Pertama\r\n'),
 (8, 'Analis Data dan Informasi\r\n'),
-(9, 'Bendahara Penerimaan\r\n'),
+(9, 'Bendahara Penerimaan'),
 (12, 'Analis Optimasi Air\r\n'),
 (13, 'Teknisi Litkayasa Penyelia\r\n'),
 (14, 'Bendahara Pengeluaran\r\n'),
@@ -407,8 +408,10 @@ CREATE TABLE `data_jadwal_gaji_berkala` (
 --
 
 INSERT INTO `data_jadwal_gaji_berkala` (`kode_kgb`, `tgl_penjadwalan`, `nip`, `gaji_lama`, `gaji_baru`, `tmt_gaji_1`, `tmt_gaji_2`, `tmt_gaji_3`, `tmt_gaji_4`, `tmt_gaji_5`, `jadwal_kgb`) VALUES
-('120522001', '2022-05-12 12:23:15', '196710081994032013', 'Rp. 4.000.000', 'Rp. 5.000.000', '2022-05-12', '2026-05-12', '0000-00-00', '0000-00-00', '0000-00-00', '2026-05-12'),
-('290422003', '2022-04-29 08:36:57', '196901241998032001', 'Rp. 4.000.000', 'Rp. 5.000.000', '2022-04-29', '2026-04-29', '0000-00-00', '0000-00-00', '0000-00-00', '2026-04-29');
+('120522001', '2022-05-29 12:29:50', '196710081994032013', 'Rp. 5.200.000', 'Rp. 5.400.000', '2018-06-01', '2022-06-01', '0000-00-00', '0000-00-00', '0000-00-00', '2022-06-01'),
+('290422003', '2022-05-29 12:42:02', '196901241998032001', 'Rp. 5.200.000', 'Rp. 5.400.000', '2018-05-30', '2022-05-30', '0000-00-00', '0000-00-00', '0000-00-00', '2022-05-30'),
+('290522004', '2022-05-29 12:44:02', '196803301994031001', 'Rp. 5.000.000', 'Rp. 5.200.000', '2018-06-01', '2022-06-01', '0000-00-00', '0000-00-00', '0000-00-00', '2022-06-01'),
+('290522005', '2022-05-29 12:53:02', '196505281991032001', 'Rp. 4.700.000', 'Rp. 5.000.000', '2018-06-30', '2022-06-30', '0000-00-00', '0000-00-00', '0000-00-00', '2022-06-30');
 
 -- --------------------------------------------------------
 
@@ -435,8 +438,10 @@ CREATE TABLE `data_jadwal_naik_pangkat` (
 --
 
 INSERT INTO `data_jadwal_naik_pangkat` (`kode_kp`, `tgl_penjadwalan`, `nip`, `id_pangkat_berikutnya`, `id_golongan_berikutnya`, `tmt_pangkat_1`, `tmt_pangkat_2`, `tmt_pangkat_3`, `tmt_pangkat_4`, `tmt_pangkat_5`, `jadwal_kp`) VALUES
-('120522001', '2022-05-12 12:22:26', '196710081994032013', 2, 22, '2022-05-12', '2026-05-12', '0000-00-00', '0000-00-00', '0000-00-00', '2026-05-12'),
-('290422001', '2022-04-29 07:16:35', '196901241998032001', 4, 23, '2022-04-29', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '2026-04-29');
+('120522001', '2022-05-12 12:22:26', '196710081994032013', 2, 23, '2018-06-01', '2022-06-01', '0000-00-00', '0000-00-00', '0000-00-00', '2022-06-01'),
+('290422001', '2022-04-29 07:16:35', '196901241998032001', 4, 23, '2018-05-30', '2022-05-30', '0000-00-00', '0000-00-00', '0000-00-00', '2022-05-30'),
+('290522001', '2022-05-29 11:57:09', '196803301994031001', 2, 22, '2018-06-01', '2022-06-01', '0000-00-00', '0000-00-00', '0000-00-00', '2022-06-01'),
+('290522002', '2022-05-29 11:59:23', '196505281991032001', 6, 21, '2018-06-30', '2022-06-30', '0000-00-00', '0000-00-00', '0000-00-00', '2022-06-30');
 
 -- --------------------------------------------------------
 
@@ -560,13 +565,6 @@ CREATE TABLE `data_notifikasi` (
   `tgl_notif` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `data_notifikasi`
---
-
-INSERT INTO `data_notifikasi` (`id_notifikasi`, `nip`, `pesan`, `jadwal_kenaikan`, `jenis_notif`, `tgl_notif`) VALUES
-(31, '196901241998032001', 'Waktunya naik gaji pada tanggal', '2026-04-29', 'notif_kgb', '2022-04-29 08:37:25');
-
 -- --------------------------------------------------------
 
 --
@@ -621,12 +619,14 @@ CREATE TABLE `data_pegawai` (
 --
 
 INSERT INTO `data_pegawai` (`nip`, `nama_pegawai`, `foto`, `id_golongan`, `id_status_peg`, `id_pangkat`, `id_jabatan`, `id_divisi`, `nik`, `email`, `password`, `no_whatsapp`) VALUES
-('196401211990031002', 'Dr. Ir. A. Arivin Rivaie, M.Sc', 'images6.jpg', 23, 3, 2, 2, 2, '3271062101640004', 'likelomba1@gmail.com', '7c2abe2d9377018b3cbb9026e5572da4', '6281235062988     '),
-('196710081994032013', 'Dr. Woro Estiningtyas', 'default.png', 21, 3, 2, 5, 2, '3201294810670003', 'likelomba2@gmail.com', 'b399963207903867191aae3799c59fac', '6281235062988   '),
-('196803301994031001', 'Dr. Budi Kartiwa', 'WhatsApp_Image_2022-01-14_at_14_30_572.jpeg', 21, 3, 2, 5, 2, '3201293003680001', 'asn.balitklimat@gmail.com', '550e1bafe077ff0b0b67f4e32f29d751', '6281235062988   '),
-('196901241998032001', 'Dr. Elza Surmaini', 'fix_kolokium11.jpg', 22, 3, 6, 5, 2, '3271066401690004', 'lugasmunaya@gmail.com', 'b0fedbe42d05e4158e239a8ad8c9b1ae', '6281235062988     '),
-('HNR901241998032002', 'Daeng Muda Panglima', 'default.png', 1, 8, 1, 23, 4, '3520036004010222', 'likelomba3@gmail.com', 'c4eea22d39a74be645bcf465529acd98', '6281235062988  '),
-('HNR901241998032003', 'Imam Susilo', 'default.png', 1, 8, 1, 23, 2, '3530021333902000', 'pklbalitklimat1@gmail.com', 'ef676d09eeac60338d54858b34224533', '6281235062988  ');
+('196401211990031002', 'Dr. Ir. A. Arivin Rivaie, M.Sc', 'images6.jpg', 23, 3, 2, 2, 2, '3271062101640004', 'likelomba1@gmail.com', '9de21d5186a0a2ffba24b34c3a085445', '6281235062988     '),
+('196505281991032001', 'Ir. Erni Susanti, M.Sc', 'fix_kolokium213.jpg', 20, 3, 7, 5, 8, '3271046805650004', 'lugasmunayasika@gmail.com', '25d55ad283aa400af464c76d713c07ad', '6281235062988'),
+('196710081994032013', 'Dr. Woro Estiningtyas', 'default.png', 22, 3, 2, 5, 2, '3201294810670003', 'likelomba2@gmail.com', '73d56121acabf8381308a34ab18d7711', '6281235062988     '),
+('196803301994031001', 'Dr. Budi Kartiwa', 'WhatsApp_Image_2022-01-14_at_14_30_572.jpeg', 21, 3, 2, 5, 4, '3201293003680001', 'asn.balitklimat@gmail.com', '25d55ad283aa400af464c76d713c07ad', '6281235062988    '),
+('196901241998032001', 'Dr. Elza Surmaini', 'fix_kolokium11.jpg', 22, 3, 6, 5, 2, '3271066401690004', 'lugasmunaya@gmail.com', '011a20a4d84069b353e5ae50cdcda680', '6281235062988     '),
+('198007242005011001', 'Fadhullah Ramadhani, S.Kom, M.Sc', 'default.png', 18, 4, 8, 6, 2, '3271062407800008', 'lugas_munayasikalugas@apps.ipb.ac.id', '579646aad11fae4dd295812fb4526245', '6281235062988  '),
+('HNR901241998032002', 'Daeng Muda Panglima', 'default.png', 1, 8, 1, 23, 4, '3520036004010222', 'likelomba3@gmail.com', '5ce4a8c03c0ef848951ae2db4a54161a', '6281235062988   '),
+('HNR901241998032003', 'Imam Susilo', 'default.png', 1, 8, 1, 25, 8, '3520036004020004', 'robbihably1@gmail.com', 'a970a7e3b359f88a4732b56050822888', '6281235028999  ');
 
 -- --------------------------------------------------------
 
@@ -934,19 +934,23 @@ CREATE TABLE `detail_role` (
 --
 
 INSERT INTO `detail_role` (`id_detail_role`, `id_role`, `role`, `nip`, `nama_pegawai`, `foto`, `id_golongan`, `id_status_peg`, `id_pangkat`, `id_jabatan`, `id_divisi`, `nik`, `email`, `password`, `no_whatsapp`) VALUES
-(1, 1, 'Admin ASN', '196803301994031001', 'Dr. Budi Kartiwa', 'WhatsApp_Image_2022-01-14_at_14_30_572.jpeg', 21, 3, 2, 5, 2, '3201293003680001', 'asn.balitklimat@gmail.com', '25d55ad283aa400af464c76d713c07ad', '6281235062988   '),
-(26, 8, 'User', '196803301994031001', 'Dr. Budi Kartiwa', 'default.png', 21, 3, 2, 5, 2, '3201293003680001', 'asn.balitklimat@gmail.com', '25d55ad283aa400af464c76d713c07ad', '6281235062988   '),
-(28, 2, 'Admin Perjalanan Dinas', '196803301994031001', 'Dr. Budi Kartiwa', 'default.png', 21, 3, 2, 5, 2, '3201293003680001', 'asn.balitklimat@gmail.com', '25d55ad283aa400af464c76d713c07ad', '6281235062988   '),
-(29, 3, 'Admin Inventaris', '196803301994031001', 'Dr. Budi Kartiwa', 'default.png', 21, 3, 2, 5, 2, '3201293003680001', 'asn.balitklimat@gmail.com', '25d55ad283aa400af464c76d713c07ad', '6281235062988   '),
-(30, 6, 'Admin Laporan Magang', '196803301994031001', 'Dr. Budi Kartiwa', 'default.png', 21, 3, 2, 5, 2, '3201293003680001', 'asn.balitklimat@gmail.com', '25d55ad283aa400af464c76d713c07ad', '6281235062988   '),
-(31, 5, 'Admin Disposisi', '196803301994031001', 'Dr. Budi Kartiwa', 'default.png', 21, 3, 2, 5, 2, '3201293003680001', 'asn.balitklimat@gmail.com', '25d55ad283aa400af464c76d713c07ad', '6281235062988   '),
-(32, 7, 'Admin Buku Tamu', '196803301994031001', 'Dr. Budi Kartiwa', 'default.png', 21, 3, 2, 5, 2, '3201293003680001', 'asn.balitklimat@gmail.com', '25d55ad283aa400af464c76d713c07ad', '6281235062988   '),
-(33, 8, 'User', '196710081994032013', 'Dr. Woro Estiningtyas', 'default.png', 21, 3, 2, 5, 2, '3201294810670003', 'likelomba2@gmail.com', '2180e7feb3469cca45bed007f6d5f6df', '6281235062988   '),
+(1, 1, 'Admin ASN', '196803301994031001', 'Dr. Budi Kartiwa', 'WhatsApp_Image_2022-01-14_at_14_30_572.jpeg', 21, 3, 2, 5, 4, '3201293003680001', 'asn.balitklimat@gmail.com', '25d55ad283aa400af464c76d713c07ad', '6281235062988    '),
+(26, 8, 'User', '196803301994031001', 'Dr. Budi Kartiwa', 'default.png', 21, 3, 2, 5, 4, '3201293003680001', 'asn.balitklimat@gmail.com', '25d55ad283aa400af464c76d713c07ad', '6281235062988    '),
+(28, 2, 'Admin Perjalanan Dinas', '196803301994031001', 'Dr. Budi Kartiwa', 'default.png', 21, 3, 2, 5, 4, '3201293003680001', 'asn.balitklimat@gmail.com', '25d55ad283aa400af464c76d713c07ad', '6281235062988    '),
+(29, 3, 'Admin Inventaris', '196803301994031001', 'Dr. Budi Kartiwa', 'default.png', 21, 3, 2, 5, 4, '3201293003680001', 'asn.balitklimat@gmail.com', '25d55ad283aa400af464c76d713c07ad', '6281235062988    '),
+(30, 6, 'Admin Laporan Magang', '196803301994031001', 'Dr. Budi Kartiwa', 'default.png', 21, 3, 2, 5, 4, '3201293003680001', 'asn.balitklimat@gmail.com', '25d55ad283aa400af464c76d713c07ad', '6281235062988    '),
+(31, 5, 'Admin Disposisi', '196803301994031001', 'Dr. Budi Kartiwa', 'default.png', 21, 3, 2, 5, 4, '3201293003680001', 'asn.balitklimat@gmail.com', '25d55ad283aa400af464c76d713c07ad', '6281235062988    '),
+(32, 7, 'Admin Buku Tamu', '196803301994031001', 'Dr. Budi Kartiwa', 'default.png', 21, 3, 2, 5, 4, '3201293003680001', 'asn.balitklimat@gmail.com', '25d55ad283aa400af464c76d713c07ad', '6281235062988    '),
+(33, 8, 'User', '196710081994032013', 'Dr. Woro Estiningtyas', 'default.png', 22, 3, 2, 5, 2, '3201294810670003', 'likelomba2@gmail.com', '73d56121acabf8381308a34ab18d7711', '6281235062988     '),
 (56, 1, 'Admin ASN', '196901241998032001', 'Dr. Elza Surmaini', 'default.png', 22, 3, 6, 5, 2, '3271066401690004', 'lugasmunaya@gmail.com', 'b0fedbe42d05e4158e239a8ad8c9b1ae', '6281235062988     '),
-(59, 8, 'User', 'HNR901241998032002', 'Daeng Muda Panglima', 'default.png', 1, 8, 1, 23, 4, '3520036004010222', 'likelomba3@gmail.com', 'fb373e40d050f61b55aa9387d59bedae', '6281235062988  '),
-(60, 8, 'User', 'HNR901241998032003', 'Imam Susilo', 'default.png', 1, 8, 1, 23, 2, '3530021333902000', 'pklbalitklimat1@gmail.com', 'ef676d09eeac60338d54858b34224533', '6281235062988  '),
-(64, 8, 'User', '196401211990031002', 'Dr. Ir. A. Arivin Rivaie, M.Sc', 'images6.jpg', 23, 3, 2, 2, 2, '3271062101640004', 'likelomba1@gmail.com', '48efe9460a6e7c8b0e098f66f4b6a1e0', '6281235062988     '),
-(100, 8, 'User', '196901241998032001', 'Dr. Elza Surmaini', 'fix_kolokium11.jpg', 22, 3, 6, 5, 2, '3271066401690004', 'lugasmunaya@gmail.com', 'b0fedbe42d05e4158e239a8ad8c9b1ae', '6281235062988     ');
+(59, 8, 'User', 'HNR901241998032002', 'Daeng Muda Panglima', 'default.png', 1, 8, 1, 23, 4, '3520036004010222', 'likelomba3@gmail.com', '5ce4a8c03c0ef848951ae2db4a54161a', '6281235062988   '),
+(60, 8, 'User', 'HNR901241998032003', 'Imam Susilo', 'default.png', 1, 8, 1, 25, 8, '3520036004020004', 'robbihably1@gmail.com', 'a970a7e3b359f88a4732b56050822888', '6281235028999  '),
+(64, 8, 'User', '196401211990031002', 'Dr. Ir. A. Arivin Rivaie, M.Sc', 'images6.jpg', 23, 3, 2, 2, 2, '3271062101640004', 'likelomba1@gmail.com', '9de21d5186a0a2ffba24b34c3a085445', '6281235062988     '),
+(100, 8, 'User', '196901241998032001', 'Dr. Elza Surmaini', 'fix_kolokium11.jpg', 22, 3, 6, 5, 2, '3271066401690004', 'lugasmunaya@gmail.com', 'b0fedbe42d05e4158e239a8ad8c9b1ae', '6281235062988     '),
+(106, 8, 'User', '196505281991032001', 'Ir. Erni Susanti, M.Sc', 'default.png', 20, 3, 7, 5, 8, '3271046805650004', 'lugasmunayasika@gmail.com', '1a674ffa14bf2db92223b23d35593dbb', '6281235062988'),
+(107, 8, 'User', '198007242005011001', 'Fadhullah Ramadhani, S.Kom, M.Sc', 'default.png', 18, 4, 8, 6, 2, '3271062407800008', 'lugas_munayasikalugas@apps.ipb.ac.id', '579646aad11fae4dd295812fb4526245', '6281235062988  '),
+(113, 8, 'User', '198007242005011001', 'Fadhullah Ramadhani, S.Kom, M.Sc', 'default.png', 18, 4, 8, 6, 2, '3271062407800008', 'lugas_munayasikalugas@apps.ipb.ac.id', '579646aad11fae4dd295812fb4526245', '6281235062988  '),
+(115, 8, 'User', 'HNR901241998032003', 'Imam Susilo', 'default.png', 1, 8, 1, 25, 8, '3520036004020004', 'robbihably1@gmail.com', 'a970a7e3b359f88a4732b56050822888', '6281235028999  ');
 
 -- --------------------------------------------------------
 
@@ -1536,7 +1540,7 @@ INSERT INTO `status_perjalanan` (`id_status_perjalanan`, `nip`, `nama_pegawai`, 
 (33, '196901241998032001', 'Dr. Elza Surmaini', 5, 0),
 (35, '196901241998032001', 'Dr. Elza Surmaini', 5, 0),
 (38, 'HNR901241998032002', 'Daeng Muda Panglima', 23, 0),
-(39, 'HNR901241998032003', 'Imam Susilo', 23, 0),
+(39, 'HNR901241998032003', 'Imam Susilo', 25, 0),
 (45, '', 'ssss', 29, 0),
 (46, '', 'lugas', 6, 0),
 (47, '', 'Yudi Riadi Fanggidae, S.Si., M.Si', 4, 0),
@@ -1552,7 +1556,11 @@ INSERT INTO `status_perjalanan` (`id_status_perjalanan`, `nip`, `nama_pegawai`, 
 (58, '', 'obbi', 22, 0),
 (60, '', 'obibii', 30, 0),
 (63, '', 'Farida Oktavia, SP', 6, 0),
-(64, '', 'Yudi Riadi Fanggidae, S.Si., M.Si', 8, 0);
+(64, '', 'Yudi Riadi Fanggidae, S.Si., M.Si', 8, 0),
+(77, '196505281991032001', 'Ir. Erni Susanti, M.Sc', 5, 0),
+(78, '198007242005011001', 'Fadhullah Ramadhani, S.Kom, M.Sc', 6, 0),
+(84, '198007242005011001', 'Fadhullah Ramadhani, S.Kom, M.Sc', 6, 0),
+(86, 'HNR901241998032003', 'Imam Susilo', 25, 0);
 
 -- --------------------------------------------------------
 
@@ -1745,7 +1753,13 @@ INSERT INTO `user_token` (`id`, `email`, `token`, `tgl_dibuat`) VALUES
 (81, 'likelomba2@gmail.com', 'nyLd25f6BYPOBM8KeDxmT2kLQhHKf8uKPdBSjGMVD+s=', 1652580157),
 (82, 'likelomba3@gmail.com', 'NQSOtKhO0H0a2xfUy86Gw6s2iO9jt/vmrVyZvNaiIC8=', 1652581227),
 (83, 'asn.balitklimat@gmail.com', 't5E+qClVJlo87qdY7wIwLdLbRKIch/34Zs76y5Q+h6k=', 1652584929),
-(84, 'asn.balitklimat@gmail.com', '3aKzoHaBfBqdhIt/7SyvDNkDI1sd8jbtYc7JnZVUS+0=', 1652585068);
+(84, 'asn.balitklimat@gmail.com', '3aKzoHaBfBqdhIt/7SyvDNkDI1sd8jbtYc7JnZVUS+0=', 1652585068),
+(85, 'lugasmunaya@gmail.com', 'xG9vHp8eIlJP6HZIEUX/zEI3Kqc0IHJEbgcrLLXjwes=', 1652770467),
+(86, 'pklbalitklimat1@gmail.com', 'qw3hRz2f+rLpPHwUECeZEOdqHJhyQp7adxWFnW+aseA=', 1652776308),
+(87, 'lugasmunaya@gmail.com', 'LAdz1g4HNYhsUGr7ywWc8/PZq3JLtsQqJOLEWVhHLqQ=', 1653704130),
+(88, 'lugasmunayasika@gmail.com', 'UMSseb44hiKxHEGhOAz7JsKaRyaXDYxCtTpVx1oT1A4=', 1653829474),
+(89, 'lugasmunayasika@gmail.com', '/DXa8hoJuzhgFM9hWDmfep95qZnExbrv69Q6FIlZ5oc=', 1653829573),
+(90, 'asn.balitklimat@gmail.com', 'lNCjo8WK0D26irmNMANfgef8mvzG9JqheZ8NT5158yk=', 1653829895);
 
 --
 -- Indexes for dumped tables
@@ -2140,19 +2154,19 @@ ALTER TABLE `data_anggota_perjadin`
 -- AUTO_INCREMENT for table `data_divisi`
 --
 ALTER TABLE `data_divisi`
-  MODIFY `id_divisi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_divisi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `data_golongan`
 --
 ALTER TABLE `data_golongan`
-  MODIFY `id_golongan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id_golongan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `data_jabatan`
 --
 ALTER TABLE `data_jabatan`
-  MODIFY `id_jabatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id_jabatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `data_jenis_keg`
@@ -2176,13 +2190,13 @@ ALTER TABLE `data_kota`
 -- AUTO_INCREMENT for table `data_notifikasi`
 --
 ALTER TABLE `data_notifikasi`
-  MODIFY `id_notifikasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id_notifikasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `data_pangkat`
 --
 ALTER TABLE `data_pangkat`
-  MODIFY `id_pangkat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id_pangkat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `data_perjalanan_dinas`
@@ -2206,7 +2220,7 @@ ALTER TABLE `data_sbuh`
 -- AUTO_INCREMENT for table `data_tugas`
 --
 ALTER TABLE `data_tugas`
-  MODIFY `id_tugas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_tugas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `detail_disposisi`
@@ -2224,13 +2238,13 @@ ALTER TABLE `detail_dokumen`
 -- AUTO_INCREMENT for table `detail_role`
 --
 ALTER TABLE `detail_role`
-  MODIFY `id_detail_role` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
+  MODIFY `id_detail_role` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=116;
 
 --
 -- AUTO_INCREMENT for table `detail_tugas`
 --
 ALTER TABLE `detail_tugas`
-  MODIFY `id_detail_tugas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `id_detail_tugas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- AUTO_INCREMENT for table `jenis`
@@ -2320,13 +2334,13 @@ ALTER TABLE `sifat_surat`
 -- AUTO_INCREMENT for table `status_kepegawaian`
 --
 ALTER TABLE `status_kepegawaian`
-  MODIFY `id_status_peg` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_status_peg` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `status_perjalanan`
 --
 ALTER TABLE `status_perjalanan`
-  MODIFY `id_status_perjalanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+  MODIFY `id_status_perjalanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
 
 --
 -- AUTO_INCREMENT for table `stok_alat`
@@ -2344,7 +2358,7 @@ ALTER TABLE `stok_barang`
 -- AUTO_INCREMENT for table `user_token`
 --
 ALTER TABLE `user_token`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
 
 --
 -- Constraints for dumped tables

@@ -19,11 +19,7 @@
                                              <input style="color:dimgray" type="text" name="nama_pegawai" 
                                              value="<?= set_value('nama_pegawai') ?>" placeholder="Nama Pegawai" autocomplete="off" class="form-control">
                                              <input type="hidden" name="foto" value="default.png" class="form-control">
-                                             <?php echo form_error(
-                                                 'nama_pegawai',
-                                                 '<small class="text-danger">',
-                                                 '</small>'
-                                             ); ?>
+                                             <?php echo form_error( 'nama_pegawai','<small class="text-danger">','</small>'); ?>
                                          </div>
                                          <div class="form-group">
                                              <label><b>NIP</b></label><br>
@@ -32,33 +28,22 @@
                                                  'nip'
                                              ) ?>" placeholder="Nomor Induk Pegawai" autocomplete="off" class="form-control">
                                              <?php echo form_error(
-                                                 'nip',
-                                                 '<small class="text-small text-danger">',
-                                                 '</small>'
-                                             ); ?>
+                                                 'nip','<small class="text-small text-danger">','</small>'); ?>
                                          </div>
 
                                          <div class="form-group">
                                              <label for="id_golongan"><b>Golongan</b></label></br>
                                              <select style="color:dimgray" name="id_golongan" value="<?= set_value(
-                                                 'id_golongan'
-                                             ) ?>" id="id_golongan" class="form-control">
+                                                 'id_golongan') ?>" id="id_golongan" class="form-control">
                                                  <option value="1">--Pilih Golongan--</option>
-                                                 <?php foreach (
-                                                     $id_golongan
-                                                     as $row
-                                                 ) { ?>
+                                                 <?php foreach ($id_golongan as $row) { ?>
                                                      <option value="<?php echo $row->id_golongan; ?>">
                                                          <?php echo $row->golongan; ?>
                                                      </option>';
                                                      }
                                                  <?php } ?>
                                              </select>
-                                             <?php echo form_error(
-                                                 'id_golongan',
-                                                 '<small class="text-danger">',
-                                                 '</small>'
-                                             ); ?>
+                                             <?php echo form_error('id_golongan','<small class="text-danger">','</small>'); ?>
                                          </div>
                                          <div class="form-group">
                                              <label><b>Status Kepegawaian<a style="color:red"> *</a></b></label></br>
@@ -66,20 +51,13 @@
                                                  'id_status_peg'
                                              ) ?>" id="id_status_peg" class="form-control">
                                                  <option value="">--Pilih Status Kepegawaian--</option>
-                                                 <?php foreach (
-                                                     $id_status_peg
-                                                     as $row
-                                                 ) { ?>
+                                                 <?php foreach ($id_status_peg as $row) { ?>
                                                      <option value="<?php echo $row->id_status_peg; ?>">
                                                          <?php echo $row->status_kepegawaian; ?></option>';
                                                      }
                                                  <?php } ?>
                                              </select>
-                                             <?php echo form_error(
-                                                 'id_status_peg',
-                                                 '<small class="text-danger">',
-                                                 '</small>'
-                                             ); ?>
+                                             <?php echo form_error('id_status_peg','<small class="text-danger">', '</small>'); ?>
                                          </div>
                                          <div class="form-group">
                                              <label><b>Pangkat</b></label></br>
@@ -87,14 +65,10 @@
                                                  'id_pangkat'
                                              ) ?>" id="id_pangkat" class="form-control">
                                                  <option value="1">--Pilih Pangkat--</option>
-                                                 <?php foreach (
-                                                     $id_pangkat
-                                                     as $row
-                                                 ) { ?>
+                                                 <?php foreach ( $id_pangkat as $row) { ?>
                                                      <option value="<?php echo $row->id_pangkat; ?>">
                                                          <?php echo $row->pangkat; ?>
-                                                     </option>';
-                                                     }
+                                                     </option>';}
                                                  <?php } ?>
                                              </select>
                                          </div>
@@ -104,9 +78,7 @@
                                                  'id_jabatan'
                                              ) ?>" id="id_jabatan" class="form-control">
                                                  <option value="">--Pilih Jabatan--</option>
-                                                 <?php foreach (
-                                                     $id_jabatan
-                                                     as $row
+                                                 <?php foreach ($id_jabatan as $row
                                                  ) { ?>
                                                      <option value="<?php echo $row->id_jabatan; ?>">
                                                          <?php echo $row->jabatan; ?>
@@ -114,70 +86,33 @@
                                                      }
                                                  <?php } ?>
                                              </select>
-                                             <?php echo form_error(
-                                                 'id_jabatan',
-                                                 '<small class="text-danger">',
-                                                 '</small>'
-                                             ); ?>
+                                             <?php echo form_error('id_jabatan','<small class="text-danger">','</small>'); ?>
                                          </div>
                                          <div class="form-group">
                                              <label><b>Divisi<a style="color:red"> *</a></b></label></br>
-                                             <select style="color:dimgray" name="id_divisi" value="<?= set_value(
-                                                 'id_divisi'
-                                             ) ?>" id="id_divisi" class="form-control">
+                                             <select style="color:dimgray" name="id_divisi" value="<?= set_value('id_divisi') ?>" id="id_divisi" class="form-control">
                                                  <option value="">--Pilih Divisi--</option>
-                                                 <?php foreach (
-                                                     $id_divisi
-                                                     as $row
-                                                 ) { ?>
+                                                 <?php foreach ($id_divisi as $row) { ?>
                                                      <option value="<?php echo $row->id_divisi; ?>"><?php echo $row->divisi; ?>
                                                      </option>';
                                                      }
                                                  <?php } ?>
                                              </select>
-                                             <?php echo form_error(
-                                                 'id_divisi',
-                                                 '<small class="text-danger">',
-                                                 '</small>'
-                                             ); ?>
+                                             <?php echo form_error('id_divisi', '<small class="text-danger">','</small>'); ?>
                                          </div>
-                                         <!-- <div class="form-group">
-                                        <label><b>Tugas Tambahan</b></label>
-                                        <select name="id_tugas[]" id="id_tugas" class="form-control" multiple> -->
-                                         <!-- <option value=""></option> -->
-                                         <!-- <? //php foreach($id_tugas as $row){
-                                                ?>
-                                            <option value="<? //php echo $row->id_tugas;
-                                                            ?>"><? //php echo $row->penugasan;
-                                                                ?>
-                                            </option>';
-                                            }
-                                            <? //php }
-                                            ?>
-                                        </select>
-                                    </div> -->
                                          <div class="form-group">
                                              <label><b>NIK<a style="color:red"> *</a></b></label><br>
                                              <small class="text-warning">NIK 16 karakter</small>
                                              <input style="color:dimgray" type="text" name="nik" value="<?= set_value(
                                                  'nik'
                                              ) ?>" autocomplete="off" placeholder="Nomor Induk Kependudukan" class="form-control">
-                                             <?php echo form_error(
-                                                 'nik',
-                                                 '<small class="text-danger">',
-                                                 '</small>'
-                                             ); ?>
+                                             <?php echo form_error('nik', '<small class="text-danger">','</small>'); ?>
                                          </div>
                                          <div class="form-group">
                                              <label><b>Email<a style="color:red"> *</a></b></label>
-                                             <input style="color:dimgray" type="email" autocomplete="off" name="email" value="<?= set_value(
-                                                 'email'
+                                             <input style="color:dimgray" type="email" autocomplete="off" name="email" value="<?= set_value('email'
                                              ) ?>" placeholder="Email" class="form-control">
-                                             <?php echo form_error(
-                                                 'email',
-                                                 '<small class="text-danger">',
-                                                 '</small>'
-                                             ); ?>
+                                             <?php echo form_error('email','<small class="text-danger">', '</small>'); ?>
                                          </div>
                                          <div class="form-group text-left">
                                          <label><b>Password<a style="color:red"> *</a></b></label><br>
@@ -204,8 +139,7 @@
                                                      <div style="color:dimgray" class="input-group-text">+62</div>
                                                  </div>
                                                  <input type="hidden" name="62" value="62" class="form-control">
-                                                 <input type="text" name="no_whatsapp" value="<?= set_value(
-                                                     'no_whatsapp'
+                                                 <input type="text" name="no_whatsapp" value="<?= set_value('no_whatsapp'
                                                  ) ?>" autocomplete="off" placeholder="Nomor Whatsapp" class="form-control">
 
                                              </div> <?php echo form_error('no_whatsapp','<small class="text-danger">', '</small>'); ?><br>

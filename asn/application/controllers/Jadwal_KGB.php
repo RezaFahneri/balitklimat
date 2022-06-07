@@ -30,8 +30,7 @@ class Jadwal_KGB extends CI_Controller
 
     function kalender()
     {
-        $data['title'] =
-            'ASN BALITKLIMAT | Kalender Jadwal Kenaikan Gaji Berkala';
+        $data['title'] ='ASN BALITKLIMAT | Kalender Jadwal Kenaikan Gaji Berkala';
         $this->load->view('templates/v_template', $data);
         $this->load->view('Jadwal_Gaji/v_kalender_kgb', $data);
         $this->load->view('templates/footer', $data);

@@ -38,11 +38,7 @@ class Model_login extends CI_model
             return false;
         }
     }
-    // public function user($table, $email)
-    // {
-    //     $query = $this->db->get_where($table, ['email' => $email])->row_array();
-    //     return $query;
-    // }
+
     public function user($email)
     {
         $query = $this->db->get_where('detail_role', ['email' => $email])->row_array();

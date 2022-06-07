@@ -36,23 +36,36 @@ class Profil extends CI_Controller
     function update()
 	{
 		$nip = $this->Model_pegawai->get_nip($this->session->userdata('email'));
-		$password = md5($this->input->post('password'));
-		$cpassword = md5($this->input->post('cpassword'));
-		if ($password == $cpassword) {
-			$data1 = array(
-				'password' => md5($this->input->post('password')),
-			);
-			$where = array(
-				'nip'   => $nip,
-			);
-			$this->Model_profil->update_data($where, $data1, 'detail_role');
-			$this->Model_profil->update_data1($where, $data1, 'data_pegawai');
-			$this->session->set_flashdata('sukses', 'Password berhasil diperbaharui');
-			redirect('profil');
-		} else {
-			$this->session->set_flashdata('error', 'Konfirmasi password tidak sesuai');
-			redirect('profil/edit');
-		}
+        $this->form_validation->set_rules('password','Password','required|min_length[8]');
+        $this->form_validation->set_rules('cpassword','Password','required|min_length[8]');
+        $this->form_validation->set_message('required', '%s masih kosong, silahkan isi');
+        $this->form_validation->set_message('min_length','{field} minimal 8 karakter');
+        if ($this->form_validation->run() == false) {
+            $data['title'] = ' ASN Balitklimat | Edit Detail Pegawai';
+            $data['update_profil'] = $this->db->get_where('data_pegawai', ['email' => $this->session->userdata('email'),])->row_array();
+            $this->load->view('templates/v_template', $data);
+            $this->load->view('Profil/v_edit_detail_profil', $data);
+            $this->load->view('templates/footer', $data);
+        }
+        else{
+            $password = md5($this->input->post('password'));
+            $cpassword = md5($this->input->post('cpassword'));
+            if ($password == $cpassword) {
+                $data1 = array(
+                    'password' => md5($this->input->post('password')),
+                );
+                $where = array(
+                    'nip'   => $nip,
+                );
+                $this->Model_profil->update_data($where, $data1, 'detail_role');
+                $this->Model_profil->update_data1($where, $data1, 'data_pegawai');
+                $this->session->set_flashdata('sukses', 'Password berhasil diperbaharui');
+                redirect('profil');
+            } else {
+                $this->session->set_flashdata('error', 'Konfirmasi password tidak sesuai');
+                redirect('profil/edit');
+            }
+        }
 	}
 
     function update_foto()

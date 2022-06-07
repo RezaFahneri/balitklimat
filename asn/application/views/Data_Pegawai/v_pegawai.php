@@ -65,20 +65,18 @@
                                                                     <?php echo $no++ ?></td>
                                                                 <td style="font-size: 12px">
                                                                     <?php echo $dp->nama_pegawai ?></td>
-                                                                <?php
+                                                                <td style="font-size: 12px"><?php echo $dp->nip; ?></td>
+                                                                <!-- <//?php
                                                                     $nip = $dp->nip;
                                                                     if ($nip[0] == 'H') {
-                                                                    ?><td><?php echo ' '; ?>
+                                                                    ?><td><//?php echo ' '; ?>
                                                                 </td>
-                                                                <?php
+                                                                <//?php
                                                                     } else {
                                                                         ?>
-                                                                <td style="font-size: 12px"><?php echo $nip; ?></td>
-                                                                <?php
-                                                                                                                                                                                } ?>
-                                                                <!-- <td><?//php echo $dp->nip ?></td> -->
-                                                                <!-- <td style="font-size: 12px"><?//php echo $dp->jabatan; ?> -->
-                                                                </td>
+                                                                <td style="font-size: 12px"><//?php echo $nip; ?></td>
+                                                                <//?php } ?> -->
+                                                                
                                                                 <td style="font-size: 12px">
                                                                     <?php echo $dp->golongan; ?></td>
                                                                 <td>
@@ -87,10 +85,10 @@
                                                                         class="btn btn-sm btn-warning"
                                                                         href="<?php echo base_url('data_pegawai/detail/' . $dp->nip) ?>">
                                                                         <i class="mdi mdi-account-card-details"></i></a>
-                                                                    <a title="Edit data pegawai" style="font-size:30px"
-                                                                        class="btn btn-sm btn-success"
-                                                                        href="<?php echo base_url() ?>data_pegawai/edit?nip=<?php echo $dp->nip?>"><i
-                                                                            class="mdi mdi-pencil"></i></a>
+                                                                    <a title=" Edit data pegawai" style="font-size:30px" class="btn btn-sm btn-success"
+                                                                         href="<?php echo base_url('data_pegawai/edit/' . $dp->nip) ?>"><i
+                                                                        class="mdi mdi-lead-pencil"></i></a>
+                                                                    
                                                                     <a title="Hapus data pegawai" style="font-size:30px"
                                                                         id="hapus_pegawai" class="btn btn-sm btn-danger"
                                                                         href="<?php echo site_url('data_pegawai/hapus/' . $dp->nip) ?>"><i

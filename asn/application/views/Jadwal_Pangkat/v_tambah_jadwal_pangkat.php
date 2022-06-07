@@ -135,13 +135,13 @@
                                                 name="tmt_pangkat_5" onblur="validasi_tmt54()" class="form-control">
                                         </div>
                                         <div class="form-group">
-                                            <label><b>Jadwal Kenaikan Pangkat<a style="color:red"> *</a></b></label>
+                                            <label><b>Jadwal Kenaikan Pangkat<a style="color:red"> *</a></b></label><br>
+                                            <small class="text-warning">Tanggal jadwal kenaikan pangkat diisi sesuai dengan TMT terahir</small>
                                             <input style="color:dimgray" type="date" name="jadwal_kp" onblur="validasi_jadwalkp()" id="jadwal_kp"
                                                 placeholder="Jadwal Kenaikan Pangkat" class="form-control" >
                                                 <?php echo form_error('jadwal_kp','<small class="text-danger">','</small>'); ?>
                                         </div>
                                         <button type="submit" class="btn btn-success">Simpan</a></button>&nbsp &nbsp
-                                        <!-- <a class="btn btn-outline-dark" href="<?php echo base_url(); ?>akun">Cancel</a> -->
                                 </div>
                             </div>
                     </div>

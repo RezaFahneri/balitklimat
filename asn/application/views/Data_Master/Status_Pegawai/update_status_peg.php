@@ -11,6 +11,7 @@
                                     class="ti ti-arrow-left"></i></a>&nbspEdit
                             Data Status Kepegawaian</h3><br>
                         <div class="col-md-12 grid-margin">
+                        <?= $this->session->flashdata('message') ?>
                             <div class="card-body">
                                 <?php foreach ($status_kepegawaian as $sp) { ?>
                                 <form method="POST" action="<?php echo base_url() ?>status_kepegawaian/update">
@@ -23,11 +24,10 @@
                                     <div class="form-group">
                                         <label>Status Kepegawaian </label>
                                         <input type="text" name="status_kepegawaian" class="form-control"
-                                            value="<?php echo $sp->status_kepegawaian?>" name="status_kepegawaian"
-                                            required>
+                                            value="<?php echo $sp->status_kepegawaian?>" name="status_kepegawaian">
+                                            <?= form_error('status_kepegawaian', '<small class="text-danger">','</small>') ?>
                                     </div>
                                     <button type="submit" class="btn btn-success mr-2">Submit</a></button>&nbsp &nbsp
-                                    <!-- <a class="btn btn-outline-dark" href="<?php echo base_url(); ?>akun">Cancel</a> -->
                                 </form>
                                 <?php } ?>
                             </div>

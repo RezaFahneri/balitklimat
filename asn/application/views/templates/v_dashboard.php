@@ -50,7 +50,7 @@
                 <div class="card-body-icon">
                     <i class="fas fa-address-card mr-3"></i>
                 </div>
-                <h5 class="card-title text-white">JUMLAH PNS</h5>
+                <h5 class="card-title text-white"> PNS</h5>
                 <div class="display-2"><b><?= $total_pns ?></b></div>
             </div>
             </div>
@@ -59,7 +59,7 @@
                 <div class="card-body-icon">
                     <i class="fas fa-address-card mr-3"></i>
                 </div>
-                <h5 class="card-title text-white">JUMLAH PNS/TB</h5>
+                <h5 class="card-title text-white"> PNS/TB</h5>
                 <div class="display-2"><b><?= $total_pnstb ?></b></div>
             </div>
             </div>
