@@ -118,7 +118,7 @@ class Model_pdf extends CI_model
         $this->db->select('data_perjalanan_dinas.*, data_kegiatan.*, rrr.nama_pegawai as nama_rrr, 
         kkk.nama_pegawai as nama_kkk, verif.nama_pegawai as nama_verif, ppk.nama_pegawai as nama_ppk, kpa.nama_pegawai as nama_kpa
         , kb.nama_pegawai as nama_kb, 
-        kb.nip as nip_kb');
+        kb.nip as nip_kb, plt.nip as nip_plt, plt.nama_pegawai as nama_plt');
         $this->db->from('data_perjalanan_dinas');
         $this->db->join('data_kegiatan', 'data_kegiatan.kode_kegiatan = data_perjalanan_dinas.kode_kegiatan');
         $this->db->join('data_pegawai as rrr', 'rrr.nip = data_kegiatan.nip_pj_rrr');
@@ -127,6 +127,7 @@ class Model_pdf extends CI_model
         $this->db->join('data_pegawai as ppk', 'ppk.nip = data_perjalanan_dinas.nip_ppk');
         $this->db->join('data_pegawai as kpa', 'kpa.nip = data_perjalanan_dinas.nip_kpa');
         $this->db->join('data_pegawai as kb', 'kb.nip = data_perjalanan_dinas.nip_kepala_balai');
+        $this->db->join('data_pegawai as plt', 'plt.nip = data_perjalanan_dinas.nip_plt_kb');
         $this->db->join('data_kota as tujuan', 'tujuan.id_kota = data_perjalanan_dinas.id_kota_tujuan');
 		$this->db->join('data_sbuh as sbuh_tujuan', 'sbuh_tujuan.id_sbuh = tujuan.id_sbuh');
         return $this->db->where('data_perjalanan_dinas.id_perjalanan_dinas', $id_perjalanan_dinas)->get()->result();
