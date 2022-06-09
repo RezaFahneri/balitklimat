@@ -39,7 +39,7 @@ class Jadwal_KP extends CI_Controller
     {
         $data['title'] = 'ASN BALITKLIMAT | Tambah Jadwal Kenaikan Pangkat';
         $data['jadwal_kp'] = $this->Model_kenaikan_pangkat->get_kode_kp($data);
-        $data['nip'] = $this->Model_pegawai->getList();
+        $data['nip'] = $this->Model_pegawai->getListStr();
         $data['id_golongan'] = $this->Model_golongan->getList();
         $data['id_pangkat'] = $this->Model_pangkat->getList();
 

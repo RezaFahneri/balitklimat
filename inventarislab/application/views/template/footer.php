@@ -99,12 +99,6 @@
             }
             $('#foto').hide();
             $('#kamera').hide();
-            // let element = document.getElementById("but");
-            // let hidden = element.getAttribute("hidden");
-
-            // if (!hidden) {
-            //     element.removeAttribute("hidden");
-            // }
         };
     </script>
 

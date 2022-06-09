@@ -40,7 +40,7 @@ class Jadwal_KGB extends CI_Controller
         $data['title'] =
             'ASN BALITKLIMAT | Tambah Jadwal Kenaikan Gaji Berkala';
         $data['jadwal_kgb'] = $this->Model_kenaikan_gaji->get_kode_kgb($data);
-        $data['nip'] = $this->Model_pegawai->getList();
+        $data['nip'] = $this->Model_pegawai->getListStr();
         $data['id_golongan'] = $this->Model_golongan->getList();
         $data['id_pangkat'] = $this->Model_pangkat->getList();
 

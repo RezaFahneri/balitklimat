@@ -11,7 +11,6 @@ class Data_Pegawai extends CI_Controller
         $this->load->Model('Model_pangkat');
         $this->load->Model('Model_jabatan');
         $this->load->Model('Model_divisi');
-        $this->load->Model('Model_tugas');
         $this->load->Model('Model_detail_role');
         $this->load->helper('url');
         $this->load->library('session');
@@ -45,7 +44,6 @@ class Data_Pegawai extends CI_Controller
         $data['id_pangkat'] = $this->Model_pangkat->getList();
         $data['id_jabatan'] = $this->Model_jabatan->getList();
         $data['id_divisi'] = $this->Model_divisi->getList();
-        $data['id_tugas'] = $this->Model_tugas->getList();
 
         $this->load->view('templates/v_template', $data);
         $this->load->view('Data_Pegawai/v_tambah_pegawai', $data);
@@ -53,11 +51,11 @@ class Data_Pegawai extends CI_Controller
     }
     public function generateID()
     {
-        $query = $this->db->order_by('nip', 'DESC')->limit(1)->get('data_pegawai')->row('nip'); //dilihat dari terbesar nip
-        $lastNo = (int) substr($query, 3); //substr mengambil sebagian nilai 
+        $query = $this->db->order_by('nip', 'DESC')->limit(1)->get('data_pegawai')->row('nip'); 
+        $lastNo = (int) substr($query, 3);  
         $next = $lastNo + 1;
         $kd = 'HNR';
-        return $kd . sprintf('%014s', $next); //penambahan angka 0 didepan 
+        return $kd . sprintf('%014s', $next); 
     }
 
     function tambah_aksi()
@@ -90,8 +88,6 @@ class Data_Pegawai extends CI_Controller
             $data['id_pangkat'] = $this->Model_pangkat->getList();
             $data['id_jabatan'] = $this->Model_jabatan->getList();
             $data['id_divisi'] = $this->Model_divisi->getList();
-            $data['id_tugas'] = $this->Model_tugas->getList();
-
             $this->load->view('templates/v_template', $data);
             $this->load->view('Data_Pegawai/v_tambah_pegawai', $data);
             $this->load->view('templates/footer', $data);

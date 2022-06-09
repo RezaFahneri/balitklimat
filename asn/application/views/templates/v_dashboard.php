@@ -6,21 +6,11 @@
                 <div class="row">
                     <div class="col-12 col-xl-8 mb-4 mb-xl-0">
                         <h3 class="font-weight-bold">Selamat Datang,
-                            <?php echo $this->db
-                                ->where(
-                                    'email',
-                                    $this->session->userdata('email')
-                                )
-                                ->get('data_pegawai')
-                                ->row('nama_pegawai'); ?>
+                            <?php echo $this->db->where('email',$this->session->userdata('email') )->get('data_pegawai') ->row('nama_pegawai'); ?>
                         </h3>
-                        <div class="flash-data" id="flash2" data-flash="<?= $this->session->flashdata(
-                            'sukses'
-                        ) ?>">
+                        <div class="flash-data" id="flash2" data-flash="<?= $this->session->flashdata('sukses') ?>">
                         </div>
-                        <div class="flash-data" id="flash" data-flash="<?= $this->session->flashdata(
-                            'error'
-                        ) ?>">
+                        <div class="flash-data" id="flash" data-flash="<?= $this->session->flashdata('error') ?>">
                         </div>
                     </div>
                 </div>
@@ -91,7 +81,21 @@
             </div>
             </div>
         </div>
-        
+        <br>
+        <div class="row">
+        <div class="col-sm-6 grid-margin">
+            <div class="card card-dark-blue card-body">
+                <h5 class="card-title text-white">Kalender Jadwal Kenaikan Pangkat</h5>
+                <div id="calendar" style="height:100%; width:100%" style="font-size:2px"></div>
+            </div>
+            </div>
+            <div class="col-sm-6 grid-margin">
+            <div class="card card-dark-blue card-body">
+                <h5 class="card-title text-white">Kalender Jadwal Kenaikan Gaji Berkala</h5>
+                <div id="calendar1" style="height:100%; width:100%" style="font-size:2px"></div>
+            </div>
+            </div>
+        </div>
         </div>
        
         <?php endif; ?>
@@ -283,3 +287,39 @@
     </div>
 </div><!-- content-wrapper ends -->
 </div><!-- partial:partials/_footer.html -->
+<script>
+// membuat jquery
+document.addEventListener('DOMContentLoaded', function() {
+    $('.date-picker').datepicker();
+    $('#calendar').fullCalendar({
+        editable: false,
+        eventLimit: true, // allow "more" link when too many events
+        header: {
+            defaultDate: moment().format('DD-MM-YYYY'),
+            left: 'prev,next today',
+            center: 'title',
+            right: 'month,basicWeek,basicDay'
+        },
+        events: '<?php echo base_url(); ?>kalender_kp.php',
+    });
+
+});
+</script>
+<script>
+// membuat jquery
+document.addEventListener('DOMContentLoaded', function() {
+    $('.date-picker').datepicker();
+    $('#calendar1').fullCalendar({
+        editable: false,
+        eventLimit: true, // allow "more" link when too many events
+        header: {
+            defaultDate: moment().format('YYYY-MM-DD'),
+            left: 'prev,next today',
+            center: 'title',
+            right: 'month,basicWeek,basicDay'
+        },
+        events: '<?php echo base_url(); ?>kalender_kgb.php',
+    });
+
+});
+</script>

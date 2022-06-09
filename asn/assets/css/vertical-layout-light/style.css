@@ -26838,8 +26838,11 @@ table.dataTable tbody td.select-checkbox:after {
 
 .fc .fc-event.fc-start {
   background: #58b454;
+  margin-top: -10%;
   border-radius: 4px;
   border-left: 4px solid #58b454;
+  margin-left: -0.2cm;
+  margin-right: -0.2cm;
 }
 
 .fc .fc-event.fc-not-start, .fc .fc-event.fc-not-end {
@@ -26856,6 +26859,7 @@ table.dataTable tbody td.select-checkbox:after {
 .fc .fc-event .fc-title,
 .fc .fc-event .fc-time {
   color: #ffffff;
+  font-size: 9px;
 }
 
 .fc-external-events .fc-event {

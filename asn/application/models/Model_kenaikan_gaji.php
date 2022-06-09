@@ -14,6 +14,7 @@ class Model_kenaikan_gaji extends CI_model
 		$this->db->join('data_pegawai', 'data_jadwal_gaji_berkala.nip= data_pegawai.nip');
         $this->db->join('data_golongan', 'data_pegawai.id_golongan= data_golongan.id_golongan');
 		$this->db->join('data_pangkat', 'data_pegawai.id_pangkat= data_pangkat.id_pangkat');
+		$this->db->order_by('kode_kgb', 'DESC'); 
 		
 		return $this->db->get()->result();
 	}
@@ -24,7 +25,7 @@ class Model_kenaikan_gaji extends CI_model
 		$this->db->join('data_pegawai', 'data_jadwal_gaji_berkala.nip= data_pegawai.nip');
         $this->db->join('data_golongan', 'data_pegawai.id_golongan= data_golongan.id_golongan');
 		$this->db->join('data_pangkat', 'data_pegawai.id_pangkat= data_pangkat.id_pangkat');
-    
+		$this->db->order_by('kode_kgb', 'DESC'); 
 		return $this->db->where('kode_kgb',$kode_kgb)->get()->result();
 	}
     function get_kode_kgb(){
@@ -49,14 +50,15 @@ class Model_kenaikan_gaji extends CI_model
 		$this->db->join('data_pangkat', 'data_pegawai.id_pangkat= data_pangkat.id_pangkat');
 		return $this->db->where('kode_kgb',$kode_kgb)->get()->row();
 	}
-	public function getDetail1($email){
-		$this->db->select('data_jadwal_gaji_berkala.*,data_pegawai.*,data_golongan.*,data_pangkat.*');
-		$this->db->from('data_jadwal_gaji_berkala');
-		$this->db->join('data_pegawai', 'data_jadwal_gaji_berkala.nip= data_pegawai.nip');
-        $this->db->join('data_golongan', 'data_pegawai.id_golongan= data_golongan.id_golongan');
-		$this->db->join('data_pangkat', 'data_pegawai.id_pangkat= data_pangkat.id_pangkat');
-		return $this->db->where('email',$email)->get()->row_array();
-	}
+	//untuk menampilkan di pegawai
+	// public function getDetail1($email){
+	// 	$this->db->select('data_jadwal_gaji_berkala.*,data_pegawai.*,data_golongan.*,data_pangkat.*');
+	// 	$this->db->from('data_jadwal_gaji_berkala');
+	// 	$this->db->join('data_pegawai', 'data_jadwal_gaji_berkala.nip= data_pegawai.nip');
+    //     $this->db->join('data_golongan', 'data_pegawai.id_golongan= data_golongan.id_golongan');
+	// 	$this->db->join('data_pangkat', 'data_pegawai.id_pangkat= data_pangkat.id_pangkat');
+	// 	return $this->db->where('email',$email)->get()->row_array();
+	// }
 
     function edit_data($where,$table){
 		return $this->db->get_where($table,$where);

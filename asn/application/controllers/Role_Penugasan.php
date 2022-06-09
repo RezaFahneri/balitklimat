@@ -31,59 +31,6 @@ class Role_Penugasan extends CI_Controller
         $this->load->view('Data_Master/Data_Tugas_Role/v_role', $data);
         $this->load->view('templates/footer', $data);
     }
-    function tambah_role()
-    {
-        $data['title'] = ' ASN Balitklimat | Tambah Role';
-
-        $this->load->view('templates/v_template', $data);
-        $this->load->view('Data_Master/Data_Tugas_Role/v_tambah_role', $data);
-        $this->load->view('templates/footer', $data);
-    }
-    function tambah_aksi_role()
-    {
-        $role = $this->input->post('role');
-        $data = [
-            'role' => $role,
-        ];
-        $this->Model_role_tugas->input_data($data, 'data_role');
-        $this->session->set_flashdata(
-            'sukses',
-            'Data role berhasil ditambahkan'
-        );
-        redirect('role_penugasan');
-    }
-    function edit_role($id_role)
-    {
-        $where = ['id_role' => $id_role];
-        $data['data_role'] = $this->db
-            ->query("SELECT * FROM data_role WHERE id_role='$id_role'")
-            ->result();
-        $data['title'] = ' ASN Balitklimat | Edit Data Role';
-        $this->load->view('templates/v_template', $data);
-        $this->load->view('Data_Master/Data_Tugas_Role/update_role', $data);
-        $this->load->view('templates/footer', $data);
-    }
-    function update_role()
-    {
-        $id_role = $this->input->post('id_role');
-        $data['data_role'] = $this->db
-            ->query("SELECT * FROM data_role WHERE id_role='$id_role'")
-            ->result();
-        $role = $this->input->post('role');
-        $data = [
-            'role' => $role,
-        ];
-        $where = [
-            'id_role' => $id_role,
-        ];
-        $this->load->Model('Model_role_tugas');
-        $this->Model_role_tugas->update_data($where, $data, 'data_role');
-        $this->session->set_flashdata(
-            'sukses',
-            'Data role berhasil diperbarui'
-        );
-        redirect('role_penugasan');
-    }
     function tambah_tim_role($id_role)
     {
         $where = ['id_role' => $id_role];
@@ -116,7 +63,6 @@ class Role_Penugasan extends CI_Controller
         $nik = $this->input->post('nik');
         $email = $this->input->post('email');
         $password = md5($this->input->post('password'));
-        // $password = $this->input->post('password');
         $no_whatsapp = $this->input->post('no_whatsapp');
 
         $data = [
@@ -250,19 +196,19 @@ class Role_Penugasan extends CI_Controller
     }
     function tambah_tim_penugasan_aksi()
     {
-        $nip = count($this->input->post('nip'));
+        $nip = count($this->input->post('nip')); 
 
         for ($i = 0; $i < $nip; $i++) {
             $datas[$i] = [
                 'id_tugas' => $this->input->post('id_tugas'),
                 'nip' => $this->input->post('nip[' . $i . ']'),
             ];
-            $this->session->set_flashdata(
-                'sukses',
-                'Tim penugasan berhasil ditambahkan'
-            );
             $this->Model_detail_tugas->insert('detail_tugas', $datas[$i]);
         }
+        $this->session->set_flashdata(
+            'sukses',
+            'Tim penugasan berhasil ditambahkan'
+        );
         redirect('role_penugasan/penugasan');
     }
 

@@ -13,11 +13,19 @@ class Model_golongan extends CI_model
 	} 
 	public function getList()
 	{
-		// $query = $this->db->query("SELECT * FROM data_golongan WHERE id_golongan > 1 ORDER BY id_golongan, ASC");
-		// return $query;
 		return $query = $this->db->order_by('id_golongan', 'ASC')->where('id_golongan > 1')->get('data_golongan')->result();
 	}
-
+	function getListStr()
+	{
+		$this->db->select('*');
+		$this->db->from('data_golongan');
+		$this->db->join('data_pegawai', 'data_golongan.id_golongan= data_pegawai.id_golongan');
+		$this->db->where('data_golongan.id_golongan !=','data_pegawai.id_golongan');
+		// $this->db->where('data_golongan.id_golongan >=','data_pegawai.id_golongan');
+		// $this->db->not_like('data_golongan.id_golongan=','data_pegawai.id_golongan');
+		// $this->db->order_by('id_golongan', 'ASC'); 
+		return $this->db->get()->result();
+	}
 	function update_data($where,$data,$table){
 		$this->db->where($where);
 		$this->db->update($table,$data);

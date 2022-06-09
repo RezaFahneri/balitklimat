@@ -30,50 +30,40 @@
                                             <label for="nip"><b>Nama Pegawai<a style="color:red"> *</a></b></label></br>
                                             <select name="nip" id="nip" class="form-control" >
                                                 <option value=""></option>
-                                                <?php foreach (
-                                                    $nip
-                                                    as $row
-                                                ) { ?>
+                                                <?php foreach ($nip as $row) { ?>
                                                 <option value="<?php echo $row->nip; ?>">
-                                                    <?php echo $row->nip .
-                                                        ' | ' .
-                                                        $row->nama_pegawai; ?></option>';
-                                                }
+                                                    <?php echo $row->nip .' | ' .$row->nama_pegawai; ?></option>
                                                 <?php } ?>
                                             </select>
-                                            <?php echo form_error(
-                                                'nip',
-                                                '<small class="text-danger">',
-                                                '</small>'
-                                            ); ?>
+                                            <?php echo form_error( 'nip','<small class="text-danger">','</small>'); ?>
                                         </div>
                                         <div class="form-group">
                                             <label><b>Golongan Sekarang</a></b></label>
-                                            <input style="color:dimgray" readonly type="text" id="golongan"
+                                            <input style="color:dimgray" readonly type="text" id="id_golongan"
                                                 name="golongan" class="form-control">
                                         </div>
-                                        <div class="form-group">
+                                        <!-- <div class="form-group">
                                             <label><b>Golongan Berikutnya<a style="color:red"> *</a></b></label></br>
                                             <select style="color:dimgray" name="id_golongan_berikutnya"
                                                 id="id_golongan_berikutnya" placeholder="Golongan Berikutnya"
                                                 class="form-control" >
                                                 <option value="">--Pilih Golongan--</option>
-                                                <?php foreach (
+                                                <//?php foreach (
                                                     $id_golongan
                                                     as $row
                                                 ) { ?>
-                                                <option value="<?php echo $row->id_golongan; ?>">
-                                                    <?php echo $row->golongan; ?>
+                                                <option value="<//?php echo $row->id_golongan; ?>">
+                                                    <//?php echo $row->golongan; ?>
                                                 </option>';
-                                                }
-                                                <?php } ?>
+                                                
+                                                <//?php } ?>
                                             </select>
-                                            <?php echo form_error(
+                                            <//?php echo form_error(
                                                 'id_golongan_berikutnya',
                                                 '<small class="text-danger">',
                                                 '</small>'
                                             ); ?>
-                                        </div>
+                                        </div> -->
                                         <div class="form-group">
                                             <label><b>Pangkat Sekarang</b></label>
                                             <input style="color:dimgray" readonly type="text" id="pangkat"
@@ -85,10 +75,7 @@
                                                 id="id_pangkat_berikutnya" placeholder="Pangkat Berikutnya"
                                                 class="form-control" >
                                                 <option value="">--Pilih Pangkat--</option>
-                                                <?php foreach (
-                                                    $id_pangkat
-                                                    as $row
-                                                ) { ?>
+                                                <?php foreach ($id_pangkat as $row) { ?>
                                                 <option value="<?php echo $row->id_pangkat; ?>">
                                                     <?php echo $row->pangkat; ?>
                                                 </option>';
@@ -115,9 +102,6 @@
                                             <label for="tmt_pangkat_2"><b>TMT Pangkat 2</b></label>
                                             <input style="color:dimgray" type="date" id="tmt_pangkat_2"
                                                 name="tmt_pangkat_2" onblur="validasi_tmt21()" class="form-control">
-                                            <!-- <input style="color:dimgray" type="date" id="tmt_pangkat_2"
-                                                name="tmt_pangkat_2" class="form-control"> -->
-
                                         </div>
                                         <div class="form-group">
                                             <label for="tmt_pangkat_3"><b>TMT Pangkat 3</b></label>
@@ -175,6 +159,7 @@ $('#id_pangkat_berikutnya').select2({
     placeholder: "---Pilih Pangkat---",
     theme: "bootstrap-5",
 });
+//autofill
 $('#nip').on('input', function() {
     var nip = $(this).val();
     $.ajax({
@@ -186,7 +171,7 @@ $('#nip').on('input', function() {
         },
         cache: false,
         success: function(data) {
-            $.each(data, function(nip, id_golongan) {
+            $.each(data, function(nip, id_golongan, id_pangkat) {
                 $('[name="nip"]').val(data.nip);
                 $('[name="golongan"]').val(data.golongan);
                 $('[name="pangkat"]').val(data.pangkat);

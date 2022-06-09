@@ -125,7 +125,6 @@
                                         </tr>
                                         <button type="submit" class="btn btn-success mr-2">Simpan</a></button>&nbsp
                                         &nbsp
-                                        <!-- <a class="btn btn-outline-dark" href="<?php echo base_url(); ?>akun">Cancel</a> -->
                                     </form>
                                     <?php } ?>
                                 </div>

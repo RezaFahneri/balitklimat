@@ -15,28 +15,12 @@ class Model_kenaikan_pangkat extends CI_model
             'data_jadwal_naik_pangkat.*,data_pegawai.*,data_golongan.*,data_pangkat.*,gol.golongan as nama_golongan,pag.pangkat as nama_pangkat'
         );
         $this->db->from('data_jadwal_naik_pangkat');
-        $this->db->join(
-            'data_pegawai',
-            'data_jadwal_naik_pangkat.nip= data_pegawai.nip'
-        );
-        $this->db->join(
-            'data_golongan',
-            'data_pegawai.id_golongan= data_golongan.id_golongan'
-        );
-        $this->db->join(
-            'data_pangkat',
-            'data_pegawai.id_pangkat= data_pangkat.id_pangkat'
-        );
-
-        $this->db->join(
-            'data_golongan as gol',
-            'data_jadwal_naik_pangkat.id_golongan_berikutnya= gol.id_golongan'
-        );
-        $this->db->join(
-            'data_pangkat as pag',
-            'data_jadwal_naik_pangkat.id_pangkat_berikutnya= pag.id_pangkat'
-        );
-
+        $this->db->join('data_pegawai', 'data_jadwal_naik_pangkat.nip= data_pegawai.nip');
+        $this->db->join('data_golongan','data_pegawai.id_golongan= data_golongan.id_golongan' );
+        $this->db->join('data_pangkat', 'data_pegawai.id_pangkat= data_pangkat.id_pangkat' );
+        $this->db->join('data_golongan as gol','data_jadwal_naik_pangkat.id_golongan_berikutnya= gol.id_golongan');
+        $this->db->join('data_pangkat as pag','data_jadwal_naik_pangkat.id_pangkat_berikutnya= pag.id_pangkat' );
+        $this->db->order_by('kode_kp', 'DESC');
         return $this->db->get()->result();
     }
     function getList2($kode_kp)
@@ -66,6 +50,7 @@ class Model_kenaikan_pangkat extends CI_model
             'data_pangkat as pag',
             'data_jadwal_naik_pangkat.id_pangkat_berikutnya= pag.id_pangkat'
         );
+        $this->db->order_by('kode_kp', 'DESC'); 
         return $this->db
             ->where('kode_kp', $kode_kp)
             ->get()
@@ -122,38 +107,38 @@ class Model_kenaikan_pangkat extends CI_model
             ->row();
     }
 
-    public function getDetail1($email)
-    {
-        $this->db->select(
-            'data_jadwal_naik_pangkat.*,data_pegawai.*,data_golongan.*,data_pangkat.*,gol.golongan as nama_golongan,pag.pangkat as nama_pangkat'
-        );
-        $this->db->from('data_jadwal_naik_pangkat');
-        $this->db->join(
-            'data_pegawai',
-            'data_jadwal_naik_pangkat.nip= data_pegawai.nip'
-        );
-        $this->db->join(
-            'data_golongan',
-            'data_pegawai.id_golongan= data_golongan.id_golongan'
-        );
-        $this->db->join(
-            'data_pangkat',
-            'data_pegawai.id_pangkat= data_pangkat.id_pangkat'
-        );
+    // public function getDetail1($email)
+    // {
+    //     $this->db->select(
+    //         'data_jadwal_naik_pangkat.*,data_pegawai.*,data_golongan.*,data_pangkat.*,gol.golongan as nama_golongan,pag.pangkat as nama_pangkat'
+    //     );
+    //     $this->db->from('data_jadwal_naik_pangkat');
+    //     $this->db->join(
+    //         'data_pegawai',
+    //         'data_jadwal_naik_pangkat.nip= data_pegawai.nip'
+    //     );
+    //     $this->db->join(
+    //         'data_golongan',
+    //         'data_pegawai.id_golongan= data_golongan.id_golongan'
+    //     );
+    //     $this->db->join(
+    //         'data_pangkat',
+    //         'data_pegawai.id_pangkat= data_pangkat.id_pangkat'
+    //     );
 
-        $this->db->join(
-            'data_golongan as gol',
-            'data_jadwal_naik_pangkat.id_golongan_berikutnya= gol.id_golongan'
-        );
-        $this->db->join(
-            'data_pangkat as pag',
-            'data_jadwal_naik_pangkat.id_pangkat_berikutnya= pag.id_pangkat'
-        );
-        return $this->db
-            ->where('email', $email)
-            ->get()
-            ->row_array();
-    }
+    //     $this->db->join(
+    //         'data_golongan as gol',
+    //         'data_jadwal_naik_pangkat.id_golongan_berikutnya= gol.id_golongan'
+    //     );
+    //     $this->db->join(
+    //         'data_pangkat as pag',
+    //         'data_jadwal_naik_pangkat.id_pangkat_berikutnya= pag.id_pangkat'
+    //     );
+    //     return $this->db
+    //         ->where('email', $email)
+    //         ->get()
+    //         ->row_array();
+    // }
 
     function edit_data($where, $table)
     {

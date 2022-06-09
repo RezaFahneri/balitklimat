@@ -111,7 +111,7 @@
                                                         class="form-control">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label><b>Jadwal Kenaikan Gaji Berkala<a style="color:red">*</a></b></label>
+                                                    <label><b>Jadwal Kenaikan Gaji Berkala<a style="color:red">*</a></b></label><br>
                                                     <small class="text-warning">Tanggal jadwal kenaikan gaji berkala diisi sesuai dengan TMT terahir</small>
                                                     <input type="date" name="jadwal_kgb" onblur="validasi_jadwalkgb()" id="jadwal_kgb"
                                                         placeholder="Jadwal Kenaikan Gaji Berkala" class="form-control">

@@ -131,5 +131,4 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-$autoload['Model'] = array('Model_pangkat', 'Model_golongan', 'Model_jabatan','Model_role','Model_status_pegawai',
-'Model_pegawai',);
+$autoload['Model'] = array('Model_dashboard','Model_detail_role','Model_detail_tugas','Model_divisi','Model_pangkat','Model_golongan','Model_jabatan','Model_pangkat', 'Model_golongan', 'Model_kenaikan_gaji','Model_kenaikan_pangkat','Model_role_tugas','Model_pegawai','Model_profil','Model_login','Model_notifikasi','Model_status_pegawai');
