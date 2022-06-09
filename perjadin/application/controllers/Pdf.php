@@ -219,5 +219,28 @@ class Pdf extends CI_Controller
         // Output the generated PDF (1 = download and 0 = preview)
         $this->dompdf->stream("Surat_tugas_TU.pdf", array("Attachment"=>0));
     }
+    function surat_tugas_tu_plt($id_perjalanan_dinas)
+    {
+        $data['header'] = $this->Model_pdf->getHeader();
+        $data['data_anggota_perjadin'] = $this->Model_pdf->getListDataSuratPengajuan($id_perjalanan_dinas);
+        $data['isi_surat'] = $this->Model_pdf->getListPengajuan($id_perjalanan_dinas);
+        $this->load->view('Pdf/v_surat_tugas_tu_plt', $data);
+        $html = $this->output->get_output();
+        
+        // Load pdf library
+        $this->load->library('pdf_gen');
+        
+        // Load HTML content
+        $this->dompdf->loadHtml($html);
+        
+        // (Optional) Setup the paper size and orientation
+        $this->dompdf->setPaper('A4', 'landscape');
+        
+        // Render the HTML as PDF
+        $this->dompdf->render();
+        
+        // Output the generated PDF (1 = download and 0 = preview)
+        $this->dompdf->stream("Surat_tugas_TU.pdf", array("Attachment"=>0));
+    }
 }
 // tes perubahan 3

@@ -56,7 +56,7 @@
                                                                         <a style="height:35px; margin-top:10px; margin-left:21px;margin-bottom:5px;" class="btn btn-xs btn-info mdi mdi-file" href="<?php echo base_url('pdf/surat_tugas_plt/' . $j->id_perjalanan_dinas) ?>"> <b>Surat Tugas (Plh. Kepala Balai)</a> -->
                                                                         <a style="height:35px; margin-top:10px; margin-left:21px;margin-bottom:5px;position:absolute" class="btn btn-xs btn-info mdi mdi-file"> <b>Norminatif</a>
                                                                         <div style="position:absolute;margin-top:-40px;margin-left:370px;" class="dropdown">
-                                                                            <button style="height:35px"class="btn btn-info dropdown-toggle btn-xs mdi mdi-file" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                            <button style="height:35px" class="btn btn-info dropdown-toggle btn-xs mdi mdi-file" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                                                 <b>Surat Tugas
                                                                             </button>
                                                                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -65,12 +65,12 @@
                                                                             </div>
                                                                         </div>
                                                                         <div style="position:absolute;margin-top:-40px;margin-left:510px;" class="dropdown">
-                                                                            <button style="height:35px"class="btn btn-info dropdown-toggle btn-xs mdi mdi-file" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                            <button style="height:35px" class="btn btn-info dropdown-toggle btn-xs mdi mdi-file" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                                                 <b>Surat Tugas (TU)
                                                                             </button>
                                                                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                                                                 <a class="dropdown-item " href="<?php echo base_url('pdf/surat_tugas_tu/' . $j->id_perjalanan_dinas) ?>"><b>- TTD Kepala Balai</a>
-                                                                                <a class="dropdown-item" href="#"><b>- TTD Plh. Kepala Balai</a>
+                                                                                <a class="dropdown-item" href="<?php echo base_url('pdf/surat_tugas_tu_plt/' . $j->id_perjalanan_dinas) ?>"><b>- TTD Plh. Kepala Balai</a>
                                                                             </div>
                                                                         </div>
 
@@ -98,11 +98,13 @@
                                                                                         <td style="font-size: 12px;"><?php echo 'Rp' . number_format($d->uang_penginapan, 0, ',', '.') ?></td>
                                                                                         <td style="text-align:center"><?php if ($d->status_perjalanan_dinas == 'Belum Berangkat') {
                                                                                                                         ?> <button style="color:white" class="btn btn-warning btn-xs"> <b>Belum Berangkat </button> <?php
-                                                                                                                                                                                    } elseif ($d->status_perjalanan_dinas == 'Sedang Berlangsung') {
-                                                                                                                                                                                        ?> <button class="btn btn-success btn-xs"> <b>Sedang Berlangsung </button> <?php
-                                                                                                                                                                                                                                                                                } else {
-                                                                                                                                                                                                                                                                                    ?> <button class="btn btn-info btn-xs"> <b>Selesai </button> <?php
-                                                                                                                                                                                                                                                                                                                                                                    } ?></td>
+                                                                                                                                                                                                                } elseif ($d->status_perjalanan_dinas == 'Sedang Berlangsung') {
+                                                                                                                                                                                                                    ?> <button class="btn btn-success btn-xs"> <b>Sedang Berlangsung </button> <?php
+                                                                                                                                                                                                                                                                } elseif ($d->status_perjalanan_dinas == 'Tidak Selesai') {
+                                                                                                                                                                                                                                                                    ?> <button class="btn btn-danger btn-xs"> <b>Tidak Selesai </button> <?php
+                                                                                                                                                                                                                                                                                                                                                            } else {
+                                                                                                                                                                                                                                                                                                                                                                ?> <button class="btn btn-info btn-xs"> <b>Selesai </button> <?php
+                                                                                                                                                                                                                                                                                                                                                            } ?></td>
                                                                                         <td style="text-align:center">
                                                                                             <div class="dropdown">
                                                                                                 <button class="btn btn-info dropdown-toggle btn-xs mdi mdi-file" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

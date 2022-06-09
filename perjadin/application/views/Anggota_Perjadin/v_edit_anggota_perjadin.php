@@ -4,11 +4,9 @@
             <div class="col-md-12 grid-margin">
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                    <a title="Kembali"
-                                    class="btn btn-sm btn-success" style="border-radius:90px; color:white"
-                                    href="<?php echo site_url('perjalanan_dinas') ?>"><i class="ti ti-arrow-left"
-                                        style="border-radius:8px"></i></a>
-                        <br><br><h3 class="m-0 font-weight-bold text-primary">Update Anggota Perjalanan Dinas</h3><br>
+                        <a title="Kembali" class="btn btn-sm btn-success" style="border-radius:90px; color:white" href="<?php echo site_url('perjalanan_dinas') ?>"><i class="ti ti-arrow-left" style="border-radius:8px"></i></a>
+                        <br><br>
+                        <h3 class="m-0 font-weight-bold text-primary">Update Anggota Perjalanan Dinas</h3><br>
                         <div class="flash-data" id="flash2" data-flash="<?= $this->session->flashdata('sukses'); ?>"></div>
                         <div class="flash-data" id="flash" data-flash="<?= $this->session->flashdata('error'); ?>"></div>
                         <div class="col-md-12 grid-margin">
@@ -22,7 +20,8 @@
                                             <input readonly type="hidden" name="kode_kegiatan" class="form-control" value="<?php echo $apd->kode_kegiatan ?>" required>
                                             <input readonly type="hidden" name="total_pendapatan_lama" class="form-control" value="<?php echo $apd->total_pendapatan ?>" required>
                                             <label><b>Nama</b></label></br>
-                                            <?php //echo $apd->nip_anggota_perjadin ?>
+                                            <?php //echo $apd->nip_anggota_perjadin 
+                                            ?>
                                             <?php $nap = $apd->nip_anggota_perjadin ?>
                                             <select title="Pilih pegawai yang akan ditambahkan kedalam perjalanan dinas" name="nip_anggota_perjadin" id="nip_anggota_perjadin" class="form-control" required>
                                                 <option value="">--Pilih Pegawai--</option>
@@ -41,7 +40,7 @@
                                                 </div>
                                                 <input type="hidden" name="kode_sppd" value="/SPPD/I.8.3/" class="form-control">
                                                 <input type="text" name="no_sppd" <?php $no = $apd->no_sppd2;
-                                                                                            $no_sppd_fix   = substr($no, 12,); ?> value="<?php echo $no_sppd_fix ?>" placeholder="mm/yyyy" class="form-control" required>
+                                                                                    $no_sppd_fix   = substr($no, 12,); ?> value="<?php echo $no_sppd_fix ?>" placeholder="mm/yyyy" class="form-control" required>
                                                 <?php echo form_error('no_surat_tugas', '<div class="text-small text-danger"></div>') ?>
                                             </div>
                                         </div>
@@ -68,10 +67,10 @@
                                         <div class="form-group">
                                             <label><b>Uang Harian</b></label>
                                             <input type="number" min="0" name="uang_harian" <?php if ($apd->kota == $apd->kota_tujuan) {
-                                                                                                ?> value="<?php echo $apd->dalam_kota_tujuan * $apd->lama_perjalanan ?>" <?php
+                                                                                            ?> value="<?php echo $apd->dalam_kota_tujuan * $apd->lama_perjalanan ?>" <?php
                                                                                                                                                                     } else {
                                                                                                                                                                         ?>value="<?php echo $apd->luar_kota_tujuan * $apd->lama_perjalanan ?>" <?php
-                                                                                                                                                                                                                                            } ?> class="form-control" required>
+                                                                                                                                                                                                                                                } ?> class="form-control" required>
                                             <?php echo form_error('tahun', '<div class="text-small text-danger"></div>') ?>
                                         </div>
                                         <div class="form-group">
@@ -104,10 +103,17 @@
                                                 <option <?php if ($jp == 'Sedang Berlangsung') {
                                                             echo 'selected="selected"';
                                                         } ?> value="Sedang Berlangsung">Sedang Berlangsung</option>
+                                                <option <?php if ($jp == 'Tidak Selesai') {
+                                                            echo 'selected="selected"';
+                                                        } ?> value="Tidak Selesai">Tidak Selesai</option>
                                                 <option <?php if ($jp == 'Selesai') {
                                                             echo 'selected="selected"';
                                                         } ?> value="Selesai">Selesai</option>
                                             </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label><b>Catatan</b></label>
+                                            <textarea name="catatan" class="form-control"><?php echo $apd->catatan ?></textarea>
                                         </div>
 
                                         <button type="submit" class="btn btn-success mr-2">Submit</a></button>&nbsp &nbsp

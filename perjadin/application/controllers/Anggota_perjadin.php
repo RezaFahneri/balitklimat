@@ -132,6 +132,7 @@ class Anggota_perjadin extends CI_Controller
 
         $uang_harian = $this->input->post('uang_harian');
         $uang_transportasi = $this->input->post('uang_transportasi');
+        $catatan = $this->input->post('catatan');
 
         $hari_hotel_1 = $this->input->post('hari1');
         $hari_hotel_2 = $this->input->post('hari2');
@@ -159,7 +160,8 @@ class Anggota_perjadin extends CI_Controller
             'biaya3' => $biaya_hotel3,
             'uang_penginapan' => $biaya_penginapan,
             'total_pendapatan' => $total_pendapatan,
-            'status_perjalanan_dinas' => $this->input->post('status_perjalanan_dinas')
+            'status_perjalanan_dinas' => $this->input->post('status_perjalanan_dinas'),
+            'catatan' => $catatan
         );
         $where = array(
             'id_anggota_perjadin' => $id_anggota_perjadin
