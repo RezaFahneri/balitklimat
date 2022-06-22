@@ -9,7 +9,7 @@
                         <div class="flash-data" id="flash" data-flash="<?= $this->session->flashdata('error'); ?>"></div>
                         <div class="col-md-12 grid-margin">
                             <a href="<?php echo base_url() ?>perjalanan_dinas/tambah" class="btn btn-success btn-md"><i class="ti ti-plus"></i>Tambah Perjalanan Dinas</a>
-                            <a href="<?php echo base_url() ?>anggota_perjadin/anggota" class="btn btn-info btn-md">Daftar Perjalanan Dinas By Pegawai</a>
+                            <a href="<?php echo base_url() ?>anggota_perjadin/anggota" class="btn btn-info btn-md">Daftar Perjalanan Dinas Oleh Pegawai</a>
                         </div>
                         <div class="col-md-12 grid-margin">
                             <div class="card shadow mb-12">
@@ -51,12 +51,11 @@
                                                                 <div class="accordian-body collapse" id="data<?php echo $j->id_perjalanan_dinas ?>">
                                                                     <table style="margin-top:5px; width:98%; margin-left:8px;margin-bottom:5px;" class="table table-bordered table-md">
                                                                         <a style="height:35px; margin-top:10px; margin-left:21px;margin-bottom:5px;" class="btn btn-xs btn-info mdi mdi-file" href="<?php echo base_url('pdf/pengajuan/' . $j->id_perjalanan_dinas) ?>"> <b>Surat Pengajuan</a>
-                                                                        <a style="height:35px; margin-top:10px; margin-left:21px;margin-bottom:5px;" class="btn btn-xs btn-info mdi mdi-file"> <b>Perincian</a>
+                                                                        <!-- <a style="height:35px; margin-top:10px; margin-left:21px;margin-bottom:5px;" class="btn btn-xs btn-info mdi mdi-file"> <b>Perincian</a> -->
                                                                         <!-- <a style="height:35px; margin-top:10px; margin-left:21px;margin-bottom:5px;" class="btn btn-xs btn-info mdi mdi-file" href="<?php echo base_url('pdf/surat_tugas/' . $j->id_perjalanan_dinas) ?>"> <b>Surat Tugas (Kepala Balai)</a>
                                                                         <a style="height:35px; margin-top:10px; margin-left:21px;margin-bottom:5px;" class="btn btn-xs btn-info mdi mdi-file" href="<?php echo base_url('pdf/surat_tugas_plt/' . $j->id_perjalanan_dinas) ?>"> <b>Surat Tugas (Plh. Kepala Balai)</a> -->
-                                                                        <a style="height:35px; margin-top:10px; margin-left:21px;margin-bottom:5px;position:absolute" class="btn btn-xs btn-info mdi mdi-file"> <b>Norminatif</a>
-                                                                        <div style="position:absolute;margin-top:-40px;margin-left:370px;" class="dropdown">
-                                                                            <button style="height:35px" class="btn btn-info dropdown-toggle btn-xs mdi mdi-file" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                        <!-- <a style="height:35px; margin-top:10px; margin-left:21px;margin-bottom:5px;position:absolute" class="btn btn-xs btn-info mdi mdi-file"> <b>Norminatif</a> -->
+                                                                        <div style="position:absolute;margin-top:-40px;margin-left:150px;" class="dropdown">                                                                            <button style="height:35px" class="btn btn-info dropdown-toggle btn-xs mdi mdi-file" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                                                 <b>Surat Tugas
                                                                             </button>
                                                                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -64,7 +63,8 @@
                                                                                 <a class="dropdown-item" href="<?php echo base_url('pdf/surat_tugas_plt/' . $j->id_perjalanan_dinas) ?>"><b>- TTD Plh. Kepala Balai</a>
                                                                             </div>
                                                                         </div>
-                                                                        <div style="position:absolute;margin-top:-40px;margin-left:510px;" class="dropdown">
+                                                                        <div style="position:absolute;margin-top:-40px;margin-left:280px;" class="dropdown">
+                                                                        <!-- 510 -->
                                                                             <button style="height:35px" class="btn btn-info dropdown-toggle btn-xs mdi mdi-file" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                                                 <b>Surat Tugas (TU)
                                                                             </button>

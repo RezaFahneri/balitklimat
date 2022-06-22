@@ -106,6 +106,26 @@ $(document).on('click', '#hapus_kota', function (e) {
         }
     })
 })
+
+$(document).on('click', '#hapus_sbuh', function (e) {
+
+    e.preventDefault();
+    var href = $(this).attr('href')
+
+    Swal.fire({
+        title: 'Apakah Anda Yakin?',
+        text: "Hapus data standar biaya uang harian",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Hapus data'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location = href;
+        }
+    })
+})
 $(document).on('click', '#hapus_perjalanan_dinas', function (e) {
 
     e.preventDefault();

@@ -6,7 +6,7 @@
                     <div class="card-header py-3">
                         <a title="Kembali" class="btn btn-sm btn-success" style="border-radius:90px; color:white" href="<?php echo site_url('perjalanan_dinas') ?>"><i class="ti ti-arrow-left" style="border-radius:8px"></i></a>
                         <br><br>
-                        <h3 class="m-0 font-weight-bold text-primary">Data Perjalanan Dinas By Pegawai</h3><br>
+                        <h3 class="m-0 font-weight-bold text-primary">Data Perjalanan Dinas Oleh Pegawai</h3><br>
                         <div class="flash-data" id="flash2" data-flash="<?= $this->session->flashdata('sukses'); ?>"></div>
                         <div class="flash-data" id="flash" data-flash="<?= $this->session->flashdata('error'); ?>"></div>
                         <div class="col-md-12 grid-margin">
