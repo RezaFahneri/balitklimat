@@ -111,80 +111,39 @@
                             </div>
                             <h5 class="card-title text-white">Jadwal Kenaikan Pangkat !</h5>
                             <?php if (
-                                $this->db
-                                    ->where(
-                                        'nip',
-                                        $this->session->userdata('nip')
-                                    )
-                                    ->get('data_jadwal_naik_pangkat')
-                                    ->row('jadwal_kp') == null
-                            ) {
-                                echo 'Mohon maaf.. Saat ini jadwal Kenaikan pangkat anda belum dijadwalkan';
+                                $this->db->where('nip', $this->session->userdata('nip')) ->get('data_jadwal_naik_pangkat')->row('jadwal_kp') == null) {
+                                echo 'Informasi jadwal kenaikan pangkat hanya diperuntukkan bagi pegawai dengan jabatan PNS';
                             } else {
                                 echo 'Kenaikan Pangkat anda akan di laksanakan pada tanggal ';
-                                echo tanggal_indonesia(
-                                    $this->db
-                                        ->where(
-                                            'nip',
-                                            $this->session->userdata('nip')
-                                        )
-                                        ->get('data_jadwal_naik_pangkat')
-                                        ->row('jadwal_kp')
-                                );
+                                echo tanggal_indonesia($this->db->where('nip',$this->session->userdata('nip')) ->get('data_jadwal_naik_pangkat')->row('jadwal_kp'));
                                 echo '   . Kirim notifikasi kepada admin untuk memberi peringatan kenaikan pangkat dengan menekan tombol dibawah ini';
                             } ?>
                             <hr>
-                            <form method="POST" action="<?php echo base_url(
-                                'beranda/tambah_aksi'
-                            ); ?>">
+                            <form method="POST" action="<?php echo base_url('beranda/tambah_aksi'); ?>">
                                 <div>
-                                    <input  type="hidden"
-                                        value="<?php echo $this->db
-                                            ->where(
-                                                'email',
-                                                $this->session->userdata(
-                                                    'email'
-                                                )
-                                            )
-                                            ->get('data_pegawai')
-                                            ->row('nip'); ?>"
-                                        name="nip" class="form-control">
+                                    <input  type="hidden" value="<?php echo $this->db->where('email', $this->session->userdata('email'))
+                                            ->get('data_pegawai')->row('nip'); ?>" name="nip" class="form-control">
                                 </div>
                                 <div>
-                                    <input type="hidden"
-                                        value="Waktunya naik pangkat pada tanggal " name="pesan" class="form-control">
+                                    <input type="hidden" value="Waktunya naik pangkat pada tanggal " name="pesan" class="form-control">
                                 </div>
                                 <div>
-                                <input type="hidden"
-                                    value="<?= $this->db
-                                        ->where(
-                                            'nip',
-                                            $this->session->userdata('nip')
-                                        )
-                                        ->get('data_jadwal_naik_pangkat')
-                                        ->row(
-                                            'jadwal_kp'
-                                        ) ?>"  name="jadwal_kenaikan" autocomplete="off" class="form-control">
+                                <input type="hidden" value="<?= $this->db->where('nip',$this->session->userdata('nip'))
+                                        ->get('data_jadwal_naik_pangkat')->row('jadwal_kp') ?>"  name="jadwal_kenaikan" autocomplete="off" class="form-control">
                                 </div>
                                 <div>
                                     <!-- <label for="jenis_notif"><b>Jenis notifikasi</a></b></label></br> -->
-                                    <input type="hidden"  value="notif_kp" name="jenis_notif"
-                                        autocomplete="off" class="form-control" required>
+                                <input type="hidden"  value="notif_kp" name="jenis_notif" autocomplete="off" class="form-control" required>
                                 </div>
                                 <?php if (
-                                    $this->db
-                                        ->where(
-                                            'nip',
-                                            $this->session->userdata('nip')
-                                        )
-                                        ->get('data_jadwal_naik_pangkat')
-                                        ->row('jadwal_kp') == true
-                                ) { ?>
+                                    $this->db->where('nip',$this->session->userdata('nip'))
+                                        ->get('data_jadwal_naik_pangkat')->row('jadwal_kp') == true) { ?>
                                 <button class="btn btn-success btn-sm" type="submit"><i class="ti ti-bell"></i>Ingatkan
                                     Admin Kenaikan Pangkat</button>
+                                    <a class="btn btn-dark btn-sm" type="submit" href="<?php echo base_url('pdf/surat_pangkat')?>"><i class="ti ti-file"></i>Surat Keterangan Kenaikan Pangkat</a>
+
                                 <?php } else {echo ' ';} ?>
                                 <!-- <button type="submit" class="btn btn-success">Submit</a></button>&nbsp &nbsp -->
-
                             </form>
                         </div>
                     </div>
@@ -198,51 +157,23 @@
                             <h5 class="card-title text-white">Jadwal Kenaikan Gaji Berkala !</h5>
 
                             <?php if (
-                                $this->db
-                                    ->where(
-                                        'nip',
-                                        $this->session->userdata('nip')
-                                    )
-                                    ->get('data_jadwal_gaji_berkala')
-                                    ->row('jadwal_kgb') == null
+                                $this->db->where('nip',$this->session->userdata('nip'))
+                                    ->get('data_jadwal_gaji_berkala')->row('jadwal_kgb') == null
                             ) {
-                                echo 'Mohon maaf.. Saat ini jadwal Kenaikan gaji berkala anda belum dijadwalkan';
+                                echo 'Informasi jadwal kenaikan gaji berkala hanya diperuntukkan bagi pegawai dengan jabatan PNS';
                             } else {
                                 echo 'Kenaikan Gaji Berkala anda akan di laksanakan pada tanggal ';
-                                echo tanggal_indonesia(
-                                    $this->db
-                                        ->where(
-                                            'nip',
-                                            $this->session->userdata('nip')
-                                        )
-                                        ->get('data_jadwal_gaji_berkala')
-                                        ->row('jadwal_kgb')
-                                );
+                                echo tanggal_indonesia($this->db->where('nip', $this->session->userdata('nip'))
+                                        ->get('data_jadwal_gaji_berkala')->row('jadwal_kgb'));
                                 echo '   . Kirim notifikasi kepada admin untuk memberi peringatan kenaikan gaji berkala dengan menekan tombol dibawah ini';
                             } ?>
-
                             <hr>
-
                             <form method="POST" enctype="multipart/form-data"
-                                action="<?php echo base_url(
-                                    'beranda/tambah_aksi'
-                                ); ?>">
+                                action="<?php echo base_url('beranda/tambah_aksi'); ?>">
                                 <div >
-                                    <input  type="hidden"
-                                        value="<?php echo $this->db
-                                            ->where(
-                                                'email',
-                                                $this->session->userdata(
-                                                    'email'
-                                                )
-                                            )
-                                            ->get('data_pegawai')
-                                            ->row('nip'); ?>"
-                                        name="nip" autocomplete="off" class="form-control" required>
-                                    <?php echo form_error(
-                                        'nip',
-                                        '<div class="text-small text-danger"></div>'
-                                    ); ?>
+                                    <input  type="hidden" value="<?php echo $this->db->where( 'email',$this->session->userdata('email' ))
+                                            ->get('data_pegawai')->row('nip'); ?>" name="nip" autocomplete="off" class="form-control" required>
+                                    <?php echo form_error('nip','<div class="text-small text-danger"></div>'); ?>
                                 </div>
                                 <div >
                                     <input type="hidden"
@@ -250,31 +181,20 @@
                                 </div>
                                 <div>
                                 <input type="hidden"
-                                    value="<?= $this->db
-                                        ->where(
-                                            'nip',
-                                            $this->session->userdata('nip')
-                                        )
-                                        ->get('data_jadwal_gaji_berkala')
-                                        ->row(
-                                            'jadwal_kgb'
-                                        ) ?>"  name="jadwal_kenaikan" autocomplete="off" class="form-control">
+                                    value="<?= $this->db->where('nip',$this->session->userdata('nip'))
+                                        ->get('data_jadwal_gaji_berkala')->row('jadwal_kgb') ?>"  name="jadwal_kenaikan" autocomplete="off" class="form-control">
                                 </div>
                                 <div >
                                     <input type="hidden" value="notif_kgb" name="jenis_notif"
                                         autocomplete="off" class="form-control">
                                 </div>
                                 <?php if (
-                                    $this->db
-                                        ->where(
-                                            'nip',
-                                            $this->session->userdata('nip')
-                                        )
-                                        ->get('data_jadwal_gaji_berkala')
-                                        ->row('jadwal_kgb') == true
-                                ) { ?>
+                                    $this->db->where('nip',$this->session->userdata('nip'))
+                                        ->get('data_jadwal_gaji_berkala')->row('jadwal_kgb') == true) { ?>
                                 <button class="btn btn-success btn-sm" type="submit"><i class="ti ti-bell"></i>Ingatkan
                                     Admin Kenaikan Gaji Berkala</button>
+                                <a class="btn btn-dark btn-sm" href="<?php echo base_url('pdf/surat_gaji')?>" type="submit"><i class="ti ti-file"></i>Surat Keterangan Kenaikan Gaji Berkala</a>
+
                                 <?php } else {echo ' ';} ?>
                             </form>
                         </div>

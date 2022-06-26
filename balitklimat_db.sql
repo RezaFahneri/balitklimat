@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 31, 2022 at 06:55 AM
+-- Generation Time: Jun 26, 2022 at 01:54 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -622,10 +622,10 @@ INSERT INTO `data_pegawai` (`nip`, `nama_pegawai`, `foto`, `id_golongan`, `id_st
 ('196401211990031002', 'Dr. Ir. A. Arivin Rivaie, M.Sc', 'images6.jpg', 23, 3, 2, 2, 2, '3271062101640004', 'likelomba1@gmail.com', '9de21d5186a0a2ffba24b34c3a085445', '6281235062988     '),
 ('196505281991032001', 'Ir. Erni Susanti, M.Sc', 'fix_kolokium213.jpg', 20, 3, 7, 5, 8, '3271046805650004', 'lugasmunayasika@gmail.com', '25d55ad283aa400af464c76d713c07ad', '6281235062988'),
 ('196710081994032013', 'Dr. Woro Estiningtyas', 'default.png', 22, 3, 2, 5, 2, '3201294810670003', 'likelomba2@gmail.com', '73d56121acabf8381308a34ab18d7711', '6281235062988     '),
-('196803301994031001', 'Dr. Budi Kartiwa', 'WhatsApp_Image_2022-01-14_at_14_30_572.jpeg', 21, 3, 2, 5, 4, '3201293003680001', 'asn.balitklimat@gmail.com', '25d55ad283aa400af464c76d713c07ad', '6281235062988    '),
+('196803301994031001', 'Dr. Budi Kartiwa', 'WhatsApp_Image_2022-01-14_at_14_30_572.jpeg', 21, 3, 4, 5, 4, '3201293003680001', 'asn.balitklimat@gmail.com', '25d55ad283aa400af464c76d713c07ad', '6281973034079'),
 ('196901241998032001', 'Dr. Elza Surmaini', 'fix_kolokium11.jpg', 22, 3, 6, 5, 2, '3271066401690004', 'lugasmunaya@gmail.com', '011a20a4d84069b353e5ae50cdcda680', '6281235062988     '),
 ('198007242005011001', 'Fadhullah Ramadhani, S.Kom, M.Sc', 'default.png', 18, 4, 8, 6, 2, '3271062407800008', 'lugas_munayasikalugas@apps.ipb.ac.id', '579646aad11fae4dd295812fb4526245', '6281235062988  '),
-('HNR901241998032002', 'Daeng Muda Panglima', 'default.png', 1, 8, 1, 23, 4, '3520036004010222', 'likelomba3@gmail.com', '5ce4a8c03c0ef848951ae2db4a54161a', '6281235062988   '),
+('HNR901241998032002', 'Daeng Muda Panglima', 'default.png', 1, 8, 1, 23, 4, '3520036004010222', 'likelomba3@gmail.com', 'fb373e40d050f61b55aa9387d59bedae', '6281235062988    '),
 ('HNR901241998032003', 'Imam Susilo', 'default.png', 1, 8, 1, 25, 8, '3520036004020004', 'robbihably1@gmail.com', 'a970a7e3b359f88a4732b56050822888', '6281235028999  ');
 
 -- --------------------------------------------------------
@@ -934,16 +934,16 @@ CREATE TABLE `detail_role` (
 --
 
 INSERT INTO `detail_role` (`id_detail_role`, `id_role`, `role`, `nip`, `nama_pegawai`, `foto`, `id_golongan`, `id_status_peg`, `id_pangkat`, `id_jabatan`, `id_divisi`, `nik`, `email`, `password`, `no_whatsapp`) VALUES
-(1, 1, 'Admin ASN', '196803301994031001', 'Dr. Budi Kartiwa', 'WhatsApp_Image_2022-01-14_at_14_30_572.jpeg', 21, 3, 2, 5, 4, '3201293003680001', 'asn.balitklimat@gmail.com', '25d55ad283aa400af464c76d713c07ad', '6281235062988    '),
-(26, 8, 'User', '196803301994031001', 'Dr. Budi Kartiwa', 'default.png', 21, 3, 2, 5, 4, '3201293003680001', 'asn.balitklimat@gmail.com', '25d55ad283aa400af464c76d713c07ad', '6281235062988    '),
-(28, 2, 'Admin Perjalanan Dinas', '196803301994031001', 'Dr. Budi Kartiwa', 'default.png', 21, 3, 2, 5, 4, '3201293003680001', 'asn.balitklimat@gmail.com', '25d55ad283aa400af464c76d713c07ad', '6281235062988    '),
-(29, 3, 'Admin Inventaris', '196803301994031001', 'Dr. Budi Kartiwa', 'default.png', 21, 3, 2, 5, 4, '3201293003680001', 'asn.balitklimat@gmail.com', '25d55ad283aa400af464c76d713c07ad', '6281235062988    '),
-(30, 6, 'Admin Laporan Magang', '196803301994031001', 'Dr. Budi Kartiwa', 'default.png', 21, 3, 2, 5, 4, '3201293003680001', 'asn.balitklimat@gmail.com', '25d55ad283aa400af464c76d713c07ad', '6281235062988    '),
-(31, 5, 'Admin Disposisi', '196803301994031001', 'Dr. Budi Kartiwa', 'default.png', 21, 3, 2, 5, 4, '3201293003680001', 'asn.balitklimat@gmail.com', '25d55ad283aa400af464c76d713c07ad', '6281235062988    '),
-(32, 7, 'Admin Buku Tamu', '196803301994031001', 'Dr. Budi Kartiwa', 'default.png', 21, 3, 2, 5, 4, '3201293003680001', 'asn.balitklimat@gmail.com', '25d55ad283aa400af464c76d713c07ad', '6281235062988    '),
+(1, 1, 'Admin ASN', '196803301994031001', 'Dr. Budi Kartiwa', 'WhatsApp_Image_2022-01-14_at_14_30_572.jpeg', 21, 3, 4, 5, 4, '3201293003680001', 'asn.balitklimat@gmail.com', '25d55ad283aa400af464c76d713c07ad', '6281973034079'),
+(26, 8, 'User', '196803301994031001', 'Dr. Budi Kartiwa', 'default.png', 21, 3, 4, 5, 4, '3201293003680001', 'asn.balitklimat@gmail.com', '25d55ad283aa400af464c76d713c07ad', '6281973034079'),
+(28, 2, 'Admin Perjalanan Dinas', '196803301994031001', 'Dr. Budi Kartiwa', 'default.png', 21, 3, 4, 5, 4, '3201293003680001', 'asn.balitklimat@gmail.com', '25d55ad283aa400af464c76d713c07ad', '6281973034079'),
+(29, 3, 'Admin Inventaris', '196803301994031001', 'Dr. Budi Kartiwa', 'default.png', 21, 3, 4, 5, 4, '3201293003680001', 'asn.balitklimat@gmail.com', '25d55ad283aa400af464c76d713c07ad', '6281973034079'),
+(30, 6, 'Admin Laporan Magang', '196803301994031001', 'Dr. Budi Kartiwa', 'default.png', 21, 3, 4, 5, 4, '3201293003680001', 'asn.balitklimat@gmail.com', '25d55ad283aa400af464c76d713c07ad', '6281973034079'),
+(31, 5, 'Admin Disposisi', '196803301994031001', 'Dr. Budi Kartiwa', 'default.png', 21, 3, 4, 5, 4, '3201293003680001', 'asn.balitklimat@gmail.com', '25d55ad283aa400af464c76d713c07ad', '6281973034079'),
+(32, 7, 'Admin Buku Tamu', '196803301994031001', 'Dr. Budi Kartiwa', 'default.png', 21, 3, 4, 5, 4, '3201293003680001', 'asn.balitklimat@gmail.com', '25d55ad283aa400af464c76d713c07ad', '6281973034079'),
 (33, 8, 'User', '196710081994032013', 'Dr. Woro Estiningtyas', 'default.png', 22, 3, 2, 5, 2, '3201294810670003', 'likelomba2@gmail.com', '73d56121acabf8381308a34ab18d7711', '6281235062988     '),
 (56, 1, 'Admin ASN', '196901241998032001', 'Dr. Elza Surmaini', 'default.png', 22, 3, 6, 5, 2, '3271066401690004', 'lugasmunaya@gmail.com', 'b0fedbe42d05e4158e239a8ad8c9b1ae', '6281235062988     '),
-(59, 8, 'User', 'HNR901241998032002', 'Daeng Muda Panglima', 'default.png', 1, 8, 1, 23, 4, '3520036004010222', 'likelomba3@gmail.com', '5ce4a8c03c0ef848951ae2db4a54161a', '6281235062988   '),
+(59, 8, 'User', 'HNR901241998032002', 'Daeng Muda Panglima', 'default.png', 1, 8, 1, 23, 4, '3520036004010222', 'likelomba3@gmail.com', 'fb373e40d050f61b55aa9387d59bedae', '6281235062988    '),
 (60, 8, 'User', 'HNR901241998032003', 'Imam Susilo', 'default.png', 1, 8, 1, 25, 8, '3520036004020004', 'robbihably1@gmail.com', 'a970a7e3b359f88a4732b56050822888', '6281235028999  '),
 (64, 8, 'User', '196401211990031002', 'Dr. Ir. A. Arivin Rivaie, M.Sc', 'images6.jpg', 23, 3, 2, 2, 2, '3271062101640004', 'likelomba1@gmail.com', '9de21d5186a0a2ffba24b34c3a085445', '6281235062988     '),
 (100, 8, 'User', '196901241998032001', 'Dr. Elza Surmaini', 'fix_kolokium11.jpg', 22, 3, 6, 5, 2, '3271066401690004', 'lugasmunaya@gmail.com', 'b0fedbe42d05e4158e239a8ad8c9b1ae', '6281235062988     '),
@@ -1748,18 +1748,16 @@ CREATE TABLE `user_token` (
 --
 
 INSERT INTO `user_token` (`id`, `email`, `token`, `tgl_dibuat`) VALUES
-(79, 'lugasmunaya@gmail.com', '3vOQ0IdexnMhYiyDo4GE2/c88PxZxpA0y8XxNLHKqWg=', 1652501510),
-(80, 'likelomba1@gmail.com', 'MdFQLit64/2LycR+u6WkYxsSjbMYLQFQRnt2O9WxADM=', 1652579347),
-(81, 'likelomba2@gmail.com', 'nyLd25f6BYPOBM8KeDxmT2kLQhHKf8uKPdBSjGMVD+s=', 1652580157),
-(82, 'likelomba3@gmail.com', 'NQSOtKhO0H0a2xfUy86Gw6s2iO9jt/vmrVyZvNaiIC8=', 1652581227),
-(83, 'asn.balitklimat@gmail.com', 't5E+qClVJlo87qdY7wIwLdLbRKIch/34Zs76y5Q+h6k=', 1652584929),
-(84, 'asn.balitklimat@gmail.com', '3aKzoHaBfBqdhIt/7SyvDNkDI1sd8jbtYc7JnZVUS+0=', 1652585068),
-(85, 'lugasmunaya@gmail.com', 'xG9vHp8eIlJP6HZIEUX/zEI3Kqc0IHJEbgcrLLXjwes=', 1652770467),
-(86, 'pklbalitklimat1@gmail.com', 'qw3hRz2f+rLpPHwUECeZEOdqHJhyQp7adxWFnW+aseA=', 1652776308),
-(87, 'lugasmunaya@gmail.com', 'LAdz1g4HNYhsUGr7ywWc8/PZq3JLtsQqJOLEWVhHLqQ=', 1653704130),
-(88, 'lugasmunayasika@gmail.com', 'UMSseb44hiKxHEGhOAz7JsKaRyaXDYxCtTpVx1oT1A4=', 1653829474),
-(89, 'lugasmunayasika@gmail.com', '/DXa8hoJuzhgFM9hWDmfep95qZnExbrv69Q6FIlZ5oc=', 1653829573),
-(90, 'asn.balitklimat@gmail.com', 'lNCjo8WK0D26irmNMANfgef8mvzG9JqheZ8NT5158yk=', 1653829895);
+(103, 'asn.balitklimat@gmail.com', 'x08qhHjBhe8JkSLqraaK+5Rfl44XnKaf889WJ1kvJ2E=', 1655782132),
+(104, 'asn.balitklimat@gmail.com', 'hsRcXmcA4Ldlre6XncpAWpd9NLGfvgoHZOOX5Kt8bto=', 1655782223),
+(105, 'asn.balitklimat@gmail.com', 'yg506OhkNvaD35JwdgWHoqbITg+qZBqqI0DRClOBTrI=', 1655783701),
+(106, 'asn.balitklimat@gmail.com', 'zM9fl3qGL2A1DD7soFVsZyEgTSqoMN2w/tqlHAYR/ek=', 1655788253),
+(107, 'asn.balitklimat@gmail.com', '3GE9MRfhmtpxOUcM8riz3M7Gs7PZSfs3DGlDTBnUdo8=', 1655788799),
+(108, 'asn.balitklimat@gmail.com', 'dbpJsxjmLqV7QMINhNJMmVu7avRE/wycw9t6qdOy2WA=', 1655788984),
+(109, 'asn.balitklimat@gmail.com', 'PsaHIGtQmwnQaKvr1Ws3+CPnfsgRETijvg8eEnr5jkk=', 1655792325),
+(110, 'asn.balitklimat@gmail.com', 'rrS6FoYD1gbMEuWSsjq668NRXjzlDYpOs4cjCO5C+YA=', 1655792993),
+(111, 'asn.balitklimat@gmail.com', 'yU/CmYpqNTr65jDzLQoaubyP3WF1kPVov7NqUyZE4zY=', 1655794385),
+(112, 'asn.balitklimat@gmail.com', 'pMHnkVd6ylGfWdOX8R0V3hOkekrusT6eleJ9As0MXWs=', 1655795261);
 
 --
 -- Indexes for dumped tables
@@ -2358,7 +2356,7 @@ ALTER TABLE `stok_barang`
 -- AUTO_INCREMENT for table `user_token`
 --
 ALTER TABLE `user_token`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
 
 --
 -- Constraints for dumped tables

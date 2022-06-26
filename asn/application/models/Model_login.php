@@ -44,4 +44,10 @@ class Model_login extends CI_model
         $query = $this->db->get_where('detail_role', ['email' => $email])->row_array();
         return $query;
     }
+    public function user_no($email)
+    {
+        $query = $this->db->get_where('detail_role', ['email' => $email])->row_array();
+        return $query;
+    }
+
 }

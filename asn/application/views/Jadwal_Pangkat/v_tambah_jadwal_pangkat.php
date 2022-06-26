@@ -40,30 +40,25 @@
                                         <div class="form-group">
                                             <label><b>Golongan Sekarang</a></b></label>
                                             <input style="color:dimgray" readonly type="text" id="id_golongan"
-                                                name="golongan" class="form-control">
+                                                name="golongan"  onblur="validasi_gol()" class="form-control">
                                         </div>
-                                        <!-- <div class="form-group">
+                                        <div class="form-group">
                                             <label><b>Golongan Berikutnya<a style="color:red"> *</a></b></label></br>
                                             <select style="color:dimgray" name="id_golongan_berikutnya"
                                                 id="id_golongan_berikutnya" placeholder="Golongan Berikutnya"
-                                                class="form-control" >
+                                                class="form-control"  onblur="validasi_gol()" >
                                                 <option value="">--Pilih Golongan--</option>
-                                                <//?php foreach (
+                                                <?php foreach (
                                                     $id_golongan
-                                                    as $row
-                                                ) { ?>
-                                                <option value="<//?php echo $row->id_golongan; ?>">
-                                                    <//?php echo $row->golongan; ?>
+                                                    as $row) { ?>
+                                                <option value="<?php echo $row->id_golongan; ?>">
+                                                    <?php echo $row->golongan; ?>
                                                 </option>';
                                                 
-                                                <//?php } ?>
+                                                <?php } ?>
                                             </select>
-                                            <//?php echo form_error(
-                                                'id_golongan_berikutnya',
-                                                '<small class="text-danger">',
-                                                '</small>'
-                                            ); ?>
-                                        </div> -->
+                                            <?php echo form_error('id_golongan_berikutnya','<small class="text-danger">','</small>'); ?>
+                                        </div>
                                         <div class="form-group">
                                             <label><b>Pangkat Sekarang</b></label>
                                             <input style="color:dimgray" readonly type="text" id="pangkat"
@@ -159,6 +154,13 @@ $('#id_pangkat_berikutnya').select2({
     placeholder: "---Pilih Pangkat---",
     theme: "bootstrap-5",
 });
+function validasi_gol() {
+		var id_golongan = document.getElementById("id_golongan").value;
+		var id_golongan_berikutnya = document.getElementById("id_golongan_berikutnya").value;
+		if (id_golongan_berikutnya <= id_golongan) {
+            alert("Golongan tidak boleh kurang dari golongan sebelumnya");
+		}
+    }
 //autofill
 $('#nip').on('input', function() {
     var nip = $(this).val();

@@ -8,6 +8,7 @@ class Login extends CI_Controller
         parent::__construct();
         $this->load->library('session');
         $this->load->Model('Model_login');
+        $this->load->Model('Model_detail_role');
         if ($this->session->userdata('logged_in') == true) {
             redirect('beranda', 'refresh');
         }
@@ -83,35 +84,18 @@ class Login extends CI_Controller
         }
         else{
             $email = $this->input->post('email');
-            $user = $this->db->get_where('detail_role', ['email' => $email])->row_array();
+            $user = $this->Model_detail_role->getDetail1($email,'detail_role','email');
+            $no_whatsapp = $user['no_whatsapp'];
 
-            if($user){ 
+            if($user ){ 
                 $token = base64_encode(random_bytes(32));
                 $user_token = [
                     'email' => $email,
                     'token' => $token,
                     'tgl_dibuat' =>time()
                 ];
-                $this->load->library('phpmailer_lib');
                 $this->db->insert('user_token', $user_token);
-                $mail = $this->phpmailer_lib->load();
-                $mail->isSMTP();
-                $mail->Host       = 'smtp.gmail.com';
-                $mail->SMTPAuth   = true;
-                $mail->Username   = 'asn.balitklimat@gmail.com';
-                $mail->Password   = 'portalinternalasn1';
-                $mail->Port       = 587;
-                $mail->setFrom('asn.balitklimat@gmail.com', 'ASN BALAI PENELITIAN AGROKLIMAT DAN HIDROLOGI');
-                $mail->addAddress($this->input->post('email'));
-                $mail->addReplyTo('asn.balitklimat@gmail.com', 'ASN BALAI PENELITIAN AGROKLIMAT DAN HIDROLOGI');
-                $mail->isHTML(true);
-                $mail->Subject = 'UBAH PASSWORD';
-                $mail->Body    = 'Ubah Password anda melalui tautan berikut <a href="' . base_url() . 'login/resetpassword?email=' . $email . '&token=' . urlencode($token) . '">Perbarui Password</a> ';
-                if ($mail->send()) {
-                $this->session->set_flashdata('message', '<div class="alert alert-success"
-                role="alert">Silahkan cek email anda untuk reset password !</div>');
-                redirect('login/lupapassword');
-                }
+                redirect('https://api.whatsapp.com/send?phone=' . $no_whatsapp . '&text=Perbarui%20sandi%20melalui%20url%20berikut:%0A%0Ahttp://localhost/balitklimat/asn/login/resetpassword?email=' . $email . '%26token=' . $token);
             } else{
                 $this->session->set_flashdata('message', '<div class="alert alert-danger"
                 role="alert">Email belum terdaftar !</div>');
@@ -124,11 +108,12 @@ class Login extends CI_Controller
     {
         $email = $this->input->get('email');
         $token = $this->input->get('token');
-        $user = $this->Model_login->user($email, 'detail_role', 'email');
+        $no_whatsapp = $this->input->get('no_whatsapp');
+        $user = $this->Model_detail_role->getDetail1($email,'detail_role','email');
         if($user){
             $user_token = $this->db->get_where('user_token', ['token' => $token])->row_array();
             if ($user_token) {
-                $this->session->set_userdata('reset_email', $email);
+                $this->session->set_userdata('reset_email', $email, $no_whatsapp);
                 $this->ubahPassword();
             } else{
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" 
@@ -136,7 +121,7 @@ class Login extends CI_Controller
                 redirect('login');
             }
         }
-        else{
+        else{   
             $this->session->set_flashdata('message', '<div class="alert alert-danger"
             role="alert">Reset password gagal ! Email Salah.</div>');
             redirect('login');

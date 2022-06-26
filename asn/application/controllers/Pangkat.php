@@ -82,7 +82,6 @@ class Pangkat extends CI_Controller {
             $this->session->set_flashdata('sukses','Data Pangkat berhasil diperbarui');
             redirect('pangkat');
         }
-        
     }
     function hapus($id_pangkat)
 	{

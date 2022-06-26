@@ -65,6 +65,19 @@ class Beranda extends CI_Controller
             $this->session->set_flashdata('error');
         }
     }
+    public function surat_pangkat(){
+        $this->load->library('dompdf_gen');
+        $data['jadwal_kp'] = $this->Model_kenaikan_pangkat->tampil_data('data_jadwal_naik_pangkat')->resutl();
+        $this->load->view('Jadwal_Pangkat/surat_pangkat', $data);
+
+        $paper_size ='A4';
+        $orientation = 'potrait';
+        $html = $this->output->get_output();
+        $this->dompdf->set_paper($paper_size, $orientation);
+        $this->dompdf->load_html($html);
+        $this->dompdf->render();
+        $this->dompdf->stream('surat_keterangan_naik_pangkat.pdf');
+    }
     public function hapus($id_notifikasi)
     {
         $where = ['id_notifikasi' => $id_notifikasi];
