@@ -6,30 +6,10 @@
     <title>Surat Tugas TTD Kepala Balai</title>
     <link rel="stylesheet" href="<?= base_url('assets'); ?>/css/vertical-layout-light/style.css">
     <link rel="stylesheet" href="<?= base_url('assets'); ?>/css/vertical-layout-light/a4.css">
-
-    <!-- Normalize or reset CSS with your favorite library -->
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css"> -->
-    <!-- Load paper.css for happy printing -->
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paper-css/0.4.1/paper.css"> -->
-
-    <!-- Set page size here: A5, A4 or A3 -->
-    <!-- Set also "landscape" if you need -->
-    <!-- <style>
-        @page {
-            size: A4
-        }
-    </style> -->
 </head>
 
-<!-- Set "A5", "A4" or "A3" for class name -->
-<!-- Set also "landscape" if you need -->
 
 <body class="main-page">
-
-    <!-- Each sheet element should have the class "sheet" -->
-    <!-- "padding-**mm" is optional: you can set 10, 15, 20 or 25 -->
-
-    <!-- Write HTML just like a web page -->
     <p style="text-align:center"><?php echo $header->nama_kementerian ?></p><br>
     <h4 style="text-align:center;margin-top:-10px"><b><?php echo $header->eslon_tiga ?></b></h4><br>
     <p style="text-align:center;margin-top:-25px"><?php echo $header->alamat ?></p>
@@ -54,7 +34,6 @@
             memberi TUGAS untuk melaksanakan perjalanan dinas kepada :<br><br>
         
         <table id="table" class="table table-bordered table-sm" style="width:90%;margin-left:74px;color:black">
-            <!-- <table  id="dtBasicExample" class="table table-striped table-bordered table-md" cellspacing="0" height='50%'> -->
             <thead>
                 <tr>
                     <th style="width:7%;text-align:center">No</th>

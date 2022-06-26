@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Surat Pernyataan</title>
+    <title>Surat Tugas Tata Usaha Ttd Plh</title>
     <link rel="stylesheet" href="<?= base_url('assets'); ?>/css/vertical-layout-light/style.css">
     <link rel="stylesheet" href="<?= base_url('assets'); ?>/css/vertical-layout-light/a4.css">
 

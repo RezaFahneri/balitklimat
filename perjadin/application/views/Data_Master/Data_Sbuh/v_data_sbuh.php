@@ -38,7 +38,7 @@
                                                              <td style="font-size: 12px;"><?php echo 'Rp'.number_format($j->dalam_kota,0,',','.') ?></td>
                                                              <td style="font-size: 12px;">
                                                                 <a style="height: 35px;" title="Edit data standar biaya uang harian"  class="btn btn-xs btn-success" href="<?php echo base_url() ?>sbuh/edit?id_sbuh=<?php echo $j->id_sbuh?>"><i class="mdi mdi-pencil"></i></a>
-                                                                <a style="height: 35px;" title="Hapus data standar biaya uang harian"  id="hapus_kota" class="btn btn-xs btn-danger" href="<?php echo site_url('/sbuh/hapus/' . $j->id_sbuh) ?>"><i class="mdi mdi-trash-can"></i></a>
+                                                                <a style="height: 35px;" title="Hapus data standar biaya uang harian"  id="hapus_sbuh" class="btn btn-xs btn-danger" href="<?php echo site_url('/sbuh/hapus/' . $j->id_sbuh) ?>"><i class="mdi mdi-trash-can"></i></a>
                                                             </td>
                                                         </tr>
                                                     <?php } ?>
